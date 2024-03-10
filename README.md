@@ -1,6 +1,6 @@
 # RM EC C++ Library [WIP]
 
-[![CI Build](https://github.com/lunarifish/ci-test/actions/workflows/ci_build.yml/badge.svg)](https://github.com/lunarifish/ci-test/actions/workflows/ci_build.yml)
+[![CI Build](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml)
 
 实验性的电控C++库，包含各种设备（电机、传感器等）的抽象封装，以及一些常用工具类。
 
