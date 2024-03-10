@@ -2,7 +2,7 @@
 name: CI Build
 
 on:
-  push:
+  pull_request:
     branches:
       - main
       - develop
@@ -12,6 +12,7 @@ env:
 
 jobs:
   build_STM32F407IGHx:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
@@ -30,6 +31,7 @@ jobs:
         run: cmake --build ${{github.workspace}}/build_template/stm32f407ighx/build --target all
 
   build_STM32H723VGTx:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
