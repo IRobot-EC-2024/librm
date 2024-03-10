@@ -4,19 +4,23 @@
 #ifndef EC_LIB_DJI_C_BSP_DELAY_H
 #define EC_LIB_DJI_C_BSP_DELAY_H
 
+    #include "hal_wrapper/hal_config.h"
 
-#include "modules/typedefs.h"
+    #if defined(HAL_TIM_MODULE_ENABLED) && defined(STM32F407xx)
 
 
-namespace bsp::delay {
+        #include "modules/typedefs.h"
 
-    void delayUs(uint16_t us);
 
-    void delayMs(uint16_t ms);
+        namespace bsp::dji_devboard_c {
 
-}   // namespace bsp::delay
+            void delayUs(uint16_t us);
 
+            void delayMs(uint16_t ms);
+
+        }
+
+
+    #endif
 
 #endif // EC_LIB_DJI_C_BSP_DELAY_H
-
-/* EOF */

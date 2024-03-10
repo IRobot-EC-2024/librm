@@ -4,30 +4,30 @@
 #ifndef EC_LIB_DJI_C_BSP_LED_H
 #define EC_LIB_DJI_C_BSP_LED_H
 
-// check if target chip is STM32F4 series
-#if defined(STM32F407xx) && defined(TIM_MODULE_ENABLED)
+    #include "hal_wrapper/hal_config.h"
 
-    #include "tim.h"
+    #if defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED) && defined(STM32F407xx)
 
-    namespace bsp::LED {
 
-            class LED {
-            public:
-                LED(TIM_HandleTypeDef htim);
-                LED()  = delete;
-                ~LED() = default;
+        #include "tim.h"
 
-                void on();
-                void off();
-            private:
-                GPIO_TypeDef* GPIOx;
-                uint16_t GPIO_Pin;
-            };
+        namespace bsp::dji_devboard_c::led {
 
-    }   // namespace bsp::LED
+                class LED {
+                public:
+                    LED(TIM_HandleTypeDef htim);
+                    LED()  = delete;
+                    ~LED() = default;
 
-#endif
+                    void on();
+                    void off();
+                private:
+                    TIM_HandleTypeDef *htim;
+                };
+
+        }   // namespace bsp::LED
+
+
+    #endif
 
 #endif // EC_LIB_DJI_C_BSP_LED_H
-
-/* EOF */
