@@ -9,12 +9,13 @@ namespace modules::exceptions {
     enum class Exception {
         kException,
 
+        kTypeError,
         kHALError,
         kValueError,
         kArithmeticError,
     };
 
-    void throwException(Exception e);
+    void ThrowException(Exception e);
 
 }   // namespace Modules::Exceptions
 

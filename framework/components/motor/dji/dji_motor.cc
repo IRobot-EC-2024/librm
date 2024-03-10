@@ -18,7 +18,7 @@
 
     using namespace components::motor;
     using modules::exceptions::Exception;
-    using modules::exceptions::throwException;
+    using modules::exceptions::ThrowException;
 
 
     /****************************
@@ -100,7 +100,7 @@
             this->id_ = id;
             memset(GM6020::tx_buffer_, 0, 8);
         } else {
-            throwException(Exception::kValueError);    // Invalid motor ID
+            ThrowException(Exception::kValueError);    // Invalid motor ID
         }
     }
 
@@ -128,7 +128,7 @@
             this->transmit(GM6020::tx_buffer_, 8);
 
         } else {
-            throwException(Exception::kValueError);    // Invalid motor ID
+            ThrowException(Exception::kValueError);    // Invalid motor ID
         }
     }
 
@@ -174,7 +174,7 @@
             this->transmit(M2006::tx_buffer_ + 8, 8);
 
         } else {
-            throwException(Exception::kValueError);    // Invalid motor ID
+            ThrowException(Exception::kValueError);    // Invalid motor ID
         }
     }
 
@@ -197,7 +197,7 @@
             this->id_ = id;
             memset(M3508::tx_buffer_, 0, 8);
         } else {
-            throwException(Exception::kValueError);    // Invalid motor ID
+            ThrowException(Exception::kValueError);    // Invalid motor ID
         }
     }
 
@@ -224,7 +224,7 @@
             this->transmit(M3508::tx_buffer_ + 8, 8);
 
         } else {
-            throwException(Exception::kValueError);
+            ThrowException(Exception::kValueError);
         }
     }
 

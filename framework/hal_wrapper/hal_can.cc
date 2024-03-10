@@ -15,7 +15,7 @@
 
 
     using namespace hal::can;
-    using modules::exceptions::throwException;
+    using modules::exceptions::ThrowException;
     using modules::exceptions::Exception;
 
 
@@ -111,7 +111,7 @@
 
         // Check rx_std_id conflict
         if (CANDeviceBase::device_map_[hcan].find(rx_std_id) != CANDeviceBase::device_map_[hcan].end()) {
-            throwException(Exception::kValueError);    // rx_std_id conflict
+            ThrowException(Exception::kValueError);    // rx_std_id conflict
         }
 
         CANDeviceBase::device_map_[hcan][rx_std_id] = this;
@@ -128,7 +128,7 @@
                                  &this->tx_header_,
                                  const_cast<uint8_t *>(data),
                                  &this->tx_mailbox_) != HAL_OK) {
-            throwException(Exception::kHALError);    // HAL_CAN_AddTxMessage error
+            ThrowException(Exception::kHALError);    // HAL_CAN_AddTxMessage error
         }
     }
 

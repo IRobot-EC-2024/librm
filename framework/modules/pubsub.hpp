@@ -13,7 +13,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace modules::PubSub {
+namespace modules::pub_sub {
 
     /***
      * @brief Base class for subscriber
@@ -64,7 +64,7 @@ namespace modules::PubSub {
  * @param  subscriber Subscriber object to be registered
  */
 template <typename MessageType>
-void modules::PubSub::PublisherBase<MessageType>::registerSubscriber(SubscriberBase<MessageType> &subscriber) {
+void modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(SubscriberBase<MessageType> &subscriber) {
     if (std::find(this->_subscribers.begin(), this->_subscribers.end(), &subscriber) == this->_subscribers.end()) {
         this->_subscribers.push_back(&subscriber);
     }
@@ -77,7 +77,7 @@ void modules::PubSub::PublisherBase<MessageType>::registerSubscriber(SubscriberB
  * @param  subscriber Subscriber object to be unregistered
  */
 template <typename MessageType>
-void modules::PubSub::PublisherBase<MessageType>::unregisterSubscriber(SubscriberBase<MessageType> &subscriber) {
+void modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(SubscriberBase<MessageType> &subscriber) {
     auto it = std::find(this->_subscribers.begin(), this->_subscribers.end(), &subscriber);
     if (it != this->_subscribers.end()) {
         this->_subscribers.erase(it);
@@ -91,7 +91,7 @@ void modules::PubSub::PublisherBase<MessageType>::unregisterSubscriber(Subscribe
  * @param  message Message to be published
  */
 template <typename MessageType>
-void modules::PubSub::PublisherBase<MessageType>::advertise(const MessageType &message) {
+void modules::pub_sub::PublisherBase<MessageType>::advertise(const MessageType &message) {
     for (const auto &subscriber : this->_subscribers) {
         subscriber->publisherCallback(message);
     }
