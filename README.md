@@ -44,8 +44,6 @@
     - [x] `pubsub/`：发布订阅模块
     - [x] `serial_plotter_socket/`：串口绘图器
 
-  - [ ] `unittest/`：单元测试
-
 ## 开发环境
 
 - OpenOCD `0.12.0`

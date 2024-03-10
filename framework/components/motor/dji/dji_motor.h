@@ -6,15 +6,14 @@
 
 #pragma once
 
+#ifndef EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
+#define EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
+
 #include "hal_wrapper/hal_config.h"
 
 #ifdef HAL_CAN_MODULE_ENABLED
 
-    #ifndef EC_FRAMEWORK_DJI_MOTOR_H
-    #define EC_FRAMEWORK_DJI_MOTOR_H
-
-    #include <cstdint>
-
+    #include "modules/typedefs.h"
     #include "hal_wrapper/hal_can.h"
 
 
@@ -116,8 +115,8 @@
 
     }   // namespace Components::Motor
 
-    #endif
+#endif 
 
-#endif
+#endif // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 
 /* EOF */

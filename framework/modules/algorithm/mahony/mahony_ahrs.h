@@ -10,8 +10,8 @@
 // 02/10/2011	SOH Madgwick	Optimised for reduced CPU load
 //
 //=====================================================================================================
-#ifndef MahonyAHRS_h
-#define MahonyAHRS_h
+#ifndef EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
+#define EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
 
 //----------------------------------------------------------------------------------------------------
 // Variable declaration
@@ -28,7 +28,7 @@ MahonyAHRSupdate(float q[4], float gx, float gy, float gz, float ax, float ay, f
 
 void MahonyAHRSupdateIMU(float q[4], float gx, float gy, float gz, float ax, float ay, float az);
 
-#endif
+#endif // EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
 //=====================================================================================================
 // End of file
 //=====================================================================================================

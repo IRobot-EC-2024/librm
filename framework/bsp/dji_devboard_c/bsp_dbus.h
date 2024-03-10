@@ -1,7 +1,9 @@
 
-#ifndef BALANCE_CHASSIS_BSP_DBUS_H
-#define BALANCE_CHASSIS_BSP_DBUS_H
+#ifndef EC_LIB_DJI_C_BSP_DBUS_H
+#define EC_LIB_DJI_C_BSP_DBUS_H
 
 
 
-#endif
+#endif // EC_LIB_DJI_C_BSP_DBUS_H
+
+/* EOF */

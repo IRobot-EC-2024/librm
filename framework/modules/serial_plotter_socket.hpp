@@ -6,8 +6,8 @@
 
 #pragma once
 
-#ifndef BALANCE_CHASSIS_SERIAL_PLOTTER_SOCKET_HPP
-#define BALANCE_CHASSIS_SERIAL_PLOTTER_SOCKET_HPP
+#ifndef EC_LIB_MODULES_SERIAL_PLOTTER_SOCKET_HPP
+#define EC_LIB_MODULES_SERIAL_PLOTTER_SOCKET_HPP
 
 #include "usart.h"
 
@@ -185,6 +185,6 @@ void modules::SerialPlotterSocket::SerialPlotterSocket::removeVariable(void *var
     });
 }
 
-#endif
+#endif // EC_LIB_MODULES_SERIAL_PLOTTER_SOCKET_HPP
 
 /* EOF */

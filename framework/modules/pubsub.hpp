@@ -6,8 +6,8 @@
 
 #pragma once
 
-#ifndef BALANCE_CHASSIS_PUBSUB_HPP
-#define BALANCE_CHASSIS_PUBSUB_HPP
+#ifndef EC_LIB_MODULES_PUBSUB_HPP
+#define EC_LIB_MODULES_PUBSUB_HPP
 
 #include <memory>
 #include <vector>
@@ -97,6 +97,6 @@ void modules::PubSub::PublisherBase<MessageType>::advertise(const MessageType &m
     }
 }
 
-#endif
+#endif // EC_LIB_MODULES_PUBSUB_HPP
 
 /* EOF */

@@ -1,6 +1,8 @@
 
-#ifndef EC_LIB_HAL_UART_H
-#define EC_LIB_HAL_UART_H
+#pragma once
+
+#ifndef EC_LIB_HAL_WRAPPER_HAL_UART_H
+#define EC_LIB_HAL_WRAPPER_HAL_UART_H
 
 
 #include "hal_wrapper/hal_config.h"
@@ -39,8 +41,8 @@
     }   // namespace hal::UART
 
 
-    #endif //EC_LIB_HAL_UART_H
-
 #endif
+
+#endif // EC_LIB_HAL_WRAPPER_HAL_UART_H
 
 /* EOF */

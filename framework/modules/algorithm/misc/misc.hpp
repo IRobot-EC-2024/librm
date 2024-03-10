@@ -6,8 +6,8 @@
 
 #pragma once
 
-#ifndef BALANCE_CHASSIS_USERLIB_HPP
-#define BALANCE_CHASSIS_USERLIB_HPP
+#ifndef EC_LIB_MODULES_ALGORITHM_MISC_HPP
+#define EC_LIB_MODULES_ALGORITHM_MISC_HPP
 
 #include "modules/typedefs.h"
 
@@ -130,6 +130,6 @@ namespace modules::algorithm::misc {
 
 }   // namespace modules::algorithm::misc
 
-#endif
+#endif // EC_LIB_MODULES_ALGORITHM_MISC_HPP
 
 /* EOF */

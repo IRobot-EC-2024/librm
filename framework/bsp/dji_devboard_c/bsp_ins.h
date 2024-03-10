@@ -1,8 +1,8 @@
 
 #pragma once
 
-#ifndef BALANCE_CHASSIS_BSP_INS_H
-#define BALANCE_CHASSIS_BSP_INS_H
+#ifndef EC_LIB_DJI_C_BSP_INS_H
+#define EC_LIB_DJI_C_BSP_INS_H
 
 
 namespace bsp::INS {
@@ -10,4 +10,6 @@ namespace bsp::INS {
 }
 
 
-#endif
+#endif // EC_LIB_DJI_C_BSP_INS_H
+
+/* EOF */

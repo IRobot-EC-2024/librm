@@ -1,6 +1,6 @@
 
-#ifndef BALANCE_CHASSIS_REMOTE_CONTROL_H
-#define BALANCE_CHASSIS_REMOTE_CONTROL_H
+#ifndef EC_LIB_COMPONENTS_REMOTE_CONTROL_H
+#define EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 
 
 namespace components::remote_control {
@@ -13,4 +13,6 @@ namespace components::remote_control {
 
 }   // namespace Components::RemoteControl
 
-#endif
+#endif // EC_LIB_COMPONENTS_REMOTE_CONTROL_H
+
+/* EOF */

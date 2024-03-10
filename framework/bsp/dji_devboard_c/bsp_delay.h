@@ -1,8 +1,8 @@
 
 #pragma once
 
-#ifndef RMFRAME_BSP_DELAY_H
-#define RMFRAME_BSP_DELAY_H
+#ifndef EC_LIB_DJI_C_BSP_DELAY_H
+#define EC_LIB_DJI_C_BSP_DELAY_H
 
 
 #include "modules/typedefs.h"
@@ -17,4 +17,6 @@ namespace bsp::delay {
 }   // namespace bsp::delay
 
 
-#endif //RMFRAME_BSP_DELAY_H
+#endif // EC_LIB_DJI_C_BSP_DELAY_H
+
+/* EOF */

@@ -1,8 +1,8 @@
 
 #pragma once
 
-#ifndef BALANCE_CHASSIS_BSP_LED_H
-#define BALANCE_CHASSIS_BSP_LED_H
+#ifndef EC_LIB_DJI_C_BSP_LED_H
+#define EC_LIB_DJI_C_BSP_LED_H
 
 // check if target chip is STM32F4 series
 #if defined(STM32F407xx) && defined(TIM_MODULE_ENABLED)
@@ -28,4 +28,6 @@
 
 #endif
 
-#endif
+#endif // EC_LIB_DJI_C_BSP_LED_H
+
+/* EOF */

@@ -5,8 +5,8 @@
 
 #pragma once
 
-#ifndef EC_LIB_HAL_CONFIG_H
-#define EC_LIB_HAL_CONFIG_H
+#ifndef EC_LIB_HAL_WRAPPER_HAL_CONFIG_H
+#define EC_LIB_HAL_WRAPPER_HAL_CONFIG_H
 
 #if defined(STM32F407xx)
     #include "stm32f4xx_hal.h"

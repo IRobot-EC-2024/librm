@@ -6,8 +6,8 @@
 
 #pragma once
 
-#ifndef BALANCE_CHASSIS_PID_H
-#define BALANCE_CHASSIS_PID_H
+#ifndef EC_LIB_MODULES_ALGORITHM_PID_H
+#define EC_LIB_MODULES_ALGORITHM_PID_H
 
 #include "modules/typedefs.h"
 
@@ -80,6 +80,6 @@ namespace modules::algorithm::PID {
 
 }   // namespace Modules::Algorithm::PID
 
-#endif
+#endif // EC_LIB_MODULES_ALGORITHM_PID_H
 
 /* EOF */

@@ -1,9 +1,11 @@
 
 #pragma once
 
-#ifndef EC_LIB_FIFO_H
-#define EC_LIB_FIFO_H
+#ifndef EC_LIB_MODULES_ALGORITHM_FIFO_H
+#define EC_LIB_MODULES_ALGORITHM_FIFO_H
 
 
 
-#endif
+#endif // EC_LIB_MODULES_ALGORITHM_FIFO_H
+
+/* EOF */

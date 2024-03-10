@@ -6,12 +6,12 @@
 
 #pragma once
 
+#ifndef EC_LIB_HAL_WRAPPER_HAL_CAN_H
+#define EC_LIB_HAL_WRAPPER_HAL_CAN_H
+
 #include "hal_wrapper/hal_config.h"
 
 #ifdef HAL_CAN_MODULE_ENABLED
-
-    #ifndef EC_LIB_HAL_CAN_H
-    #define EC_LIB_HAL_CAN_H
 
     #include "can.h"
 
@@ -57,8 +57,8 @@
     }   // namespace bsp::CAN
 
 
-    #endif // EC_LIB_HAL_CAN_H
-
 #endif
+
+#endif // EC_LIB_HAL_WRAPPER_HAL_CAN_H
 
 /* EOF */

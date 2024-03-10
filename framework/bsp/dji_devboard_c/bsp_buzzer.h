@@ -1,6 +1,6 @@
 
-#ifndef EC_FRAMEWORK_BSP_BUZZER_H
-#define EC_FRAMEWORK_BSP_BUZZER_H
+#ifndef EC_LIB_DJI_C_BSP_BUZZER_H
+#define EC_LIB_DJI_C_BSP_BUZZER_H
 
     #ifdef TIM_MODULE_ENABLED
 
@@ -27,6 +27,8 @@
     }   // namespace bsp::buzzer
 
 
-    #endif
-
 #endif
+
+#endif // EC_LIB_DJI_C_BSP_BUZZER_H
+
+/* EOF */
