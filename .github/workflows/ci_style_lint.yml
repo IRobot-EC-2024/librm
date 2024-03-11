@@ -13,6 +13,7 @@ jobs:
       - uses: DoozyX/clang-format-lint-action@v0.17
         with:
           source: './framework'
+          exclude: '**/mahony/*.*'
           extensions: 'h,cpp,cc,hpp,c'
           clangFormatVersion: 17
           style: google
