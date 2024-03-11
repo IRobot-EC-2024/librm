@@ -8,19 +8,16 @@
 
 #if defined(HAL_TIM_MODULE_ENABLED) && defined(STM32F407xx)
 
-
 #include "modules/typedefs.h"
-
 
 namespace bsp::dji_devboard_c {
 
-    void delayUs(uint16_t us);
+void delayUs(uint16_t us);
 
-    void delayMs(uint16_t ms);
+void delayMs(uint16_t ms);
 
-}
-
+}  // namespace bsp::dji_devboard_c
 
 #endif
 
-#endif // EC_LIB_DJI_C_BSP_DELAY_H
+#endif  // EC_LIB_DJI_C_BSP_DELAY_H

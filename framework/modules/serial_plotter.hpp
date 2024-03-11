@@ -9,13 +9,13 @@
 #ifndef EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 #define EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 
-#include <iomanip>
-#include <sstream>
-#include <list>
 #include <algorithm>
+#include <iomanip>
+#include <list>
+#include <sstream>
 
-#include "modules/typedefs.h"
 #include "modules/exceptions/exceptions.h"
+#include "modules/typedefs.h"
 
 namespace modules::serial_plotter {
 
@@ -47,14 +47,13 @@ enum class VariableType {
  * @note  6. 重复3-5
  */
 class SerialPlotter {
-
  public:
   SerialPlotter() = default;
   void Update();
   [[nodiscard]] const std::string *buffer() const;
 
  private:
-  template<typename T>
+  template <typename T>
   void AddVariable(T *variable);
   void RemoveVariable(void *variable);
 
@@ -62,14 +61,11 @@ class SerialPlotter {
   std::list<std::pair<VariableType, void *>> variable_list_;
 };
 
-}   // namespace modules::serial_plotter
-
-
+}  // namespace modules::serial_plotter
 
 /**********************/
 /*** Implementation ***/
 /**********************/
-
 
 /***
  * @brief   更新绘图器数据
@@ -81,30 +77,41 @@ void modules::serial_plotter::SerialPlotter::Update() {
 
   this->buffer_.clear();
 
-  for (auto it = this->variable_list_.begin(); it != this->variable_list_.end(); it++) {
+  for (auto it = this->variable_list_.begin(); it != this->variable_list_.end();
+       it++) {
     std::stringstream ss;
 
     switch (it->first) {
-      case VariableType::kI8:this->buffer_ += std::to_string(*((int8_t *) it->second));
+      case VariableType::kI8:
+        this->buffer_ += std::to_string(*((int8_t *)it->second));
         break;
-      case VariableType::kU8:this->buffer_ += std::to_string(*((uint8_t *) it->second));
+      case VariableType::kU8:
+        this->buffer_ += std::to_string(*((uint8_t *)it->second));
         break;
-      case VariableType::kI16:this->buffer_ += std::to_string(*((int16_t *) it->second));
+      case VariableType::kI16:
+        this->buffer_ += std::to_string(*((int16_t *)it->second));
         break;
-      case VariableType::kU16:this->buffer_ += std::to_string(*((uint16_t *) it->second));
+      case VariableType::kU16:
+        this->buffer_ += std::to_string(*((uint16_t *)it->second));
         break;
-      case VariableType::kI32:this->buffer_ += std::to_string(*((int32_t *) it->second));
+      case VariableType::kI32:
+        this->buffer_ += std::to_string(*((int32_t *)it->second));
         break;
-      case VariableType::kU32:this->buffer_ += std::to_string(*((uint32_t *) it->second));
+      case VariableType::kU32:
+        this->buffer_ += std::to_string(*((uint32_t *)it->second));
         break;
-      case VariableType::kI64:this->buffer_ += std::to_string(*((int64_t *) it->second));
+      case VariableType::kI64:
+        this->buffer_ += std::to_string(*((int64_t *)it->second));
         break;
-      case VariableType::kU64:this->buffer_ += std::to_string(*((uint64_t *) it->second));
+      case VariableType::kU64:
+        this->buffer_ += std::to_string(*((uint64_t *)it->second));
         break;
-      case VariableType::kFP32:ss << std::fixed << std::setprecision(7) << *((fp32 *) it->second);
+      case VariableType::kFP32:
+        ss << std::fixed << std::setprecision(7) << *((fp32 *)it->second);
         this->buffer_ += ss.str();
         break;
-      case VariableType::kFP64:ss << std::fixed << std::setprecision(7) << *((fp64 *) it->second);
+      case VariableType::kFP64:
+        ss << std::fixed << std::setprecision(7) << *((fp64 *)it->second);
         this->buffer_ += ss.str();
         break;
     }
@@ -130,7 +137,7 @@ const std::string *modules::serial_plotter::SerialPlotter::buffer() const {
  * @tparam  T           变量类型
  * @param   variable    变量指针
  */
-template<typename T>
+template <typename T>
 void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
   // 如果变量已经添加过，就不添加，直接返回
   if (std::find_if(this->variable_list_.begin(), this->variable_list_.end(),
@@ -145,23 +152,32 @@ void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
   } else if (typeid(T) == typeid(uint8_t)) {
     this->variable_list_.push_back(std::make_pair(VariableType::kU8, variable));
   } else if (typeid(T) == typeid(int16_t)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kI16, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kI16, variable));
   } else if (typeid(T) == typeid(uint16_t)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kU16, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kU16, variable));
   } else if (typeid(T) == typeid(int32_t)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kI32, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kI32, variable));
   } else if (typeid(T) == typeid(uint32_t)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kU32, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kU32, variable));
   } else if (typeid(T) == typeid(int64_t)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kI64, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kI64, variable));
   } else if (typeid(T) == typeid(uint64_t)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kU64, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kU64, variable));
   } else if (typeid(T) == typeid(fp32)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kFP32, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kFP32, variable));
   } else if (typeid(T) == typeid(fp64)) {
-    this->variable_list_.push_back(std::make_pair(VariableType::kFP64, variable));
+    this->variable_list_.push_back(
+        std::make_pair(VariableType::kFP64, variable));
   } else {
-    modules::exceptions::ThrowException(modules::exceptions::Exception::kTypeError);
+    modules::exceptions::ThrowException(
+        modules::exceptions::Exception::kTypeError);
   }
 }
 
@@ -170,11 +186,12 @@ void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
  * @param   variable    变量指针
  */
 void modules::serial_plotter::SerialPlotter::RemoveVariable(void *variable) {
-  this->variable_list_.remove_if([variable](const std::pair<VariableType, void *> &pair) {
-    return pair.second == variable;
-  });
+  this->variable_list_.remove_if(
+      [variable](const std::pair<VariableType, void *> &pair) {
+        return pair.second == variable;
+      });
 }
 
-#endif // EC_LIB_MODULES_SERIAL_PLOTTER_HPP
+#endif  // EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 
 /* EOF */

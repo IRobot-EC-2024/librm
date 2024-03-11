@@ -9,9 +9,9 @@
 #ifndef EC_LIB_MODULES_ALGORITHM_MISC_HPP
 #define EC_LIB_MODULES_ALGORITHM_MISC_HPP
 
-#include "modules/typedefs.h"
-
 #include <cmath>
+
+#include "modules/typedefs.h"
 
 namespace modules::algorithm::misc {
 
@@ -21,7 +21,7 @@ namespace modules::algorithm::misc {
  * @param value Input value
  * @return 1 if value > 0, -1 if value < 0, 0 if value == 0
  */
-template<typename T>
+template <typename T>
 int sign(const T value) {
   if (value > 0) {
     return 1;
@@ -40,7 +40,7 @@ int sign(const T value) {
  * @param max_value Maximum value
  * @return value if it is in range of [min_value, max_value], otherwise 0
  */
-template<typename T>
+template <typename T>
 T deadline(T value, T min_value, T max_value) {
   if (value < min_value || value > max_value) {
     return 0;
@@ -55,9 +55,10 @@ T deadline(T value, T min_value, T max_value) {
  * @param input Input value
  * @param min_value Minimum value
  * @param max_value Maximum value
- * @return value if it is in range of [min_value, max_value], otherwise the nearest limit
+ * @return value if it is in range of [min_value, max_value], otherwise the
+ * nearest limit
  */
-template<typename T>
+template <typename T>
 T constrain(T input, T min_value, T max_value) {
   if (input < min_value) {
     return min_value;
@@ -76,7 +77,7 @@ T constrain(T input, T min_value, T max_value) {
  * @param   max_value   周期上限
  * @return              若输入值超出周期范围，则返回限制后的值，否则返回原值
  */
-template<typename T>
+template <typename T>
 T loopConstrain(T input, T min_value, T max_value) {
   T cycle = max_value - min_value;
   if (cycle < 0) {
@@ -102,7 +103,7 @@ T loopConstrain(T input, T min_value, T max_value) {
  * @param   max_value   限制的最大绝对值
  * @return              限制后的值
  */
-template<typename T>
+template <typename T>
 T absConstrain(T input, T max_value) {
   if (input > max_value) {
     return max_value;
@@ -127,8 +128,8 @@ fp32 degToRad(fp32 deg);
  */
 void quatToEuler(const fp32 q[4], fp32 euler[3]);
 
-}   // namespace modules::algorithm::misc
+}  // namespace modules::algorithm::misc
 
-#endif // EC_LIB_MODULES_ALGORITHM_MISC_HPP
+#endif  // EC_LIB_MODULES_ALGORITHM_MISC_HPP
 
 /* EOF */

@@ -13,6 +13,6 @@
 typedef float fp32;
 typedef double fp64;
 
-#endif // EC_LIB_MODULES_TYPEDEFS_H
+#endif  // EC_LIB_MODULES_TYPEDEFS_H
 
 /* EOF */

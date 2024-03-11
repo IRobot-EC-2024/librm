@@ -10,8 +10,8 @@ typedef enum {
   RC_SWITCH_MID,
 } rc_switch_e;
 
-}   // namespace Components::RemoteControl
+}  // namespace components::remote_control
 
-#endif // EC_LIB_COMPONENTS_REMOTE_CONTROL_H
+#endif  // EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 
 /* EOF */

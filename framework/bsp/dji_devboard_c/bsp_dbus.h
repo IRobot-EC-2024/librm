@@ -8,10 +8,8 @@
 
 #if defined(HAL_UART_MODULE_ENABLED) && defined(STM32F407xx)
 
-
 #include "usart.h"
-
 
 #endif
 
-#endif // EC_LIB_DJI_C_BSP_DBUS_H
+#endif  // EC_LIB_DJI_C_BSP_DBUS_H

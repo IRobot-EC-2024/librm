@@ -16,6 +16,6 @@
 #error "No supported chip defined"
 #endif
 
-#endif // EC_LIB_HAL_CONFIG_H
+#endif  // EC_LIB_HAL_CONFIG_H
 
 /* EOF */

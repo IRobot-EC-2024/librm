@@ -9,9 +9,9 @@
 #ifndef EC_LIB_MODULES_ALGORITHM_PID_H
 #define EC_LIB_MODULES_ALGORITHM_PID_H
 
-#include "modules/typedefs.h"
-
 #include <memory>
+
+#include "modules/typedefs.h"
 
 namespace modules::algorithm::PID {
 
@@ -24,11 +24,11 @@ enum class PIDType {
  * @brief general PID controller
  */
 class PID {
-
  public:
   PID() = delete;
   PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout);
-  PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 *external_diff_input);
+  PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout,
+      fp32 *external_diff_input);
   virtual void update(fp32 set, fp32 ref);
   void clear();
   void switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout);
@@ -49,8 +49,8 @@ class PID {
   fp32 p_out_{};
   fp32 i_out_{};
   fp32 d_out_{};
-  fp32 d_buf_[3]{};     // 0: latest, 1: last, 2: last last
-  fp32 error_[3]{};     // 0: latest, 1: last, 2: last last
+  fp32 d_buf_[3]{};  // 0: latest, 1: last, 2: last last
+  fp32 error_[3]{};  // 0: latest, 1: last, 2: last last
 
   fp32 *external_diff_input_;
   bool use_external_diff_input_;
@@ -59,15 +59,15 @@ class PID {
 
 };  // class PID
 
-
 /***
- * @brief PID controller for periodic target, for example position controlling of a motor
+ * @brief PID controller for periodic target, for example position controlling
+ * of a motor
  */
 class RingPID : public PID {
-
  public:
   RingPID() = delete;
-  RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 cycle);
+  RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout,
+          fp32 cycle);
   void update(fp32 set, fp32 ref) override;
 
  protected:
@@ -77,8 +77,8 @@ class RingPID : public PID {
 
 };  // class RingPID
 
-}   // namespace Modules::Algorithm::PID
+}  // namespace modules::algorithm::PID
 
-#endif // EC_LIB_MODULES_ALGORITHM_PID_H
+#endif  // EC_LIB_MODULES_ALGORITHM_PID_H
 
 /* EOF */

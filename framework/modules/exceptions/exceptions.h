@@ -17,10 +17,6 @@ enum class Exception {
 
 void ThrowException(Exception e);
 
-}   // namespace Modules::Exceptions
-
-
-
-
+}  // namespace modules::exceptions
 
 #endif

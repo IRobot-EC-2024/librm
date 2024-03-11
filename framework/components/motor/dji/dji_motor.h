@@ -13,8 +13,8 @@
 
 #ifdef HAL_CAN_MODULE_ENABLED
 
-#include "modules/typedefs.h"
 #include "hal_wrapper/hal_can.h"
+#include "modules/typedefs.h"
 
 namespace components::motor {
 
@@ -46,7 +46,6 @@ class DJIMotorBase : public hal::can::CANDeviceBase {
   uint16_t current_{};
   uint16_t temperature_{};
   /*************************/
-
 };
 
 /***
@@ -63,7 +62,8 @@ class GM6020 : public DJIMotorBase {
 
   GM6020(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void setCurrent(int16_t current) override;      // For GM6020, this function is actually setting the voltage
+  void setCurrent(int16_t current)
+      override;  // For GM6020, this function is actually setting the voltage
  protected:
   static uint8_t tx_buffer_[8];
 };
@@ -108,10 +108,10 @@ class M3508 : public DJIMotorBase {
   static uint8_t tx_buffer_[8];
 };
 
-}   // namespace Components::Motor
+}  // namespace components::motor
 
 #endif
 
-#endif // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
+#endif  // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 
 /* EOF */

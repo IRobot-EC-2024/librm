@@ -6,28 +6,28 @@
 
 #include "hal_wrapper/hal_config.h"
 
-#if defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED) && defined(STM32F407xx)
-
+#if defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED) && \
+    defined(STM32F407xx)
 
 #include "tim.h"
 
 namespace bsp::dji_devboard_c::led {
 
-        class LED {
-        public:
-            LED(TIM_HandleTypeDef htim);
-            LED()  = delete;
-            ~LED() = default;
+class LED {
+ public:
+  LED(TIM_HandleTypeDef htim);
+  LED() = delete;
+  ~LED() = default;
 
-            void on();
-            void off();
-        private:
-            TIM_HandleTypeDef *htim;
-        };
+  void on();
+  void off();
 
-}   // namespace bsp::LED
+ private:
+  TIM_HandleTypeDef *htim;
+};
 
+}  // namespace bsp::dji_devboard_c::led
 
 #endif
 
-#endif // EC_LIB_DJI_C_BSP_LED_H
+#endif  // EC_LIB_DJI_C_BSP_LED_H

@@ -10,25 +10,23 @@
 
 #include "tim.h"
 
-
 namespace bsp::dji_devboard_c::buzzer {
 
-    class Buzzer {
-    public:
-        Buzzer(TIM_HandleTypeDef htim);
-        Buzzer()  = delete;
-        ~Buzzer() = default;
+class Buzzer {
+ public:
+  Buzzer(TIM_HandleTypeDef htim);
+  Buzzer() = delete;
+  ~Buzzer() = default;
 
-        void on();
-        void off();
-    private:
+  void on();
+  void off();
 
-        TIM_HandleTypeDef *htim;
-    };
+ private:
+  TIM_HandleTypeDef *htim;
+};
 
-}
-
+}  // namespace bsp::dji_devboard_c::buzzer
 
 #endif
 
-#endif // EC_LIB_DJI_C_BSP_BUZZER_H
+#endif  // EC_LIB_DJI_C_BSP_BUZZER_H
