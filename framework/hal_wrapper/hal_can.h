@@ -30,17 +30,16 @@ typedef struct {
 /***
  * @brief CAN device base class
  */
-class CANDeviceBase {
+class CanDeviceBase {
   friend void ::HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 
  public:
-  ~CANDeviceBase();
-  CANDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id);
+  ~CanDeviceBase();
+  CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id);
 
-  virtual void rxCallback(
-      can_rx_msg_t *msg) = 0;  // Called from CANBus::rxCallback to invoke
-                               // message handling
-  void transmit(const uint8_t *data, uint32_t size);
+  virtual void RxCallback(can_rx_msg_t *msg) = 0;
+
+  void Transmit(const uint8_t *data, uint32_t size);
 
  protected:
   uint32_t rx_std_id_;             // rx standard id
@@ -51,7 +50,7 @@ class CANDeviceBase {
  private:
   // <hcan, <rx_std_id, device>>
   static std::unordered_map<CAN_HandleTypeDef *,
-                            std::unordered_map<uint32_t, CANDeviceBase *>>
+                            std::unordered_map<uint32_t, CanDeviceBase *>>
       device_map_;
 };
 

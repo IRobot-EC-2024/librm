@@ -21,27 +21,27 @@ namespace components::motor {
 /***
  * @brief DJI motor base class
  * @note This class is pure virtual, its inheritance class must implement
- * @note setCurrent() to control the motor
+ * @note SetCurrent() to control the motor
  */
-class DJIMotorBase : public hal::can::CANDeviceBase {
+class DjiMotorBase : public hal::can::CanDeviceBase {
  public:
-  DJIMotorBase() = delete;
+  DjiMotorBase() = delete;
 
-  virtual void setCurrent(int16_t current) = 0;
+  virtual void SetCurrent(int16_t current) = 0;
 
-  [[nodiscard]] uint16_t getEncoder() const;
-  [[nodiscard]] uint16_t getRPM() const;
-  [[nodiscard]] uint16_t getCurrent() const;
-  [[nodiscard]] uint16_t getTemperature() const;
+  [[nodiscard]] uint16_t encoder() const;
+  [[nodiscard]] uint16_t rpm() const;
+  [[nodiscard]] uint16_t current() const;
+  [[nodiscard]] uint16_t temperature() const;
 
  protected:
-  DJIMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
+  DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void rxCallback(hal::can::can_rx_msg_t *msg) override;
+  void RxCallback(hal::can::can_rx_msg_t *msg) override;
 
   uint16_t id_{};
   /** MOTOR FEEDBACK DATA **/
-  uint16_t ecd_{};
+  uint16_t encoder_{};
   uint16_t rpm_{};
   uint16_t current_{};
   uint16_t temperature_{};
@@ -56,16 +56,16 @@ class DJIMotorBase : public hal::can::CANDeviceBase {
  * @note STD, DATA, DLC=8
  * @note https://www.robomaster.com/zh-CN/products/components/general/GM6020
  */
-class GM6020 : public DJIMotorBase {
+class GM6020 : public DjiMotorBase {
  public:
   GM6020() = delete;
 
   GM6020(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void setCurrent(int16_t current)
+  void SetCurrent(int16_t current)
       override;  // For GM6020, this function is actually setting the voltage
  protected:
-  static uint8_t tx_buffer_[8];
+  static uint8_t tx_buffer_[16];
 };
 
 /***
@@ -76,16 +76,16 @@ class GM6020 : public DJIMotorBase {
  * @note STD, DATA, DLC=8
  * @note https://www.robomaster.com/zh-CN/products/components/general/M2006
  */
-class M2006 : public DJIMotorBase {
+class M2006 : public DjiMotorBase {
  public:
   M2006() = delete;
 
   M2006(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void setCurrent(int16_t current) override;
+  void SetCurrent(int16_t current) override;
 
  protected:
-  static uint8_t tx_buffer_[8];
+  static uint8_t tx_buffer_[16];
 };
 
 /***
@@ -96,16 +96,16 @@ class M2006 : public DJIMotorBase {
  * @note STD, DATA, DLC=8
  * @note https://www.robomaster.com/zh-CN/products/components/general/M3508
  */
-class M3508 : public DJIMotorBase {
+class M3508 : public DjiMotorBase {
  public:
   M3508() = delete;
 
   M3508(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void setCurrent(int16_t current) override;
+  void SetCurrent(int16_t current) override;
 
  protected:
-  static uint8_t tx_buffer_[8];
+  static uint8_t tx_buffer_[16];
 };
 
 }  // namespace components::motor

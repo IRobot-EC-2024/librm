@@ -21,27 +21,23 @@ can_rx_msg_t rx_msg_buffer;
 extern "C" {
 #endif
 
-#ifdef HAL_CAN_MODULE_ENABLED
-
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_msg_buffer.header,
                        rx_msg_buffer.data);
 
-  if (CANDeviceBase::device_map_.find(hcan) ==
-      CANDeviceBase::device_map_.end()) {
+  if (CanDeviceBase::device_map_.find(hcan) ==
+      CanDeviceBase::device_map_.end()) {
     return;
   }
 
-  if (CANDeviceBase::device_map_[hcan].find(rx_msg_buffer.header.StdId) ==
-      CANDeviceBase::device_map_[hcan].end()) {
+  if (CanDeviceBase::device_map_[hcan].find(rx_msg_buffer.header.StdId) ==
+      CanDeviceBase::device_map_[hcan].end()) {
     return;
   }
 
-  CANDeviceBase::device_map_[hcan][rx_msg_buffer.header.StdId]->rxCallback(
+  CanDeviceBase::device_map_[hcan][rx_msg_buffer.header.StdId]->RxCallback(
       &rx_msg_buffer);
 }
-
-#endif
 
 #ifdef __cplusplus
 }
@@ -74,15 +70,15 @@ void canFilterInit() {
  ****************************/
 
 std::unordered_map<CAN_HandleTypeDef *,
-                   std::unordered_map<uint32_t, CANDeviceBase *>>
-    CANDeviceBase::device_map_ = {};
+                   std::unordered_map<uint32_t, CanDeviceBase *>>
+    CanDeviceBase::device_map_ = {};
 
 /***
  * @brief Destructor
  * @brief Remove this device from the device map
  */
-CANDeviceBase::~CANDeviceBase() {
-  CANDeviceBase::device_map_[this->hcan_].erase(this->rx_std_id_);
+CanDeviceBase::~CanDeviceBase() {
+  CanDeviceBase::device_map_[this->hcan_].erase(this->rx_std_id_);
 }
 
 /***
@@ -90,7 +86,7 @@ CANDeviceBase::~CANDeviceBase() {
  * @param can_bus Pointer to CAN bus object
  * @param rx_std_id Standard ID of this device's RX message
  */
-CANDeviceBase::CANDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
+CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
     : hcan_(hcan),
       rx_std_id_(rx_std_id),
       tx_header_{.StdId = rx_std_id,
@@ -99,27 +95,27 @@ CANDeviceBase::CANDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
                  .RTR = CAN_RTR_DATA,
                  .DLC = 8} {
   // Check if hcan key exists in the map
-  if (CANDeviceBase::device_map_.find(hcan) ==
-      CANDeviceBase::device_map_.end()) {
-    CANDeviceBase::device_map_[hcan] =
-        std::unordered_map<uint32_t, CANDeviceBase *>();
+  if (CanDeviceBase::device_map_.find(hcan) ==
+      CanDeviceBase::device_map_.end()) {
+    CanDeviceBase::device_map_[hcan] =
+        std::unordered_map<uint32_t, CanDeviceBase *>();
   }
 
   // Check rx_std_id conflict
-  if (CANDeviceBase::device_map_[hcan].find(rx_std_id) !=
-      CANDeviceBase::device_map_[hcan].end()) {
+  if (CanDeviceBase::device_map_[hcan].find(rx_std_id) !=
+      CanDeviceBase::device_map_[hcan].end()) {
     ThrowException(Exception::kValueError);  // rx_std_id conflict
   }
 
-  CANDeviceBase::device_map_[hcan][rx_std_id] = this;
+  CanDeviceBase::device_map_[hcan][rx_std_id] = this;
 }
 
 /***
  * @brief Transmit data on the CAN bus attached to
  * @param data Pointer to TX buffer
- * @param size Bytes to transmit
+ * @param size Bytes to Transmit
  */
-void CANDeviceBase::transmit(const uint8_t *data, uint32_t size) {
+void CanDeviceBase::Transmit(const uint8_t *data, uint32_t size) {
   if (HAL_CAN_AddTxMessage(this->hcan_, &this->tx_header_,
                            const_cast<uint8_t *>(data),
                            &this->tx_mailbox_) != HAL_OK) {
