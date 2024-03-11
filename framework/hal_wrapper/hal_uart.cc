@@ -4,8 +4,8 @@
 
 #if defined(HAL_UART_MODULE_ENABLED)
 
-    #include "hal_uart.h"
+#include "hal_uart.h"
 
-    // TODO
+// TODO
 
 #endif

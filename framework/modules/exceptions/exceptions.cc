@@ -3,4 +3,4 @@
 
 using namespace modules::exceptions;
 
-void throwException(Exception e) { }
+void throwException(Exception e) {}
