@@ -1,6 +1,6 @@
 
 /***
- * @file  modules/algorithm/misc.hpp
+ * @file  modules/algorithm/utils/utils.hpp
  * @brief 一些常用的工具函数
  */
 
@@ -13,7 +13,7 @@
 
 #include "modules/typedefs.h"
 
-namespace modules::algorithm::misc {
+namespace modules::algorithm::utils {
 
 /***
  * @brief Sign function

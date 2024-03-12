@@ -1,7 +1,7 @@
 
-#include "misc.hpp"
+#include "utils.hpp"
 
-using namespace modules::algorithm::misc;
+using namespace modules::algorithm::utils;
 
 /***
  * @brief 角度转弧度

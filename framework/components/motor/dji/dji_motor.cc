@@ -9,7 +9,7 @@
 #ifdef HAL_CAN_MODULE_ENABLED
 
 #include "dji_motor.h"
-#include "modules/algorithm/misc/misc.hpp"
+#include "modules/algorithm/utils/utils.hpp"
 #include "modules/exceptions/exceptions.h"
 
 using namespace components::motor;
