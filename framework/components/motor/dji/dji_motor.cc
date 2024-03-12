@@ -78,7 +78,7 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
   if (1 <= id && id <= 7) {
     this->id_ = id;
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
@@ -94,7 +94,7 @@ void GM6020::SetCurrent(int16_t current) {
     GM6020::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
     GM6020::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
@@ -111,7 +111,7 @@ void GM6020::PushControlMessage() {
     this->Transmit(GM6020::tx_buffer_ + 8, 8);
 
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
@@ -145,7 +145,7 @@ void M2006::SetCurrent(int16_t current) {
     M2006::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
     M2006::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
@@ -162,7 +162,7 @@ void M2006::PushControlMessage() {
     this->Transmit(M2006::tx_buffer_ + 8, 8);
 
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
@@ -182,7 +182,7 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
   if (1 <= id && id <= 8) {
     this->id_ = id;
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
@@ -210,7 +210,7 @@ void M3508::PushControlMessage() {
     this->Transmit(M3508::tx_buffer_ + 8, 8);
 
   } else {
-    ThrowException(Exception::kValueError); // 电机ID超出范围
+    ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
