@@ -62,9 +62,16 @@ static void CanFilterInit(CAN_HandleTypeDef *hcan) {
     can_filter_st.SlaveStartFilterBank = 14;
     can_filter_st.FilterBank = 14;
   }
-  HAL_CAN_ConfigFilter(hcan, &can_filter_st);
-  HAL_CAN_Start(hcan);
-  HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
+  if (HAL_CAN_ConfigFilter(hcan, &can_filter_st) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_ConfigFilter error
+  }
+  if (HAL_CAN_Start(hcan) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_Start error
+  }
+  if (HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO0_MSG_PENDING) !=
+      HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
+  }
 #endif
 }
 
@@ -77,17 +84,17 @@ std::unordered_map<CAN_HandleTypeDef *,
     CanDeviceBase::device_map_ = {};
 
 /***
- * @brief Destructor
- * @brief Remove this device from the device map
+ * @brief 析构函数
+ * @brief 从device_map_中注销这个设备
  */
 CanDeviceBase::~CanDeviceBase() {
   CanDeviceBase::device_map_[this->hcan_].erase(this->rx_std_id_);
 }
 
 /***
- * @brief Constructor
- * @param can_bus Pointer to CAN bus object
- * @param rx_std_id Standard ID of this device's RX message
+ * @brief 构造函数
+ * @param hcan      指向CAN外设句柄结构体的指针
+ * @param rx_std_id 本设备的rx标准帧ID
  */
 CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
     : hcan_(hcan),
@@ -97,27 +104,27 @@ CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
                  .IDE = CAN_ID_STD,
                  .RTR = CAN_RTR_DATA,
                  .DLC = 8} {
-  // Check if hcan key exists in the map
+  // 检查是否已经初始化过这个CAN总线
   if (CanDeviceBase::device_map_.find(hcan) ==
       CanDeviceBase::device_map_.end()) {
+    CanFilterInit(hcan);
     CanDeviceBase::device_map_[hcan] =
         std::unordered_map<uint32_t, CanDeviceBase *>();
-    CanFilterInit(hcan);
   }
 
-  // Check rx_std_id conflict
+  // 检查这个CAN总线上有没有rx_std_id相同的设备
   if (CanDeviceBase::device_map_[hcan].find(rx_std_id) !=
       CanDeviceBase::device_map_[hcan].end()) {
-    ThrowException(Exception::kValueError);  // rx_std_id conflict
+    ThrowException(Exception::kValueError);  // rx_std_id冲突
   }
 
   CanDeviceBase::device_map_[hcan][rx_std_id] = this;
 }
 
 /***
- * @brief Transmit data on the CAN bus attached to
- * @param data Pointer to TX buffer
- * @param size Bytes to Transmit
+ * @brief 向CAN总线发送数据
+ * @param data 数据指针
+ * @param size 数据长度
  */
 void CanDeviceBase::Transmit(const uint8_t *data, uint32_t size) {
   if (HAL_CAN_AddTxMessage(this->hcan_, &this->tx_header_,
