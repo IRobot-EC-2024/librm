@@ -35,7 +35,7 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
   [[nodiscard]] uint16_t temperature() const;
 
  protected:
-  void RxCallback(hal::can::can_rx_msg_t *msg) override;
+  void RxCallback(hal::can::CanRxMsg *msg) override;
 
   uint16_t id_{};
   /** MOTOR FEEDBACK DATA **/

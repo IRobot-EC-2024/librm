@@ -15,7 +15,7 @@ using namespace hal::can;
 using modules::exceptions::Exception;
 using modules::exceptions::ThrowException;
 
-can_rx_msg_t rx_msg_buffer;
+static CanRxMsg rx_msg_buffer;
 
 #ifdef __cplusplus
 extern "C" {
@@ -43,7 +43,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 }
 #endif
 
-void canFilterInit() {
+static void CanFilterInit(CAN_HandleTypeDef *hcan) {
+#ifdef STM32F407xx
   CAN_FilterTypeDef can_filter_st;
   can_filter_st.FilterActivation = ENABLE;
   can_filter_st.FilterMode = CAN_FILTERMODE_IDMASK;
@@ -52,17 +53,19 @@ void canFilterInit() {
   can_filter_st.FilterIdLow = 0x0000;
   can_filter_st.FilterMaskIdHigh = 0x0000;
   can_filter_st.FilterMaskIdLow = 0x0000;
-  can_filter_st.FilterBank = 0;
   can_filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
-  HAL_CAN_ConfigFilter(&hcan1, &can_filter_st);
-  HAL_CAN_Start(&hcan1);
-  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
-
-  //        can_filter_st.SlaveStartFilterBank = 14;
-  //        can_filter_st.FilterBank = 14;
-  //        HAL_CAN_ConfigFilter(&hcan2, &can_filter_st);
-  //        HAL_CAN_Start(&hcan2);
-  //        HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
+  if (reinterpret_cast<uint32_t>(hcan->Instance) == 0x40006400) {
+    // 如果是CAN1
+    can_filter_st.FilterBank = 0;
+  } else if (reinterpret_cast<uint32_t>(hcan->Instance) == 0x40006800) {
+    // 如果是CAN2
+    can_filter_st.SlaveStartFilterBank = 14;
+    can_filter_st.FilterBank = 14;
+  }
+  HAL_CAN_ConfigFilter(hcan, &can_filter_st);
+  HAL_CAN_Start(hcan);
+  HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
+#endif
 }
 
 /****************************
@@ -99,6 +102,7 @@ CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
       CanDeviceBase::device_map_.end()) {
     CanDeviceBase::device_map_[hcan] =
         std::unordered_map<uint32_t, CanDeviceBase *>();
+    CanFilterInit(hcan);
   }
 
   // Check rx_std_id conflict

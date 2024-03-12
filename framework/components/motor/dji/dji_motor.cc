@@ -31,7 +31,7 @@ DjiMotorBase::DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t rx_std_id)
 /***
  * @brief   电机反馈数据解码回调函数
  */
-void DjiMotorBase::RxCallback(hal::can::can_rx_msg_t *msg) {
+void DjiMotorBase::RxCallback(hal::can::CanRxMsg *msg) {
   this->encoder_ = (msg->data[0] << 8) | msg->data[1];
   this->rpm_ = (msg->data[2] << 8) | msg->data[3];
   this->current_ = (msg->data[4] << 8) | msg->data[5];

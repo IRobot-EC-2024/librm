@@ -20,10 +20,10 @@ namespace hal::can {
 /***
  * @brief CAN message data pack
  */
-typedef struct {
+struct CanRxMsg {
   uint8_t data[8];
   CAN_RxHeaderTypeDef header;
-} can_rx_msg_t;
+};
 
 /***
  * @brief CAN device base class
@@ -35,7 +35,7 @@ class CanDeviceBase {
   ~CanDeviceBase();
   CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id);
 
-  virtual void RxCallback(can_rx_msg_t *msg) = 0;
+  virtual void RxCallback(CanRxMsg *msg) = 0;
 
   void Transmit(const uint8_t *data, uint32_t size);
 
