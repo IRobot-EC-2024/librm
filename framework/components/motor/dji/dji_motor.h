@@ -22,19 +22,19 @@ namespace components::motor {
  * @note SetCurrent() to control the motor
  */
 class DjiMotorBase : public hal::can::CanDeviceBase {
- public:
+public:
   DjiMotorBase() = delete;
+  DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
 
   virtual void SetCurrent(int16_t current) = 0;
+  virtual void PushControlMessage() = 0;
 
   [[nodiscard]] uint16_t encoder() const;
   [[nodiscard]] uint16_t rpm() const;
   [[nodiscard]] uint16_t current() const;
   [[nodiscard]] uint16_t temperature() const;
 
- protected:
-  DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
-
+protected:
   void RxCallback(hal::can::can_rx_msg_t *msg) override;
 
   uint16_t id_{};
@@ -55,14 +55,14 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
  * @note https://www.robomaster.com/zh-CN/products/components/general/GM6020
  */
 class GM6020 final : public DjiMotorBase {
- public:
+public:
   GM6020() = delete;
-
   GM6020(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void SetCurrent(int16_t current)
-      override;  // For GM6020, this function is actually setting the voltage
- protected:
+  void SetCurrent(int16_t current) override; // GM6020的current实际上是电压
+  void PushControlMessage() override;
+
+protected:
   static uint8_t tx_buffer_[16];
 };
 
@@ -75,14 +75,14 @@ class GM6020 final : public DjiMotorBase {
  * @note https://www.robomaster.com/zh-CN/products/components/general/M2006
  */
 class M2006 final : public DjiMotorBase {
- public:
+public:
   M2006() = delete;
-
   M2006(CAN_HandleTypeDef *hcan, uint16_t id);
 
   void SetCurrent(int16_t current) override;
+  void PushControlMessage() override;
 
- protected:
+protected:
   static uint8_t tx_buffer_[16];
 };
 
@@ -95,21 +95,21 @@ class M2006 final : public DjiMotorBase {
  * @note https://www.robomaster.com/zh-CN/products/components/general/M3508
  */
 class M3508 final : public DjiMotorBase {
- public:
+public:
   M3508() = delete;
-
   M3508(CAN_HandleTypeDef *hcan, uint16_t id);
 
   void SetCurrent(int16_t current) override;
+  void PushControlMessage() override;
 
- protected:
+protected:
   static uint8_t tx_buffer_[16];
 };
 
-}  // namespace components::motor
+} // namespace components::motor
 
 #endif
 
-#endif  // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
+#endif // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 
 /* EOF */

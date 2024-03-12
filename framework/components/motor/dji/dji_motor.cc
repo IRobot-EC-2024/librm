@@ -78,31 +78,40 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
   if (1 <= id && id <= 7) {
     this->id_ = id;
   } else {
-    ThrowException(Exception::kValueError);  // Invalid motor ID
+    ThrowException(Exception::kValueError); // 电机ID超出范围
   }
 }
 
 /***
  * @brief 设置电机的输出电流
+ * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
  * @param current   电流值(-30000 ~ 30000)
  */
 void GM6020::SetCurrent(int16_t current) {
   current = modules::algorithm::utils::absConstrain(current, (int16_t)30000);
 
-  if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_header_.StdId = 0x1ff;
+  if (1 <= this->id_ && this->id_ <= 7) {
     GM6020::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
     GM6020::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
+  } else {
+    ThrowException(Exception::kValueError); // 电机ID超出范围
+  }
+}
+
+/***
+ * @brief 推送电机控制消息
+ */
+void GM6020::PushControlMessage() {
+  if (1 <= this->id_ && this->id_ <= 4) {
+    this->tx_header_.StdId = 0x1ff;
     this->Transmit(GM6020::tx_buffer_, 8);
 
   } else if (5 <= this->id_ && this->id_ <= 7) {
     this->tx_header_.StdId = 0x2ff;
-    GM6020::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-    GM6020::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
     this->Transmit(GM6020::tx_buffer_ + 8, 8);
 
   } else {
-    ThrowException(Exception::kValueError);  // Invalid motor ID
+    ThrowException(Exception::kValueError); // 电机ID超出范围
   }
 }
 
@@ -126,25 +135,34 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
 
 /***
  * @brief 设置电机的输出电流
+ * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
  * @param current   电流值(-10000 ~ 10000)
  */
 void M2006::SetCurrent(int16_t current) {
   current = modules::algorithm::utils::absConstrain(current, (int16_t)10000);
 
-  if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_header_.StdId = 0x200 + this->id_;
+  if (1 <= this->id_ && this->id_ <= 8) {
     M2006::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
     M2006::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
+  } else {
+    ThrowException(Exception::kValueError); // 电机ID超出范围
+  }
+}
+
+/***
+ * @brief 推送电机控制消息
+ */
+void M2006::PushControlMessage() {
+  if (1 <= this->id_ && this->id_ <= 4) {
+    this->tx_header_.StdId = 0x200;
     this->Transmit(M2006::tx_buffer_, 8);
 
   } else if (5 <= this->id_ && this->id_ <= 8) {
-    this->tx_header_.StdId = 0x1ff + this->id_;
-    M2006::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-    M2006::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
+    this->tx_header_.StdId = 0x1ff;
     this->Transmit(M2006::tx_buffer_ + 8, 8);
 
   } else {
-    ThrowException(Exception::kValueError);  // Invalid motor ID
+    ThrowException(Exception::kValueError); // 电机ID超出范围
   }
 }
 
@@ -164,7 +182,7 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
   if (1 <= id && id <= 8) {
     this->id_ = id;
   } else {
-    ThrowException(Exception::kValueError);  // Invalid motor ID
+    ThrowException(Exception::kValueError); // 电机ID超出范围
   }
 }
 
@@ -175,20 +193,24 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
 void M3508::SetCurrent(int16_t current) {
   current = modules::algorithm::utils::absConstrain(current, (int16_t)16384);
 
-  if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_header_.StdId = 0x200 + this->id_;
+  if (1 <= this->id_ && this->id_ <= 8) {
     M3508::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
     M3508::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
+  } else {
+    ThrowException(Exception::kValueError);
+  }
+}
+void M3508::PushControlMessage() {
+  if (1 <= this->id_ && this->id_ <= 4) {
+    this->tx_header_.StdId = 0x200;
     this->Transmit(M3508::tx_buffer_, 8);
 
   } else if (5 <= this->id_ && this->id_ <= 8) {
-    this->tx_header_.StdId = 0x1ff + this->id_;
-    M3508::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-    M3508::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
+    this->tx_header_.StdId = 0x1ff;
     this->Transmit(M3508::tx_buffer_ + 8, 8);
 
   } else {
-    ThrowException(Exception::kValueError);
+    ThrowException(Exception::kValueError); // 电机ID超出范围
   }
 }
 

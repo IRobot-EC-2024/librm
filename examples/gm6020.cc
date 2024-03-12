@@ -24,6 +24,7 @@ extern "C" {
     osDelay(1);
     ringPID.update(3000, gm6020.encoder());
     gm6020.SetCurrent(static_cast<int16_t>(ringPID.value()));
+    gm6020.PushControlMessage();
   }
 }
 }
