@@ -56,7 +56,7 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
  * @note STD, DATA, DLC=8
  * @note https://www.robomaster.com/zh-CN/products/components/general/GM6020
  */
-class GM6020 : public DjiMotorBase {
+class GM6020 final : public DjiMotorBase {
  public:
   GM6020() = delete;
 
@@ -76,7 +76,7 @@ class GM6020 : public DjiMotorBase {
  * @note STD, DATA, DLC=8
  * @note https://www.robomaster.com/zh-CN/products/components/general/M2006
  */
-class M2006 : public DjiMotorBase {
+class M2006 final : public DjiMotorBase {
  public:
   M2006() = delete;
 
@@ -96,7 +96,7 @@ class M2006 : public DjiMotorBase {
  * @note STD, DATA, DLC=8
  * @note https://www.robomaster.com/zh-CN/products/components/general/M3508
  */
-class M3508 : public DjiMotorBase {
+class M3508 final : public DjiMotorBase {
  public:
   M3508() = delete;
 

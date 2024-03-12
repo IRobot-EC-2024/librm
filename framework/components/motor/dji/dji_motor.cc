@@ -8,8 +8,6 @@
 
 #ifdef HAL_CAN_MODULE_ENABLED
 
-#include <cstring>
-
 #include "dji_motor.h"
 #include "modules/algorithm/misc/misc.hpp"
 #include "modules/exceptions/exceptions.h"
@@ -68,7 +66,7 @@ uint16_t DjiMotorBase::temperature() const { return this->temperature_; }
  * CLASS GM6020
  ****************************/
 
-uint8_t components::motor::GM6020::tx_buffer_[16] = {};
+uint8_t components::motor::GM6020::tx_buffer_[16] = {0};
 
 /***
  * @brief 构造函数
@@ -79,7 +77,6 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
     : DjiMotorBase(hcan, 0x204 + id) {
   if (1 <= id && id <= 7) {
     this->id_ = id;
-    memset(GM6020::tx_buffer_, 0, 8);
   } else {
     ThrowException(Exception::kValueError);  // Invalid motor ID
   }
@@ -113,7 +110,7 @@ void GM6020::SetCurrent(int16_t current) {
  * CLASS M2006
  ****************************/
 
-uint8_t components::motor::M2006::tx_buffer_[16] = {};
+uint8_t components::motor::M2006::tx_buffer_[16] = {0};
 
 /***
  * @brief 构造函数
@@ -122,8 +119,9 @@ uint8_t components::motor::M2006::tx_buffer_[16] = {};
  */
 M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
     : DjiMotorBase(hcan, 0x200 + id) {
-  this->id_ = id;
-  memset(M2006::tx_buffer_, 0, 8);
+  if (1 <= id && id <= 8) {
+    this->id_ = id;
+  }
 }
 
 /***
@@ -154,7 +152,7 @@ void M2006::SetCurrent(int16_t current) {
  * CLASS M3508
  ****************************/
 
-uint8_t components::motor::M3508::tx_buffer_[16] = {};
+uint8_t components::motor::M3508::tx_buffer_[16] = {0};
 
 /***
  * @brief 构造函数
@@ -165,7 +163,6 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
     : DjiMotorBase(hcan, 0x201 + id) {
   if (1 <= id && id <= 8) {
     this->id_ = id;
-    memset(M3508::tx_buffer_, 0, 8);
   } else {
     ThrowException(Exception::kValueError);  // Invalid motor ID
   }
@@ -196,5 +193,3 @@ void M3508::SetCurrent(int16_t current) {
 }
 
 #endif
-
-/* EOF */
