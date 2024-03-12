@@ -6,8 +6,8 @@
 
 #pragma once
 
-#ifndef EC_LIB_MODULES_ALGORITHM_MISC_HPP
-#define EC_LIB_MODULES_ALGORITHM_MISC_HPP
+#ifndef EC_LIB_MODULES_ALGORITHM_UTILS_HPP
+#define EC_LIB_MODULES_ALGORITHM_UTILS_HPP
 
 #include <cmath>
 
@@ -128,8 +128,6 @@ fp32 degToRad(fp32 deg);
  */
 void quatToEuler(const fp32 q[4], fp32 euler[3]);
 
-}  // namespace modules::algorithm::misc
+}  // namespace modules::algorithm::utils
 
-#endif  // EC_LIB_MODULES_ALGORITHM_MISC_HPP
-
-/* EOF */
+#endif  // EC_LIB_MODULES_ALGORITHM_UTILS_HPP
