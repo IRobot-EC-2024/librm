@@ -4,8 +4,6 @@
  * @brief PID controller declaration
  */
 
-#pragma once
-
 #ifndef EC_LIB_MODULES_ALGORITHM_PID_H
 #define EC_LIB_MODULES_ALGORITHM_PID_H
 

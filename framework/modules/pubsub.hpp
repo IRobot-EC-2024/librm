@@ -4,8 +4,6 @@
  * @brief Publish-subscribe pattern implementation
  */
 
-#pragma once
-
 #ifndef EC_LIB_MODULES_PUBSUB_HPP
 #define EC_LIB_MODULES_PUBSUB_HPP
 

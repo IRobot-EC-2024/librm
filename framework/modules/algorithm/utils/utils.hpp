@@ -4,8 +4,6 @@
  * @brief 一些常用的工具函数
  */
 
-#pragma once
-
 #ifndef EC_LIB_MODULES_ALGORITHM_UTILS_HPP
 #define EC_LIB_MODULES_ALGORITHM_UTILS_HPP
 

@@ -4,8 +4,6 @@
  * @brief Motor driver classes
  */
 
-#pragma once
-
 #ifndef EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 #define EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 

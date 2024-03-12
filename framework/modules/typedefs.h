@@ -1,6 +1,4 @@
 
-#pragma once
-
 #ifndef EC_LIB_MODULES_TYPEDEFS_H
 #define EC_LIB_MODULES_TYPEDEFS_H
 

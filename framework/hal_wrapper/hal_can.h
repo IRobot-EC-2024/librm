@@ -4,8 +4,6 @@
  * @brief CAN device c++ wrapper
  */
 
-#pragma once
-
 #ifndef EC_LIB_HAL_WRAPPER_HAL_CAN_H
 #define EC_LIB_HAL_WRAPPER_HAL_CAN_H
 

@@ -4,8 +4,6 @@
  * @brief 串口绘图器
  */
 
-#pragma once
-
 #ifndef EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 #define EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 

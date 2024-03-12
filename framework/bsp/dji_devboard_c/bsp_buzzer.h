@@ -1,6 +1,4 @@
 
-#pragma once
-
 #ifndef EC_LIB_DJI_C_BSP_BUZZER_H
 #define EC_LIB_DJI_C_BSP_BUZZER_H
 

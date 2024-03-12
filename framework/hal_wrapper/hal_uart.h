@@ -1,6 +1,4 @@
 
-#pragma once
-
 #ifndef EC_LIB_HAL_WRAPPER_HAL_UART_H
 #define EC_LIB_HAL_WRAPPER_HAL_UART_H
 
