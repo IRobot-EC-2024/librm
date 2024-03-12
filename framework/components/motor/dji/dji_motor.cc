@@ -87,7 +87,7 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
  * @param current   电流值(-30000 ~ 30000)
  */
 void GM6020::SetCurrent(int16_t current) {
-  current = modules::algorithm::misc::absConstrain(current, (int16_t)30000);
+  current = modules::algorithm::utils::absConstrain(current, (int16_t)30000);
 
   if (1 <= this->id_ && this->id_ <= 4) {
     this->tx_header_.StdId = 0x1ff;
@@ -129,7 +129,7 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
  * @param current   电流值(-10000 ~ 10000)
  */
 void M2006::SetCurrent(int16_t current) {
-  current = modules::algorithm::misc::absConstrain(current, (int16_t)10000);
+  current = modules::algorithm::utils::absConstrain(current, (int16_t)10000);
 
   if (1 <= this->id_ && this->id_ <= 4) {
     this->tx_header_.StdId = 0x200 + this->id_;
@@ -173,7 +173,7 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
  * @param current   电流值(-16384 ~ 16384)
  */
 void M3508::SetCurrent(int16_t current) {
-  current = modules::algorithm::misc::absConstrain(current, (int16_t)16384);
+  current = modules::algorithm::utils::absConstrain(current, (int16_t)16384);
 
   if (1 <= this->id_ && this->id_ <= 4) {
     this->tx_header_.StdId = 0x200 + this->id_;
