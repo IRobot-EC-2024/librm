@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -12,4 +13,8 @@ jobs:
     steps:
       - uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACC_TOKEN }}
+          doxyfile-path: ./Doxyfile
+          working-directory: .
+          html-output-folder: doc/html
+          branch: gh-pages
