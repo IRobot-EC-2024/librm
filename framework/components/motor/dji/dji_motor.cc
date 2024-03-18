@@ -1,6 +1,6 @@
 
-/***
- * @file  components/motor/dji/dji_motor.cpp
+/**
+ * @file  components/motor/dji/dji_motor.cc
  * @brief 大疆电机驱动的实现
  */
 
@@ -16,11 +16,11 @@ using namespace components::motor;
 using modules::exceptions::Exception;
 using modules::exceptions::ThrowException;
 
-/****************************
+/***************************
  * CLASS DJIMotorBase
  ****************************/
 
-/***
+/**
  * @brief 构造函数
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID
@@ -28,7 +28,7 @@ using modules::exceptions::ThrowException;
 DjiMotorBase::DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t rx_std_id)
     : hal::can::CanDeviceBase(hcan, rx_std_id) {}
 
-/***
+/**
  * @brief   电机反馈数据解码回调函数
  */
 void DjiMotorBase::RxCallback(hal::can::CanRxMsg *msg) {
@@ -38,37 +38,37 @@ void DjiMotorBase::RxCallback(hal::can::CanRxMsg *msg) {
   this->temperature_ = (msg->data[6] << 8) | msg->data[7];
 }
 
-/***
+/**
  * @brief   获取电机的编码器值
  * @return  编码器值(0~8191 => 0~360°)
  */
 uint16_t DjiMotorBase::encoder() const { return this->encoder_; }
 
-/***
+/**
  * @brief   获取电机的转速
  * @return  RPM(rad/s)
  */
 uint16_t DjiMotorBase::rpm() const { return this->rpm_; }
 
-/***
+/**
  * @brief   获取电机的实际电流
  * @return  电流值(无单位)
  */
 uint16_t DjiMotorBase::current() const { return this->current_; }
 
-/***
+/**
  * @brief   获取电机的温度
  * @return  温度(°C)
  */
 uint16_t DjiMotorBase::temperature() const { return this->temperature_; }
 
-/****************************
+/***************************
  * CLASS GM6020
  ****************************/
 
 uint8_t components::motor::GM6020::tx_buffer_[16] = {0};
 
-/***
+/**
  * @brief 构造函数
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID(1~7)
@@ -82,7 +82,7 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
   }
 }
 
-/***
+/**
  * @brief 设置电机的输出电流
  * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
  * @param current   电流值(-30000 ~ 30000)
@@ -98,7 +98,7 @@ void GM6020::SetCurrent(int16_t current) {
   }
 }
 
-/***
+/**
  * @brief 推送电机控制消息
  */
 void GM6020::PushControlMessage() {
@@ -115,13 +115,13 @@ void GM6020::PushControlMessage() {
   }
 }
 
-/****************************
+/***************************
  * CLASS M2006
  ****************************/
 
 uint8_t components::motor::M2006::tx_buffer_[16] = {0};
 
-/***
+/**
  * @brief 构造函数
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID(1~8)
@@ -137,8 +137,7 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
  * @brief 设置电机的输出电流
  * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
  * @param current   电流值(-10000 ~ 10000)
- */
-void M2006::SetCurrent(int16_t current) {
+ */void M2006::SetCurrent(int16_t current) {
   current = modules::algorithm::utils::absConstrain(current, (int16_t)10000);
 
   if (1 <= this->id_ && this->id_ <= 8) {
@@ -149,7 +148,7 @@ void M2006::SetCurrent(int16_t current) {
   }
 }
 
-/***
+/**
  * @brief 推送电机控制消息
  */
 void M2006::PushControlMessage() {
@@ -166,13 +165,13 @@ void M2006::PushControlMessage() {
   }
 }
 
-/****************************
+/***************************
  * CLASS M3508
  ****************************/
 
 uint8_t components::motor::M3508::tx_buffer_[16] = {0};
 
-/***
+/**
  * @brief 构造函数
  * @param can_bus   指向CAN总线对象的指针
  * @param id        电机ID(1~8)
@@ -186,7 +185,7 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
   }
 }
 
-/***
+/**
  * @brief 设置电机的输出电流
  * @param current   电流值(-16384 ~ 16384)
  */

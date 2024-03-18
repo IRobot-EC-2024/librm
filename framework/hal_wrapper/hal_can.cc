@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  bsp/bsp_can.cpp
  * @brief CAN peripheral c++ wrapper implementations
  */
@@ -75,7 +75,7 @@ static void CanFilterInit(CAN_HandleTypeDef *hcan) {
 #endif
 }
 
-/****************************
+/***************************
  * CLASS CANDeviceBase
  ****************************/
 
@@ -83,7 +83,7 @@ std::unordered_map<CAN_HandleTypeDef *,
                    std::unordered_map<uint32_t, CanDeviceBase *>>
     CanDeviceBase::device_map_ = {};
 
-/***
+/**
  * @brief 析构函数
  * @brief 从device_map_中注销这个设备
  */
@@ -91,7 +91,7 @@ CanDeviceBase::~CanDeviceBase() {
   CanDeviceBase::device_map_[this->hcan_].erase(this->rx_std_id_);
 }
 
-/***
+/**
  * @brief 构造函数
  * @param hcan      指向CAN外设句柄结构体的指针
  * @param rx_std_id 本设备的rx标准帧ID
@@ -121,7 +121,7 @@ CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id)
   CanDeviceBase::device_map_[hcan][rx_std_id] = this;
 }
 
-/***
+/**
  * @brief 向CAN总线发送数据
  * @param data 数据指针
  * @param size 数据长度

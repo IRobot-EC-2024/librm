@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  components/c_motor.h
  * @brief Motor driver classes
  */
@@ -16,7 +16,7 @@
 
 namespace components::motor {
 
-/***
+/**
  * @brief DJI motor base class
  * @note This class is pure virtual, its inheritance class must implement
  * @note SetCurrent() to control the motor
@@ -43,10 +43,10 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
   uint16_t rpm_{};
   uint16_t current_{};
   uint16_t temperature_{};
-  /*************************/
+  /************************/
 };
 
-/***
+/**
  * @brief DJI GM6020 motor
  * @note Feedback message stdID:    0x205 + ID
  * @note Control message stdID:     0x1ff(1234), 0x2ff(567)
@@ -66,7 +66,7 @@ class GM6020 final : public DjiMotorBase {
   static uint8_t tx_buffer_[16];
 };
 
-/***
+/**
  * @brief DJI M2006 Motor/C610 ESC
  * @note Feedback message stdID:    0x200 + ID
  * @note Control message stdID:     0x200(1234), 0x1ff(5678)
@@ -86,7 +86,7 @@ class M2006 final : public DjiMotorBase {
   static uint8_t tx_buffer_[16];
 };
 
-/***
+/**
  * @brief DJI M3508 Motor/C620 ESC
  * @note Feedback message stdID:    0x201 + ID
  * @note Control message stdID:     0x200(1234), 0x1ff(5678)

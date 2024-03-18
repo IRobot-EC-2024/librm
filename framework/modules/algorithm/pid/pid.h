@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  modules/pid/c_pid.h
  * @brief PID controller declaration
  */
@@ -18,8 +18,8 @@ enum class PIDType {
   kDelta,
 };
 
-/***
- * @brief general PID controller
+/**
+ * @brief PID控制器
  */
 class PID {
  public:
@@ -57,9 +57,8 @@ class PID {
 
 };  // class PID
 
-/***
- * @brief PID controller for periodic target, for example position controlling
- * of a motor
+/**
+ * @brief 带过零点处理的PID控制器，可以用于电机位置闭环控制等情况
  */
 class RingPID : public PID {
  public:

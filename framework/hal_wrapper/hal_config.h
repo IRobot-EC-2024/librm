@@ -1,4 +1,4 @@
-/***
+/**
  * @file hal_wrapper/hal_config.h
  * @brief 通过引入不同的芯片型号的HAL库配置文件，实现本库的跨平台支持
  */

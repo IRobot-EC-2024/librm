@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  modules/algorithm/utils/utils.hpp
  * @brief 一些常用的工具函数
  */
@@ -13,7 +13,7 @@
 
 namespace modules::algorithm::utils {
 
-/***
+/**
  * @brief Sign function
  * @tparam T Type of value
  * @param value Input value
@@ -30,7 +30,7 @@ int sign(const T value) {
   }
 }
 
-/***
+/**
  * @brief Deadline limit
  * @tparam T Type of value
  * @param value Input value
@@ -47,7 +47,7 @@ T deadline(T value, T min_value, T max_value) {
   }
 }
 
-/***
+/**
  * @brief 把输入值限制在一个范围内
  * @tparam T Type of value
  * @param input Input value
@@ -67,7 +67,7 @@ T constrain(T input, T min_value, T max_value) {
   }
 }
 
-/***
+/**
  * @brief   把输入值限制在一个周期范围内
  * @tparam  T           输入值的类型
  * @param   input       输入值
@@ -94,7 +94,7 @@ T loopConstrain(T input, T min_value, T max_value) {
   return input;
 }
 
-/***
+/**
  * @brief   限制输入值的绝对值
  * @tparam  T           输入值的类型
  * @param   input       输入值
@@ -112,14 +112,14 @@ T absConstrain(T input, T max_value) {
   }
 }
 
-/***
+/**
  * @brief 角度转弧度
  * @param deg   角度值
  * @return      弧度值
  */
 fp32 degToRad(fp32 deg);
 
-/***
+/**
  * @brief 四元数转欧拉角
  * @param q         四元数
  * @param euler     欧拉角

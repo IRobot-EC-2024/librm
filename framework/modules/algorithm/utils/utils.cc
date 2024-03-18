@@ -3,14 +3,14 @@
 
 using namespace modules::algorithm::utils;
 
-/***
+/**
  * @brief 角度转弧度
  * @param deg   角度值
  * @return      弧度值
  */
 fp32 degToRad(fp32 deg) { return deg * M_PI / 180; }
 
-/***
+/**
  * @brief 四元数转欧拉角
  * @param q         四元数
  * @param euler     欧拉角

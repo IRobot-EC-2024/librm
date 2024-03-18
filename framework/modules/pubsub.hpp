@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  Modules/c_topic_subscriber.hpp
  * @brief Publish-subscribe pattern implementation
  */
@@ -13,7 +13,7 @@
 
 namespace modules::pub_sub {
 
-/***
+/**
  * @brief Base class for subscriber
  * @note This class is pure virtual, its inheritance class must implement the
  * publisherCallback function
@@ -22,7 +22,7 @@ namespace modules::pub_sub {
 template <typename MessageType>
 class SubscriberBase {
  public:
-  /***
+  /**
    * @brief Callback function for topic of this subscriber
    * @param message Message from the topic
    * @note This pure virtual function must be implemented by the inheritance
@@ -32,7 +32,7 @@ class SubscriberBase {
   virtual void publisherCallback(const MessageType &message) = 0;
 };
 
-/***
+/**
  * @brief Base class for publisher
  * @tparam MessageType The type of message in the publish-subscribe pattern
  */
@@ -51,11 +51,11 @@ class PublisherBase {
 
 }  // namespace modules::pub_sub
 
-/**********************/
-/*** Implementation ***/
-/**********************/
+/*********************/
+/** Implementation ***/
+/*********************/
 
-/***
+/**
  * @brief  Register a subscriber to this topic
  * @tparam MessageType The type of message in the topic-subscriber pattern
  * @param  subscriber Subscriber object to be registered
@@ -69,7 +69,7 @@ void modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(
   }
 }
 
-/***
+/**
  * @brief  Unregister a subscriber from this topic
  * @tparam MessageType The type of message in the topic-subscriber pattern
  * @param  subscriber Subscriber object to be unregistered
@@ -84,7 +84,7 @@ void modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(
   }
 }
 
-/***
+/**
  * @brief  Publish a message to this topic
  * @tparam MessageType The type of message in the topic-subscriber pattern
  * @param  message Message to be published

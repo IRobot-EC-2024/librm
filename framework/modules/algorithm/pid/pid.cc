@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  modules/pid/c_pid.cpp
  * @brief PID controller implementation
  */

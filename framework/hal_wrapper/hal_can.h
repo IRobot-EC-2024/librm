@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  bsp/bsp_can.h
  * @brief CAN device c++ wrapper
  */
@@ -17,7 +17,7 @@
 
 namespace hal::can {
 
-/***
+/**
  * @brief CAN message data pack
  */
 struct CanRxMsg {
@@ -25,7 +25,7 @@ struct CanRxMsg {
   CAN_RxHeaderTypeDef header;
 };
 
-/***
+/**
  * @brief CAN device base class
  */
 class CanDeviceBase {

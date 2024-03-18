@@ -1,5 +1,5 @@
 
-/***
+/**
  * @file  modules/serial_plotter.hpp
  * @brief 串口绘图器
  */
@@ -19,7 +19,7 @@
 
 namespace modules::serial_plotter {
 
-/***
+/**
  * @brief 串口绘图器
  * @note  用于将一些变量的值格式化后用串口发给上位机绘图
  * @note  格式适配vofa的FireWater协议，如下
@@ -50,11 +50,11 @@ class SerialPlotter {
 
 }  // namespace modules::serial_plotter
 
-/**********************/
-/*** Implementation ***/
-/**********************/
+/*********************/
+/** Implementation ***/
+/*********************/
 
-/***
+/**
  * @brief   更新绘图器数据
  */
 void modules::serial_plotter::SerialPlotter::Update() {
@@ -100,7 +100,7 @@ void modules::serial_plotter::SerialPlotter::Update() {
   }
 }
 
-/***
+/**
  * @brief   获取缓冲区指针
  * @return  缓冲区指针
  */
@@ -108,7 +108,7 @@ const ::std::string *modules::serial_plotter::SerialPlotter::buffer() const {
   return &this->buffer_;
 }
 
-/***
+/**
  * @brief   向绘图器注册一个变量
  * @tparam  T           变量类型
  * @param   variable    变量指针
@@ -133,7 +133,7 @@ void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
   }
 }
 
-/***
+/**
  * @brief   从绘图器中移除一个变量
  * @param   variable    变量指针
  */
