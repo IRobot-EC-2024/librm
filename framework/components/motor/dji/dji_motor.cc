@@ -137,7 +137,8 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
  * @brief 设置电机的输出电流
  * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
  * @param current   电流值(-10000 ~ 10000)
- */void M2006::SetCurrent(int16_t current) {
+ */
+ void M2006::SetCurrent(int16_t current) {
   current = modules::algorithm::utils::absConstrain(current, (int16_t)10000);
 
   if (1 <= this->id_ && this->id_ <= 8) {
