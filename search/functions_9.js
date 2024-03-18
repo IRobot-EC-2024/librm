@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['m2006_252',['M2006',['../classcomponents_1_1motor_1_1M2006.html#ac396e32c13cc96f406a1a8ceb7185597',1,'components::motor::M2006::M2006()=delete'],['../classcomponents_1_1motor_1_1M2006.html#a7e65709f7af07001bc558502899f4f53',1,'components::motor::M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)']]],
+  ['m3508_253',['M3508',['../classcomponents_1_1motor_1_1M3508.html#a613d599f5078070b42a78fcdf177ded0',1,'components::motor::M3508::M3508()=delete'],['../classcomponents_1_1motor_1_1M3508.html#a95d4089ff1aa49116912c71482fa2c6b',1,'components::motor::M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)']]],
+  ['mahonyahrsupdate_254',['MahonyAHRSupdate',['../mahony__ahrs_8c.html#a8f488fe3c7786e3a328a6062dea4862f',1,'MahonyAHRSupdate(float q[4], float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz):&#160;mahony_ahrs.c'],['../mahony__ahrs_8h.html#a8f488fe3c7786e3a328a6062dea4862f',1,'MahonyAHRSupdate(float q[4], float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz):&#160;mahony_ahrs.c']]],
+  ['mahonyahrsupdateimu_255',['MahonyAHRSupdateIMU',['../mahony__ahrs_8c.html#a2d0b0de9b051a4ac7c619a690cca3cb0',1,'MahonyAHRSupdateIMU(float q[4], float gx, float gy, float gz, float ax, float ay, float az):&#160;mahony_ahrs.c'],['../mahony__ahrs_8h.html#a2d0b0de9b051a4ac7c619a690cca3cb0',1,'MahonyAHRSupdateIMU(float q[4], float gx, float gy, float gz, float ax, float ay, float az):&#160;mahony_ahrs.c']]]
+];
