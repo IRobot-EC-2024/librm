@@ -1,5 +1,5 @@
 
-name: CI Style Lint
+name: clang-format Check
 
 on: [push, pull_request]
 
@@ -16,5 +16,3 @@ jobs:
           exclude: '**/mahony/*.*'
           extensions: 'h,cpp,cc,hpp,c'
           clangFormatVersion: 17
-          style: google
-

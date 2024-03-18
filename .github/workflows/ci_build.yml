@@ -1,11 +1,7 @@
 
-name: CI Build
+name: build
 
-on:
-  push:
-    branches:
-      - main
-      - develop
+on: [push, pull_request]
 
 env:
   BUILD_TYPE: Release
