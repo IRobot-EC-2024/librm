@@ -6,6 +6,8 @@
 
 实验性的电控C++库，包含各种设备（电机、传感器等）的抽象封装，以及一些常用工具类。
 
+文档可以使用Doxygen构建，也可以在[这里](https://irobot-ec-2024.github.io/ec-cpp-library/)查看。
+
 项目基于C++17标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]。推荐使用clang-format自动用Google风格格式化代码。PR和push会自动被CI系统检查是否符合规范，若CI Style Lint失败请参考action输出结果修改后重新提交。
 
 ------------------------------------------------------------------------
