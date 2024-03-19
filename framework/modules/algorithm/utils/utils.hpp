@@ -14,10 +14,10 @@
 namespace modules::algorithm::utils {
 
 /**
- * @brief Sign function
- * @tparam T Type of value
- * @param value Input value
- * @return 1 if value > 0, -1 if value < 0, 0 if value == 0
+ * @brief  符号函数
+ * @tparam T 输入值类型
+ * @param  value 输入值
+ * @return 正数返回1，负数返回-1，0返回0
  */
 template <typename T>
 int sign(const T value) {
@@ -31,15 +31,13 @@ int sign(const T value) {
 }
 
 /**
- * @brief Deadline limit
- * @tparam T Type of value
- * @param value Input value
- * @param min_value Minimum value
- * @param max_value Maximum value
- * @return value if it is in range of [min_value, max_value], otherwise 0
+ * @brief  deadband函数
+ * @param  value 输入值
+ * @param  min_value 下限
+ * @param  max_value 上限
+ * @return 若输入值在[min_value, max_value]范围内，返回输入值，否则返回0
  */
-template <typename T>
-T deadline(T value, T min_value, T max_value) {
+fp32 deadline(fp32 value, fp32 min_value, fp32 max_value) {
   if (value < min_value || value > max_value) {
     return 0;
   } else {
@@ -48,16 +46,13 @@ T deadline(T value, T min_value, T max_value) {
 }
 
 /**
- * @brief 把输入值限制在一个范围内
- * @tparam T Type of value
- * @param input Input value
- * @param min_value Minimum value
- * @param max_value Maximum value
- * @return value if it is in range of [min_value, max_value], otherwise the
- * nearest limit
+ * @brief  限幅函数
+ * @param  input 输入值
+ * @param  min_value 下限
+ * @param  max_value 上限
+ * @return 若输入值超出[min_value, max_value]范围，返回最近的边界值，否则返回原值
  */
-template <typename T>
-T constrain(T input, T min_value, T max_value) {
+fp32 constrain(fp32 input, fp32 min_value, fp32 max_value) {
   if (input < min_value) {
     return min_value;
   } else if (input > max_value) {
@@ -68,16 +63,15 @@ T constrain(T input, T min_value, T max_value) {
 }
 
 /**
- * @brief   把输入值限制在一个周期范围内
- * @tparam  T           输入值的类型
+ * @brief   把输入值限制在一个周期内
+ * @note    例如输入值为370，周期为360，则输出是10
  * @param   input       输入值
- * @param   min_value   周期下限
- * @param   max_value   周期上限
- * @return              若输入值超出周期范围，则返回限制后的值，否则返回原值
+ * @param   min_value   周期开始
+ * @param   max_value   周期结束
+ * @return              限制到一个周期内的值
  */
-template <typename T>
-T loopConstrain(T input, T min_value, T max_value) {
-  T cycle = max_value - min_value;
+fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value) {
+  fp32 cycle = max_value - min_value;
   if (cycle < 0) {
     return input;
   }
@@ -114,8 +108,8 @@ T absConstrain(T input, T max_value) {
 
 /**
  * @brief 角度转弧度
- * @param deg   角度值
- * @return      弧度值
+ * @param deg   角度
+ * @return      弧度
  */
 fp32 degToRad(fp32 deg);
 

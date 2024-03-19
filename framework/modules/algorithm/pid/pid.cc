@@ -1,7 +1,7 @@
 
 /**
  * @file  modules/pid/c_pid.cpp
- * @brief PID controller implementation
+ * @brief PID控制器
  */
 
 #include "pid.h"

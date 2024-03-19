@@ -1,7 +1,8 @@
 
 /**
- * @file  Modules/c_topic_subscriber.hpp
- * @brief Publish-subscribe pattern implementation
+ * @file  modules/c_topic_subscriber.hpp
+ * @brief 模仿ROS的发布-订阅消息模式，但是稍有不同
+ * @brief 去掉了Topic的概念，只保留了Publisher和Subscriber
  */
 
 #ifndef EC_LIB_MODULES_PUBSUB_HPP
@@ -14,27 +15,24 @@
 namespace modules::pub_sub {
 
 /**
- * @brief Base class for subscriber
- * @note This class is pure virtual, its inheritance class must implement the
- * publisherCallback function
- * @tparam MessageType The type of message in the publish-subscribe pattern
+ * @brief 订阅者的基类
+ * @note  用于实现发布-订阅消息模式，订阅者需要继承这个类并实现RxCallback()函数
+ * @tparam MessageType 消息类型
  */
 template <typename MessageType>
 class SubscriberBase {
  public:
   /**
-   * @brief Callback function for topic of this subscriber
-   * @param message Message from the topic
-   * @note This pure virtual function must be implemented by the inheritance
-   * class
-   * @note to handle the incoming message on its need
+   * @brief 处理接收到的消息的回调函数
+   * @param message 订阅者接收到的消息
+   * @attention 这是一个纯虚函数，必须在子类中实现
    */
-  virtual void publisherCallback(const MessageType &message) = 0;
+  virtual void RxCallback(const MessageType &message) = 0;
 };
 
 /**
- * @brief Base class for publisher
- * @tparam MessageType The type of message in the publish-subscribe pattern
+ * @brief 发布者的基类
+ * @tparam MessageType 消息类型
  */
 template <typename MessageType>
 class PublisherBase {
@@ -56,9 +54,9 @@ class PublisherBase {
 /*********************/
 
 /**
- * @brief  Register a subscriber to this topic
- * @tparam MessageType The type of message in the topic-subscriber pattern
- * @param  subscriber Subscriber object to be registered
+ * @brief  在这个发布者的订阅者列表中注册一个订阅者
+ * @tparam MessageType 消息类型
+ * @param  subscriber  订阅者对象
  */
 template <typename MessageType>
 void modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(
@@ -70,9 +68,9 @@ void modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(
 }
 
 /**
- * @brief  Unregister a subscriber from this topic
- * @tparam MessageType The type of message in the topic-subscriber pattern
- * @param  subscriber Subscriber object to be unregistered
+ * @brief  从这个发布者的订阅者列表中注销一个订阅者
+ * @tparam MessageType 消息类型
+ * @param  subscriber  订阅者对象
  */
 template <typename MessageType>
 void modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(
@@ -85,15 +83,15 @@ void modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(
 }
 
 /**
- * @brief  Publish a message to this topic
- * @tparam MessageType The type of message in the topic-subscriber pattern
- * @param  message Message to be published
+ * @brief  发布消息
+ * @tparam MessageType 消息类型
+ * @param  message     消息对象
  */
 template <typename MessageType>
 void modules::pub_sub::PublisherBase<MessageType>::advertise(
     const MessageType &message) {
   for (const auto &subscriber : this->_subscribers) {
-    subscriber->publisherCallback(message);
+    subscriber->RxCallback(message);
   }
 }
 

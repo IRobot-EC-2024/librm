@@ -1,4 +1,11 @@
 
+// TODO: 未完成
+
+/**
+ * @file  components/rc/remote_control/remote_control.h
+ * @brief 遥控器的类封装
+ */
+
 #ifndef EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 #define EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 

@@ -1,7 +1,7 @@
 
 /**
  * @file  components/motor/dji/dji_motor.cc
- * @brief 大疆电机驱动的实现
+ * @brief 大疆电机的类封装
  */
 
 #include "hal_wrapper/hal_config.h"
@@ -98,23 +98,6 @@ void GM6020::SetCurrent(int16_t current) {
   }
 }
 
-/**
- * @brief 推送电机控制消息
- */
-void GM6020::PushControlMessage() {
-  if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_header_.StdId = 0x1ff;
-    this->Transmit(GM6020::tx_buffer_, 8);
-
-  } else if (5 <= this->id_ && this->id_ <= 7) {
-    this->tx_header_.StdId = 0x2ff;
-    this->Transmit(GM6020::tx_buffer_ + 8, 8);
-
-  } else {
-    ThrowException(Exception::kValueError);  // 电机ID超出范围
-  }
-}
-
 /***************************
  * CLASS M2006
  ****************************/
@@ -144,23 +127,6 @@ void M2006::SetCurrent(int16_t current) {
   if (1 <= this->id_ && this->id_ <= 8) {
     M2006::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
     M2006::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
-  } else {
-    ThrowException(Exception::kValueError);  // 电机ID超出范围
-  }
-}
-
-/**
- * @brief 推送电机控制消息
- */
-void M2006::PushControlMessage() {
-  if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_header_.StdId = 0x200;
-    this->Transmit(M2006::tx_buffer_, 8);
-
-  } else if (5 <= this->id_ && this->id_ <= 8) {
-    this->tx_header_.StdId = 0x1ff;
-    this->Transmit(M2006::tx_buffer_ + 8, 8);
-
   } else {
     ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
@@ -200,18 +166,5 @@ void M3508::SetCurrent(int16_t current) {
     ThrowException(Exception::kValueError);
   }
 }
-void M3508::PushControlMessage() {
-  if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_header_.StdId = 0x200;
-    this->Transmit(M3508::tx_buffer_, 8);
 
-  } else if (5 <= this->id_ && this->id_ <= 8) {
-    this->tx_header_.StdId = 0x1ff;
-    this->Transmit(M3508::tx_buffer_ + 8, 8);
-
-  } else {
-    ThrowException(Exception::kValueError);  // 电机ID超出范围
-  }
-}
-
-#endif
+#endif  // HAL_CAN_MODULE_ENABLED

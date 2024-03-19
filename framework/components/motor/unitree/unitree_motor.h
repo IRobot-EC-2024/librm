@@ -1,4 +1,11 @@
 
+// TODO: 未完成
+
+/**
+ * @file  components/motor/unitree/unitree_motor.h
+ * @brief 宇树电机的类封装
+ */
+
 #ifndef EC_LIB_COMPONENTS_MOTOR_UNITREE_MOTOR_H
 #define EC_LIB_COMPONENTS_MOTOR_UNITREE_MOTOR_H
 
