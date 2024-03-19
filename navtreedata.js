@@ -60,7 +60,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"remote__control_8cc.html"
+"remote__control_8h.html"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

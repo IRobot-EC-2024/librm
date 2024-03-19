@@ -4,7 +4,6 @@ var classcomponents_1_1motor_1_1DjiMotorBase =
     [ "DjiMotorBase", "classcomponents_1_1motor_1_1DjiMotorBase.html#a27de7445cdb97d7067fbdad8debe7765", null ],
     [ "current", "classcomponents_1_1motor_1_1DjiMotorBase.html#a490e461de90a326325bb0aada544f3ce", null ],
     [ "encoder", "classcomponents_1_1motor_1_1DjiMotorBase.html#a03fccd9f3f4eabd10f14e54fbb7f558c", null ],
-    [ "PushControlMessage", "classcomponents_1_1motor_1_1DjiMotorBase.html#a38d80a2473f8f5abe49ceae12ae3f872", null ],
     [ "rpm", "classcomponents_1_1motor_1_1DjiMotorBase.html#aac468d9e7de714e3c05d096da0d40427", null ],
     [ "RxCallback", "classcomponents_1_1motor_1_1DjiMotorBase.html#a91abbfef91635d9b0170d47d11854e25", null ],
     [ "SetCurrent", "classcomponents_1_1motor_1_1DjiMotorBase.html#a86bebceaf22d10314839d96f06768109", null ],

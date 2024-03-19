@@ -1,4 +1,4 @@
 var classmodules_1_1pub__sub_1_1SubscriberBase =
 [
-    [ "publisherCallback", "classmodules_1_1pub__sub_1_1SubscriberBase.html#a3ffe55a9112530c66d5597760793cf48", null ]
+    [ "RxCallback", "classmodules_1_1pub__sub_1_1SubscriberBase.html#ae9e36e2d6b744cc8e80a4d4f6a64c2fe", null ]
 ];

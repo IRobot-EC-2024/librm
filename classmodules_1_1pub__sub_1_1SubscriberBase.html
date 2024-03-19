@@ -89,32 +89,32 @@ $(document).ready(function(){initNavTree('classmodules_1_1pub__sub_1_1Subscriber
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for subscriber  
+<p>订阅者的基类  
  <a href="classmodules_1_1pub__sub_1_1SubscriberBase.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pubsub_8hpp_source.html">pubsub.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a3ffe55a9112530c66d5597760793cf48"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1pub__sub_1_1SubscriberBase.html#a3ffe55a9112530c66d5597760793cf48">publisherCallback</a> (const MessageType &amp;message)=0</td></tr>
-<tr class="memdesc:a3ffe55a9112530c66d5597760793cf48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for topic of this subscriber  <a href="classmodules_1_1pub__sub_1_1SubscriberBase.html#a3ffe55a9112530c66d5597760793cf48">更多...</a><br /></td></tr>
-<tr class="separator:a3ffe55a9112530c66d5597760793cf48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e36e2d6b744cc8e80a4d4f6a64c2fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1pub__sub_1_1SubscriberBase.html#ae9e36e2d6b744cc8e80a4d4f6a64c2fe">RxCallback</a> (const MessageType &amp;message)=0</td></tr>
+<tr class="memdesc:ae9e36e2d6b744cc8e80a4d4f6a64c2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理接收到的消息的回调函数  <a href="classmodules_1_1pub__sub_1_1SubscriberBase.html#ae9e36e2d6b744cc8e80a4d4f6a64c2fe">更多...</a><br /></td></tr>
+<tr class="separator:ae9e36e2d6b744cc8e80a4d4f6a64c2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;typename MessageType&gt;<br />
 class modules::pub_sub::SubscriberBase&lt; MessageType &gt;</h3>
 
-<p>Base class for subscriber </p>
-<dl class="section note"><dt>注解</dt><dd>This class is pure virtual, its inheritance class must implement the publisherCallback function </dd></dl>
+<p>订阅者的基类 </p>
+<dl class="section note"><dt>注解</dt><dd>用于实现发布-订阅消息模式，订阅者需要继承这个类并实现RxCallback()函数 </dd></dl>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">MessageType</td><td>The type of message in the publish-subscribe pattern </td></tr>
+    <tr><td class="paramname">MessageType</td><td>消息类型 </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a3ffe55a9112530c66d5597760793cf48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ffe55a9112530c66d5597760793cf48">&#9670;&nbsp;</a></span>publisherCallback()</h2>
+<a id="ae9e36e2d6b744cc8e80a4d4f6a64c2fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e36e2d6b744cc8e80a4d4f6a64c2fe">&#9670;&nbsp;</a></span>RxCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +125,7 @@ template&lt;typename MessageType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classmodules_1_1pub__sub_1_1SubscriberBase.html">modules::pub_sub::SubscriberBase</a>&lt; MessageType &gt;::publisherCallback </td>
+          <td class="memname">virtual void <a class="el" href="classmodules_1_1pub__sub_1_1SubscriberBase.html">modules::pub_sub::SubscriberBase</a>&lt; MessageType &gt;::RxCallback </td>
           <td>(</td>
           <td class="paramtype">const MessageType &amp;&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
@@ -139,16 +139,14 @@ template&lt;typename MessageType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Callback function for topic of this subscriber </p>
+<p>处理接收到的消息的回调函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Message from the topic </td></tr>
+    <tr><td class="paramname">message</td><td>订阅者接收到的消息 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>This pure virtual function must be implemented by the inheritance class </dd>
-<dd>
-to handle the incoming message on its need </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd>这是一个纯虚函数，必须在子类中实现 </dd></dl>
 
 </div>
 </div>

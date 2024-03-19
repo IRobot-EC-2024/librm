@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('classcomponents_1_1motor_1_1DjiMotorBa
 </div><!--header-->
 <div class="contents">
 
-<p>DJI motor base class  
+<p>DJI电机的基类  
  <a href="classcomponents_1_1motor_1_1DjiMotorBase.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="dji__motor_8h_source.html">dji_motor.h</a>&gt;</code></p>
@@ -102,9 +102,9 @@ $(document).ready(function(){initNavTree('classcomponents_1_1motor_1_1DjiMotorBa
   <img src="classcomponents_1_1motor_1_1DjiMotorBase.png" usemap="#components::motor::DjiMotorBase_map" alt=""/>
   <map id="components::motor::DjiMotorBase_map" name="components::motor::DjiMotorBase_map">
 <area href="classhal_1_1can_1_1CanDeviceBase.html" title="CAN device base class" alt="hal::can::CanDeviceBase" shape="rect" coords="208,0,406,24"/>
-<area href="classcomponents_1_1motor_1_1GM6020.html" title="DJI GM6020 motor" alt="components::motor::GM6020" shape="rect" coords="0,112,198,136"/>
-<area href="classcomponents_1_1motor_1_1M2006.html" title="DJI M2006 Motor/C610 ESC" alt="components::motor::M2006" shape="rect" coords="208,112,406,136"/>
-<area href="classcomponents_1_1motor_1_1M3508.html" title="DJI M3508 Motor/C620 ESC" alt="components::motor::M3508" shape="rect" coords="416,112,614,136"/>
+<area href="classcomponents_1_1motor_1_1GM6020.html" title="DJI GM6020电机" alt="components::motor::GM6020" shape="rect" coords="0,112,198,136"/>
+<area href="classcomponents_1_1motor_1_1M2006.html" title="DJI M2006电机/C610电调" alt="components::motor::M2006" shape="rect" coords="208,112,406,136"/>
+<area href="classcomponents_1_1motor_1_1M3508.html" title="DJI M3508电机/C620电调" alt="components::motor::M3508" shape="rect" coords="416,112,614,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -117,8 +117,6 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a27de7445cdb97d7067fbdad8debe7765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86bebceaf22d10314839d96f06768109"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1DjiMotorBase.html#a86bebceaf22d10314839d96f06768109">SetCurrent</a> (int16_t <a class="el" href="classcomponents_1_1motor_1_1DjiMotorBase.html#a490e461de90a326325bb0aada544f3ce">current</a>)=0</td></tr>
 <tr class="separator:a86bebceaf22d10314839d96f06768109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38d80a2473f8f5abe49ceae12ae3f872"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1DjiMotorBase.html#a38d80a2473f8f5abe49ceae12ae3f872">PushControlMessage</a> ()=0</td></tr>
-<tr class="separator:a38d80a2473f8f5abe49ceae12ae3f872"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03fccd9f3f4eabd10f14e54fbb7f558c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1DjiMotorBase.html#a03fccd9f3f4eabd10f14e54fbb7f558c">encoder</a> () const</td></tr>
 <tr class="memdesc:a03fccd9f3f4eabd10f14e54fbb7f558c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取电机的编码器值  <a href="classcomponents_1_1motor_1_1DjiMotorBase.html#a03fccd9f3f4eabd10f14e54fbb7f558c">更多...</a><br /></td></tr>
 <tr class="separator:a03fccd9f3f4eabd10f14e54fbb7f558c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,10 +169,10 @@ Protected 属性</h2></td></tr>
 <tr class="separator:a37b37d29862f9f87908b5117534ad2ed inherit pro_attribs_classhal_1_1can_1_1CanDeviceBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>DJI motor base class </p>
-<dl class="section note"><dt>注解</dt><dd>This class is pure virtual, its inheritance class must implement </dd>
+<div class="textblock"><p>DJI电机的基类 </p>
+<dl class="section attention"><dt>注意</dt><dd>本类是抽象类，不可实例化 </dd>
 <dd>
-<a class="el" href="classcomponents_1_1motor_1_1DjiMotorBase.html#a86bebceaf22d10314839d96f06768109">SetCurrent()</a> to control the motor </dd></dl>
+子类必须实现SetCurrent函数，用于设置电机的电流/电压 </dd></dl>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="aca7e31e37a4a40abcc21e7b06a30f9bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca7e31e37a4a40abcc21e7b06a30f9bd">&#9670;&nbsp;</a></span>DjiMotorBase() <span class="overload">[1/2]</span></h2>
@@ -276,33 +274,6 @@ Protected 属性</h2></td></tr>
 
 <p>获取电机的编码器值 </p>
 <dl class="section return"><dt>返回</dt><dd>编码器值(0~8191 =&gt; 0~360°) </dd></dl>
-
-</div>
-</div>
-<a id="a38d80a2473f8f5abe49ceae12ae3f872"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38d80a2473f8f5abe49ceae12ae3f872">&#9670;&nbsp;</a></span>PushControlMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void components::motor::DjiMotorBase::PushControlMessage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>在 <a class="el" href="classcomponents_1_1motor_1_1M3508.html#a638093bba8ba03c9110282c9c8887faf">components::motor::M3508</a>, <a class="el" href="classcomponents_1_1motor_1_1M2006.html#ae0bfe045741b6e5763621ac670e14a54">components::motor::M2006</a> , 以及 <a class="el" href="classcomponents_1_1motor_1_1GM6020.html#aca1e33ea888f36bbed56dd4aefca12c0">components::motor::GM6020</a> 内被实现.</p>
 
 </div>
 </div>

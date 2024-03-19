@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('classmodules_1_1pub__sub_1_1PublisherB
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for publisher  
+<p>发布者的基类  
  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pubsub_8hpp_source.html">pubsub.hpp</a>&gt;</code></p>
@@ -99,16 +99,16 @@ $(document).ready(function(){initNavTree('classmodules_1_1pub__sub_1_1PublisherB
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:af4ddf95b811808338c2a576cc01b9ac9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1pub__sub_1_1PublisherBase.html#af4ddf95b811808338c2a576cc01b9ac9">registerSubscriber</a> (<a class="el" href="classmodules_1_1pub__sub_1_1SubscriberBase.html">SubscriberBase</a>&lt; MessageType &gt; &amp;subscriber)</td></tr>
-<tr class="memdesc:af4ddf95b811808338c2a576cc01b9ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a subscriber to this topic  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#af4ddf95b811808338c2a576cc01b9ac9">更多...</a><br /></td></tr>
+<tr class="memdesc:af4ddf95b811808338c2a576cc01b9ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">在这个发布者的订阅者列表中注册一个订阅者  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#af4ddf95b811808338c2a576cc01b9ac9">更多...</a><br /></td></tr>
 <tr class="separator:af4ddf95b811808338c2a576cc01b9ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaa04abb11722ebcea04972253eddeed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1pub__sub_1_1PublisherBase.html#aaaa04abb11722ebcea04972253eddeed">unregisterSubscriber</a> (<a class="el" href="classmodules_1_1pub__sub_1_1SubscriberBase.html">SubscriberBase</a>&lt; MessageType &gt; &amp;subscriber)</td></tr>
-<tr class="memdesc:aaaa04abb11722ebcea04972253eddeed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister a subscriber from this topic  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#aaaa04abb11722ebcea04972253eddeed">更多...</a><br /></td></tr>
+<tr class="memdesc:aaaa04abb11722ebcea04972253eddeed"><td class="mdescLeft">&#160;</td><td class="mdescRight">从这个发布者的订阅者列表中注销一个订阅者  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#aaaa04abb11722ebcea04972253eddeed">更多...</a><br /></td></tr>
 <tr class="separator:aaaa04abb11722ebcea04972253eddeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
 <tr class="memitem:a2959ed1f4b9d8c3380f5b0e5ec6b4f6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1pub__sub_1_1PublisherBase.html#a2959ed1f4b9d8c3380f5b0e5ec6b4f6e">advertise</a> (const MessageType &amp;message)</td></tr>
-<tr class="memdesc:a2959ed1f4b9d8c3380f5b0e5ec6b4f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a message to this topic  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#a2959ed1f4b9d8c3380f5b0e5ec6b4f6e">更多...</a><br /></td></tr>
+<tr class="memdesc:a2959ed1f4b9d8c3380f5b0e5ec6b4f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">发布消息  <a href="classmodules_1_1pub__sub_1_1PublisherBase.html#a2959ed1f4b9d8c3380f5b0e5ec6b4f6e">更多...</a><br /></td></tr>
 <tr class="separator:a2959ed1f4b9d8c3380f5b0e5ec6b4f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -120,10 +120,10 @@ Protected 属性</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename MessageType&gt;<br />
 class modules::pub_sub::PublisherBase&lt; MessageType &gt;</h3>
 
-<p>Base class for publisher </p>
+<p>发布者的基类 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">MessageType</td><td>The type of message in the publish-subscribe pattern </td></tr>
+    <tr><td class="paramname">MessageType</td><td>消息类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -154,16 +154,16 @@ template&lt;typename MessageType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Publish a message to this topic </p>
+<p>发布消息 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">MessageType</td><td>The type of message in the topic-subscriber pattern </td></tr>
+    <tr><td class="paramname">MessageType</td><td>消息类型 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Message to be published </td></tr>
+    <tr><td class="paramname">message</td><td>消息对象 </td></tr>
   </table>
   </dd>
 </dl>
@@ -188,16 +188,16 @@ template&lt;typename MessageType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Register a subscriber to this topic </p>
+<p>在这个发布者的订阅者列表中注册一个订阅者 </p>
 <p>Implementation </p><dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">MessageType</td><td>The type of message in the topic-subscriber pattern </td></tr>
+    <tr><td class="paramname">MessageType</td><td>消息类型 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">subscriber</td><td>Subscriber object to be registered </td></tr>
+    <tr><td class="paramname">subscriber</td><td>订阅者对象 </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,16 +222,16 @@ template&lt;typename MessageType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Unregister a subscriber from this topic </p>
+<p>从这个发布者的订阅者列表中注销一个订阅者 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">MessageType</td><td>The type of message in the topic-subscriber pattern </td></tr>
+    <tr><td class="paramname">MessageType</td><td>消息类型 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">subscriber</td><td>Subscriber object to be unregistered </td></tr>
+    <tr><td class="paramname">subscriber</td><td>订阅者对象 </td></tr>
   </table>
   </dd>
 </dl>

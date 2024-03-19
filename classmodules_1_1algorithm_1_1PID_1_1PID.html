@@ -158,6 +158,10 @@ Protected 属性</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>PID控制器 </p>
+<dl class="section note"><dt>注解</dt><dd>该PID控制器支持使用外部提供的微分输入 例如：电机位置闭环控制中，可以使用电机速度作为微分输入 或：姿态控制中，可以使用陀螺仪输出作为微分输入，以减小位置误差和速度误差之间的耦合 要使用外部提供的微分输入，只需在构造函数中多传入一个指向微分输入量的指针即可 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>外部微分输入的类型必须是fp32， 且必须保证外部微分输入变量的生命周期大于PID控制器对象的生命周期 </dd>
+<dd>
+使用外部提供的微分输入时，请注意调整Kd，以避免微分输入的幅值过大 </dd></dl>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="ae2f4d3fd12051568fbb70176b7cadbb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2f4d3fd12051568fbb70176b7cadbb4">&#9670;&nbsp;</a></span>PID() <span class="overload">[1/3]</span></h2>

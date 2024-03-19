@@ -6,7 +6,5 @@ var searchData=
   ['pid_2eh_105',['pid.h',['../pid_8h.html',1,'']]],
   ['pidtype_106',['PIDType',['../namespacemodules_1_1algorithm_1_1PID.html#af4018e16dba1731f6e2a03fc478120a9',1,'modules::algorithm::PID']]],
   ['publisherbase_107',['PublisherBase',['../classmodules_1_1pub__sub_1_1PublisherBase.html',1,'modules::pub_sub']]],
-  ['publishercallback_108',['publisherCallback',['../classmodules_1_1pub__sub_1_1SubscriberBase.html#a3ffe55a9112530c66d5597760793cf48',1,'modules::pub_sub::SubscriberBase']]],
-  ['pubsub_2ehpp_109',['pubsub.hpp',['../pubsub_8hpp.html',1,'']]],
-  ['pushcontrolmessage_110',['PushControlMessage',['../classcomponents_1_1motor_1_1DjiMotorBase.html#a38d80a2473f8f5abe49ceae12ae3f872',1,'components::motor::DjiMotorBase::PushControlMessage()'],['../classcomponents_1_1motor_1_1GM6020.html#aca1e33ea888f36bbed56dd4aefca12c0',1,'components::motor::GM6020::PushControlMessage()'],['../classcomponents_1_1motor_1_1M2006.html#ae0bfe045741b6e5763621ac670e14a54',1,'components::motor::M2006::PushControlMessage()'],['../classcomponents_1_1motor_1_1M3508.html#a638093bba8ba03c9110282c9c8887faf',1,'components::motor::M3508::PushControlMessage()']]]
+  ['pubsub_2ehpp_108',['pubsub.hpp',['../pubsub_8hpp.html',1,'']]]
 ];

@@ -106,71 +106,68 @@ $(document).ready(function(){initNavTree('utils_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#a6a479a7859b52cf50fb737a6a29634a7">   42</a></span>&#160;T <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#a6a479a7859b52cf50fb737a6a29634a7">deadline</a>(T value, T min_value, T max_value) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">if</span> (value &lt; min_value || value &gt; max_value) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#a8669a1ecf1444ab32f67bbf6935e6c7c">   60</a></span>&#160;T <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#a8669a1ecf1444ab32f67bbf6935e6c7c">constrain</a>(T input, T min_value, T max_value) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordflow">if</span> (input &lt; min_value) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> min_value;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input &gt; max_value) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> max_value;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> input;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#a52a1749e340bf5d329bb4f3d3c0523c3">   79</a></span>&#160;T <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#a52a1749e340bf5d329bb4f3d3c0523c3">loopConstrain</a>(T input, T min_value, T max_value) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  T cycle = max_value - min_value;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">if</span> (cycle &lt; 0) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> input;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">if</span> (input &gt; max_value) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">while</span> (input &gt; max_value) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      input -= cycle;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input &lt; min_value) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">while</span> (input &lt; min_value) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      input += cycle;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">return</span> input;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">  105</a></span>&#160;T <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">absConstrain</a>(T input, T max_value) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">if</span> (input &gt; max_value) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> max_value;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input &lt; -max_value) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> -max_value;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> input;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#ab928e32e71032c28c2ea293685eac17c">  120</a></span>&#160;<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#ab928e32e71032c28c2ea293685eac17c">degToRad</a>(<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> deg);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#adeccfe89209e49638c2dbd601e6be409">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#adeccfe89209e49638c2dbd601e6be409">quatToEuler</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> q[4], <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> euler[3]);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}  <span class="comment">// namespace modules::algorithm::utils</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_MODULES_ALGORITHM_UTILS_HPP</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#af8e8782bb5945dafeaa255fe7a35b466">   40</a></span>&#160;<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#af8e8782bb5945dafeaa255fe7a35b466">deadline</a>(<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> value, <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> min_value, <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_value) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">if</span> (value &lt; min_value || value &gt; max_value) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#a0492aa7c777c92ca05bb0eab5f793c4b">   55</a></span>&#160;<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#a0492aa7c777c92ca05bb0eab5f793c4b">constrain</a>(<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> input, <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> min_value, <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_value) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">if</span> (input &lt; min_value) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> min_value;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input &gt; max_value) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> max_value;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> input;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#a826bc2c69e6537d478d3cc64a2ed9832">   73</a></span>&#160;<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#a826bc2c69e6537d478d3cc64a2ed9832">loopConstrain</a>(<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> input, <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> min_value, <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_value) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> cycle = max_value - min_value;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordflow">if</span> (cycle &lt; 0) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> input;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">if</span> (input &gt; max_value) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">while</span> (input &gt; max_value) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      input -= cycle;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input &lt; min_value) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">while</span> (input &lt; min_value) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      input += cycle;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordflow">return</span> input;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">   99</a></span>&#160;T <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">absConstrain</a>(T input, T max_value) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordflow">if</span> (input &gt; max_value) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> max_value;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input &lt; -max_value) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> -max_value;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> input;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#ab928e32e71032c28c2ea293685eac17c">  114</a></span>&#160;<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#ab928e32e71032c28c2ea293685eac17c">degToRad</a>(<a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> deg);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="namespacemodules_1_1algorithm_1_1utils.html#adeccfe89209e49638c2dbd601e6be409">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacemodules_1_1algorithm_1_1utils.html#adeccfe89209e49638c2dbd601e6be409">quatToEuler</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> q[4], <a class="code" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> euler[3]);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}  <span class="comment">// namespace modules::algorithm::utils</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_MODULES_ALGORITHM_UTILS_HPP</span></div>
 <div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html">modules::algorithm::utils</a></div><div class="ttdef"><b>Definition:</b> utils.hpp:14</div></div>
-<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_a52a1749e340bf5d329bb4f3d3c0523c3"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#a52a1749e340bf5d329bb4f3d3c0523c3">modules::algorithm::utils::loopConstrain</a></div><div class="ttdeci">T loopConstrain(T input, T min_value, T max_value)</div><div class="ttdoc">把输入值限制在一个周期范围内</div><div class="ttdef"><b>Definition:</b> utils.hpp:79</div></div>
-<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_a6a479a7859b52cf50fb737a6a29634a7"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#a6a479a7859b52cf50fb737a6a29634a7">modules::algorithm::utils::deadline</a></div><div class="ttdeci">T deadline(T value, T min_value, T max_value)</div><div class="ttdoc">Deadline limit</div><div class="ttdef"><b>Definition:</b> utils.hpp:42</div></div>
-<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_a8669a1ecf1444ab32f67bbf6935e6c7c"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#a8669a1ecf1444ab32f67bbf6935e6c7c">modules::algorithm::utils::constrain</a></div><div class="ttdeci">T constrain(T input, T min_value, T max_value)</div><div class="ttdoc">把输入值限制在一个范围内</div><div class="ttdef"><b>Definition:</b> utils.hpp:60</div></div>
-<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_aae41a53460db360798c89c7a034a4e8b"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">modules::algorithm::utils::absConstrain</a></div><div class="ttdeci">T absConstrain(T input, T max_value)</div><div class="ttdoc">限制输入值的绝对值</div><div class="ttdef"><b>Definition:</b> utils.hpp:105</div></div>
+<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_a0492aa7c777c92ca05bb0eab5f793c4b"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#a0492aa7c777c92ca05bb0eab5f793c4b">modules::algorithm::utils::constrain</a></div><div class="ttdeci">fp32 constrain(fp32 input, fp32 min_value, fp32 max_value)</div><div class="ttdoc">限幅函数</div><div class="ttdef"><b>Definition:</b> utils.hpp:55</div></div>
+<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_a826bc2c69e6537d478d3cc64a2ed9832"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#a826bc2c69e6537d478d3cc64a2ed9832">modules::algorithm::utils::loopConstrain</a></div><div class="ttdeci">fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value)</div><div class="ttdoc">把输入值限制在一个周期内</div><div class="ttdef"><b>Definition:</b> utils.hpp:73</div></div>
+<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_aae41a53460db360798c89c7a034a4e8b"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">modules::algorithm::utils::absConstrain</a></div><div class="ttdeci">T absConstrain(T input, T max_value)</div><div class="ttdoc">限制输入值的绝对值</div><div class="ttdef"><b>Definition:</b> utils.hpp:99</div></div>
 <div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_ab928e32e71032c28c2ea293685eac17c"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#ab928e32e71032c28c2ea293685eac17c">modules::algorithm::utils::degToRad</a></div><div class="ttdeci">fp32 degToRad(fp32 deg)</div><div class="ttdoc">角度转弧度</div></div>
 <div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_adeccfe89209e49638c2dbd601e6be409"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#adeccfe89209e49638c2dbd601e6be409">modules::algorithm::utils::quatToEuler</a></div><div class="ttdeci">void quatToEuler(const fp32 q[4], fp32 euler[3])</div><div class="ttdoc">四元数转欧拉角</div></div>
-<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_aef521f0f2f8ef6a641b8f0bf9cd969af"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#aef521f0f2f8ef6a641b8f0bf9cd969af">modules::algorithm::utils::sign</a></div><div class="ttdeci">int sign(const T value)</div><div class="ttdoc">Sign function</div><div class="ttdef"><b>Definition:</b> utils.hpp:23</div></div>
+<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_aef521f0f2f8ef6a641b8f0bf9cd969af"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#aef521f0f2f8ef6a641b8f0bf9cd969af">modules::algorithm::utils::sign</a></div><div class="ttdeci">int sign(const T value)</div><div class="ttdoc">符号函数</div><div class="ttdef"><b>Definition:</b> utils.hpp:23</div></div>
+<div class="ttc" id="anamespacemodules_1_1algorithm_1_1utils_html_af8e8782bb5945dafeaa255fe7a35b466"><div class="ttname"><a href="namespacemodules_1_1algorithm_1_1utils.html#af8e8782bb5945dafeaa255fe7a35b466">modules::algorithm::utils::deadline</a></div><div class="ttdeci">fp32 deadline(fp32 value, fp32 min_value, fp32 max_value)</div><div class="ttdoc">deadband函数</div><div class="ttdef"><b>Definition:</b> utils.hpp:40</div></div>
 <div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div></div>
 <div class="ttc" id="atypedefs_8h_html_a8d2af6718bda28235f7c7d7f683895af"><div class="ttname"><a href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a></div><div class="ttdeci">float fp32</div><div class="ttdef"><b>Definition:</b> typedefs.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
