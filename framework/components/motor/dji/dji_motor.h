@@ -38,12 +38,12 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
  protected:
   void RxCallback(hal::can::CanRxMsg *msg) override;
 
-  uint16_t id_{};                             // 电机ID
+  uint16_t id_{};  // 电机ID
   /** MOTOR FEEDBACK DATA **/
-  uint16_t encoder_{};                        // 电机编码器值
-  uint16_t rpm_{};                            // 电机转速
-  uint16_t current_{};                        // 电机实际电流
-  uint16_t temperature_{};                    // 电机温度
+  uint16_t encoder_{};      // 电机编码器值
+  uint16_t rpm_{};          // 电机转速
+  uint16_t current_{};      // 电机实际电流
+  uint16_t temperature_{};  // 电机温度
   /************************/
 };
 
@@ -58,7 +58,7 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
 class GM6020 final : public DjiMotorBase {
  public:
   GM6020() = delete;
-  GM6020(const GM6020 &) = delete;            // 禁止复制对象
+  GM6020(const GM6020 &) = delete;  // 禁止复制对象
   GM6020(CAN_HandleTypeDef *hcan, uint16_t id);
 
   void SetCurrent(int16_t current) override;  // GM6020的current实际上是电压
@@ -78,7 +78,7 @@ class GM6020 final : public DjiMotorBase {
 class M2006 final : public DjiMotorBase {
  public:
   M2006() = delete;
-  M2006(const M2006 &) = delete;            // 禁止复制对象
+  M2006(const M2006 &) = delete;  // 禁止复制对象
   M2006(CAN_HandleTypeDef *hcan, uint16_t id);
 
   void SetCurrent(int16_t current) override;
@@ -98,7 +98,7 @@ class M2006 final : public DjiMotorBase {
 class M3508 final : public DjiMotorBase {
  public:
   M3508() = delete;
-  M3508(const M3508 &) = delete;            // 禁止复制对象
+  M3508(const M3508 &) = delete;  // 禁止复制对象
   M3508(CAN_HandleTypeDef *hcan, uint16_t id);
 
   void SetCurrent(int16_t current) override;

@@ -21,11 +21,10 @@ namespace components::motor {
 
 class DjiMotorGroup final {
  public:
-
  private:
   ::std::vector<DjiMotorBase> motors_;
 };
 
-}
+}  // namespace components::motor
 
 #endif  // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_GROUP_HPP

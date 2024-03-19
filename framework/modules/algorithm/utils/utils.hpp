@@ -35,58 +35,28 @@ int sign(const T value) {
  * @param  value 输入值
  * @param  min_value 下限
  * @param  max_value 上限
- * @return 若输入值在[min_value, max_value]范围内，返回输入值，否则返回0
+ * @return 若输入值在规定的范围内，就返回输入值，否则返回0
  */
-fp32 deadline(fp32 value, fp32 min_value, fp32 max_value) {
-  if (value < min_value || value > max_value) {
-    return 0;
-  } else {
-    return value;
-  }
-}
+fp32 deadline(fp32 value, fp32 min_value, fp32 max_value);
 
 /**
  * @brief  限幅函数
  * @param  input 输入值
  * @param  min_value 下限
  * @param  max_value 上限
- * @return 若输入值超出[min_value, max_value]范围，返回最近的边界值，否则返回原值
+ * @return 若输入值超出规定的范围，就返回最近的边界值，否则返回原值
  */
-fp32 constrain(fp32 input, fp32 min_value, fp32 max_value) {
-  if (input < min_value) {
-    return min_value;
-  } else if (input > max_value) {
-    return max_value;
-  } else {
-    return input;
-  }
-}
+fp32 constrain(fp32 input, fp32 min_value, fp32 max_value);
 
 /**
- * @brief   把输入值限制在一个周期内
+ * @brief   把输入值限制在一个规定的周期内
  * @note    例如输入值为370，周期为360，则输出是10
  * @param   input       输入值
  * @param   min_value   周期开始
  * @param   max_value   周期结束
  * @return              限制到一个周期内的值
  */
-fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value) {
-  fp32 cycle = max_value - min_value;
-  if (cycle < 0) {
-    return input;
-  }
-
-  if (input > max_value) {
-    while (input > max_value) {
-      input -= cycle;
-    }
-  } else if (input < min_value) {
-    while (input < min_value) {
-      input += cycle;
-    }
-  }
-  return input;
-}
+fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value);
 
 /**
  * @brief   限制输入值的绝对值
