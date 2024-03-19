@@ -7,7 +7,7 @@
 
 实验性的电控C++库，包含各种设备（电机、传感器等）的抽象封装，以及一些常用工具类。
 
-项目基于C++17标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]。推荐使用clang-format自动用Google风格格式化代码。PR和push会自动被CI系统检查是否符合规范，若CI Style Lint失败请参考action输出结果修改后重新提交。
+项目基于C++17标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]。推荐使用clang-format自动用Google风格格式化代码。PR和push会自动被CI系统检查是否符合规范，若style check失败请参考action输出结果修改后重新提交。
 
 ## 文档
 
@@ -57,14 +57,25 @@ doxygen ./Doxyfile
 
 ## 开发环境
 
-- OpenOCD `0.12.0`
+### Windows
+
+- [OpenOCD](https://github.com/openocd-org/openocd/releases/) `0.12.0`
 - STM32CubeMX `6.10.0`
   - STM32Cube MCU Package for STM32F4 series `1.24.1`
-- CMake `3.28.0-rc2`
-- arm-none-eabi-gcc `10.3.1 20210824` `GNU Arm Embedded Toolchain 10.3-2021.10`
+  - STM32Cube MCU Package for STM32H7 series `1.11.1`
+- [CMake](https://cmake.org/download/) `3.28.3`
+- [GNU Arm Embedded Toolchain, AArch32 bare-metal target (arm-none-eabi)](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) `13.2.Rel1`
+
+### Linux
+
+待补充，但是windows有的基本上linux也有
 
 ## 使用方法
 
 1. 下载本项目，把`framework/`文件夹放到某处并添加到编译路径和头文件包含路径中
 
-2. 按需包含头文件
+2. 在CMakeLists.txt或者工程设置里添加对应开发板芯片的预处理宏定义：
+   - 大疆C板：`#define STM32F407xx`
+   - DM-H7开发板：`#define STM32H723xx`
+
+3. 按需包含头文件
