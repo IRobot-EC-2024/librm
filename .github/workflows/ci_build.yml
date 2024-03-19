@@ -14,16 +14,18 @@ jobs:
         uses: carlosperate/arm-none-eabi-gcc-action@v1.8.1
         
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: 'true'
 
       - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/framework ${{github.workspace}}/build_template/stm32f407ighx/Src
+        run: cp -r ${{github.workspace}}/framework ${{github.workspace}}/stm32cube_template/stm32f407ighx/Src
 
       - name: Configure CMake
         run: cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=arm-none-eabi-g++ -S${{github.workspace}}/build_template/stm32f407ighx -B${{github.workspace}}/build_template/stm32f407ighx/build -G "Unix Makefiles"
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build_template/stm32f407ighx/build --target all
+        run: cmake --build ${{github.workspace}}/stm32cube_template/stm32f407ighx/build --target all
 
   build_STM32H723VGTx:
     runs-on: ubuntu-latest
@@ -32,14 +34,16 @@ jobs:
         uses: carlosperate/arm-none-eabi-gcc-action@v1.8.1
       
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: 'true'
 
       - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/framework ${{github.workspace}}/build_template/stm32h723vgtx/Core/Src
+        run: cp -r ${{github.workspace}}/framework ${{github.workspace}}/stm32cube_template/stm32h723vgtx/Core/Src
 
       - name: Configure CMake
         run: cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=arm-none-eabi-g++ -S${{github.workspace}}/build_template/stm32h723vgtx -B${{github.workspace}}/build_template/stm32h723vgtx/build -G "Unix Makefiles"
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build_template/stm32h723vgtx/build --target all
+        run: cmake --build ${{github.workspace}}/stm32cube_template/stm32h723vgtx/build --target all
 
