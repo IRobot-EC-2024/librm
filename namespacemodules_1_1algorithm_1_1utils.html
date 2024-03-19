@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('namespacemodules_1_1algorithm_1_1utils
 <tr class="memdesc:a0492aa7c777c92ca05bb0eab5f793c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">限幅函数  <a href="namespacemodules_1_1algorithm_1_1utils.html#a0492aa7c777c92ca05bb0eab5f793c4b">更多...</a><br /></td></tr>
 <tr class="separator:a0492aa7c777c92ca05bb0eab5f793c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a826bc2c69e6537d478d3cc64a2ed9832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1algorithm_1_1utils.html#a826bc2c69e6537d478d3cc64a2ed9832">loopConstrain</a> (<a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> input, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> min_value, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_value)</td></tr>
-<tr class="memdesc:a826bc2c69e6537d478d3cc64a2ed9832"><td class="mdescLeft">&#160;</td><td class="mdescRight">把输入值限制在一个周期内  <a href="namespacemodules_1_1algorithm_1_1utils.html#a826bc2c69e6537d478d3cc64a2ed9832">更多...</a><br /></td></tr>
+<tr class="memdesc:a826bc2c69e6537d478d3cc64a2ed9832"><td class="mdescLeft">&#160;</td><td class="mdescRight">把输入值限制在一个规定的周期内  <a href="namespacemodules_1_1algorithm_1_1utils.html#a826bc2c69e6537d478d3cc64a2ed9832">更多...</a><br /></td></tr>
 <tr class="separator:a826bc2c69e6537d478d3cc64a2ed9832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae41a53460db360798c89c7a034a4e8b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aae41a53460db360798c89c7a034a4e8b"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1algorithm_1_1utils.html#aae41a53460db360798c89c7a034a4e8b">absConstrain</a> (T input, T max_value)</td></tr>
@@ -202,7 +202,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>若输入值超出[min_value, max_value]范围，返回最近的边界值，否则返回原值 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>若输入值超出规定的范围，就返回最近的边界值，否则返回原值 </dd></dl>
 
 </div>
 </div>
@@ -247,7 +247,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>若输入值在[min_value, max_value]范围内，返回输入值，否则返回0 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>若输入值在规定的范围内，就返回输入值，否则返回0 </dd></dl>
 
 </div>
 </div>
@@ -310,7 +310,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>把输入值限制在一个周期内 </p>
+<p>把输入值限制在一个规定的周期内 </p>
 <dl class="section note"><dt>注解</dt><dd>例如输入值为370，周期为360，则输出是10 </dd></dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">

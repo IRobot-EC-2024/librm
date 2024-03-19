@@ -47,6 +47,7 @@ var NAVTREEINDEX0 =
 "classcomponents_1_1motor_1_1DjiMotorBase.html#a9c1cabb3134df66871734bcaeeb7f0c8":[1,0,1,0,0,8],
 "classcomponents_1_1motor_1_1DjiMotorBase.html#aac468d9e7de714e3c05d096da0d40427":[1,0,1,0,0,4],
 "classcomponents_1_1motor_1_1DjiMotorBase.html#aca7e31e37a4a40abcc21e7b06a30f9bd":[1,0,1,0,0,0],
+"classcomponents_1_1motor_1_1DjiMotorGroup.html":[1,0,1,0,4],
 "classcomponents_1_1motor_1_1GM6020.html":[1,0,1,0,1],
 "classcomponents_1_1motor_1_1GM6020.html#a1650913be0e35d380547442e34cbb380":[1,0,1,0,1,3],
 "classcomponents_1_1motor_1_1GM6020.html#a386a80ce950cb2f8d333531ebcf32dec":[1,0,1,0,1,0],
@@ -141,6 +142,8 @@ var NAVTREEINDEX0 =
 "dji__motor_8cc.html":[2,0,0,1,0,0,0],
 "dji__motor_8h.html":[2,0,0,1,0,0,1],
 "dji__motor_8h_source.html":[2,0,0,1,0,0,1],
+"dji__motor__group_8hpp.html":[2,0,0,1,0,0,2],
+"dji__motor__group_8hpp_source.html":[2,0,0,1,0,0,2],
 "exceptions_8cc.html":[2,0,0,3,1,0],
 "exceptions_8cc.html#a6876b7dc23882b76f69f4cdda6807399":[2,0,0,3,1,0,0],
 "exceptions_8h.html":[2,0,0,3,1,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "pid_8h.html#af4018e16dba1731f6e2a03fc478120a9":[2,0,0,3,0,1,1,2],
 "pid_8h.html#af4018e16dba1731f6e2a03fc478120a9ac65e995e8c320e4c9a7df020723a6821":[2,0,0,3,0,1,1,2,1],
 "pid_8h.html#af4018e16dba1731f6e2a03fc478120a9aea78f90b3c3afd64e139a391d6fdd88a":[2,0,0,3,0,1,1,2,0],
-"pid_8h_source.html":[2,0,0,3,0,1,1],
-"pubsub_8hpp.html":[2,0,0,3,2],
-"pubsub_8hpp_source.html":[2,0,0,3,2],
-"remote__control_8cc.html":[2,0,0,1,1,0]
+"pid_8h_source.html":[2,0,0,3,0,1,1]
 };

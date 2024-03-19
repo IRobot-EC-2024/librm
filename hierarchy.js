@@ -9,6 +9,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "hal::can::CanRxMsg", "structhal_1_1can_1_1CanRxMsg.html", null ],
+    [ "components::motor::DjiMotorGroup", "classcomponents_1_1motor_1_1DjiMotorGroup.html", null ],
     [ "bsp::dji_devboard_c::led::LED", "classbsp_1_1dji__devboard__c_1_1led_1_1LED.html", null ],
     [ "modules::algorithm::PID::PID", "classmodules_1_1algorithm_1_1PID_1_1PID.html", [
       [ "modules::algorithm::PID::RingPID", "classmodules_1_1algorithm_1_1PID_1_1RingPID.html", null ]
