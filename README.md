@@ -2,6 +2,7 @@
 
 [![build](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml)
 [![clang-format Check](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/style_check.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/style_check.yml)
+[![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
 
 实验性的电控C++库，包含各种设备（电机、传感器等）的抽象封装，以及一些常用工具类。
