@@ -90,6 +90,6 @@ fp32 degToRad(fp32 deg);
  */
 void quatToEuler(const fp32 q[4], fp32 euler[3]);
 
-}  // namespace modules::algorithm::utils
+}  // namespace irobot_ec::modules::algorithm::utils
 
 #endif  // EC_LIB_MODULES_ALGORITHM_UTILS_HPP

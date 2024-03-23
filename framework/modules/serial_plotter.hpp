@@ -104,8 +104,7 @@ void irobot_ec::modules::SerialPlotter::Update() {
  * @brief   获取缓冲区指针
  * @return  缓冲区指针
  */
-const ::std::string *irobot_ec::modules::SerialPlotter::buffer()
-    const {
+const ::std::string *irobot_ec::modules::SerialPlotter::buffer() const {
   return &this->buffer_;
 }
 
@@ -115,8 +114,7 @@ const ::std::string *irobot_ec::modules::SerialPlotter::buffer()
  * @param   variable    变量指针
  */
 template <typename T>
-void irobot_ec::modules::SerialPlotter::AddVariable(
-    T *variable) {
+void irobot_ec::modules::SerialPlotter::AddVariable(T *variable) {
   // 如果变量已经添加过，就不添加，直接返回
   if (::std::find_if(
           this->variable_list_.begin(), this->variable_list_.end(),
@@ -139,8 +137,7 @@ void irobot_ec::modules::SerialPlotter::AddVariable(
  * @brief   从绘图器中移除一个变量
  * @param   variable    变量指针
  */
-void irobot_ec::modules::SerialPlotter::RemoveVariable(
-    void *variable) {
+void irobot_ec::modules::SerialPlotter::RemoveVariable(void *variable) {
   this->variable_list_.remove_if(
       [variable](const ::std::pair<::std::type_info, void *> &pair) {
         return pair.second == variable;
