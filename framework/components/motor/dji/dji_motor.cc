@@ -21,23 +21,24 @@ using irobot_ec::modules::exceptions::ThrowException;
  * CLASS DJIMotorBase
  ****************************/
 
+::std::array<::std::unordered_map<CAN_HandleTypeDef *, ::std::array<uint8_t, 16>> *, 3> DjiMotorBase::tx_bufs_ = {
+    nullptr, nullptr, nullptr};
+
 /**
  * @brief 构造函数
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID
  */
-DjiMotorBase::DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t rx_std_id)
+DjiMotorBase::DjiMotorBase(uint8_t buffer_index, CAN_HandleTypeDef *hcan, uint16_t rx_std_id)
     : hal::can::CanDeviceBase(hcan, rx_std_id) {
-  // 第一次调用构造函数，分配这个电机对象所在CAN总线的发送缓冲区
-  if (this->tx_buf_ == nullptr) {
-    this->tx_buf_ = new ::std::unordered_map<CAN_HandleTypeDef *,
-                                             ::std::array<uint8_t, 16>>(
-        {{this->hcan_, {}}});
+  // 对应电机类型的发送缓冲区组还未创建，就创建一个
+  if (DjiMotorBase::tx_bufs_[buffer_index] == nullptr) {
+    DjiMotorBase::tx_bufs_[buffer_index] = new ::std::unordered_map<CAN_HandleTypeDef *, ::std::array<uint8_t, 16>>;
   }
 
   // 构造的电机对象所在的CAN总线对应的发送缓冲区还未分配，就给它分配一个
-  if (this->tx_buf_->find(this->hcan_) == this->tx_buf_->end()) {
-    this->tx_buf_->insert({this->hcan_, {}});
+  if (DjiMotorBase::tx_bufs_[buffer_index]->find(this->hcan_) == DjiMotorBase::tx_bufs_[buffer_index]->end()) {
+    DjiMotorBase::tx_bufs_[buffer_index]->insert({this->hcan_, {}});
   }
 }
 
@@ -80,16 +81,26 @@ uint16_t DjiMotorBase::temperature() const { return this->temperature_; }
  * @tparam current_bound 电流最大值
  * @param  current       设定电流值
  */
-template <int16_t current_bound>
+template <int16_t current_bound, uint8_t buffer_index>
 void DjiMotorBase::SetCurrentTemplate(int16_t current) {
   current = absConstrain(current, (int16_t)current_bound);
 
-  (*this->tx_buf_)[this->hcan_][(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-  (*this->tx_buf_)[this->hcan_][(this->id_ - 1) * 2 + 1] = current & 0xff;
+  /**
+   * 这段代码的解释：
+   * 1. 根据电机类型(buffer_index)找到对应的发送缓冲区组
+   * 2. 根据这个电机所属的can总线(this->hcan_)找到对应的发送缓冲区
+   * 3. 根据电机ID(this->id_)找到对应的发送缓冲区
+   * 4. 将电流值写入发送缓冲区
+   * 5. 判断电机ID是1~4还是5~8，发送16个字节的缓冲区的前8个字节或后8个字节
+   *
+   * @btw DJI I LOVE THIS MOTOR CONTROL PROTOCOL :)
+   */
+  (*DjiMotorBase::tx_bufs_[buffer_index])[this->hcan_][(this->id_ - 1) * 2] = (current >> 8) & 0xff;
+  (*DjiMotorBase::tx_bufs_[buffer_index])[this->hcan_][(this->id_ - 1) * 2 + 1] = current & 0xff;
   if (1 <= this->id_ && this->id_ <= 4) {
-    this->Transmit((*this->tx_buf_)[this->hcan_].data(), 8);
+    this->Transmit((*DjiMotorBase::tx_bufs_[buffer_index])[this->hcan_].data(), 8);
   } else if (5 <= this->id_ && this->id_ <= 7) {
-    this->Transmit((*this->tx_buf_)[this->hcan_].data() + 8, 8);
+    this->Transmit((*DjiMotorBase::tx_bufs_[buffer_index])[this->hcan_].data() + 8, 8);
   }
 }
 
@@ -102,8 +113,7 @@ void DjiMotorBase::SetCurrentTemplate(int16_t current) {
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID(1~7)
  */
-GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
-    : DjiMotorBase(hcan, 0x204 + id) {
+GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(0, hcan, 0x204 + id) {
   if (1 <= id && id <= 7) {
     this->id_ = id;
   } else {
@@ -115,9 +125,7 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
  * @brief 设置电机的输出电流
  * @param current 电流值(-30000 ~ 30000)
  */
-void GM6020::SetCurrent(int16_t current) {
-  DjiMotorBase::SetCurrentTemplate<30000>(current);
-}
+void GM6020::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<30000, 0>(current); }
 
 /***************************
  * CLASS M2006
@@ -128,8 +136,7 @@ void GM6020::SetCurrent(int16_t current) {
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID(1~8)
  */
-M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
-    : DjiMotorBase(hcan, 0x200 + id) {
+M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(1, hcan, 0x200 + id) {
   if (1 <= id && id <= 8) {
     this->id_ = id;
   } else {
@@ -141,9 +148,7 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
  * @brief 设置电机的输出电流
  * @param current 电流值(-10000 ~ 10000)
  */
-void M2006::SetCurrent(int16_t current) {
-  DjiMotorBase::SetCurrentTemplate<10000>(current);
-}
+void M2006::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<10000, 1>(current); }
 
 /***************************
  * CLASS M3508
@@ -154,8 +159,7 @@ void M2006::SetCurrent(int16_t current) {
  * @param can_bus   指向CAN总线对象的指针
  * @param id        电机ID(1~8)
  */
-M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
-    : DjiMotorBase(hcan, 0x201 + id) {
+M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(2, hcan, 0x201 + id) {
   if (1 <= id && id <= 8) {
     this->id_ = id;
   } else {
@@ -167,8 +171,6 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
  * @brief 设置电机的输出电流
  * @param current 电流值(-16384 ~ 16384)
  */
-void M3508::SetCurrent(int16_t current) {
-  DjiMotorBase::SetCurrentTemplate<16384>(current);
-}
+void M3508::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<16384, 2>(current); }
 
 #endif  // HAL_CAN_MODULE_ENABLED

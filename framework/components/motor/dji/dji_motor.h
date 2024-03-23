@@ -28,7 +28,6 @@ namespace irobot_ec::components::motor {
 class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
  public:
   DjiMotorBase() = delete;
-  DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
 
   /* 取值函数 */
   [[nodiscard]] uint16_t encoder() const;
@@ -38,8 +37,11 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
   /***********/
 
  protected:
-  template <int16_t current_bound>
+  DjiMotorBase(uint8_t buffer_index, CAN_HandleTypeDef *hcan, uint16_t id);
+
+  template <int16_t current_bound, uint8_t buffer_index>
   void SetCurrentTemplate(int16_t current);
+
   void RxCallback(irobot_ec::hal::can::CanRxMsg *msg) override;
 
   uint16_t id_{};  // 电机ID
@@ -50,8 +52,11 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
   uint16_t temperature_{};  // 电机温度
   /************************/
 
-  ::std::unordered_map<CAN_HandleTypeDef *, ::std::array<uint8_t, 16>> *tx_buf_{
-      nullptr};  // 一条CAN总线一个缓冲区
+  /**
+   * @note 一条CAN总线一个缓冲区，这是三个电机类的缓冲区查找表。
+   * @note 0 :GM6020, 1: M3508, 2: M2006
+   */
+  static ::std::array<::std::unordered_map<CAN_HandleTypeDef *, ::std::array<uint8_t, 16>> *, 3> tx_bufs_;
 };
 
 /**
