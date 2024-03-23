@@ -13,6 +13,7 @@
 #include "modules/exceptions/exceptions.h"
 
 using namespace irobot_ec::components::motor;
+using irobot_ec::modules::algorithm::utils::absConstrain;
 using irobot_ec::modules::exceptions::Exception;
 using irobot_ec::modules::exceptions::ThrowException;
 
@@ -26,7 +27,19 @@ using irobot_ec::modules::exceptions::ThrowException;
  * @param id    电机ID
  */
 DjiMotorBase::DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t rx_std_id)
-    : hal::can::CanDeviceBase(hcan, rx_std_id) {}
+    : hal::can::CanDeviceBase(hcan, rx_std_id) {
+  // 第一次调用构造函数，分配这个电机对象所在CAN总线的发送缓冲区
+  if (this->tx_buf_ == nullptr) {
+    this->tx_buf_ = new ::std::unordered_map<CAN_HandleTypeDef *,
+                                             ::std::array<uint8_t, 16>>(
+        {{this->hcan_, {}}});
+  }
+
+  // 构造的电机对象所在的CAN总线对应的发送缓冲区还未分配，就给它分配一个
+  if (this->tx_buf_->find(this->hcan_) == this->tx_buf_->end()) {
+    this->tx_buf_->insert({this->hcan_, {}});
+  }
+}
 
 /**
  * @brief   电机反馈数据解码回调函数
@@ -62,11 +75,27 @@ uint16_t DjiMotorBase::current() const { return this->current_; }
  */
 uint16_t DjiMotorBase::temperature() const { return this->temperature_; }
 
+/**
+ * @brief  设置电机的输出电流，本模板函数留给子类实例化，设定电流范围
+ * @tparam current_bound 电流最大值
+ * @param  current       设定电流值
+ */
+template <int16_t current_bound>
+void DjiMotorBase::SetCurrentTemplate(int16_t current) {
+  current = absConstrain(current, (int16_t)current_bound);
+
+  (*this->tx_buf_)[this->hcan_][(this->id_ - 1) * 2] = (current >> 8) & 0xff;
+  (*this->tx_buf_)[this->hcan_][(this->id_ - 1) * 2 + 1] = current & 0xff;
+  if (1 <= this->id_ && this->id_ <= 4) {
+    this->Transmit((*this->tx_buf_)[this->hcan_].data(), 8);
+  } else if (5 <= this->id_ && this->id_ <= 7) {
+    this->Transmit((*this->tx_buf_)[this->hcan_].data() + 8, 8);
+  }
+}
+
 /***************************
  * CLASS GM6020
  ****************************/
-
-uint8_t GM6020::tx_buffer_[16] = {0};
 
 /**
  * @brief 构造函数
@@ -84,25 +113,15 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id)
 
 /**
  * @brief 设置电机的输出电流
- * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
- * @param current   电流值(-30000 ~ 30000)
+ * @param current 电流值(-30000 ~ 30000)
  */
 void GM6020::SetCurrent(int16_t current) {
-  current = modules::algorithm::utils::absConstrain(current, (int16_t)30000);
-
-  if (1 <= this->id_ && this->id_ <= 7) {
-    GM6020::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-    GM6020::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
-  } else {
-    ThrowException(Exception::kValueError);  // 电机ID超出范围
-  }
+  DjiMotorBase::SetCurrentTemplate<30000>(current);
 }
 
 /***************************
  * CLASS M2006
  ****************************/
-
-uint8_t M2006::tx_buffer_[16] = {0};
 
 /**
  * @brief 构造函数
@@ -113,30 +132,22 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id)
     : DjiMotorBase(hcan, 0x200 + id) {
   if (1 <= id && id <= 8) {
     this->id_ = id;
-  }
-}
-
-/***
- * @brief 设置电机的输出电流
- * @note  这个函数不会发送控制消息，需要调用PushControlMessage()函数推送
- * @param current   电流值(-10000 ~ 10000)
- */
-void M2006::SetCurrent(int16_t current) {
-  current = modules::algorithm::utils::absConstrain(current, (int16_t)10000);
-
-  if (1 <= this->id_ && this->id_ <= 8) {
-    M2006::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-    M2006::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
   } else {
     ThrowException(Exception::kValueError);  // 电机ID超出范围
   }
 }
 
+/**
+ * @brief 设置电机的输出电流
+ * @param current 电流值(-10000 ~ 10000)
+ */
+void M2006::SetCurrent(int16_t current) {
+  DjiMotorBase::SetCurrentTemplate<10000>(current);
+}
+
 /***************************
  * CLASS M3508
  ****************************/
-
-uint8_t M3508::tx_buffer_[16] = {0};
 
 /**
  * @brief 构造函数
@@ -154,17 +165,10 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id)
 
 /**
  * @brief 设置电机的输出电流
- * @param current   电流值(-16384 ~ 16384)
+ * @param current 电流值(-16384 ~ 16384)
  */
 void M3508::SetCurrent(int16_t current) {
-  current = modules::algorithm::utils::absConstrain(current, (int16_t)16384);
-
-  if (1 <= this->id_ && this->id_ <= 8) {
-    M3508::tx_buffer_[(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-    M3508::tx_buffer_[(this->id_ - 1) * 2 + 1] = current & 0xff;
-  } else {
-    ThrowException(Exception::kValueError);
-  }
+  DjiMotorBase::SetCurrentTemplate<16384>(current);
 }
 
 #endif  // HAL_CAN_MODULE_ENABLED

@@ -11,6 +11,9 @@
 
 #ifdef HAL_CAN_MODULE_ENABLED
 
+#include <array>
+#include <unordered_map>
+
 #include "hal_wrapper/hal_can.h"
 #include "modules/typedefs.h"
 
@@ -21,12 +24,11 @@ namespace irobot_ec::components::motor {
  * @attention 本类是抽象类，不可实例化
  * @attention 子类必须实现SetCurrent函数，用于设置电机的电流/电压
  */
+
 class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
  public:
   DjiMotorBase() = delete;
   DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
-
-  virtual void SetCurrent(int16_t current) = 0;
 
   /* 取值函数 */
   [[nodiscard]] uint16_t encoder() const;
@@ -36,6 +38,8 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
   /***********/
 
  protected:
+  template <int16_t current_bound>
+  void SetCurrentTemplate(int16_t current);
   void RxCallback(irobot_ec::hal::can::CanRxMsg *msg) override;
 
   uint16_t id_{};  // 电机ID
@@ -45,6 +49,9 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
   uint16_t current_{};      // 电机实际电流
   uint16_t temperature_{};  // 电机温度
   /************************/
+
+  ::std::unordered_map<CAN_HandleTypeDef *, ::std::array<uint8_t, 16>> *tx_buf_{
+      nullptr};  // 一条CAN总线一个缓冲区
 };
 
 /**
@@ -58,13 +65,13 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
 class GM6020 final : public DjiMotorBase {
  public:
   GM6020() = delete;
-  GM6020(const GM6020 &) = delete;  // 禁止复制对象
   GM6020(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void SetCurrent(int16_t current) override;  // GM6020的current实际上是电压
+  // no copy constructor
+  GM6020(const GM6020 &) = delete;
+  GM6020 &operator=(const GM6020 &) = delete;
 
- protected:
-  static uint8_t tx_buffer_[16];
+  void SetCurrent(int16_t current);
 };
 
 /**
@@ -78,13 +85,13 @@ class GM6020 final : public DjiMotorBase {
 class M2006 final : public DjiMotorBase {
  public:
   M2006() = delete;
-  M2006(const M2006 &) = delete;  // 禁止复制对象
   M2006(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void SetCurrent(int16_t current) override;
+  // no copy constructor
+  M2006(const M2006 &) = delete;
+  M2006 &operator=(const M2006 &) = delete;
 
- protected:
-  static uint8_t tx_buffer_[16];
+  void SetCurrent(int16_t current);
 };
 
 /**
@@ -98,13 +105,13 @@ class M2006 final : public DjiMotorBase {
 class M3508 final : public DjiMotorBase {
  public:
   M3508() = delete;
-  M3508(const M3508 &) = delete;  // 禁止复制对象
   M3508(CAN_HandleTypeDef *hcan, uint16_t id);
 
-  void SetCurrent(int16_t current) override;
+  // no copy constructor
+  M3508(const M3508 &) = delete;
+  M3508 &operator=(const M3508 &) = delete;
 
- protected:
-  static uint8_t tx_buffer_[16];
+  void SetCurrent(int16_t current);
 };
 
 }  // namespace irobot_ec::components::motor
