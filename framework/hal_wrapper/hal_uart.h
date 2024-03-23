@@ -10,7 +10,7 @@
 
 #include "usart.h"
 
-namespace hal::uart {
+namespace irobot_ec::hal::uart {
 
 class UARTEndpointBase {
  public:
@@ -34,7 +34,7 @@ class UARTEndpointBase {
       endpoint_map_;
 };
 
-}  // namespace hal::uart
+}  // namespace irobot_ec::hal::uart
 
 #endif
 

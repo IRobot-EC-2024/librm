@@ -7,7 +7,7 @@
 #if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && \
     defined(STM32F407xx)
 
-namespace bsp::dji_devboard_c::ins {}
+namespace irobot_ec::bsp::dji_devboard_c::ins {}
 
 #endif
 

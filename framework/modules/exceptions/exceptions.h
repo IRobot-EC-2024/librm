@@ -2,7 +2,7 @@
 #ifndef EC_LIB_MODULES_EXCEPTIONS_H
 #define EC_LIB_MODULES_EXCEPTIONS_H
 
-namespace modules::exceptions {
+namespace irobot_ec::modules::exceptions {
 
 /**
  * @brief 异常类型
@@ -18,6 +18,6 @@ enum class Exception {
 
 void ThrowException(Exception e);
 
-}  // namespace modules::exceptions
+}  // namespace irobot_ec::modules::exceptions
 
 #endif

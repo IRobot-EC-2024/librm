@@ -8,9 +8,9 @@
 #include "components/motor/dji/dji_motor.h"
 #include "modules/algorithm/pid/pid.h"
 
-using components::motor::GM6020;
-using modules::algorithm::PID::PIDType;
-using modules::algorithm::PID::RingPID;
+using irobot_ec::components::motor::GM6020;
+using irobot_ec::modules::algorithm::PID::PIDType;
+using irobot_ec::modules::algorithm::PID::RingPID;
 
 extern "C" {
 
@@ -24,7 +24,6 @@ extern "C" {
     osDelay(1);
     ringPID.update(3000, gm6020.encoder());
     gm6020.SetCurrent(static_cast<int16_t>(ringPID.value()));
-    gm6020.PushControlMessage();
   }
 }
 }

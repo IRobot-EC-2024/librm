@@ -8,13 +8,13 @@
 
 #include "modules/typedefs.h"
 
-namespace bsp::dji_devboard_c {
+namespace irobot_ec::bsp::dji_devboard_c {
 
 void delayUs(uint16_t us);
 
 void delayMs(uint16_t ms);
 
-}  // namespace bsp::dji_devboard_c
+}  // namespace irobot_ec::bsp::dji_devboard_c
 
 #endif
 

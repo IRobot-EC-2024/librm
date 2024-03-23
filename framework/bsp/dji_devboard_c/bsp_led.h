@@ -9,7 +9,7 @@
 
 #include "tim.h"
 
-namespace bsp::dji_devboard_c::led {
+namespace irobot_ec::bsp::dji_devboard_c::led {
 
 class LED {
  public:
@@ -24,7 +24,7 @@ class LED {
   TIM_HandleTypeDef *htim;
 };
 
-}  // namespace bsp::dji_devboard_c::led
+}  // namespace irobot_ec::bsp::dji_devboard_c::led
 
 #endif
 

@@ -5,7 +5,7 @@
 
 #include "bsp_delay.h"
 
-using namespace bsp::dji_devboard_c;
+using namespace irobot_ec::bsp::dji_devboard_c;
 
 static uint8_t fac_us = 0;
 static uint32_t fac_ms = 0;

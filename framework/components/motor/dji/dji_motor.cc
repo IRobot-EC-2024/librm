@@ -12,9 +12,9 @@
 #include "modules/algorithm/utils/utils.hpp"
 #include "modules/exceptions/exceptions.h"
 
-using namespace components::motor;
-using modules::exceptions::Exception;
-using modules::exceptions::ThrowException;
+using namespace irobot_ec::components::motor;
+using irobot_ec::modules::exceptions::Exception;
+using irobot_ec::modules::exceptions::ThrowException;
 
 /***************************
  * CLASS DJIMotorBase
@@ -66,7 +66,7 @@ uint16_t DjiMotorBase::temperature() const { return this->temperature_; }
  * CLASS GM6020
  ****************************/
 
-uint8_t components::motor::GM6020::tx_buffer_[16] = {0};
+uint8_t GM6020::tx_buffer_[16] = {0};
 
 /**
  * @brief 构造函数
@@ -102,7 +102,7 @@ void GM6020::SetCurrent(int16_t current) {
  * CLASS M2006
  ****************************/
 
-uint8_t components::motor::M2006::tx_buffer_[16] = {0};
+uint8_t M2006::tx_buffer_[16] = {0};
 
 /**
  * @brief 构造函数
@@ -136,7 +136,7 @@ void M2006::SetCurrent(int16_t current) {
  * CLASS M3508
  ****************************/
 
-uint8_t components::motor::M3508::tx_buffer_[16] = {0};
+uint8_t M3508::tx_buffer_[16] = {0};
 
 /**
  * @brief 构造函数

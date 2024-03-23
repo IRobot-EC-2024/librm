@@ -8,7 +8,7 @@
 
 #include "tim.h"
 
-namespace bsp::dji_devboard_c::buzzer {
+namespace irobot_ec::bsp::dji_devboard_c::buzzer {
 
 class Buzzer {
  public:
@@ -23,7 +23,7 @@ class Buzzer {
   TIM_HandleTypeDef *htim;
 };
 
-}  // namespace bsp::dji_devboard_c::buzzer
+}  // namespace irobot_ec::bsp::dji_devboard_c::buzzer
 
 #endif
 

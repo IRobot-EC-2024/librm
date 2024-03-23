@@ -1,7 +1,7 @@
 
 #include "utils.hpp"
 
-using namespace modules::algorithm::utils;
+using namespace irobot_ec::modules::algorithm::utils;
 
 fp32 deadline(fp32 value, fp32 min_value, fp32 max_value) {
   if (value < min_value || value > max_value) {

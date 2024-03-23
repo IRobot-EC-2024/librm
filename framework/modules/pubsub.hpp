@@ -12,7 +12,7 @@
 #include <memory>
 #include <vector>
 
-namespace modules::pub_sub {
+namespace irobot_ec::modules::pub_sub {
 
 /**
  * @brief 订阅者的基类
@@ -47,7 +47,7 @@ class PublisherBase {
   std::vector<SubscriberBase<MessageType> *> _subscribers;
 };
 
-}  // namespace modules::pub_sub
+}  // namespace irobot_ec::modules::pub_sub
 
 /*********************/
 /** Implementation ***/
@@ -59,7 +59,7 @@ class PublisherBase {
  * @param  subscriber  订阅者对象
  */
 template <typename MessageType>
-void modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(
+void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(
     SubscriberBase<MessageType> &subscriber) {
   if (std::find(this->_subscribers.begin(), this->_subscribers.end(),
                 &subscriber) == this->_subscribers.end()) {
@@ -73,7 +73,7 @@ void modules::pub_sub::PublisherBase<MessageType>::registerSubscriber(
  * @param  subscriber  订阅者对象
  */
 template <typename MessageType>
-void modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(
+void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(
     SubscriberBase<MessageType> &subscriber) {
   auto it = std::find(this->_subscribers.begin(), this->_subscribers.end(),
                       &subscriber);
@@ -88,7 +88,7 @@ void modules::pub_sub::PublisherBase<MessageType>::unregisterSubscriber(
  * @param  message     消息对象
  */
 template <typename MessageType>
-void modules::pub_sub::PublisherBase<MessageType>::advertise(
+void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::advertise(
     const MessageType &message) {
   for (const auto &subscriber : this->_subscribers) {
     subscriber->RxCallback(message);

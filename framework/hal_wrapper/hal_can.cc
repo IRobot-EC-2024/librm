@@ -11,9 +11,9 @@
 #include "hal_can.h"
 #include "modules/exceptions/exceptions.h"
 
-using namespace hal::can;
-using modules::exceptions::Exception;
-using modules::exceptions::ThrowException;
+using namespace irobot_ec::hal::can;
+using irobot_ec::modules::exceptions::Exception;
+using irobot_ec::modules::exceptions::ThrowException;
 
 static CanRxMsg rx_msg_buffer;
 

@@ -9,7 +9,7 @@
 #ifndef EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 #define EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 
-namespace components::remote_control {
+namespace irobot_ec::components::remote_control {
 
 typedef enum {
   RC_SWITCH_UP = 1,
@@ -17,7 +17,7 @@ typedef enum {
   RC_SWITCH_MID,
 } rc_switch_e;
 
-}  // namespace components::remote_control
+}  // namespace irobot_ec::components::remote_control
 
 #endif  // EC_LIB_COMPONENTS_REMOTE_CONTROL_H
 

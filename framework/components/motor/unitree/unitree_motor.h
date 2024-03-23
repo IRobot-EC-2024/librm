@@ -13,7 +13,7 @@
 
 #include "typedefs.h"
 
-namespace Compnenents::Motor {
+namespace irobot_ec::components::motor {
 
 enum class UnitreeMotorMode {
   kLock = 0x00,
@@ -43,7 +43,7 @@ class UnitreeMotorBase {
   /*************************/
 };
 
-}  // namespace Compnenents::Motor
+}  // namespace irobot_ec::components::motor
 
 #endif
 

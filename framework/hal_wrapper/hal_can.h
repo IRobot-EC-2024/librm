@@ -15,7 +15,7 @@
 
 #include "can.h"
 
-namespace hal::can {
+namespace irobot_ec::hal::can {
 
 /**
  * @brief CAN message data pack
@@ -52,7 +52,7 @@ class CanDeviceBase {
       device_map_;
 };
 
-}  // namespace hal::can
+}  // namespace irobot_ec::hal::can
 
 #endif
 

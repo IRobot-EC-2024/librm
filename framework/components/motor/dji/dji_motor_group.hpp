@@ -17,7 +17,7 @@
 #include "dji_motor.h"
 #include "modules/typedefs.h"
 
-namespace components::motor {
+namespace irobot_ec::components::motor {
 
 class DjiMotorGroup final {
  public:
@@ -25,6 +25,6 @@ class DjiMotorGroup final {
   ::std::vector<DjiMotorBase> motors_;
 };
 
-}  // namespace components::motor
+}  // namespace irobot_ec::components::motor
 
 #endif  // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_GROUP_HPP

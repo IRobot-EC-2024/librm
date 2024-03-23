@@ -1,7 +1,7 @@
 
 #include "exceptions.h"
 
-using namespace modules::exceptions;
+using namespace irobot_ec::modules::exceptions;
 
 /**
  * @brief 抛出异常

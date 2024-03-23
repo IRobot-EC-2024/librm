@@ -10,8 +10,8 @@
 
 #include "modules/algorithm/utils/utils.hpp"
 
-using namespace modules::algorithm::PID;
-using modules::algorithm::utils::absConstrain;
+using namespace irobot_ec::modules::algorithm::PID;
+using irobot_ec::modules::algorithm::utils::absConstrain;
 
 PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout)
     : kp_(kp),

@@ -11,7 +11,7 @@
 
 #include "modules/typedefs.h"
 
-namespace modules::algorithm::utils {
+namespace irobot_ec::modules::algorithm::utils {
 
 /**
  * @brief  符号函数

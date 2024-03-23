@@ -14,14 +14,14 @@
 #include "hal_wrapper/hal_can.h"
 #include "modules/typedefs.h"
 
-namespace components::motor {
+namespace irobot_ec::components::motor {
 
 /**
  * @brief     DJI电机的基类
  * @attention 本类是抽象类，不可实例化
  * @attention 子类必须实现SetCurrent函数，用于设置电机的电流/电压
  */
-class DjiMotorBase : public hal::can::CanDeviceBase {
+class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
  public:
   DjiMotorBase() = delete;
   DjiMotorBase(CAN_HandleTypeDef *hcan, uint16_t id);
@@ -36,7 +36,7 @@ class DjiMotorBase : public hal::can::CanDeviceBase {
   /***********/
 
  protected:
-  void RxCallback(hal::can::CanRxMsg *msg) override;
+  void RxCallback(irobot_ec::hal::can::CanRxMsg *msg) override;
 
   uint16_t id_{};  // 电机ID
   /** MOTOR FEEDBACK DATA **/
@@ -107,7 +107,7 @@ class M3508 final : public DjiMotorBase {
   static uint8_t tx_buffer_[16];
 };
 
-}  // namespace components::motor
+}  // namespace irobot_ec::components::motor
 
 #endif
 

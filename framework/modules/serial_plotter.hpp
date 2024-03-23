@@ -17,7 +17,7 @@
 #include "modules/exceptions/exceptions.h"
 #include "modules/typedefs.h"
 
-namespace modules::serial_plotter {
+namespace irobot_ec::modules {
 
 /**
  * @brief 串口绘图器
@@ -48,7 +48,7 @@ class SerialPlotter {
   ::std::list<::std::pair<::std::type_info, void *>> variable_list_;
 };
 
-}  // namespace modules::serial_plotter
+}  // namespace irobot_ec::modules
 
 /*********************/
 /** Implementation ***/
@@ -57,7 +57,7 @@ class SerialPlotter {
 /**
  * @brief   更新绘图器数据
  */
-void modules::serial_plotter::SerialPlotter::Update() {
+void irobot_ec::modules::SerialPlotter::Update() {
   if (this->variable_list_.empty()) {
     return;
   }
@@ -104,7 +104,8 @@ void modules::serial_plotter::SerialPlotter::Update() {
  * @brief   获取缓冲区指针
  * @return  缓冲区指针
  */
-const ::std::string *modules::serial_plotter::SerialPlotter::buffer() const {
+const ::std::string *irobot_ec::modules::SerialPlotter::buffer()
+    const {
   return &this->buffer_;
 }
 
@@ -114,7 +115,8 @@ const ::std::string *modules::serial_plotter::SerialPlotter::buffer() const {
  * @param   variable    变量指针
  */
 template <typename T>
-void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
+void irobot_ec::modules::SerialPlotter::AddVariable(
+    T *variable) {
   // 如果变量已经添加过，就不添加，直接返回
   if (::std::find_if(
           this->variable_list_.begin(), this->variable_list_.end(),
@@ -128,8 +130,8 @@ void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
   if (::std::is_fundamental<T>::value) {
     this->variable_list_.emplace_back(typeid(T), variable);
   } else {
-    modules::exceptions::ThrowException(
-        modules::exceptions::Exception::kTypeError);
+    irobot_ec::modules::exceptions::ThrowException(
+        irobot_ec::modules::exceptions::Exception::kTypeError);
   }
 }
 
@@ -137,7 +139,8 @@ void modules::serial_plotter::SerialPlotter::AddVariable(T *variable) {
  * @brief   从绘图器中移除一个变量
  * @param   variable    变量指针
  */
-void modules::serial_plotter::SerialPlotter::RemoveVariable(void *variable) {
+void irobot_ec::modules::SerialPlotter::RemoveVariable(
+    void *variable) {
   this->variable_list_.remove_if(
       [variable](const ::std::pair<::std::type_info, void *> &pair) {
         return pair.second == variable;

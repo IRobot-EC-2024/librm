@@ -8,6 +8,6 @@
 
 #include "remote_control.h"
 
-using namespace components::remote_control;
+using namespace irobot_ec::components::remote_control;
 
 /* EOF */
