@@ -2,7 +2,7 @@
 #ifndef EC_LIB_MODULES_EXCEPTIONS_H
 #define EC_LIB_MODULES_EXCEPTIONS_H
 
-namespace irobot_ec::modules::exceptions {
+namespace irobot_ec::modules::exception {
 
 /**
  * @brief 异常类型
@@ -11,9 +11,9 @@ enum class Exception {
   kException,
 
   kTypeError,
+  kKeyError,
   kHALError,
   kValueError,
-  kArithmeticError,
 };
 
 void ThrowException(Exception e);
