@@ -7,7 +7,7 @@
 
 实验性的电控C++库，包含各种设备（电机、传感器等）的抽象封装，以及一些常用工具类。
 
-项目基于C++17标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]。推荐使用clang-format自动用Google风格格式化代码。PR和push会自动被CI系统检查是否符合规范，若style check失败请参考action输出结果修改后重新提交。
+项目基于C++17标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]。推荐使用clang-format根据项目根目录下的.clang-format文件自动格式化代码。PR和push会自动被CI系统检查是否符合规范，若style check失败可参考action输出结果加以修改。
 
 ## 文档
 
@@ -23,7 +23,7 @@ doxygen ./Doxyfile
 
 打钩表示已完成可以使用，空格表示未完成
 
-- `build_template/`：CI构建用的模板工程
+- `stm32cube_template/`：CI构建用的空白工程
 
 - `examples/`：例程
 
@@ -48,10 +48,10 @@ doxygen ./Doxyfile
 
   - [ ] `modules/`：模块，指软件功能模块
     - [ ] `algorithm/`：算法
-      - [ ] `fifo/`：FIFO队列
+      - [x] `mecanum/`：麦轮运动学解算
       - [x] `mahony/`：Mahony姿态解算
       - [x] `pid/`：PID控制器
-    - [x] `exception/`：异常模块
+    - [x] `exception/`：异常处理
     - [x] `pubsub/`：发布订阅模块
     - [x] `serial_plotter/`：串口绘图器
 
@@ -74,8 +74,8 @@ doxygen ./Doxyfile
 
 1. 下载本项目，把`framework/`文件夹放到某处并添加到编译路径和头文件包含路径中
 
-2. 在CMakeLists.txt或者工程设置里添加对应开发板芯片的预处理宏定义：
+2. 在CMakeLists.txt或者工程设置里添加对应开发板芯片的预处理宏定义（一些IDE会自动添加）
    - 大疆C板：`#define STM32F407xx`
-   - DM-H7开发板：`#define STM32H723xx`
+   - YCMC-H7A开发板：`#define STM32H723xx`
 
 3. 按需包含头文件
