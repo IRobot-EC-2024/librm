@@ -14,16 +14,9 @@ using namespace irobot_ec::modules::algorithm::PID;
 using irobot_ec::modules::algorithm::utils::absConstrain;
 
 PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout)
-    : kp_(kp),
-      ki_(ki),
-      kd_(kd),
-      type_(type),
-      max_out_(max_out),
-      max_iout_(max_iout),
-      use_external_diff_input_(false) {}
+    : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout), use_external_diff_input_(false) {}
 
-PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout,
-         fp32 *external_diff_input)
+PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 *external_diff_input)
     : kp_(kp),
       ki_(ki),
       kd_(kd),
@@ -49,9 +42,7 @@ void PID::update(fp32 set, fp32 ref) {
       // update derivative term
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] = use_external_diff_input_
-                            ? *(this->external_diff_input_)
-                            : (this->error_[0] - this->error_[1]);
+      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_) : (this->error_[0] - this->error_[1]);
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->i_out_ = absConstrain(this->i_out_, this->max_iout_);
@@ -65,10 +56,8 @@ void PID::update(fp32 set, fp32 ref) {
 
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] =
-          use_external_diff_input_
-              ? *(this->external_diff_input_)
-              : (this->error_[0] - 2.0f * this->error_[1] + this->error_[2]);
+      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_)
+                                                 : (this->error_[0] - 2.0f * this->error_[1] + this->error_[2]);
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
@@ -88,8 +77,7 @@ void PID::clear() {
   memset(this->error_, 0, 3);
 }
 
-void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out,
-                          fp32 max_iout) {
+void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout) {
   this->kp_ = kp;
   this->ki_ = ki;
   this->kd_ = kd;
@@ -99,8 +87,7 @@ void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out,
 
 fp32 PID::value() const { return this->out_; }
 
-RingPID::RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out,
-                 fp32 max_iout, fp32 cycle)
+RingPID::RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 cycle)
     : PID(type, kp, ki, kd, max_out, max_iout), cycle_(cycle) {}
 
 void RingPID::update(fp32 set, fp32 ref) {
@@ -121,9 +108,7 @@ void RingPID::update(fp32 set, fp32 ref) {
       // update derivative term
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] = use_external_diff_input_
-                            ? *(this->external_diff_input_)
-                            : (this->error_[0] - this->error_[1]);
+      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_) : (this->error_[0] - this->error_[1]);
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->i_out_ = absConstrain(this->i_out_, this->max_iout_);
@@ -137,10 +122,8 @@ void RingPID::update(fp32 set, fp32 ref) {
 
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] =
-          use_external_diff_input_
-              ? *(this->external_diff_input_)
-              : (this->error_[0] - 2.0f * this->error_[1] + this->error_[2]);
+      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_)
+                                                 : (this->error_[0] - 2.0f * this->error_[1] + this->error_[2]);
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;

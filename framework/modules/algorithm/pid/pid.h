@@ -32,8 +32,7 @@ class PID {
  public:
   PID() = delete;
   PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout);
-  PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout,
-      fp32 *external_diff_input);
+  PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 *external_diff_input);
   virtual void update(fp32 set, fp32 ref);
   void clear();
   void switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout);
@@ -70,8 +69,7 @@ class PID {
 class RingPID : public PID {
  public:
   RingPID() = delete;
-  RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout,
-          fp32 cycle);
+  RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 cycle);
   void update(fp32 set, fp32 ref) override;
 
  protected:

@@ -1,5 +1,4 @@
 
-
 #include "hal_wrapper/hal_config.h"
 
 #if defined(HAL_UART_MODULE_ENABLED)

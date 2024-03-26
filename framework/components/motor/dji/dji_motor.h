@@ -19,6 +19,9 @@
 
 namespace irobot_ec::components::motor {
 
+template <typename MotorType>
+class DjiMotorGroup;
+
 /**
  * @brief     DJI电机的基类
  * @attention 本类是抽象类，不可实例化
@@ -26,6 +29,9 @@ namespace irobot_ec::components::motor {
  */
 
 class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
+  template <typename MotorType>
+  friend class DjiMotorGroup;
+
  public:
   DjiMotorBase() = delete;
 
@@ -40,23 +46,23 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
   DjiMotorBase(uint8_t buffer_index, CAN_HandleTypeDef *hcan, uint16_t id);
 
   template <int16_t current_bound, uint8_t buffer_index>
-  void SetCurrentTemplate(int16_t current);
+  void SetCurrentTemplate(int16_t current, bool push_message);
 
   void RxCallback(irobot_ec::hal::can::CanRxMsg *msg) override;
 
   uint16_t id_{};  // 电机ID
-  /** MOTOR FEEDBACK DATA **/
+  /**   FEEDBACK DATA   **/
   uint16_t encoder_{};      // 电机编码器值
   uint16_t rpm_{};          // 电机转速
   uint16_t current_{};      // 电机实际电流
   uint16_t temperature_{};  // 电机温度
-  /************************/
+  /***********************/
 
   /**
    * @note 一条CAN总线一个缓冲区，这是三个电机类的缓冲区查找表。
    * @note 0 :GM6020, 1: M3508, 2: M2006
    */
-  static ::std::array<::std::unordered_map<CAN_HandleTypeDef *, ::std::array<uint8_t, 16>> *, 3> tx_bufs_;
+  static std::array<std::unordered_map<CAN_HandleTypeDef *, std::array<uint8_t, 16>> *, 3> tx_bufs_;
 };
 
 /**
@@ -68,6 +74,9 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
  * @note https://www.robomaster.com/zh-CN/products/components/general/GM6020
  */
 class GM6020 final : public DjiMotorBase {
+  template <typename MotorType>
+  friend class DjiMotorGroup;
+
  public:
   GM6020() = delete;
   GM6020(CAN_HandleTypeDef *hcan, uint16_t id);
@@ -76,7 +85,7 @@ class GM6020 final : public DjiMotorBase {
   GM6020(const GM6020 &) = delete;
   GM6020 &operator=(const GM6020 &) = delete;
 
-  void SetCurrent(int16_t current);
+  void SetCurrent(int16_t current, bool push_message = true);
 };
 
 /**
@@ -88,6 +97,9 @@ class GM6020 final : public DjiMotorBase {
  * @note https://www.robomaster.com/zh-CN/products/components/general/M2006
  */
 class M2006 final : public DjiMotorBase {
+  template <typename MotorType>
+  friend class DjiMotorGroup;
+
  public:
   M2006() = delete;
   M2006(CAN_HandleTypeDef *hcan, uint16_t id);
@@ -96,7 +108,7 @@ class M2006 final : public DjiMotorBase {
   M2006(const M2006 &) = delete;
   M2006 &operator=(const M2006 &) = delete;
 
-  void SetCurrent(int16_t current);
+  void SetCurrent(int16_t current, bool push_message = true);
 };
 
 /**
@@ -108,6 +120,9 @@ class M2006 final : public DjiMotorBase {
  * @note https://www.robomaster.com/zh-CN/products/components/general/M3508
  */
 class M3508 final : public DjiMotorBase {
+  template <typename MotorType>
+  friend class DjiMotorGroup;
+
  public:
   M3508() = delete;
   M3508(CAN_HandleTypeDef *hcan, uint16_t id);
@@ -116,7 +131,7 @@ class M3508 final : public DjiMotorBase {
   M3508(const M3508 &) = delete;
   M3508 &operator=(const M3508 &) = delete;
 
-  void SetCurrent(int16_t current);
+  void SetCurrent(int16_t current, bool push_message = true);
 };
 
 }  // namespace irobot_ec::components::motor

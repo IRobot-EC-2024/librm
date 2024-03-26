@@ -16,19 +16,19 @@
 //----------------------------------------------------------------------------------------------------
 // Variable declaration
 
-extern volatile float twoKp;            // 2 * proportional gain (Kp)
-extern volatile float twoKi;            // 2 * integral gain (Ki)
-extern volatile float q0, q1, q2, q3;    // quaternion of sensor frame relative to auxiliary frame
+extern volatile float twoKp;           // 2 * proportional gain (Kp)
+extern volatile float twoKi;           // 2 * integral gain (Ki)
+extern volatile float q0, q1, q2, q3;  // quaternion of sensor frame relative to auxiliary frame
 
 //---------------------------------------------------------------------------------------------------
 // Function declarations
 
-void
-MahonyAHRSupdate(float q[4], float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz);
+void MahonyAHRSupdate(float q[4], float gx, float gy, float gz, float ax, float ay, float az, float mx, float my,
+                      float mz);
 
 void MahonyAHRSupdateIMU(float q[4], float gx, float gy, float gz, float ax, float ay, float az);
 
-#endif // EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
+#endif  // EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
 //=====================================================================================================
 // End of file
 //=====================================================================================================

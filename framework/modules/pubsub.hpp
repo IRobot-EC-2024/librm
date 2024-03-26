@@ -59,10 +59,9 @@ class PublisherBase {
  * @param  subscriber  订阅者对象
  */
 template <typename MessageType>
-void irobot_ec::modules::pub_sub::PublisherBase<
-    MessageType>::RegisterSubscriber(SubscriberBase<MessageType> &subscriber) {
-  if (std::find(this->subscribers_.begin(), this->subscribers_.end(),
-                &subscriber) == this->subscribers_.end()) {
+void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::RegisterSubscriber(
+    SubscriberBase<MessageType> &subscriber) {
+  if (std::find(this->subscribers_.begin(), this->subscribers_.end(), &subscriber) == this->subscribers_.end()) {
     this->subscribers_.push_back(&subscriber);
   }
 }
@@ -73,10 +72,9 @@ void irobot_ec::modules::pub_sub::PublisherBase<
  * @param  subscriber  订阅者对象
  */
 template <typename MessageType>
-void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::
-    UnregisterSubscriber(SubscriberBase<MessageType> &subscriber) {
-  auto it = std::find(this->subscribers_.begin(), this->subscribers_.end(),
-                      &subscriber);
+void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::UnregisterSubscriber(
+    SubscriberBase<MessageType> &subscriber) {
+  auto it = std::find(this->subscribers_.begin(), this->subscribers_.end(), &subscriber);
   if (it != this->subscribers_.end()) {
     this->subscribers_.erase(it);
   }
@@ -88,8 +86,7 @@ void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::
  * @param  message     消息对象
  */
 template <typename MessageType>
-void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::Publish(
-    const MessageType &message) {
+void irobot_ec::modules::pub_sub::PublisherBase<MessageType>::Publish(const MessageType &message) {
   for (const auto &subscriber : this->subscribers_) {
     subscriber->RxCallback(message);
   }

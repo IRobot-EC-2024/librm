@@ -30,8 +30,7 @@ class UARTEndpointBase {
   DMA_HandleTypeDef *hdma_rx_;
 
  private:
-  static std::unordered_map<UART_HandleTypeDef *, UARTEndpointBase *>
-      endpoint_map_;
+  static std::unordered_map<UART_HandleTypeDef *, UARTEndpointBase *> endpoint_map_;
 };
 
 }  // namespace irobot_ec::hal::uart

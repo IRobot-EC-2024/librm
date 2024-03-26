@@ -18,6 +18,6 @@ enum class Exception {
 
 void ThrowException(Exception e);
 
-}  // namespace irobot_ec::modules::exceptions
+}  // namespace irobot_ec::modules::exception
 
 #endif

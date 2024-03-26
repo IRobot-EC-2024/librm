@@ -4,10 +4,15 @@
 
 #include "hal_wrapper/hal_config.h"
 
-#if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && \
-    defined(STM32F407xx)
+#if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && defined(STM32F407xx)
 
-namespace irobot_ec::bsp::dji_devboard_c::ins {}
+namespace irobot_ec::bsp::dji_devboard_c::ins {
+
+class ins {
+ public:
+};
+
+}  // namespace irobot_ec::bsp::dji_devboard_c::ins
 
 #endif
 

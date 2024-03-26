@@ -33,6 +33,7 @@ class CanDeviceBase {
 
  public:
   ~CanDeviceBase();
+  CanDeviceBase() = default;
   CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id);
 
   virtual void RxCallback(CanRxMsg *msg) = 0;
@@ -47,9 +48,7 @@ class CanDeviceBase {
 
  private:
   // <hcan, <rx_std_id, device>>
-  static std::unordered_map<CAN_HandleTypeDef *,
-                            std::unordered_map<uint32_t, CanDeviceBase *>>
-      device_map_;
+  static std::unordered_map<CAN_HandleTypeDef *, std::unordered_map<uint32_t, CanDeviceBase *>> device_map_;
 };
 
 }  // namespace irobot_ec::hal::can

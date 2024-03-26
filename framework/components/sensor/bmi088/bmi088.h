@@ -1,6 +1,6 @@
 
-#ifndef EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H_
-#define EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H_
+#ifndef EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
+#define EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 
 #include "hal_wrapper/hal_config.h"
 
@@ -35,8 +35,8 @@ class BMI088 {
  public:
   BMI088() = delete;
   ~BMI088() = default;
-  BMI088(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin, GPIO_TypeDef *cs1_gyro_gpio_port,
-         uint16_t cs1_gyro_pin);
+  BMI088(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
+         GPIO_TypeDef *cs1_gyro_gpio_port, uint16_t cs1_gyro_pin);
 
   // no copy
   BMI088(const BMI088 &) = delete;
@@ -92,4 +92,4 @@ class BMI088 {
 
 #endif  // HAL_SPI_MODULE_ENABLED
 
-#endif  // EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H_
+#endif  // EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H

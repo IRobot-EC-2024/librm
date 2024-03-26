@@ -14,7 +14,7 @@
 #include <type_traits>
 #include <typeinfo>
 
-#include "modules/exceptions/exceptions.h"
+#include "modules/exception/exception.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::modules {
@@ -64,8 +64,7 @@ void irobot_ec::modules::SerialPlotter::Update() {
 
   this->buffer_.clear();
 
-  for (auto it = this->variable_list_.begin(); it != this->variable_list_.end();
-       it++) {
+  for (auto it = this->variable_list_.begin(); it != this->variable_list_.end(); it++) {
     ::std::stringstream ss;
 
     if (it->first == typeid(int8_t)) {
@@ -104,9 +103,7 @@ void irobot_ec::modules::SerialPlotter::Update() {
  * @brief   获取缓冲区指针
  * @return  缓冲区指针
  */
-const ::std::string *irobot_ec::modules::SerialPlotter::buffer() const {
-  return &this->buffer_;
-}
+const ::std::string *irobot_ec::modules::SerialPlotter::buffer() const { return &this->buffer_; }
 
 /**
  * @brief   向绘图器注册一个变量
@@ -116,11 +113,10 @@ const ::std::string *irobot_ec::modules::SerialPlotter::buffer() const {
 template <typename T>
 void irobot_ec::modules::SerialPlotter::AddVariable(T *variable) {
   // 如果变量已经添加过，就不添加，直接返回
-  if (::std::find_if(
-          this->variable_list_.begin(), this->variable_list_.end(),
-          [variable](const ::std::pair<::std::type_info, void *> &pair) {
-            return pair.second == variable;
-          }) != this->variable_list_.end()) {
+  if (::std::find_if(this->variable_list_.begin(), this->variable_list_.end(),
+                     [variable](const ::std::pair<::std::type_info, void *> &pair) {
+                       return pair.second == variable;
+                     }) != this->variable_list_.end()) {
     return;
   }
 
@@ -128,8 +124,7 @@ void irobot_ec::modules::SerialPlotter::AddVariable(T *variable) {
   if (::std::is_fundamental<T>::value) {
     this->variable_list_.emplace_back(typeid(T), variable);
   } else {
-    irobot_ec::modules::exceptions::ThrowException(
-        irobot_ec::modules::exceptions::Exception::kTypeError);
+    irobot_ec::modules::exception::ThrowException(irobot_ec::modules::exception::Exception::kTypeError);
   }
 }
 
@@ -139,9 +134,7 @@ void irobot_ec::modules::SerialPlotter::AddVariable(T *variable) {
  */
 void irobot_ec::modules::SerialPlotter::RemoveVariable(void *variable) {
   this->variable_list_.remove_if(
-      [variable](const ::std::pair<::std::type_info, void *> &pair) {
-        return pair.second == variable;
-      });
+      [variable](const ::std::pair<::std::type_info, void *> &pair) { return pair.second == variable; });
 }
 
 #endif  // EC_LIB_MODULES_SERIAL_PLOTTER_HPP
