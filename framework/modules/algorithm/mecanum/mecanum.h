@@ -32,8 +32,8 @@ class Mecanum {
   [[nodiscard]] fp32 v_rb() const;
 
  private:
-  fp32 wheel_base_;    // 轮子间距
-  fp32 wheel_track_;   // 轮子轴距
+  fp32 wheel_base_;   // 轮子间距
+  fp32 wheel_track_;  // 轮子轴距
   fp32 speeds_[4];
 };
 
