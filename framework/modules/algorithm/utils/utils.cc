@@ -42,9 +42,7 @@ fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value) {
 fp32 degToRad(fp32 deg) { return deg * M_PI / 180; }
 
 void quatToEuler(const fp32 q[4], fp32 euler[3]) {
-  euler[0] = atan2f(2 * (q[0] * q[1] + q[2] * q[3]),
-                    1 - 2 * (q[1] * q[1] + q[2] * q[2]));
+  euler[0] = atan2f(2 * (q[0] * q[1] + q[2] * q[3]), 1 - 2 * (q[1] * q[1] + q[2] * q[2]));
   euler[1] = asinf(2 * (q[0] * q[2] - q[3] * q[1]));
-  euler[2] = atan2f(2 * (q[0] * q[3] + q[1] * q[2]),
-                    1 - 2 * (q[2] * q[2] + q[3] * q[3]));
+  euler[2] = atan2f(2 * (q[0] * q[3] + q[1] * q[2]), 1 - 2 * (q[2] * q[2] + q[3] * q[3]));
 }
