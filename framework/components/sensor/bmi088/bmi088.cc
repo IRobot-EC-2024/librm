@@ -1,7 +1,13 @@
+/**
+* @file    components/sensor/bmi088/bmi088.cc
+* @brief   BMI088传感器类
+*/
 
 #include "hal_wrapper/hal_config.h"
 
 #ifdef HAL_SPI_MODULE_ENABLED
+
+#include <vector>
 
 #include "bmi088.h"
 #include "bmi088_const.hpp"
@@ -10,7 +16,11 @@
 using irobot_ec::bsp::BspFactory;
 using namespace irobot_ec::components::sensor;
 
-constexpr static uint8_t write_BMI088_accel_reg_data_error[BMI088_WRITE_ACCEL_REG_NUM][3] = {
+/**
+ * @brief BMI088加速度计初始化序列
+ * @note  顺序：寄存器地址，写入值，错误码
+ */
+const static std::vector<std::vector<uint8_t>> BMI088_ACCEL_INIT_SEQUENCE = {
     {BMI088_ACC_PWR_CTRL, BMI088_ACC_ENABLE_ACC_ON, static_cast<uint8_t>(BMI088Status::ACC_PWR_CTRL_ERROR)},
     {BMI088_ACC_PWR_CONF, BMI088_ACC_PWR_ACTIVE_MODE, static_cast<uint8_t>(BMI088Status::ACC_PWR_CONF_ERROR)},
     {BMI088_ACC_CONF, BMI088_ACC_NORMAL | BMI088_ACC_800_HZ | BMI088_ACC_CONF_MUST_Set,
@@ -20,7 +30,11 @@ constexpr static uint8_t write_BMI088_accel_reg_data_error[BMI088_WRITE_ACCEL_RE
      static_cast<uint8_t>(BMI088Status::INT1_IO_CTRL_ERROR)},
     {BMI088_INT_MAP_DATA, BMI088_ACC_INT1_DRDY_INTERRUPT, static_cast<uint8_t>(BMI088Status::INT_MAP_DATA_ERROR)}};
 
-constexpr static uint8_t write_BMI088_gyro_reg_data_error[BMI088_WRITE_GYRO_REG_NUM][3] = {
+/**
+ * @brief BMI088陀螺仪初始化序列
+ * @note  顺序：寄存器地址，写入值，错误码
+ */
+const static std::vector<std::vector<uint8_t>> BMI088_GYRO_INIT_SEQUENCE = {
     {BMI088_GYRO_RANGE, BMI088_GYRO_2000, static_cast<uint8_t>(BMI088Status::GYRO_RANGE_ERROR)},
     {BMI088_GYRO_BANDWIDTH, BMI088_GYRO_1000_116_HZ | BMI088_GYRO_BANDWIDTH_MUST_SET,
      static_cast<uint8_t>(BMI088Status::GYRO_BANDWIDTH_ERROR)},
@@ -31,201 +45,135 @@ constexpr static uint8_t write_BMI088_gyro_reg_data_error[BMI088_WRITE_GYRO_REG_
     {BMI088_GYRO_INT3_INT4_IO_MAP, BMI088_GYRO_DRDY_IO_INT3,
      static_cast<uint8_t>(BMI088Status::GYRO_INT3_INT4_IO_MAP_ERROR)}};
 
-BMI088::BMI088(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
+/**
+ * @param hspi                  SPI外设句柄
+ * @param cs1_accel_gpio_port   加速度计片选引脚所在GPIO端口
+ * @param cs1_accel_pin         加速度计片选引脚编号
+ * @param cs1_gyro_gpio_port    陀螺仪片选引脚所在GPIO端口
+ * @param cs1_gyro_pin          陀螺仪片选引脚编号
+ */
+BMI088::BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
                GPIO_TypeDef *cs1_gyro_gpio_port, uint16_t cs1_gyro_pin)
-    : hspi_(hspi),
-      cs1_accel_gpio_port_(cs1_accel_gpio_port),
-      cs1_accel_pin_(cs1_accel_pin),
-      cs1_gyro_gpio_port_(cs1_gyro_gpio_port),
-      cs1_gyro_pin_(cs1_gyro_pin) {
+    : accel_device_(hspi, cs1_accel_gpio_port, cs1_accel_pin), gyro_device_(hspi, cs1_gyro_gpio_port, cs1_gyro_pin) {
   this->InitGyroscope();
   this->InitAccelerometer();
 }
 
+/**
+ * @brief 初始化加速度计
+ */
 void BMI088::InitAccelerometer() {
-  uint8_t res = 0;
-  uint8_t write_reg_num = 0;
-
-  // check communication
-  this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
+  // 检查通信是否正常
+  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
-  this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
+  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
-  // accel software reset
-  this->AccWriteByte(BMI088_ACC_SOFTRESET, BMI088_ACC_SOFTRESET_VALUE);
+  // soft reset一次
+  this->accel_device_.WriteByte(BMI088_ACC_SOFTRESET, BMI088_ACC_SOFTRESET_VALUE);
   BspFactory::GetDelay().DelayMs(BMI088_LONG_DELAY_TIME);
 
-  // check communication is normal after reset
-  this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
+  // 再次检查通信是否正常
+  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
-  this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
+  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
-  // check the "who am I"
-  if (res != BMI088_ACC_CHIP_ID_VALUE) {
+  // 检查"who am I"寄存器值是否正确
+  if (accel_device_.single_byte_buffer() != BMI088_ACC_CHIP_ID_VALUE) {
     this->status_ = BMI088Status::NO_SENSOR;
   }
 
-  // set accel sensor config and check
-  for (write_reg_num = 0; write_reg_num < BMI088_WRITE_ACCEL_REG_NUM; write_reg_num++) {
-    this->AccWriteByte(write_BMI088_accel_reg_data_error[write_reg_num][0],
-                       write_BMI088_accel_reg_data_error[write_reg_num][1]);
+  // 发送初始化序列，有错误则设置status为对应错误码
+  for (const auto &operation : BMI088_ACCEL_INIT_SEQUENCE) {
+    this->accel_device_.WriteByte(operation[0], operation[1]);
+    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+    this->accel_device_.ReadByte(operation[0]);
     BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
-    this->AccReadByte(write_BMI088_accel_reg_data_error[write_reg_num][0], &res);
-    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
-
-    if (res != write_BMI088_accel_reg_data_error[write_reg_num][1]) {
-      this->status_ = (BMI088Status)write_BMI088_accel_reg_data_error[write_reg_num][2];
+    if (accel_device_.single_byte_buffer() != operation[1]) {
+      this->status_ = (BMI088Status)operation[2];
     }
   }
   this->status_ = BMI088Status::NO_ERROR;
 }
 
+/**
+ * @brief 初始化陀螺仪
+ */
 void BMI088::InitGyroscope() {
-  uint8_t write_reg_num = 0;
-  uint8_t res = 0;
-
-  // check communication
-  this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
+  // 检查通信是否正常
+  this->gyro_device_.ReadByte(BMI088_GYRO_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
-  this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
+  this->gyro_device_.ReadByte(BMI088_GYRO_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
-  // reset the gyro sensor
-  this->GyroWriteByte(BMI088_GYRO_SOFTRESET, BMI088_GYRO_SOFTRESET_VALUE);
+  // soft reset一次
+  this->gyro_device_.WriteByte(BMI088_GYRO_SOFTRESET, BMI088_GYRO_SOFTRESET_VALUE);
   BspFactory::GetDelay().DelayMs(BMI088_LONG_DELAY_TIME);
 
-  // check communication is normal after reset
-  this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
+  // 再次检查通信是否正常
+  this->gyro_device_.ReadByte(BMI088_GYRO_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
-  this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
+  this->gyro_device_.ReadByte(BMI088_GYRO_CHIP_ID);
   BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
-  // check the "who am I"
-  if (res != BMI088_GYRO_CHIP_ID_VALUE) {
+  // 检查"who am I"寄存器值是否正确
+  if (gyro_device_.single_byte_buffer() != BMI088_GYRO_CHIP_ID_VALUE) {
     this->status_ = BMI088Status::NO_SENSOR;
   }
 
-  // set gyro sensor config and check
-  for (write_reg_num = 0; write_reg_num < BMI088_WRITE_GYRO_REG_NUM; write_reg_num++) {
-    this->GyroWriteByte(write_BMI088_gyro_reg_data_error[write_reg_num][0],
-                        write_BMI088_gyro_reg_data_error[write_reg_num][1]);
+  // 发送初始化序列，有错误则设置status为对应错误码
+  for (const auto &operation : BMI088_GYRO_INIT_SEQUENCE) {
+    this->gyro_device_.WriteByte(operation[0], operation[1]);
+    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+    this->gyro_device_.ReadByte(operation[0]);
     BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
-    this->GyroReadByte(write_BMI088_gyro_reg_data_error[write_reg_num][0], &res);
-    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
-
-    if (res != write_BMI088_gyro_reg_data_error[write_reg_num][1]) {
-      this->status_ = (BMI088Status)write_BMI088_gyro_reg_data_error[write_reg_num][2];
+    if (gyro_device_.single_byte_buffer() != operation[1]) {
+      this->status_ = (BMI088Status)operation[2];
     }
   }
 
   this->status_ = BMI088Status::NO_ERROR;
 }
 
+/**
+ * @brief 更新传感器数据
+ */
 void BMI088::Update() {
-  uint8_t buf[8];
-  int16_t bmi088_raw_temp;
+  const uint8_t *buf = this->accel_device_.buffer();
 
-  this->AccReadBytes(BMI088_ACCEL_XOUT_L, buf, 6);
+  this->accel_device_.ReadBytes(BMI088_ACCEL_XOUT_L, 6);
+  this->accel_[0] = ((int16_t)((buf[1]) << 8) | buf[0]) * BMI088_ACCEL_SENSITIVITY[(uint8_t)this->accel_range_];
+  this->accel_[1] = ((int16_t)((buf[3]) << 8) | buf[2]) * BMI088_ACCEL_SENSITIVITY[(uint8_t)this->accel_range_];
+  this->accel_[2] = ((int16_t)((buf[5]) << 8) | buf[4]) * BMI088_ACCEL_SENSITIVITY[(uint8_t)this->accel_range_];
 
-  bmi088_raw_temp = (int16_t)((buf[1]) << 8) | buf[0];
-  this->accel_[0] = bmi088_raw_temp * this->accel_sen_;
-  bmi088_raw_temp = (int16_t)((buf[3]) << 8) | buf[2];
-  this->accel_[1] = bmi088_raw_temp * this->accel_sen_;
-  bmi088_raw_temp = (int16_t)((buf[5]) << 8) | buf[4];
-  this->accel_[2] = bmi088_raw_temp * this->accel_sen_;
-
-  this->GyroReadBytes(BMI088_GYRO_CHIP_ID, buf, 8);
+  this->gyro_device_.ReadBytes(BMI088_GYRO_CHIP_ID, 8);
   if (buf[0] == BMI088_GYRO_CHIP_ID_VALUE) {
-    bmi088_raw_temp = (int16_t)((buf[3]) << 8) | buf[2];
-    this->gyro_[0] = bmi088_raw_temp * this->gyro_sen_;
-    bmi088_raw_temp = (int16_t)((buf[5]) << 8) | buf[4];
-    this->gyro_[1] = bmi088_raw_temp * this->gyro_sen_;
-    bmi088_raw_temp = (int16_t)((buf[7]) << 8) | buf[6];
-    this->gyro_[2] = bmi088_raw_temp * this->gyro_sen_;
+    this->gyro_[0] = ((int16_t)((buf[3]) << 8) | buf[2]) * BMI088_GYRO_SENSITIVITY[(uint8_t)this->gyro_range_];
+    this->gyro_[1] = ((int16_t)((buf[5]) << 8) | buf[4]) * BMI088_GYRO_SENSITIVITY[(uint8_t)this->gyro_range_];
+    this->gyro_[2] = ((int16_t)((buf[7]) << 8) | buf[6]) * BMI088_GYRO_SENSITIVITY[(uint8_t)this->gyro_range_];
   }
-  this->AccReadBytes(BMI088_TEMP_M, buf, 2);
+  this->accel_device_.ReadBytes(BMI088_TEMP_M, 2);
 
-  bmi088_raw_temp = (int16_t)((buf[0] << 3) | (buf[1] >> 5));
-
+  auto bmi088_raw_temp = (int16_t)((buf[0] << 3) | (buf[1] >> 5));
   if (bmi088_raw_temp > 1023) {
     bmi088_raw_temp -= 2048;
   }
-
   this->temperature_ = bmi088_raw_temp * BMI088_TEMP_FACTOR + BMI088_TEMP_OFFSET;
 }
 
-inline void BMI088::AccelCSHigh() { HAL_GPIO_WritePin(this->cs1_accel_gpio_port_, this->cs1_accel_pin_, GPIO_PIN_SET); }
-
-inline void BMI088::AccelCSLow() {
-  HAL_GPIO_WritePin(this->cs1_accel_gpio_port_, this->cs1_accel_pin_, GPIO_PIN_RESET);
-}
-
-inline void BMI088::GyroCSHigh() { HAL_GPIO_WritePin(this->cs1_gyro_gpio_port_, this->cs1_gyro_pin_, GPIO_PIN_SET); }
-
-inline void BMI088::GyroCSLow() { HAL_GPIO_WritePin(this->cs1_gyro_gpio_port_, this->cs1_gyro_pin_, GPIO_PIN_RESET); }
-
-void BMI088::ReadWriteByte(uint8_t tx_data) {
-  HAL_SPI_TransmitReceive(this->hspi_, &tx_data, &this->read_byte_buffer_, 1, 1000);
-}
-
-void BMI088::ReadWriteBytes(uint8_t reg, uint8_t *buf, uint8_t len) {
-  this->ReadWriteByte(reg | 0x80);
-
-  while (len != 0) {
-    this->ReadWriteByte(0x55);
-    *buf = this->read_byte_buffer_;
-    buf++;
-    len--;
-  }
-}
-
+/**
+ * @brief   获取传感器状态
+ * @return  传感器状态
+ */
 BMI088Status BMI088::GetStatus() const { return this->status_; }
+
+/**
+ * @brief   获取传感器温度
+ * @return  传感器温度
+ */
 fp32 BMI088::GetTemperature() const { return this->temperature_; }
-
-void BMI088::AccWriteByte(uint8_t reg, uint8_t data) {
-  this->AccelCSLow();
-  this->ReadWriteByte(reg);
-  this->ReadWriteByte(data);
-  this->AccelCSHigh();
-}
-
-void BMI088::AccReadByte(uint8_t reg, uint8_t *data) {
-  this->AccelCSLow();
-  this->ReadWriteByte(reg | 0x80);
-  this->ReadWriteByte(0x55);
-  this->AccelCSHigh();
-}
-
-void BMI088::AccReadBytes(uint8_t reg, uint8_t *data, uint8_t len) {
-  this->AccelCSLow();
-  this->ReadWriteByte(reg | 0x80);
-  this->ReadWriteBytes(reg, data, len);
-  this->AccelCSHigh();
-}
-
-void BMI088::GyroWriteByte(uint8_t reg, uint8_t data) {
-  this->GyroCSLow();
-  this->ReadWriteByte(reg);
-  this->ReadWriteByte(data);
-  this->GyroCSHigh();
-}
-
-void BMI088::GyroReadByte(uint8_t reg, uint8_t *data) {
-  this->GyroCSLow();
-  this->ReadWriteByte(reg | 0x80);
-  this->ReadWriteByte(0x55);
-  *data = this->read_byte_buffer_;
-  this->GyroCSHigh();
-}
-
-void BMI088::GyroReadBytes(uint8_t reg, uint8_t *data, uint8_t len) {
-  this->GyroCSLow();
-  this->ReadWriteBytes(reg, data, len);
-  this->GyroCSHigh();
-}
 
 #endif

@@ -1,3 +1,7 @@
+/**
+ * @file    components/sensor/bmi088/bmi088.h
+ * @brief   BMI088传感器类
+ */
 
 #ifndef EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 #define EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
@@ -6,10 +10,14 @@
 
 #ifdef HAL_SPI_MODULE_ENABLED
 
+#include "hal_wrapper/hal_spi.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components::sensor {
 
+/**
+ * @brief BMI088传感器状态
+ */
 enum class BMI088Status : uint8_t {
   NO_ERROR = 0x00,
   ACC_PWR_CTRL_ERROR = 0x01,
@@ -31,11 +39,35 @@ enum class BMI088Status : uint8_t {
   NO_SENSOR = 0xFF,
 };
 
+/**
+ * @brief BMI088陀螺仪量程
+ */
+enum class BMI088GyroRange : uint8_t {
+  GYRO_2000 = 0u,
+  GYRO_1000 = 1u,
+  GYRO_500 = 2u,
+  GYRO_250 = 3u,
+  GYRO_125 = 4u,
+};
+
+/**
+ * @brief BMI088加速度计量程
+ */
+enum class BMI088AccelRange : uint8_t {
+  ACC_RANGE_3G = 0u,
+  ACC_RANGE_6G = 1u,
+  ACC_RANGE_12G = 2u,
+  ACC_RANGE_24G = 3u,
+};
+
+/**
+ * @brief BMI088传感器类
+ */
 class BMI088 {
  public:
   BMI088() = delete;
   ~BMI088() = default;
-  BMI088(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
+  BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
          GPIO_TypeDef *cs1_gyro_gpio_port, uint16_t cs1_gyro_pin);
 
   // no copy
@@ -44,47 +76,23 @@ class BMI088 {
 
   void Update();
   [[nodiscard]] fp32 GetTemperature() const;
+  [[nodiscard]] BMI088Status GetStatus() const;
 
  private:
   void InitAccelerometer();
   void InitGyroscope();
 
-  inline void AccelCSLow();
-  inline void AccelCSHigh();
-  inline void GyroCSLow();
-  inline void GyroCSHigh();
+  hal::SpiDeviceBase accel_device_;
+  hal::SpiDeviceBase gyro_device_;
 
-  void ReadWriteByte(uint8_t tx_data);
-  void ReadWriteBytes(uint8_t reg, uint8_t *buf, uint8_t len);
-  [[nodiscard]] BMI088Status GetStatus() const;
-
-  void AccWriteByte(uint8_t reg, uint8_t data);
-  void AccReadByte(uint8_t reg, uint8_t *data);
-  void AccReadBytes(uint8_t reg, uint8_t *data, uint8_t len);
-  void GyroWriteByte(uint8_t reg, uint8_t data);
-  void GyroReadByte(uint8_t reg, uint8_t *data);
-  void GyroReadBytes(uint8_t reg, uint8_t *data, uint8_t len);
-
- private:
-  GPIO_TypeDef *cs1_accel_gpio_port_;
-  uint16_t cs1_accel_pin_;
-  GPIO_TypeDef *cs1_gyro_gpio_port_;
-  uint16_t cs1_gyro_pin_;
-  SPI_HandleTypeDef *hspi_;
-
-  uint8_t read_byte_buffer_;
   BMI088Status status_{BMI088Status::NO_SENSOR};
-
-  fp32 gyro_sen_{0.00106526443603169529841533860381f};
-  fp32 accel_sen_{0.0008974358974f};
-
-  uint8_t rx_buffer_[8]{0};
+  BMI088GyroRange gyro_range_{BMI088GyroRange::GYRO_2000};
+  BMI088AccelRange accel_range_{BMI088AccelRange::ACC_RANGE_3G};
 
   fp32 gyro_[3]{0};
   fp32 accel_[3]{0};
   fp32 temperature_{};
 };
-
 }  // namespace irobot_ec::components::sensor
 
 #endif  // HAL_SPI_MODULE_ENABLED
