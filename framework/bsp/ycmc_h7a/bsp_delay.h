@@ -4,7 +4,7 @@
 
 #include "hal_wrapper/hal.h"
 
-#if defined(STM32F723xx)
+#if defined(STM32H723xx)
 
 #include "bsp/interface/bsp_delay_interface.h"
 #include "modules/typedefs.h"

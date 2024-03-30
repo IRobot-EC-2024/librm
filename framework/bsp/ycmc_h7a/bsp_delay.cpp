@@ -1,7 +1,7 @@
 
 #include "hal_wrapper/hal.h"
 
-#if defined(STM32F723xx)
+#if defined(STM32H723xx)
 
 #include "bsp_delay.h"
 

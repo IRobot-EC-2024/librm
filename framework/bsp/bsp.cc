@@ -14,7 +14,7 @@ namespace irobot_ec::bsp {
 DelayInterface &BspFactory::GetDelay() {
 #if defined(STM32F407xx)  // 大疆c板
   return dji_devboard_c::Delay::GetInstance();
-#elif defined(STM32F723xx)  // YCMC-H7A
+#elif defined(STM32H723xx)  // YCMC-H7A
   return ycmc_h7a::Delay::GetInstance();
 #else
   return nullptr;
