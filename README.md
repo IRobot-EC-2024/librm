@@ -31,23 +31,23 @@ doxygen ./Doxyfile
 
 - `framework/`
 
-  - [ ] `bsp/`：板级支持包
+  - `bsp/`：板级支持包
     - [ ] `dji_devboard_c/`：大疆C板
     - [ ] `dm_h7/`：DM-H7开发板
 
   - [ ] `components/`：组件，指各种设备的抽象封装
-    - [ ] `motor/`：电机
+    - `motor/`：电机
       - [x] `dji/`：大疆电机
       - [ ] `unitree/`：宇树电机
-    - [ ] `sensor/`：传感器
+    - `sensor/`：传感器
       - [ ] `icm42688p`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
-      - [ ] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
-      - [ ] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
+      - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
+      - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
   
   - [ ] `hal_wrapper/`：HAL库的类封装
 
-  - [ ] `modules/`：模块，指软件功能模块
-    - [ ] `algorithm/`：算法
+  - `modules/`：模块，指软件功能模块
+    - `algorithm/`：算法
       - [x] `mecanum/`：麦轮运动学解算
       - [x] `mahony/`：Mahony姿态解算
       - [x] `pid/`：PID控制器
