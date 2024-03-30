@@ -6,13 +6,30 @@
 
 #if defined(HAL_TIM_MODULE_ENABLED) && defined(STM32F407xx)
 
+#include "bsp/interface/bsp_delay_interface.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
 
-void delayUs(uint16_t us);
+/**
+ * @brief 延时功能实现
+ * @note  单例类，不能实例化，使用时通过bsp工厂获取实例
+ */
+class Delay : public DelayInterface {
+ public:
+  // 禁止实例化
+  Delay(const Delay &) = delete;
+  Delay &operator=(const Delay &) = delete;
 
-void delayMs(uint16_t ms);
+  void DelayUs(uint32_t us) override;
+  void DelayMs(uint32_t ms) override;
+
+  static Delay &GetInstance();
+
+ private:
+  Delay() = default;
+  ~Delay() = default;
+};
 
 }  // namespace irobot_ec::bsp::dji_devboard_c
 

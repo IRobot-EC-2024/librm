@@ -4,8 +4,10 @@
 #ifdef HAL_SPI_MODULE_ENABLED
 
 #include "bmi088.h"
-#include "bmi088_const.h"
+#include "bmi088_const.hpp"
+#include "bsp/bsp.h"
 
+using irobot_ec::bsp::BspFactory;
 using namespace irobot_ec::components::sensor;
 
 constexpr static uint8_t write_BMI088_accel_reg_data_error[BMI088_WRITE_ACCEL_REG_NUM][3] = {
@@ -16,9 +18,7 @@ constexpr static uint8_t write_BMI088_accel_reg_data_error[BMI088_WRITE_ACCEL_RE
     {BMI088_ACC_RANGE, BMI088_ACC_RANGE_3G, static_cast<uint8_t>(BMI088Status::ACC_RANGE_ERROR)},
     {BMI088_INT1_IO_CTRL, BMI088_ACC_INT1_IO_ENABLE | BMI088_ACC_INT1_GPIO_PP | BMI088_ACC_INT1_GPIO_LOW,
      static_cast<uint8_t>(BMI088Status::INT1_IO_CTRL_ERROR)},
-    {BMI088_INT_MAP_DATA, BMI088_ACC_INT1_DRDY_INTERRUPT, static_cast<uint8_t>(BMI088Status::INT_MAP_DATA_ERROR)}
-
-};
+    {BMI088_INT_MAP_DATA, BMI088_ACC_INT1_DRDY_INTERRUPT, static_cast<uint8_t>(BMI088Status::INT_MAP_DATA_ERROR)}};
 
 constexpr static uint8_t write_BMI088_gyro_reg_data_error[BMI088_WRITE_GYRO_REG_NUM][3] = {
     {BMI088_GYRO_RANGE, BMI088_GYRO_2000, static_cast<uint8_t>(BMI088Status::GYRO_RANGE_ERROR)},
@@ -42,56 +42,25 @@ BMI088::BMI088(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint1
   this->InitAccelerometer();
 }
 
-void BMI088::DelayUs(uint16_t us) {
-  uint32_t ticks = 0;
-  uint32_t t_old = 0;
-  uint32_t t_now = 0;
-  uint32_t t_cnt = 0;
-  uint32_t reload = 0;
-  reload = SysTick->LOAD;
-  ticks = us * 168;
-  t_old = SysTick->VAL;
-  while (true) {
-    t_now = SysTick->VAL;
-    if (t_now != t_old) {
-      if (t_now < t_old) {
-        t_cnt += t_old - t_now;
-      } else {
-        t_cnt += reload - t_now + t_old;
-      }
-      t_old = t_now;
-      if (t_cnt >= ticks) {
-        break;
-      }
-    }
-  }
-}
-
-void BMI088::DelayMs(uint16_t ms) {
-  while (ms--) {
-    BMI088::DelayUs(1000);
-  }
-}
-
 void BMI088::InitAccelerometer() {
   uint8_t res = 0;
   uint8_t write_reg_num = 0;
 
   // check communication
   this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
   this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
   // accel software reset
   this->AccWriteByte(BMI088_ACC_SOFTRESET, BMI088_ACC_SOFTRESET_VALUE);
-  BMI088::DelayMs(BMI088_LONG_DELAY_TIME);
+  BspFactory::GetDelay().DelayMs(BMI088_LONG_DELAY_TIME);
 
   // check communication is normal after reset
   this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
   this->AccReadByte(BMI088_ACC_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
   // check the "who am I"
   if (res != BMI088_ACC_CHIP_ID_VALUE) {
@@ -102,10 +71,10 @@ void BMI088::InitAccelerometer() {
   for (write_reg_num = 0; write_reg_num < BMI088_WRITE_ACCEL_REG_NUM; write_reg_num++) {
     this->AccWriteByte(write_BMI088_accel_reg_data_error[write_reg_num][0],
                        write_BMI088_accel_reg_data_error[write_reg_num][1]);
-    BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
     this->AccReadByte(write_BMI088_accel_reg_data_error[write_reg_num][0], &res);
-    BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
     if (res != write_BMI088_accel_reg_data_error[write_reg_num][1]) {
       this->status_ = (BMI088Status)write_BMI088_accel_reg_data_error[write_reg_num][2];
@@ -120,19 +89,19 @@ void BMI088::InitGyroscope() {
 
   // check communication
   this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
   this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
   // reset the gyro sensor
   this->GyroWriteByte(BMI088_GYRO_SOFTRESET, BMI088_GYRO_SOFTRESET_VALUE);
-  BMI088::DelayMs(BMI088_LONG_DELAY_TIME);
+  BspFactory::GetDelay().DelayMs(BMI088_LONG_DELAY_TIME);
 
   // check communication is normal after reset
   this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
   this->GyroReadByte(BMI088_GYRO_CHIP_ID, &res);
-  BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+  BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
   // check the "who am I"
   if (res != BMI088_GYRO_CHIP_ID_VALUE) {
@@ -143,10 +112,10 @@ void BMI088::InitGyroscope() {
   for (write_reg_num = 0; write_reg_num < BMI088_WRITE_GYRO_REG_NUM; write_reg_num++) {
     this->GyroWriteByte(write_BMI088_gyro_reg_data_error[write_reg_num][0],
                         write_BMI088_gyro_reg_data_error[write_reg_num][1]);
-    BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
     this->GyroReadByte(write_BMI088_gyro_reg_data_error[write_reg_num][0], &res);
-    BMI088::DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
+    BspFactory::GetDelay().DelayUs(BMI088_COM_WAIT_SENSOR_TIME);
 
     if (res != write_BMI088_gyro_reg_data_error[write_reg_num][1]) {
       this->status_ = (BMI088Status)write_BMI088_gyro_reg_data_error[write_reg_num][2];

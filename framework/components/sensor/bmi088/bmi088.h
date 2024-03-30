@@ -49,9 +49,6 @@ class BMI088 {
   void InitAccelerometer();
   void InitGyroscope();
 
-  static void DelayMs(uint16_t ms);
-  static void DelayUs(uint16_t us);
-
   inline void AccelCSLow();
   inline void AccelCSHigh();
   inline void GyroCSLow();
