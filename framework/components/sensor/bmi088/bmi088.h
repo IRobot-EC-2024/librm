@@ -10,7 +10,7 @@
 
 #ifdef HAL_SPI_MODULE_ENABLED
 
-#include "hal_wrapper/hal_spi.h"
+#include "hal_wrapper/spi_device.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components::sensor {

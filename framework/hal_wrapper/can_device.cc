@@ -8,7 +8,7 @@
 
 #ifdef HAL_CAN_MODULE_ENABLED
 
-#include "hal_can.h"
+#include "can_device.h"
 #include "modules/exception/exception.h"
 
 using namespace irobot_ec::hal::can;

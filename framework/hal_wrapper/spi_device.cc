@@ -3,7 +3,7 @@
  * @brief SPI设备包装类
  */
 
-#include "hal_spi.h"
+#include "spi_device.h"
 
 #include "hal_config.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)

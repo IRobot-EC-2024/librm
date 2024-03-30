@@ -15,7 +15,7 @@
 #include <list>
 #include <unordered_map>
 
-#include "hal_wrapper/hal_can.h"
+#include "hal_wrapper/can_device.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components::motor {

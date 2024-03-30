@@ -1,7 +1,7 @@
 /**
-* @file    components/sensor/bmi088/bmi088.cc
-* @brief   BMI088传感器类
-*/
+ * @file    components/sensor/bmi088/bmi088.cc
+ * @brief   BMI088传感器类
+ */
 
 #include "hal_wrapper/hal_config.h"
 
