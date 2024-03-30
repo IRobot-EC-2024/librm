@@ -3,7 +3,7 @@
  * @brief   BMI088传感器类
  */
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #ifdef HAL_SPI_MODULE_ENABLED
 

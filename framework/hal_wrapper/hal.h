@@ -1,6 +1,6 @@
 /**
- * @file hal_wrapper/hal_config.h
- * @brief 通过引入不同的芯片型号的HAL库配置文件，实现本库的跨平台支持
+ * @file hal_wrapper/hal.h
+ * @brief 根据宏定义引入不同的芯片型号的HAL库
  */
 
 #ifndef EC_LIB_HAL_WRAPPER_HAL_CONFIG_H

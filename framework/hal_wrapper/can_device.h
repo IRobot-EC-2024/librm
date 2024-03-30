@@ -1,13 +1,13 @@
 
 /**
- * @file  bsp/bsp_can.h
- * @brief CAN device c++ wrapper
+ * @file  hal_wrapper/can_device.h
+ * @brief CAN外设包装类
  */
 
 #ifndef EC_LIB_HAL_WRAPPER_HAL_CAN_H
 #define EC_LIB_HAL_WRAPPER_HAL_CAN_H
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #ifdef HAL_CAN_MODULE_ENABLED
 

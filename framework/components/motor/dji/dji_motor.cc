@@ -4,7 +4,7 @@
  * @brief 大疆电机的类封装
  */
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #ifdef HAL_CAN_MODULE_ENABLED
 

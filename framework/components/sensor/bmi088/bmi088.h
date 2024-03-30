@@ -6,7 +6,7 @@
 #ifndef EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 #define EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #ifdef HAL_SPI_MODULE_ENABLED
 

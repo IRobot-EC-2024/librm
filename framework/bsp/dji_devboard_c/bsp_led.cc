@@ -1,5 +1,5 @@
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED) && defined(STM32F407xx)
 

@@ -6,7 +6,7 @@
 #ifndef EC_LIB_HAL_WRAPPER_HAL_SPI_H
 #define EC_LIB_HAL_WRAPPER_HAL_SPI_H
 
-#include "hal_config.h"
+#include "hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
 
 namespace irobot_ec::hal {

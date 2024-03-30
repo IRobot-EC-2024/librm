@@ -10,7 +10,7 @@
 #include "interface/bsp_delay_interface.h"
 
 // 根据宏定义导入不同的bsp实现
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 #ifdef STM32F407xx
 #include "bsp/dji_devboard_c/bsp_delay.h"
 #endif

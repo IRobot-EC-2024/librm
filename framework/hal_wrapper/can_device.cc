@@ -1,10 +1,10 @@
 
 /**
- * @file  bsp/bsp_can.cpp
- * @brief CAN peripheral c++ wrapper implementations
+ * @file  hal_wrapper/can_device.cc
+ * @brief CAN外设包装类
  */
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #ifdef HAL_CAN_MODULE_ENABLED
 

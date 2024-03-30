@@ -2,7 +2,7 @@
 #ifndef EC_LIB_DJI_C_BSP_DELAY_H
 #define EC_LIB_DJI_C_BSP_DELAY_H
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED) && defined(STM32F407xx)
 

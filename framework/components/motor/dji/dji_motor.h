@@ -7,7 +7,7 @@
 #ifndef EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 #define EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #ifdef HAL_CAN_MODULE_ENABLED
 

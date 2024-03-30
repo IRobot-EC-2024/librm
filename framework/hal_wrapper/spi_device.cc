@@ -5,7 +5,7 @@
 
 #include "spi_device.h"
 
-#include "hal_config.h"
+#include "hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
 
 namespace irobot_ec::hal {
