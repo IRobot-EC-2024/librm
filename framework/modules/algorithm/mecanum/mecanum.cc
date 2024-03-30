@@ -1,6 +1,6 @@
 /**
  * @file  modules/algorithm/mecanum/mecanum.cpp
- * @brief 麦轮正运动学结算
+ * @brief 麦轮正运动学解算
  */
 
 #include "mecanum.h"

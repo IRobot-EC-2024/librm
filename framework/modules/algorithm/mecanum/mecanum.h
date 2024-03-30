@@ -1,6 +1,6 @@
 /**
  * @file  modules/algorithm/mecanum/mecanum.h
- * @brief 麦轮正运动学结算
+ * @brief 麦轮正运动学解算
  */
 
 #ifndef EC_LIB_MODULES_ALGORITHM_MECANUM_MECANUM_H
@@ -13,7 +13,7 @@
 namespace irobot_ec::modules::algorithm {
 
 /**
- * @brief 麦轮正运动学结算
+ * @brief 麦轮正运动学解算
  */
 class Mecanum {
  public:
