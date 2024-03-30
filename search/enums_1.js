@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pidtype_330',['PIDType',['../namespacemodules_1_1algorithm_1_1PID.html#af4018e16dba1731f6e2a03fc478120a9',1,'modules::algorithm::PID']]]
+  ['exception_833',['Exception',['../namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828',1,'irobot_ec::modules::exception']]]
 ];

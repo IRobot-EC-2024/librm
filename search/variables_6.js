@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['i_5fout_5f_300',['i_out_',['../classmodules_1_1algorithm_1_1PID_1_1PID.html#a4d7f16f7b6e9acaad688d0ae46aa0ab0',1,'modules::algorithm::PID::PID']]],
-  ['id_5f_301',['id_',['../classcomponents_1_1motor_1_1DjiMotorBase.html#a13aaa8c748191c2d2b43e649b7c20d14',1,'components::motor::DjiMotorBase']]],
-  ['integralfbx_302',['integralFBx',['../mahony__ahrs_8c.html#a2b48b4ae9aed9d3c0e8c8fa8d79c1d81',1,'mahony_ahrs.c']]],
-  ['integralfby_303',['integralFBy',['../mahony__ahrs_8c.html#a0c5b2e1e789d0149df9c996705a194f4',1,'mahony_ahrs.c']]],
-  ['integralfbz_304',['integralFBz',['../mahony__ahrs_8c.html#a775cdc315d53b3bcaa04a79b8747cecf',1,'mahony_ahrs.c']]]
+  ['hcan_5f_786',['hcan_',['../classirobot__ec_1_1hal_1_1can_1_1CanDeviceBase.html#a39f89ba59ca927ef4688ab4bee6d78f7',1,'irobot_ec::hal::can::CanDeviceBase']]],
+  ['header_787',['header',['../structirobot__ec_1_1bsp_1_1CanRxMsg.html#a12f1ceee46a2119d94704d84ec9ddb64',1,'irobot_ec::bsp::CanRxMsg::header()'],['../structirobot__ec_1_1hal_1_1can_1_1CanRxMsg.html#acfa564e1f9f576dfb34d76ccb4c31d3f',1,'irobot_ec::hal::can::CanRxMsg::header()']]],
+  ['hi2c_5f_788',['hi2c_',['../classirobot__ec_1_1hal_1_1I2cDevice.html#a5dd459381c061be81c4151f0dd879e35',1,'irobot_ec::hal::I2cDevice']]],
+  ['hspi_5f_789',['hspi_',['../classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1914630a395ffa3730913a2297a5f330',1,'irobot_ec::hal::SpiDeviceBase']]]
 ];

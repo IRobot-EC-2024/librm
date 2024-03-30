@@ -89,41 +89,40 @@ $(document).ready(function(){initNavTree('bsp__led_8h_source.html',''); initResi
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef EC_LIB_DJI_C_BSP_LED_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define EC_LIB_DJI_C_BSP_LED_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal__config_8h.html">hal_wrapper/hal_config.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal_wrapper/hal.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#if defined(HAL_TIM_MODULE_ENABLED) &amp;&amp; defined(HAL_GPIO_MODULE_ENABLED) &amp;&amp; \</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">    defined(STM32F407xx)</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;tim.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacebsp_1_1dji__devboard__c_1_1led.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacebsp_1_1dji__devboard__c_1_1led.html">bsp::dji_devboard_c::led</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html">LED</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#abacc7b2a9fe57233cfc6899d4a2301c4">   16</a></span>&#160;  <a class="code" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#abacc7b2a9fe57233cfc6899d4a2301c4">LED</a>(TIM_HandleTypeDef htim);</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#a628d6d2b3e95f360d3463a1a9d805f91">   17</a></span>&#160;  <a class="code" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#a628d6d2b3e95f360d3463a1a9d805f91">LED</a>() = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#adc705deeae48233d03075f6a3d1d52ad">   18</a></span>&#160;  <a class="code" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#adc705deeae48233d03075f6a3d1d52ad">~LED</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#aedcf5fa017c6c5dfc11e7a0e3b0df020">   20</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#aedcf5fa017c6c5dfc11e7a0e3b0df020">on</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51ee10de0cac9107577055f7db6489e1">   21</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51ee10de0cac9107577055f7db6489e1">off</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  TIM_HandleTypeDef *htim;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}  <span class="comment">// namespace bsp::dji_devboard_c::led</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_DJI_C_BSP_LED_H</span></div>
-<div class="ttc" id="aclassbsp_1_1dji__devboard__c_1_1led_1_1LED_html"><div class="ttname"><a href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html">bsp::dji_devboard_c::led::LED</a></div><div class="ttdef"><b>Definition:</b> bsp_led.h:14</div></div>
-<div class="ttc" id="aclassbsp_1_1dji__devboard__c_1_1led_1_1LED_html_a51ee10de0cac9107577055f7db6489e1"><div class="ttname"><a href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51ee10de0cac9107577055f7db6489e1">bsp::dji_devboard_c::led::LED::off</a></div><div class="ttdeci">void off()</div></div>
-<div class="ttc" id="aclassbsp_1_1dji__devboard__c_1_1led_1_1LED_html_a628d6d2b3e95f360d3463a1a9d805f91"><div class="ttname"><a href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#a628d6d2b3e95f360d3463a1a9d805f91">bsp::dji_devboard_c::led::LED::LED</a></div><div class="ttdeci">LED()=delete</div></div>
-<div class="ttc" id="aclassbsp_1_1dji__devboard__c_1_1led_1_1LED_html_abacc7b2a9fe57233cfc6899d4a2301c4"><div class="ttname"><a href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#abacc7b2a9fe57233cfc6899d4a2301c4">bsp::dji_devboard_c::led::LED::LED</a></div><div class="ttdeci">LED(TIM_HandleTypeDef htim)</div></div>
-<div class="ttc" id="aclassbsp_1_1dji__devboard__c_1_1led_1_1LED_html_adc705deeae48233d03075f6a3d1d52ad"><div class="ttname"><a href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#adc705deeae48233d03075f6a3d1d52ad">bsp::dji_devboard_c::led::LED::~LED</a></div><div class="ttdeci">~LED()=default</div></div>
-<div class="ttc" id="aclassbsp_1_1dji__devboard__c_1_1led_1_1LED_html_aedcf5fa017c6c5dfc11e7a0e3b0df020"><div class="ttname"><a href="classbsp_1_1dji__devboard__c_1_1led_1_1LED.html#aedcf5fa017c6c5dfc11e7a0e3b0df020">bsp::dji_devboard_c::led::LED::on</a></div><div class="ttdeci">void on()</div></div>
-<div class="ttc" id="ahal__config_8h_html"><div class="ttname"><a href="hal__config_8h.html">hal_config.h</a></div><div class="ttdoc">通过引入不同的芯片型号的HAL库配置文件，实现本库的跨平台支持</div></div>
-<div class="ttc" id="anamespacebsp_1_1dji__devboard__c_1_1led_html"><div class="ttname"><a href="namespacebsp_1_1dji__devboard__c_1_1led.html">bsp::dji_devboard_c::led</a></div><div class="ttdef"><b>Definition:</b> bsp_led.h:12</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#if defined(HAL_TIM_MODULE_ENABLED) &amp;&amp; defined(HAL_GPIO_MODULE_ENABLED) &amp;&amp; defined(STM32F407xx)</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;tim.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led.html">   11</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led.html">irobot_ec::bsp::dji_devboard_c::led</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html">LED</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a97cc7ad8b40b7826e0f19e987de2f819">   15</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a97cc7ad8b40b7826e0f19e987de2f819">LED</a>(TIM_HandleTypeDef htim);</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#ae288df5a59ba0da8f2e1192becb93f28">   16</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#ae288df5a59ba0da8f2e1192becb93f28">LED</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51fd4a7edd5ed137966f39e4d60e25dd">   17</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51fd4a7edd5ed137966f39e4d60e25dd">~LED</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a90abf03659f0cc7fb943316e4c9a30d3">   19</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a90abf03659f0cc7fb943316e4c9a30d3">on</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a4832d8481f232d7823ae34a8fad23d85">   20</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a4832d8481f232d7823ae34a8fad23d85">off</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  TIM_HandleTypeDef *htim;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}  <span class="comment">// namespace irobot_ec::bsp::dji_devboard_c::led</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_DJI_C_BSP_LED_H</span></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html">irobot_ec::bsp::dji_devboard_c::led::LED</a></div><div class="ttdef"><b>Definition:</b> bsp_led.h:13</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED_html_a4832d8481f232d7823ae34a8fad23d85"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a4832d8481f232d7823ae34a8fad23d85">irobot_ec::bsp::dji_devboard_c::led::LED::off</a></div><div class="ttdeci">void off()</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED_html_a51fd4a7edd5ed137966f39e4d60e25dd"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51fd4a7edd5ed137966f39e4d60e25dd">irobot_ec::bsp::dji_devboard_c::led::LED::~LED</a></div><div class="ttdeci">~LED()=default</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED_html_a90abf03659f0cc7fb943316e4c9a30d3"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a90abf03659f0cc7fb943316e4c9a30d3">irobot_ec::bsp::dji_devboard_c::led::LED::on</a></div><div class="ttdeci">void on()</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED_html_a97cc7ad8b40b7826e0f19e987de2f819"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a97cc7ad8b40b7826e0f19e987de2f819">irobot_ec::bsp::dji_devboard_c::led::LED::LED</a></div><div class="ttdeci">LED(TIM_HandleTypeDef htim)</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED_html_ae288df5a59ba0da8f2e1192becb93f28"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#ae288df5a59ba0da8f2e1192becb93f28">irobot_ec::bsp::dji_devboard_c::led::LED::LED</a></div><div class="ttdeci">LED()=delete</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_html"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led.html">irobot_ec::bsp::dji_devboard_c::led</a></div><div class="ttdef"><b>Definition:</b> bsp_led.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['serialplotter_179',['SerialPlotter',['../classmodules_1_1serial__plotter_1_1SerialPlotter.html',1,'modules::serial_plotter']]],
-  ['subscriberbase_180',['SubscriberBase',['../classmodules_1_1pub__sub_1_1SubscriberBase.html',1,'modules::pub_sub']]]
+  ['ringpid_451',['RingPID',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1RingPID.html',1,'irobot_ec::modules::algorithm::PID']]]
 ];

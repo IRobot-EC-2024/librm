@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['receive_262',['receive',['../classhal_1_1uart_1_1UARTEndpointBase.html#a2b77dbd650c0cb599763d10425aecb45',1,'hal::uart::UARTEndpointBase']]],
-  ['registersubscriber_263',['registerSubscriber',['../classmodules_1_1pub__sub_1_1PublisherBase.html#af4ddf95b811808338c2a576cc01b9ac9',1,'modules::pub_sub::PublisherBase']]],
-  ['ringpid_264',['RingPID',['../classmodules_1_1algorithm_1_1PID_1_1RingPID.html#a31b2909046e665bd61f28acbae862778',1,'modules::algorithm::PID::RingPID::RingPID()=delete'],['../classmodules_1_1algorithm_1_1PID_1_1RingPID.html#aded7107cfe5d66cbccd460f88592d6d0',1,'modules::algorithm::PID::RingPID::RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 cycle)']]],
-  ['rpm_265',['rpm',['../classcomponents_1_1motor_1_1DjiMotorBase.html#aac468d9e7de714e3c05d096da0d40427',1,'components::motor::DjiMotorBase']]],
-  ['rxcallback_266',['RxCallback',['../classcomponents_1_1motor_1_1DjiMotorBase.html#a91abbfef91635d9b0170d47d11854e25',1,'components::motor::DjiMotorBase::RxCallback()'],['../classhal_1_1can_1_1CanDeviceBase.html#a3523647ed1be0889d8f5b2ea7baee7ab',1,'hal::can::CanDeviceBase::RxCallback()'],['../classmodules_1_1pub__sub_1_1SubscriberBase.html#ae9e36e2d6b744cc8e80a4d4f6a64c2fe',1,'modules::pub_sub::SubscriberBase::RxCallback()']]],
-  ['rxcallback_267',['rxCallback',['../classhal_1_1uart_1_1UARTEndpointBase.html#a6d3e3caca5a4e7fc661fbd6ec866d415',1,'hal::uart::UARTEndpointBase']]]
+  ['read_567',['Read',['../classirobot__ec_1_1hal_1_1I2cDevice.html#add178b7f483be68d0a1435c1fe7aafa5',1,'irobot_ec::hal::I2cDevice']]],
+  ['readbyte_568',['ReadByte',['../classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ad225560dc7607cbde0724975c40de110',1,'irobot_ec::hal::SpiDeviceBase']]],
+  ['readbytes_569',['ReadBytes',['../classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a2a191e9bf48e2cb2f9dce6e057b2713c',1,'irobot_ec::hal::SpiDeviceBase']]],
+  ['readwritebyte_570',['ReadWriteByte',['../classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a7ca2f56416c88b7dfd66486e29c2ae4b',1,'irobot_ec::hal::SpiDeviceBase']]],
+  ['readwritebytes_571',['ReadWriteBytes',['../classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1e49a3cab2b2934cc0331e7b63245ca6',1,'irobot_ec::hal::SpiDeviceBase']]],
+  ['registersubscriber_572',['RegisterSubscriber',['../classirobot__ec_1_1modules_1_1pub__sub_1_1PublisherBase.html#a4cd0aa7febe2c81f9f722a5a20e02b98',1,'irobot_ec::modules::pub_sub::PublisherBase']]],
+  ['reset_573',['Reset',['../classirobot__ec_1_1components_1_1sensor_1_1IST8310.html#a7ca87038e1cee12aaf39fa0eab38956e',1,'irobot_ec::components::sensor::IST8310']]],
+  ['ringpid_574',['RingPID',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1RingPID.html#affdd57145f52b88c741f143c3bf5dc8d',1,'irobot_ec::modules::algorithm::PID::RingPID::RingPID()=delete'],['../classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1RingPID.html#aded7107cfe5d66cbccd460f88592d6d0',1,'irobot_ec::modules::algorithm::PID::RingPID::RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 cycle)']]],
+  ['rpm_575',['rpm',['../classirobot__ec_1_1components_1_1motor_1_1DjiMotorBase.html#aac468d9e7de714e3c05d096da0d40427',1,'irobot_ec::components::motor::DjiMotorBase']]],
+  ['rxcallback_576',['RxCallback',['../classirobot__ec_1_1components_1_1motor_1_1DjiMotorBase.html#aab553e10d9a7714f3c7e41981b9c2944',1,'irobot_ec::components::motor::DjiMotorBase::RxCallback()'],['../classirobot__ec_1_1hal_1_1can_1_1CanDeviceBase.html#af89016a0ead4d71b413a485994925acd',1,'irobot_ec::hal::can::CanDeviceBase::RxCallback()'],['../classirobot__ec_1_1modules_1_1pub__sub_1_1SubscriberBase.html#a06051fdafdb5536ebb6a197e6aa4dc5c',1,'irobot_ec::modules::pub_sub::SubscriberBase::RxCallback()']]]
 ];

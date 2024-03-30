@@ -1,8 +1,21 @@
 var searchData=
 [
-  ['bsp_182',['bsp',['../namespacebsp.html',1,'']]],
-  ['buzzer_183',['buzzer',['../namespacebsp_1_1dji__devboard__c_1_1buzzer.html',1,'bsp::dji_devboard_c']]],
-  ['dji_5fdevboard_5fc_184',['dji_devboard_c',['../namespacebsp_1_1dji__devboard__c.html',1,'bsp']]],
-  ['ins_185',['ins',['../namespacebsp_1_1dji__devboard__c_1_1ins.html',1,'bsp::dji_devboard_c']]],
-  ['led_186',['led',['../namespacebsp_1_1dji__devboard__c_1_1led.html',1,'bsp::dji_devboard_c']]]
+  ['algorithm_455',['algorithm',['../namespaceirobot__ec_1_1modules_1_1algorithm.html',1,'irobot_ec::modules']]],
+  ['bsp_456',['bsp',['../namespaceirobot__ec_1_1bsp.html',1,'irobot_ec']]],
+  ['buzzer_457',['buzzer',['../namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer.html',1,'irobot_ec::bsp::dji_devboard_c']]],
+  ['can_458',['can',['../namespaceirobot__ec_1_1hal_1_1can.html',1,'irobot_ec::hal']]],
+  ['components_459',['components',['../namespaceirobot__ec_1_1components.html',1,'irobot_ec']]],
+  ['dji_5fdevboard_5fc_460',['dji_devboard_c',['../namespaceirobot__ec_1_1bsp_1_1dji__devboard__c.html',1,'irobot_ec::bsp']]],
+  ['exception_461',['exception',['../namespaceirobot__ec_1_1modules_1_1exception.html',1,'irobot_ec::modules']]],
+  ['hal_462',['hal',['../namespaceirobot__ec_1_1hal.html',1,'irobot_ec']]],
+  ['irobot_5fec_463',['irobot_ec',['../namespaceirobot__ec.html',1,'']]],
+  ['led_464',['led',['../namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led.html',1,'irobot_ec::bsp::dji_devboard_c']]],
+  ['modules_465',['modules',['../namespaceirobot__ec_1_1modules.html',1,'irobot_ec']]],
+  ['motor_466',['motor',['../namespaceirobot__ec_1_1components_1_1motor.html',1,'irobot_ec::components']]],
+  ['pid_467',['PID',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html',1,'irobot_ec::modules::algorithm']]],
+  ['pub_5fsub_468',['pub_sub',['../namespaceirobot__ec_1_1modules_1_1pub__sub.html',1,'irobot_ec::modules']]],
+  ['remote_5fcontrol_469',['remote_control',['../namespaceirobot__ec_1_1components_1_1remote__control.html',1,'irobot_ec::components']]],
+  ['sensor_470',['sensor',['../namespaceirobot__ec_1_1components_1_1sensor.html',1,'irobot_ec::components']]],
+  ['utils_471',['utils',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html',1,'irobot_ec::modules::algorithm']]],
+  ['ycmc_5fh7a_472',['ycmc_h7a',['../namespaceirobot__ec_1_1bsp_1_1ycmc__h7a.html',1,'irobot_ec::bsp']]]
 ];

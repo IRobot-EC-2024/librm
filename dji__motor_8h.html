@@ -91,32 +91,37 @@ $(document).ready(function(){initNavTree('dji__motor_8h.html',''); initResizable
 
 <p>大疆电机的类封装  
 <a href="#details">更多...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="hal__config_8h_source.html">hal_wrapper/hal_config.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="hal__can_8h_source.html">hal_wrapper/hal_can.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="hal_8h_source.html">hal_wrapper/hal.h</a>&quot;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;list&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &quot;<a class="el" href="can__device_8h_source.html">hal_wrapper/can_device.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="typedefs_8h_source.html">modules/typedefs.h</a>&quot;</code><br />
 </div>
 <p><a href="dji__motor_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1DjiMotorBase.html">components::motor::DjiMotorBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI电机的基类  <a href="classcomponents_1_1motor_1_1DjiMotorBase.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1components_1_1motor_1_1DjiMotorBase.html">irobot_ec::components::motor::DjiMotorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI电机的基类  <a href="classirobot__ec_1_1components_1_1motor_1_1DjiMotorBase.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1GM6020.html">components::motor::GM6020</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI GM6020电机  <a href="classcomponents_1_1motor_1_1GM6020.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1components_1_1motor_1_1GM6020.html">irobot_ec::components::motor::GM6020</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI GM6020电机  <a href="classirobot__ec_1_1components_1_1motor_1_1GM6020.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1M2006.html">components::motor::M2006</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI M2006电机/C610电调  <a href="classcomponents_1_1motor_1_1M2006.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1components_1_1motor_1_1M2006.html">irobot_ec::components::motor::M2006</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI M2006电机/C610电调  <a href="classirobot__ec_1_1components_1_1motor_1_1M2006.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomponents_1_1motor_1_1M3508.html">components::motor::M3508</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI M3508电机/C620电调  <a href="classcomponents_1_1motor_1_1M3508.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1components_1_1motor_1_1M3508.html">irobot_ec::components::motor::M3508</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI M3508电机/C620电调  <a href="classirobot__ec_1_1components_1_1motor_1_1M3508.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 命名空间</h2></td></tr>
-<tr class="memitem:namespacecomponents"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomponents.html">components</a></td></tr>
+<tr class="memitem:namespaceirobot__ec"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacecomponents_1_1motor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomponents_1_1motor.html">components::motor</a></td></tr>
+<tr class="memitem:namespaceirobot__ec_1_1components"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components.html">irobot_ec::components</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceirobot__ec_1_1components_1_1motor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components_1_1motor.html">irobot_ec::components::motor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

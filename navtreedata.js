@@ -47,7 +47,7 @@ var NAVTREE =
     [ "文件", "files.html", [
       [ "文件列表", "files.html", "files_dup" ],
       [ "文件成员", "globals.html", [
-        [ "全部", "globals.html", null ],
+        [ "全部", "globals.html", "globals_dup" ],
         [ "函数", "globals_func.html", null ],
         [ "变量", "globals_vars.html", null ],
         [ "类型定义", "globals_type.html", null ],
@@ -60,7 +60,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"pubsub_8hpp.html"
+"classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a7101285701df5de391e3856f7f77a49e",
+"mahony__ahrs_8h.html#a8f488fe3c7786e3a328a6062dea4862f"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

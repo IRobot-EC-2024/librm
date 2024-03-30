@@ -1,8 +1,8 @@
 var remote__control_8h =
 [
-    [ "rc_switch_e", "remote__control_8h.html#a88234df5ae64fd4bb105b2f2dfe1cebd", [
-      [ "RC_SWITCH_UP", "remote__control_8h.html#a88234df5ae64fd4bb105b2f2dfe1cebda11a997a72003d099fa33086f75ee64f9", null ],
-      [ "RC_SWITCH_DOWN", "remote__control_8h.html#a88234df5ae64fd4bb105b2f2dfe1cebda9cacd90a11ef7a1750f381bef1bdf5d9", null ],
-      [ "RC_SWITCH_MID", "remote__control_8h.html#a88234df5ae64fd4bb105b2f2dfe1cebdac3724e3a0e28c01d5f2dcba197cd5ec7", null ]
+    [ "rc_switch_e", "remote__control_8h.html#add6c8221ef000e430b288b4e0a6a812e", [
+      [ "RC_SWITCH_UP", "remote__control_8h.html#add6c8221ef000e430b288b4e0a6a812ea89d7865f86126c8b92fcb060c84c708b", null ],
+      [ "RC_SWITCH_DOWN", "remote__control_8h.html#add6c8221ef000e430b288b4e0a6a812ea666e92d85d88a7d5949ed4ca0488693a", null ],
+      [ "RC_SWITCH_MID", "remote__control_8h.html#add6c8221ef000e430b288b4e0a6a812ea611ac1c6de7264bbe82827914e369b5b", null ]
     ] ]
 ];

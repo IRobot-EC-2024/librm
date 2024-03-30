@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['dji_5fmotor_2ecc_210',['dji_motor.cc',['../dji__motor_8cc.html',1,'']]],
-  ['dji_5fmotor_2eh_211',['dji_motor.h',['../dji__motor_8h.html',1,'']]],
-  ['dji_5fmotor_5fgroup_2ehpp_212',['dji_motor_group.hpp',['../dji__motor__group_8hpp.html',1,'']]]
+  ['can_5fdevice_2ecc_490',['can_device.cc',['../can__device_8cc.html',1,'']]],
+  ['can_5fdevice_2eh_491',['can_device.h',['../can__device_8h.html',1,'']]]
 ];

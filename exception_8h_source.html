@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: framework/modules/exception/exception.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('exception_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">exception.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="exception_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef EC_LIB_MODULES_EXCEPTIONS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define EC_LIB_MODULES_EXCEPTIONS_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1modules_1_1exception.html">    5</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html">irobot_ec::modules::exception</a> {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828">   10</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828">Exception</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828abe983c3593be176ef3bfaacf4020e8b2">kException</a>,</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828aa2683774212a7155c864c5e106d2852c">kTypeError</a>,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828ac08e5c76dd008caf97d6412d1c944148">kKeyError</a>,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828a9864ae2902cf476e08f9cbe5e734a78f">kHALError</a>,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828ace6b14f493b2461f78b52ffc453dc9fa">kValueError</a>,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1modules_1_1exception.html#aa88dc95b1cf9a72389f30395b73da1d3">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#aa88dc95b1cf9a72389f30395b73da1d3">ThrowException</a>(<a class="code" href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828">Exception</a> e);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}  <span class="comment">// namespace irobot_ec::modules::exception</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html">irobot_ec::modules::exception</a></div><div class="ttdef"><b>Definition:</b> exception.h:5</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_a489d267545c8d47cd2613b403f3be828"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828">irobot_ec::modules::exception::Exception</a></div><div class="ttdeci">Exception</div><div class="ttdoc">异常类型</div><div class="ttdef"><b>Definition:</b> exception.h:10</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_a489d267545c8d47cd2613b403f3be828a9864ae2902cf476e08f9cbe5e734a78f"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828a9864ae2902cf476e08f9cbe5e734a78f">irobot_ec::modules::exception::Exception::kHALError</a></div><div class="ttdeci">@ kHALError</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_a489d267545c8d47cd2613b403f3be828aa2683774212a7155c864c5e106d2852c"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828aa2683774212a7155c864c5e106d2852c">irobot_ec::modules::exception::Exception::kTypeError</a></div><div class="ttdeci">@ kTypeError</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_a489d267545c8d47cd2613b403f3be828abe983c3593be176ef3bfaacf4020e8b2"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828abe983c3593be176ef3bfaacf4020e8b2">irobot_ec::modules::exception::Exception::kException</a></div><div class="ttdeci">@ kException</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_a489d267545c8d47cd2613b403f3be828ac08e5c76dd008caf97d6412d1c944148"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828ac08e5c76dd008caf97d6412d1c944148">irobot_ec::modules::exception::Exception::kKeyError</a></div><div class="ttdeci">@ kKeyError</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_a489d267545c8d47cd2613b403f3be828ace6b14f493b2461f78b52ffc453dc9fa"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828ace6b14f493b2461f78b52ffc453dc9fa">irobot_ec::modules::exception::Exception::kValueError</a></div><div class="ttdeci">@ kValueError</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1modules_1_1exception_html_aa88dc95b1cf9a72389f30395b73da1d3"><div class="ttname"><a href="namespaceirobot__ec_1_1modules_1_1exception.html#aa88dc95b1cf9a72389f30395b73da1d3">irobot_ec::modules::exception::ThrowException</a></div><div class="ttdeci">void ThrowException(Exception e)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_644e041c3a6521da7b27eba0e4eb2b95.html">framework</a></li><li class="navelem"><a class="el" href="dir_56553b6b74e7f4a7717200a52c59b140.html">modules</a></li><li class="navelem"><a class="el" href="dir_993481308c20808cc1cf69cd670120dd.html">exception</a></li><li class="navelem"><a class="el" href="exception_8h.html">exception.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

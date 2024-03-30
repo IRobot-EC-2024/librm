@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ringpid_178',['RingPID',['../classmodules_1_1algorithm_1_1PID_1_1RingPID.html',1,'modules::algorithm::PID']]]
+  ['pid_449',['PID',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html',1,'irobot_ec::modules::algorithm::PID']]],
+  ['publisherbase_450',['PublisherBase',['../classirobot__ec_1_1modules_1_1pub__sub_1_1PublisherBase.html',1,'irobot_ec::modules::pub_sub']]]
 ];

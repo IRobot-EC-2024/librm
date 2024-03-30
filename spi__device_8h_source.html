@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: framework/hal_wrapper/spi_device.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('spi__device_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">spi_device.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="spi__device_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef EC_LIB_HAL_WRAPPER_HAL_SPI_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EC_LIB_HAL_WRAPPER_HAL_SPI_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if defined(HAL_SPI_MODULE_ENABLED) &amp;&amp; defined(HAL_GPIO_MODULE_ENABLED)</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1hal.html">irobot_ec::hal</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html">SpiDeviceBase</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a76dd97d5f3172adf3fff1f9d2c6e0dfa">SpiDeviceBase</a>(SPI_HandleTypeDef &amp;hspi, GPIO_TypeDef *cs_gpio_port, uint16_t cs_pin);</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a76dd97d5f3172adf3fff1f9d2c6e0dfa">   19</a></span>&#160;  <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a76dd97d5f3172adf3fff1f9d2c6e0dfa">SpiDeviceBase</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a5aec045bdbe8f2368febd8dff90ac778">   20</a></span>&#160;  <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a5aec045bdbe8f2368febd8dff90ac778">~SpiDeviceBase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ad225560dc7607cbde0724975c40de110">ReadByte</a>(uint8_t reg);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a2a191e9bf48e2cb2f9dce6e057b2713c">ReadBytes</a>(uint8_t reg, uint8_t len);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a43e719bbeab3b40f9b7b87fc55b5ba0b">WriteByte</a>(uint8_t reg, uint8_t data);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  [[nodiscard]] uint8_t <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ad62767efc27723270ebb8d709dab3b38">single_byte_buffer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  [[nodiscard]] <span class="keyword">const</span> uint8_t *<a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ae0f1f259d84bbe6a932bec652aa8c285">buffer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a7ca2f56416c88b7dfd66486e29c2ae4b">ReadWriteByte</a>(uint8_t tx_data);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1e49a3cab2b2934cc0331e7b63245ca6">ReadWriteBytes</a>(uint8_t reg, uint8_t len);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1914630a395ffa3730913a2297a5f330">   33</a></span>&#160;  SPI_HandleTypeDef *<a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1914630a395ffa3730913a2297a5f330">hspi_</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a0163a020bb27bbd1331f7bfd1b861c33">   34</a></span>&#160;  GPIO_TypeDef *<a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a0163a020bb27bbd1331f7bfd1b861c33">cs_gpio_port_</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ac2f425cb20af2269e47acd42e131b018">   35</a></span>&#160;  uint16_t <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ac2f425cb20af2269e47acd42e131b018">cs_pin_</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a6b771a9aa3d75d3631b6184beaa03af0">   36</a></span>&#160;  uint8_t <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a6b771a9aa3d75d3631b6184beaa03af0">single_byte_buffer_</a>{};</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a5110caa2dcf4956eca92955bdd946eb9">   37</a></span>&#160;  uint8_t <a class="code" href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a5110caa2dcf4956eca92955bdd946eb9">buffer_</a>[8]{0};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}  <span class="comment">// namespace irobot_ec::hal</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_HAL_WRAPPER_HAL_SPI_H</span></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html">irobot_ec::hal::SpiDeviceBase</a></div><div class="ttdoc">SPI设备基类</div><div class="ttdef"><b>Definition:</b> spi_device.h:16</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a0163a020bb27bbd1331f7bfd1b861c33"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a0163a020bb27bbd1331f7bfd1b861c33">irobot_ec::hal::SpiDeviceBase::cs_gpio_port_</a></div><div class="ttdeci">GPIO_TypeDef * cs_gpio_port_</div><div class="ttdef"><b>Definition:</b> spi_device.h:34</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a1914630a395ffa3730913a2297a5f330"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1914630a395ffa3730913a2297a5f330">irobot_ec::hal::SpiDeviceBase::hspi_</a></div><div class="ttdeci">SPI_HandleTypeDef * hspi_</div><div class="ttdef"><b>Definition:</b> spi_device.h:33</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a1e49a3cab2b2934cc0331e7b63245ca6"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a1e49a3cab2b2934cc0331e7b63245ca6">irobot_ec::hal::SpiDeviceBase::ReadWriteBytes</a></div><div class="ttdeci">void ReadWriteBytes(uint8_t reg, uint8_t len)</div><div class="ttdoc">读写多个字节</div><div class="ttdef"><b>Definition:</b> spi_device.cc:35</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a2a191e9bf48e2cb2f9dce6e057b2713c"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a2a191e9bf48e2cb2f9dce6e057b2713c">irobot_ec::hal::SpiDeviceBase::ReadBytes</a></div><div class="ttdeci">void ReadBytes(uint8_t reg, uint8_t len)</div><div class="ttdoc">读多个字节</div><div class="ttdef"><b>Definition:</b> spi_device.cc:84</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a43e719bbeab3b40f9b7b87fc55b5ba0b"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a43e719bbeab3b40f9b7b87fc55b5ba0b">irobot_ec::hal::SpiDeviceBase::WriteByte</a></div><div class="ttdeci">void WriteByte(uint8_t reg, uint8_t data)</div><div class="ttdoc">写一个字节</div><div class="ttdef"><b>Definition:</b> spi_device.cc:49</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a5110caa2dcf4956eca92955bdd946eb9"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a5110caa2dcf4956eca92955bdd946eb9">irobot_ec::hal::SpiDeviceBase::buffer_</a></div><div class="ttdeci">uint8_t buffer_[8]</div><div class="ttdef"><b>Definition:</b> spi_device.h:37</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a5aec045bdbe8f2368febd8dff90ac778"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a5aec045bdbe8f2368febd8dff90ac778">irobot_ec::hal::SpiDeviceBase::~SpiDeviceBase</a></div><div class="ttdeci">~SpiDeviceBase()=default</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a6b771a9aa3d75d3631b6184beaa03af0"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a6b771a9aa3d75d3631b6184beaa03af0">irobot_ec::hal::SpiDeviceBase::single_byte_buffer_</a></div><div class="ttdeci">uint8_t single_byte_buffer_</div><div class="ttdef"><b>Definition:</b> spi_device.h:36</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a76dd97d5f3172adf3fff1f9d2c6e0dfa"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a76dd97d5f3172adf3fff1f9d2c6e0dfa">irobot_ec::hal::SpiDeviceBase::SpiDeviceBase</a></div><div class="ttdeci">SpiDeviceBase()=delete</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_a7ca2f56416c88b7dfd66486e29c2ae4b"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#a7ca2f56416c88b7dfd66486e29c2ae4b">irobot_ec::hal::SpiDeviceBase::ReadWriteByte</a></div><div class="ttdeci">void ReadWriteByte(uint8_t tx_data)</div><div class="ttdoc">读写一个字节</div><div class="ttdef"><b>Definition:</b> spi_device.cc:26</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_ac2f425cb20af2269e47acd42e131b018"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ac2f425cb20af2269e47acd42e131b018">irobot_ec::hal::SpiDeviceBase::cs_pin_</a></div><div class="ttdeci">uint16_t cs_pin_</div><div class="ttdef"><b>Definition:</b> spi_device.h:35</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_ad225560dc7607cbde0724975c40de110"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ad225560dc7607cbde0724975c40de110">irobot_ec::hal::SpiDeviceBase::ReadByte</a></div><div class="ttdeci">void ReadByte(uint8_t reg)</div><div class="ttdoc">读一个字节</div><div class="ttdef"><b>Definition:</b> spi_device.cc:72</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_ad62767efc27723270ebb8d709dab3b38"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ad62767efc27723270ebb8d709dab3b38">irobot_ec::hal::SpiDeviceBase::single_byte_buffer</a></div><div class="ttdeci">uint8_t single_byte_buffer() const</div><div class="ttdoc">获取单字节缓冲区的值</div><div class="ttdef"><b>Definition:</b> spi_device.cc:60</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiDeviceBase_html_ae0f1f259d84bbe6a932bec652aa8c285"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiDeviceBase.html#ae0f1f259d84bbe6a932bec652aa8c285">irobot_ec::hal::SpiDeviceBase::buffer</a></div><div class="ttdeci">const uint8_t * buffer() const</div><div class="ttdoc">获取缓冲区指针</div><div class="ttdef"><b>Definition:</b> spi_device.cc:66</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1hal_html"><div class="ttname"><a href="namespaceirobot__ec_1_1hal.html">irobot_ec::hal</a></div><div class="ttdef"><b>Definition:</b> can_device.h:18</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_644e041c3a6521da7b27eba0e4eb2b95.html">framework</a></li><li class="navelem"><a class="el" href="dir_69fed7e809fd6cf40aa53414b46ec169.html">hal_wrapper</a></li><li class="navelem"><a class="el" href="spi__device_8h.html">spi_device.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

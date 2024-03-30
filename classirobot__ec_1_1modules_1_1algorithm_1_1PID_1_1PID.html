@@ -1,0 +1,787 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: irobot_ec::modules::algorithm::PID::PID类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">irobot_ec::modules::algorithm::PID::PID类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>PID控制器  
+ <a href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pid_8h_source.html">pid.h</a>&gt;</code></p>
+<div class="dynheader">
+类 irobot_ec::modules::algorithm::PID::PID 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.png" usemap="#irobot_5Fec::modules::algorithm::PID::PID_map" alt=""/>
+  <map id="irobot_5Fec::modules::algorithm::PID::PID_map" name="irobot_5Fec::modules::algorithm::PID::PID_map">
+<area href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1RingPID.html" title="带过零点处理的PID控制器，可以用于电机位置闭环控制等情况" alt="irobot_ec::modules::algorithm::PID::RingPID" shape="rect" coords="0,56,251,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a66af2427648b35cb33c0176c47a8146c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a66af2427648b35cb33c0176c47a8146c">PID</a> ()=delete</td></tr>
+<tr class="separator:a66af2427648b35cb33c0176c47a8146c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5db7438fadd1047e2074434945034a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#ad5db7438fadd1047e2074434945034a8">PID</a> (<a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a51015fe4933950f77e590e92aa94aed2">PIDType</a> type, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> kp, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> ki, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> kd, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_out, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_iout)</td></tr>
+<tr class="separator:ad5db7438fadd1047e2074434945034a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21f17060a2978d3e3cf8130c4b3acf4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a21f17060a2978d3e3cf8130c4b3acf4e">PID</a> (<a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a51015fe4933950f77e590e92aa94aed2">PIDType</a> type, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> kp, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> ki, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> kd, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_out, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_iout, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> *external_diff_input)</td></tr>
+<tr class="separator:a21f17060a2978d3e3cf8130c4b3acf4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee852bf985eb4f604ffd1ff1416a435"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a9ee852bf985eb4f604ffd1ff1416a435">update</a> (<a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> set, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> ref)</td></tr>
+<tr class="separator:a9ee852bf985eb4f604ffd1ff1416a435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1979972e8ca6ad9a95aa70e35d467211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a1979972e8ca6ad9a95aa70e35d467211">clear</a> ()</td></tr>
+<tr class="separator:a1979972e8ca6ad9a95aa70e35d467211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a873c47b39d26ec93ea6b1b60ca2bcb6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a873c47b39d26ec93ea6b1b60ca2bcb6f">switchParameter</a> (<a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> kp, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> ki, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> kd, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_out, <a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> max_iout)</td></tr>
+<tr class="separator:a873c47b39d26ec93ea6b1b60ca2bcb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98802722a8e957eb5041deef26bf4bf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a98802722a8e957eb5041deef26bf4bf5">value</a> () const</td></tr>
+<tr class="separator:a98802722a8e957eb5041deef26bf4bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a21b5b8cece1751600969b9362971def4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a21b5b8cece1751600969b9362971def4">kp_</a></td></tr>
+<tr class="separator:a21b5b8cece1751600969b9362971def4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedad44a1c496286ed295c29397dbe513"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#aedad44a1c496286ed295c29397dbe513">ki_</a></td></tr>
+<tr class="separator:aedad44a1c496286ed295c29397dbe513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa001225d4e1e65f4f2c1165f53259125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#aa001225d4e1e65f4f2c1165f53259125">kd_</a></td></tr>
+<tr class="separator:aa001225d4e1e65f4f2c1165f53259125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502cdb4e6ea96c298f1ea215a164d3f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a502cdb4e6ea96c298f1ea215a164d3f4">max_out_</a> {}</td></tr>
+<tr class="separator:a502cdb4e6ea96c298f1ea215a164d3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedec09a17e316c2d094049b232363a00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#aedec09a17e316c2d094049b232363a00">max_iout_</a> {}</td></tr>
+<tr class="separator:aedec09a17e316c2d094049b232363a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8d467a13795f1ff03e5edd0e09026d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a2e8d467a13795f1ff03e5edd0e09026d">set_</a> {}</td></tr>
+<tr class="separator:a2e8d467a13795f1ff03e5edd0e09026d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ed64089de84b83b7c445d0fa59e25d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a76ed64089de84b83b7c445d0fa59e25d">fdb_</a> {}</td></tr>
+<tr class="separator:a76ed64089de84b83b7c445d0fa59e25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a960e26dbdde9f47c4575a90fd11c8aa2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a960e26dbdde9f47c4575a90fd11c8aa2">out_</a> {}</td></tr>
+<tr class="separator:a960e26dbdde9f47c4575a90fd11c8aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4669a08c2caa720f0860f5bfde343348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a4669a08c2caa720f0860f5bfde343348">p_out_</a> {}</td></tr>
+<tr class="separator:a4669a08c2caa720f0860f5bfde343348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7598c5cb3dd41995e4918906a9cf9690"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a7598c5cb3dd41995e4918906a9cf9690">i_out_</a> {}</td></tr>
+<tr class="separator:a7598c5cb3dd41995e4918906a9cf9690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af902eac3b3b73fa2c8c5292d2daf1d01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#af902eac3b3b73fa2c8c5292d2daf1d01">d_out_</a> {}</td></tr>
+<tr class="separator:af902eac3b3b73fa2c8c5292d2daf1d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5cd6782a801008fa1f9b88504a32b70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#ad5cd6782a801008fa1f9b88504a32b70">d_buf_</a> [3] {}</td></tr>
+<tr class="separator:ad5cd6782a801008fa1f9b88504a32b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c8ede6a01824baff62ce4ba18a2cdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#a33c8ede6a01824baff62ce4ba18a2cdd">error_</a> [3] {}</td></tr>
+<tr class="separator:a33c8ede6a01824baff62ce4ba18a2cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4afd7610445e6bcccb3245826aa90c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#aa4afd7610445e6bcccb3245826aa90c4">external_diff_input_</a></td></tr>
+<tr class="separator:aa4afd7610445e6bcccb3245826aa90c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e71ae7b08dc3105ec6c80a078105b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#aa6e71ae7b08dc3105ec6c80a078105b6">use_external_diff_input_</a></td></tr>
+<tr class="separator:aa6e71ae7b08dc3105ec6c80a078105b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7f433518fbc99d753115e7b7294897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a51015fe4933950f77e590e92aa94aed2">PIDType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html#aef7f433518fbc99d753115e7b7294897">type_</a></td></tr>
+<tr class="separator:aef7f433518fbc99d753115e7b7294897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>PID控制器 </p>
+<dl class="section note"><dt>注解</dt><dd>该PID控制器支持使用外部提供的微分输入 例如：电机位置闭环控制中，可以使用电机速度作为微分输入 或：姿态控制中，可以使用陀螺仪输出作为微分输入，以减小位置误差和速度误差之间的耦合 要使用外部提供的微分输入，只需在构造函数中多传入一个指向微分输入量的指针即可 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>外部微分输入的类型必须是fp32， 且必须保证外部微分输入变量的生命周期大于PID控制器对象的生命周期 </dd>
+<dd>
+使用外部提供的微分输入时，请注意调整Kd，以避免微分输入的幅值过大 </dd></dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a66af2427648b35cb33c0176c47a8146c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66af2427648b35cb33c0176c47a8146c">&#9670;&nbsp;</a></span>PID() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::modules::algorithm::PID::PID::PID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5db7438fadd1047e2074434945034a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5db7438fadd1047e2074434945034a8">&#9670;&nbsp;</a></span>PID() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html">PID::PID</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a51015fe4933950f77e590e92aa94aed2">PIDType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>kp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>ki</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>kd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>max_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>max_iout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21f17060a2978d3e3cf8130c4b3acf4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21f17060a2978d3e3cf8130c4b3acf4e">&#9670;&nbsp;</a></span>PID() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html">PID::PID</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a51015fe4933950f77e590e92aa94aed2">PIDType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>kp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>ki</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>kd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>max_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>max_iout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> *&#160;</td>
+          <td class="paramname"><em>external_diff_input</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a1979972e8ca6ad9a95aa70e35d467211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1979972e8ca6ad9a95aa70e35d467211">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PID::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a873c47b39d26ec93ea6b1b60ca2bcb6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a873c47b39d26ec93ea6b1b60ca2bcb6f">&#9670;&nbsp;</a></span>switchParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PID::switchParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>kp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>ki</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>kd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>max_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>max_iout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ee852bf985eb4f604ffd1ff1416a435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee852bf985eb4f604ffd1ff1416a435">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PID::update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>set</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>&#160;</td>
+          <td class="paramname"><em>ref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>被 <a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1RingPID.html#a40f39e8673d10f1a2d0242070a32f019">irobot_ec::modules::algorithm::PID::RingPID</a> 重载.</p>
+
+</div>
+</div>
+<a id="a98802722a8e957eb5041deef26bf4bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98802722a8e957eb5041deef26bf4bf5">&#9670;&nbsp;</a></span>value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> PID::value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="ad5cd6782a801008fa1f9b88504a32b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5cd6782a801008fa1f9b88504a32b70">&#9670;&nbsp;</a></span>d_buf_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::d_buf_[3] {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af902eac3b3b73fa2c8c5292d2daf1d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af902eac3b3b73fa2c8c5292d2daf1d01">&#9670;&nbsp;</a></span>d_out_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::d_out_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33c8ede6a01824baff62ce4ba18a2cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c8ede6a01824baff62ce4ba18a2cdd">&#9670;&nbsp;</a></span>error_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::error_[3] {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4afd7610445e6bcccb3245826aa90c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4afd7610445e6bcccb3245826aa90c4">&#9670;&nbsp;</a></span>external_diff_input_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a>* irobot_ec::modules::algorithm::PID::PID::external_diff_input_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76ed64089de84b83b7c445d0fa59e25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ed64089de84b83b7c445d0fa59e25d">&#9670;&nbsp;</a></span>fdb_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::fdb_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7598c5cb3dd41995e4918906a9cf9690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7598c5cb3dd41995e4918906a9cf9690">&#9670;&nbsp;</a></span>i_out_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::i_out_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa001225d4e1e65f4f2c1165f53259125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa001225d4e1e65f4f2c1165f53259125">&#9670;&nbsp;</a></span>kd_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::kd_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedad44a1c496286ed295c29397dbe513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedad44a1c496286ed295c29397dbe513">&#9670;&nbsp;</a></span>ki_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::ki_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21b5b8cece1751600969b9362971def4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b5b8cece1751600969b9362971def4">&#9670;&nbsp;</a></span>kp_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::kp_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedec09a17e316c2d094049b232363a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedec09a17e316c2d094049b232363a00">&#9670;&nbsp;</a></span>max_iout_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::max_iout_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a502cdb4e6ea96c298f1ea215a164d3f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a502cdb4e6ea96c298f1ea215a164d3f4">&#9670;&nbsp;</a></span>max_out_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::max_out_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a960e26dbdde9f47c4575a90fd11c8aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a960e26dbdde9f47c4575a90fd11c8aa2">&#9670;&nbsp;</a></span>out_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::out_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4669a08c2caa720f0860f5bfde343348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4669a08c2caa720f0860f5bfde343348">&#9670;&nbsp;</a></span>p_out_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::p_out_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e8d467a13795f1ff03e5edd0e09026d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e8d467a13795f1ff03e5edd0e09026d">&#9670;&nbsp;</a></span>set_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a8d2af6718bda28235f7c7d7f683895af">fp32</a> irobot_ec::modules::algorithm::PID::PID::set_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef7f433518fbc99d753115e7b7294897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7f433518fbc99d753115e7b7294897">&#9670;&nbsp;</a></span>type_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a51015fe4933950f77e590e92aa94aed2">PIDType</a> irobot_ec::modules::algorithm::PID::PID::type_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6e71ae7b08dc3105ec6c80a078105b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e71ae7b08dc3105ec6c80a078105b6">&#9670;&nbsp;</a></span>use_external_diff_input_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool irobot_ec::modules::algorithm::PID::PID::use_external_diff_input_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>framework/modules/algorithm/pid/<a class="el" href="pid_8h_source.html">pid.h</a></li>
+<li>framework/modules/algorithm/pid/<a class="el" href="pid_8cc.html">pid.cc</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1modules.html">modules</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm.html">algorithm</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1PID.html">PID</a></li><li class="navelem"><a class="el" href="classirobot__ec_1_1modules_1_1algorithm_1_1PID_1_1PID.html">PID</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

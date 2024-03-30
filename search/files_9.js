@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['unitree_5fmotor_2ecc_229',['unitree_motor.cc',['../unitree__motor_8cc.html',1,'']]],
-  ['unitree_5fmotor_2eh_230',['unitree_motor.h',['../unitree__motor_8h.html',1,'']]],
-  ['utils_2ecc_231',['utils.cc',['../utils_8cc.html',1,'']]],
-  ['utils_2ehpp_232',['utils.hpp',['../utils_8hpp.html',1,'']]]
+  ['serial_5fplotter_2ehpp_511',['serial_plotter.hpp',['../serial__plotter_8hpp.html',1,'']]],
+  ['spi_5fdevice_2ecc_512',['spi_device.cc',['../spi__device_8cc.html',1,'']]],
+  ['spi_5fdevice_2eh_513',['spi_device.h',['../spi__device_8h.html',1,'']]]
 ];

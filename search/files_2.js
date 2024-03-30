@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['exceptions_2ecc_213',['exceptions.cc',['../exceptions_8cc.html',1,'']]],
-  ['exceptions_2eh_214',['exceptions.h',['../exceptions_8h.html',1,'']]]
+  ['dji_5fmotor_2ecc_492',['dji_motor.cc',['../dji__motor_8cc.html',1,'']]],
+  ['dji_5fmotor_2eh_493',['dji_motor.h',['../dji__motor_8h.html',1,'']]]
 ];
