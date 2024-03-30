@@ -11,8 +11,10 @@
 
 // 根据宏定义导入不同的bsp实现
 #include "hal_wrapper/hal.h"
-#ifdef STM32F407xx
+#if defined(STM32F407xx)
 #include "bsp/dji_devboard_c/bsp_delay.h"
+#elif defined(STM32H723xx)
+#include "bsp/ycmc_h7a/bsp_delay.h"
 #endif
 
 namespace irobot_ec::bsp {

@@ -1,15 +1,15 @@
 
-#ifndef EC_LIB_DJI_C_BSP_DELAY_H
-#define EC_LIB_DJI_C_BSP_DELAY_H
+#ifndef EC_LIB_YCMC_H7A_BSP_DELAY_H
+#define EC_LIB_YCMC_H7A_BSP_DELAY_H
 
 #include "hal_wrapper/hal.h"
 
-#if defined(STM32F407xx)
+#if defined(STM32F723xx)
 
 #include "bsp/interface/bsp_delay_interface.h"
 #include "modules/typedefs.h"
 
-namespace irobot_ec::bsp::dji_devboard_c {
+namespace irobot_ec::bsp::ycmc_h7a {
 
 /**
  * @brief 延时功能实现
@@ -31,8 +31,8 @@ class Delay : public DelayInterface {
   ~Delay() = default;
 };
 
-}  // namespace irobot_ec::bsp::dji_devboard_c
+}  // namespace irobot_ec::bsp::ycmc_h7a
 
 #endif
 
-#endif  // EC_LIB_DJI_C_BSP_DELAY_H
+#endif  // EC_LIB_YCMC_H7A_BSP_DELAY_H

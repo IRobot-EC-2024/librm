@@ -1,11 +1,11 @@
 
 #include "hal_wrapper/hal.h"
 
-#if defined(STM32F407xx)
+#if defined(STM32F723xx)
 
 #include "bsp_delay.h"
 
-namespace irobot_ec::bsp::dji_devboard_c {
+namespace irobot_ec::bsp::ycmc_h7a {
 
 /**
  * @brief 延时微秒
@@ -18,7 +18,7 @@ void Delay::DelayUs(uint32_t us) {
   uint32_t t_cnt = 0;
   uint32_t reload = 0;
   reload = SysTick->LOAD;
-  ticks = us * 168;
+  ticks = us * 280;
   t_old = SysTick->VAL;
   while (true) {
     t_now = SysTick->VAL;
@@ -55,6 +55,6 @@ Delay &Delay::GetInstance() {
   return instance;
 }
 
-}  // namespace irobot_ec::bsp::dji_devboard_c
+}  // namespace irobot_ec::bsp::ycmc_h7a
 
 #endif
