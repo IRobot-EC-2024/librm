@@ -2,7 +2,7 @@
 #ifndef EC_LIB_HAL_WRAPPER_HAL_UART_H
 #define EC_LIB_HAL_WRAPPER_HAL_UART_H
 
-#include "hal_wrapper/hal_config.h"
+#include "hal_wrapper/hal.h"
 
 #if defined(HAL_UART_MODULE_ENABLED)
 

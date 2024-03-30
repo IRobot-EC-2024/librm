@@ -1,0 +1,97 @@
+/**
+ * @file    components/sensor/ist8310.cc
+ * @brief   IST8310磁力计类
+ */
+
+#include "ist8310.h"
+
+#if defined(HAL_I2C_MODULE_ENABLED)
+
+#include <vector>
+
+#include "bsp/bsp.h"
+
+namespace irobot_ec::components::sensor {
+#include "ist8310_const.hpp"
+
+// 初始化序列
+// 第一列:寄存器地址
+// 第二列:需要写入的寄存器值
+const static std::vector<std::vector<uint8_t>> ist8310_init_sequence = {{0x0B, 0x08},  // 开启中断，并且设置低电平
+                                                                        {0x41, 0x09},   // 平均采样两次
+                                                                        {0x42, 0xC0},   // 必须是0xC0
+                                                                        {0x0A, 0x0B}};  // 200Hz输出频率
+
+/**
+ * @param hi2c I2C外设句柄
+ */
+IST8310::IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, uint16_t rst_pin)
+    : irobot_ec::hal::I2cDevice(hi2c, IST8310_I2C_ADDRESS), rst_port_(rst_port), rst_pin_(rst_pin) {
+  // 开机复位
+  this->Reset();
+
+  // 检查"who am i"寄存器的值是否正确
+  this->Read(IST8310_WHO_AM_I, 1);
+  if (this->buffer_[0] != IST8310_WHO_AM_I_VALUE) {
+    this->status_ = IST8310Status::NO_SENSOR;
+  }
+
+  // 发送初始化序列，有错误则设置status为对应错误码
+  for (const auto &operation : ist8310_init_sequence) {
+    this->Write(operation[0], const_cast<uint8_t *>(&operation[1]), 1);
+    bsp::BspFactory::GetDelay().DelayUs(IST8310_COMM_WAIT_TIME_US);
+    this->Read(operation[0], 1);
+    bsp::BspFactory::GetDelay().DelayUs(IST8310_COMM_WAIT_TIME_US);
+    if (this->buffer_[0] != operation[1]) {
+      this->status_ = IST8310Status::SENSOR_ERROR;
+    }
+  }
+  this->status_ = IST8310Status::NO_ERROR;
+}
+
+/**
+ * @brief 重置传感器
+ */
+void IST8310::Reset() {
+  HAL_GPIO_WritePin(this->rst_port_, this->rst_pin_, GPIO_PIN_RESET);
+  bsp::BspFactory::GetDelay().DelayMs(IST8310_COMM_WAIT_TIME_MS);
+  HAL_GPIO_WritePin(this->rst_port_, this->rst_pin_, GPIO_PIN_SET);
+  bsp::BspFactory::GetDelay().DelayMs(IST8310_COMM_WAIT_TIME_MS);
+}
+
+/**
+ * @brief 更新传感器数据
+ */
+void IST8310::Update() {
+  this->Read(IST8310_DATA_OUT_X_L, 6);
+  this->mag_[0] =
+      static_cast<fp32>(static_cast<int16_t>(this->buffer_[1] << 8 | this->buffer_[0])) * IST8310_SENSITIVITY;
+  this->mag_[1] =
+      static_cast<fp32>(static_cast<int16_t>(this->buffer_[3] << 8 | this->buffer_[2])) * IST8310_SENSITIVITY;
+  this->mag_[2] =
+      static_cast<fp32>(static_cast<int16_t>(this->buffer_[5] << 8 | this->buffer_[4])) * IST8310_SENSITIVITY;
+}
+
+/**
+ * @return 传感器状态
+ */
+IST8310Status IST8310::status() const { return this->status_; }
+
+/**
+ * @return 磁力计X轴数据(uT)
+ */
+fp32 IST8310::mag_x() const { return this->mag_[0]; }
+
+/**
+ * @return 磁力计Y轴数据(uT)
+ */
+fp32 IST8310::mag_y() const { return this->mag_[1]; }
+
+/**
+ * @return 磁力计Z轴数据(uT)
+ */
+fp32 IST8310::mag_z() const { return this->mag_[2]; }
+
+}  // namespace irobot_ec::components::sensor
+
+#endif
