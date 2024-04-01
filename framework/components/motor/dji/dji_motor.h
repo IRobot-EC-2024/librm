@@ -33,9 +33,9 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
 
   /* 取值函数 */
   [[nodiscard]] uint16_t encoder() const;
-  [[nodiscard]] uint16_t rpm() const;
-  [[nodiscard]] uint16_t current() const;
-  [[nodiscard]] uint16_t temperature() const;
+  [[nodiscard]] int16_t rpm() const;
+  [[nodiscard]] int16_t current() const;
+  [[nodiscard]] uint8_t temperature() const;
   /***********/
 
  protected:
@@ -48,9 +48,9 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
   uint16_t id_{};  // 电机ID
   /**   FEEDBACK DATA   **/
   uint16_t encoder_{};      // 电机编码器值
-  uint16_t rpm_{};          // 电机转速
-  uint16_t current_{};      // 电机实际电流
-  uint16_t temperature_{};  // 电机温度
+  int16_t rpm_{};          // 电机转速
+  int16_t current_{};      // 电机实际电流
+  uint8_t temperature_{};  // 电机温度
   /***********************/
 
   /**

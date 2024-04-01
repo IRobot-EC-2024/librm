@@ -90,7 +90,7 @@ CanDeviceBase::~CanDeviceBase() { CanDeviceBase::device_map_[this->hcan_].erase(
 CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef* hcan, uint32_t rx_std_id)
     : hcan_(hcan),
       rx_std_id_(rx_std_id),
-      tx_header_{.StdId = rx_std_id, .ExtId = 0, .IDE = CAN_ID_STD, .RTR = CAN_RTR_DATA, .DLC = 8} {
+      tx_header_{.StdId = 0, .ExtId = 0, .IDE = CAN_ID_STD, .RTR = CAN_RTR_DATA, .DLC = 8} {
   // 检查是否已经初始化过这个CAN总线
   if (CanDeviceBase::device_map_.find(hcan) == CanDeviceBase::device_map_.end()) {
     CanFilterInit(hcan);
@@ -111,6 +111,7 @@ CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef* hcan, uint32_t rx_std_id)
  * @param size 数据长度
  */
 void CanDeviceBase::Transmit(const uint8_t* data, uint32_t size) {
+  this->tx_header_.DLC = size;
   if (HAL_CAN_AddTxMessage(this->hcan_, &this->tx_header_, const_cast<uint8_t*>(data), &this->tx_mailbox_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_AddTxMessage error
   }
