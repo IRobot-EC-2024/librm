@@ -47,7 +47,7 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
 
   uint16_t id_{};  // 电机ID
   /**   FEEDBACK DATA   **/
-  uint16_t encoder_{};      // 电机编码器值
+  uint16_t encoder_{};     // 电机编码器值
   int16_t rpm_{};          // 电机转速
   int16_t current_{};      // 电机实际电流
   uint8_t temperature_{};  // 电机温度
