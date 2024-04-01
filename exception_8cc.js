@@ -1,4 +1,4 @@
 var exception_8cc =
 [
-    [ "throwException", "exception_8cc.html#a6876b7dc23882b76f69f4cdda6807399", null ]
+    [ "ThrowException", "exception_8cc.html#aa88dc95b1cf9a72389f30395b73da1d3", null ]
 ];
