@@ -168,12 +168,42 @@ void BMI088::Update() {
  * @brief   获取传感器状态
  * @return  传感器状态
  */
-BMI088Status BMI088::GetStatus() const { return this->status_; }
+BMI088Status BMI088::status() const { return this->status_; }
 
 /**
  * @brief   获取传感器温度
  * @return  传感器温度
  */
-fp32 BMI088::GetTemperature() const { return this->temperature_; }
+fp32 BMI088::temperature() const { return this->temperature_; }
+
+/**
+ * @return  陀螺仪X轴数据(rad/s)
+ */
+fp32 BMI088::gyro_x() const { return this->gyro_[0]; }
+
+/**
+ * @return  陀螺仪Y轴数据(rad/s)
+ */
+fp32 BMI088::gyro_y() const { return this->gyro_[1]; }
+
+/**
+ * @return  陀螺仪Z轴数据(rad/s)
+ */
+fp32 BMI088::gyro_z() const { return this->gyro_[2]; }
+
+/**
+ * @return  加速度计X轴数据(m/s^2)
+ */
+fp32 BMI088::accel_x() const { return this->accel_[0]; }
+
+/**
+ * @return  加速度计Y轴数据(m/s^2)
+ */
+fp32 BMI088::accel_y() const { return this->accel_[1]; }
+
+/**
+ * @return  加速度计Z轴数据(m/s^2)
+ */
+fp32 BMI088::accel_z() const { return this->accel_[2]; }
 
 #endif

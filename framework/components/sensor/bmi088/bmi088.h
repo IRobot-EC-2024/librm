@@ -75,8 +75,14 @@ class BMI088 {
   BMI088 &operator=(const BMI088 &) = delete;
 
   void Update();
-  [[nodiscard]] fp32 GetTemperature() const;
-  [[nodiscard]] BMI088Status GetStatus() const;
+  [[nodiscard]] fp32 temperature() const;
+  [[nodiscard]] BMI088Status status() const;
+  [[nodiscard]] fp32 gyro_x() const;
+  [[nodiscard]] fp32 gyro_y() const;
+  [[nodiscard]] fp32 gyro_z() const;
+  [[nodiscard]] fp32 accel_x() const;
+  [[nodiscard]] fp32 accel_y() const;
+  [[nodiscard]] fp32 accel_z() const;
 
  private:
   void InitAccelerometer();
