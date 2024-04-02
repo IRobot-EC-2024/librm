@@ -6,8 +6,6 @@
 #ifndef EC_LIB_BSP_INTERFACE_BSP_INS_INTERFACE_H_
 #define EC_LIB_BSP_INTERFACE_BSP_INS_INTERFACE_H_
 
-#include <array>
-
 #include "modules/typedefs.h"
 
 namespace irobot_ec::bsp {
@@ -21,27 +19,38 @@ class InsInterface {
    * @brief     获取加速度计数据
    * @return    加速度
    */
-  virtual std::array<fp32, 3> &acc() = 0;
+  virtual fp32 acc_x() const = 0;
+  virtual fp32 acc_y() const = 0;
+  virtual fp32 acc_z() const = 0;
   /**
    * @brief     获取陀螺仪数据
    * @return    角速度
    */
-  virtual std::array<fp32, 3> &gyro() = 0;
+  virtual fp32 gyro_x() const = 0;
+  virtual fp32 gyro_y() const = 0;
+  virtual fp32 gyro_z() const = 0;
   /**
    * @brief     获取磁力计数据
    * @return    磁场
    */
-  virtual std::array<fp32, 3> &mag() = 0;
+  virtual fp32 mag_x() const = 0;
+  virtual fp32 mag_y() const = 0;
+  virtual fp32 mag_z() const = 0;
   /**
    * @brief     获取欧拉角数据
    * @return    欧拉角(yaw, pitch, roll)
    */
-  virtual std::array<fp32, 3> &ypr() = 0;
+  virtual fp32 yaw() const = 0;
+  virtual fp32 pitch() const = 0;
+  virtual fp32 roll() const = 0;
   /**
    * @brief     获取四元数数据
    * @return    四元数(w, x, y, z)
    */
-  virtual std::array<fp32, 4> &quaternion() = 0;
+  virtual fp32 quat_w() const = 0;
+  virtual fp32 quat_x() const = 0;
+  virtual fp32 quat_y() const = 0;
+  virtual fp32 quat_z() const = 0;
   /**
    * @brief     更新数据
    */
