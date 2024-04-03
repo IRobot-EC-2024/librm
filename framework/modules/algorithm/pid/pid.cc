@@ -1,6 +1,6 @@
 
 /**
- * @file  modules/pid/c_pid.cpp
+ * @file  modules/algorithm/pid/pid.cc
  * @brief PID控制器
  */
 
@@ -10,11 +10,23 @@
 
 #include "modules/algorithm/utils/utils.hpp"
 
-using namespace irobot_ec::modules::algorithm::PID;
+namespace irobot_ec::modules::algorithm {
+
 using irobot_ec::modules::algorithm::utils::absConstrain;
 
 PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout)
-    : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout), use_external_diff_input_(false) {}
+    : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout), use_external_diff_input_(false) {
+#if defined(ARM_MATH_DSP)
+  if (type == PIDType::kDsp) {
+    this->dsp_pid_ = {
+        .Kp = kp,
+        .Ki = ki,
+        .Kd = kd,
+    };
+  }
+  arm_pid_init_f32(&this->dsp_pid_, 1);
+#endif
+}
 
 PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 *external_diff_input)
     : kp_(kp),
@@ -24,7 +36,18 @@ PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, f
       max_out_(max_out),
       max_iout_(max_iout),
       use_external_diff_input_(true),
-      external_diff_input_(external_diff_input) {}
+      external_diff_input_(external_diff_input) {
+#if defined(ARM_MATH_DSP)
+  if (type == PIDType::kDsp) {
+    this->dsp_pid_ = {
+        .Kp = kp,
+        .Ki = ki,
+        .Kd = kd,
+    };
+  }
+  arm_pid_init_f32(&this->dsp_pid_, 1);
+#endif
+}
 
 void PID::update(fp32 set, fp32 ref) {
   this->error_[2] = this->error_[1];
@@ -63,6 +86,13 @@ void PID::update(fp32 set, fp32 ref) {
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
       this->out_ = absConstrain(this->out_, this->max_out_);
       break;
+
+#if defined(ARM_MATH_DSP)
+    case PIDType::kDsp:
+      this->out_ = arm_pid_f32(&this->dsp_pid_, this->error_[0]);
+      this->out_ = absConstrain(this->out_, this->max_out_);
+      break;
+#endif
   }
 }
 
@@ -75,6 +105,11 @@ void PID::clear() {
   this->d_out_ = 0;
   memset(this->d_buf_, 0, 3);
   memset(this->error_, 0, 3);
+#if defined(ARM_MATH_DSP)
+  if (this->type_ == PIDType::kDsp) {
+    arm_pid_reset_f32(&this->dsp_pid_);
+  }
+#endif
 }
 
 void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout) {
@@ -83,6 +118,16 @@ void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout
   this->kd_ = kd;
   this->max_out_ = max_out;
   this->max_iout_ = max_iout;
+#if defined(ARM_MATH_DSP)
+  if (this->type_ == PIDType::kDsp) {
+    this->dsp_pid_ = {
+        .Kp = kp,
+        .Ki = ki,
+        .Kd = kd,
+    };
+    arm_pid_init_f32(&this->dsp_pid_, 1);
+  }
+#endif
 }
 
 fp32 PID::value() const { return this->out_; }
@@ -129,6 +174,13 @@ void RingPID::update(fp32 set, fp32 ref) {
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
       this->out_ = absConstrain(this->out_, this->max_out_);
       break;
+
+#if defined(ARM_MATH_DSP)
+    case PIDType::kDsp:
+      this->out_ = arm_pid_f32(&this->dsp_pid_, this->error_[0]);
+      this->out_ = absConstrain(this->out_, this->max_out_);
+      break;
+#endif
   }
 }
 
@@ -140,4 +192,4 @@ void RingPID::handleZeroCrossing() {
   }
 }
 
-/* EOF */
+}  // namespace irobot_ec::modules::algorithm

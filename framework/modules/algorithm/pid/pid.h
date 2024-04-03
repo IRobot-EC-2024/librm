@@ -1,6 +1,6 @@
 
 /**
- * @file  modules/pid/c_pid.h
+ * @file  modules/algorithm/pid/pid.h
  * @brief PID控制器
  */
 
@@ -9,13 +9,21 @@
 
 #include <memory>
 
+// 如果dsp库可用，就启用dsp库里的pid控制器支持
+#if __has_include("arm_math.h")
+#include "arm_math.h"
+#endif
+
 #include "modules/typedefs.h"
 
-namespace irobot_ec::modules::algorithm::PID {
+namespace irobot_ec::modules::algorithm {
 
 enum class PIDType {
   kPosition,
   kDelta,
+#if defined(ARM_MATH_DSP)
+  kDsp,
+#endif
 };
 
 /**
@@ -27,10 +35,10 @@ enum class PIDType {
  * @warning 外部微分输入的类型必须是fp32，
  *          且必须保证外部微分输入变量的生命周期大于PID控制器对象的生命周期
  * @warning 使用外部提供的微分输入时，请注意调整Kd，以避免微分输入的幅值过大
+ * @warning 使用DSP库实现时本控制器不支持积分限幅，即使设置了max_iout参数也不会生效
  */
 class PID {
  public:
-  PID() = delete;
   PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout);
   PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 *external_diff_input);
   virtual void update(fp32 set, fp32 ref);
@@ -56,6 +64,9 @@ class PID {
   fp32 d_buf_[3]{};  // 0: 这次, 1: 上次, 2: 上上次
   fp32 error_[3]{};  // 0: 这次, 1: 上次, 2: 上上次
 
+#if defined(ARM_MATH_DSP)
+  arm_pid_instance_f32 dsp_pid_;
+#endif
   fp32 *external_diff_input_;     // 外部提供的微分输入
   bool use_external_diff_input_;  // 是否使用外部提供的微分输入
 
@@ -79,7 +90,7 @@ class RingPID : public PID {
 
 };  // class RingPID
 
-}  // namespace irobot_ec::modules::algorithm::PID
+}  // namespace irobot_ec::modules::algorithm
 
 #endif  // EC_LIB_MODULES_ALGORITHM_PID_H
 
