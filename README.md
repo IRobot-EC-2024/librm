@@ -5,9 +5,15 @@
 [![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
 
-实验性的电控C++库，包含各种设备（电机、传感器等）的抽象封装，以及一些常用工具类。
+*如果只维护一份底层代码，不仅可以不用每辆车都写一遍，而且使用中可以不断修补迭代，这个底层代码实现能被最优化。（欢迎贡献！）*
 
-项目基于C++17标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]。推荐使用clang-format根据项目根目录下的.clang-format文件自动格式化代码。PR和push会自动被CI系统检查是否符合规范，若style check失败可参考action输出结果加以修改。
+使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。
+
+项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
+。推荐使用clang-format自动格式化代码。CI系统会检查代码是否符合规范，style
+check失败可参考action输出结果加以修改。
+
+**NOTE: 由于使用了ARM GCC/Clang编译器的一些特性和较新版本的C/C++标准，所以不保证在Keil的AC5/AC6编译器上能够正常编译。**
 
 ## 文档
 
@@ -31,51 +37,66 @@ doxygen ./Doxyfile
 
 - `framework/`
 
-  - `bsp/`：板级支持包
-    - [ ] `dji_devboard_c/`：大疆C板
-    - [ ] `dm_h7/`：DM-H7开发板
+    - `bsp/`：板级支持包
+        - [ ] `dji_devboard_c/`：大疆C板
+        - [ ] `dm_h7/`：DM-H7开发板
 
-  - [ ] `components/`：组件，指各种设备的抽象封装
-    - `motor/`：电机
-      - [x] `dji/`：大疆电机
-      - [ ] `unitree/`：宇树电机
-    - `sensor/`：传感器
-      - [ ] `icm42688p`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
-      - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
-      - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
-  
-  - [ ] `hal_wrapper/`：HAL库的类封装
+    - [ ] `components/`：组件，指各种设备的抽象封装
+        - `motor/`：电机
+            - [x] `dji/`：大疆电机
+            - [ ] `unitree/`：宇树电机
+        - `sensor/`：传感器
+            - [ ] `icm42688p`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
+            - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
+            - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
 
-  - `modules/`：模块，指软件功能模块
-    - `algorithm/`：算法
-      - [x] `mecanum/`：麦轮运动学解算
-      - [x] `mahony/`：Mahony姿态解算
-      - [x] `pid/`：PID控制器
-    - [x] `exception/`：异常处理
-    - [x] `pubsub/`：发布订阅模块
-    - [x] `serial_plotter/`：串口绘图器
+    - [ ] `hal_wrapper/`：HAL库的类封装
+
+    - `modules/`：模块，指软件功能模块
+        - `algorithm/`：算法
+            - [x] `mecanum/`：麦轮运动学解算
+            - [x] `mahony/`：Mahony姿态解算
+            - [x] `pid/`：PID控制器
+        - [x] `exception/`：异常处理
+        - [x] `pubsub/`：发布订阅模块
+        - [x] `serial_plotter/`：串口绘图器
 
 ## 开发环境
 
-### Windows
+以下均为跨平台工具，Windows、Linux上都可用：
 
 - [OpenOCD](https://github.com/openocd-org/openocd/releases/) `0.12.0`
 - STM32CubeMX `6.10.0`
-  - STM32Cube MCU Package for STM32F4 series `1.24.1`
-  - STM32Cube MCU Package for STM32H7 series `1.11.1`
+    - STM32Cube MCU Package for STM32F4 series `1.24.1`
+    - STM32Cube MCU Package for STM32H7 series `1.11.1`
 - [CMake](https://cmake.org/download/) `3.28.3`
 - [GNU Arm Embedded Toolchain, AArch32 bare-metal target (arm-none-eabi)](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) `13.2.Rel1`
 
-### Linux
-
-待补充，但是windows有的基本上linux也有
-
 ## 使用方法
 
-1. 下载本项目，把`framework/`文件夹放到某处并添加到编译路径和头文件包含路径中
+1. Clone仓库，把`framework/`文件夹放到某处并添加到编译路径和头文件包含路径中
+
+   例如若使用CMake构建工程，就在CMakeLists.txt中添加这段代码：
+
+    ```cmake
+    file(GLOB_RECURSE FRAMEWORK_SOURCE <path/to/framework>/*.cc)
+    include_directories(<path/to/framework>)
+    add_executable(${PROJECT_NAME} ${FRAMEWORK_SOURCE} <其他需要编译的文件>)
+    ```
 
 2. 在CMakeLists.txt或者工程设置里添加对应开发板芯片的预处理宏定义（一些IDE会自动添加）
-   - 大疆C板：`#define STM32F407xx`
-   - YCMC-H7A开发板：`#define STM32H723xx`
+    - 大疆C板：`#define STM32F407xx`
+    - YCMC-H7A开发板：`#define STM32H723xx`
 
-3. 按需包含头文件
+    ```cmake
+    add_definitions(-DSTM32F407xx)
+    # add_definitions(-DSTM32H723xx)
+    # or whatever :)
+    ```
+
+3. 在代码里按需包含头文件（未来计划只用包含一个头文件，目前还没做）
+
+    ```cpp
+    #include "framework/components/motor/dji/dji_motor.h"
+    // #include ...
+    ```
