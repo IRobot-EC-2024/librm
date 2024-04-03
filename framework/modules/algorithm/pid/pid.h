@@ -10,8 +10,11 @@
 #include <memory>
 
 // 如果dsp库可用，就启用dsp库里的pid控制器支持
+#if defined(__GNUC__)
 #if __has_include("arm_math.h")
+#include "hal_wrapper/hal.h"
 #include "arm_math.h"
+#endif
 #endif
 
 #include "modules/typedefs.h"
