@@ -76,12 +76,11 @@ doxygen ./Doxyfile
 
 1. Clone仓库，把`framework/`文件夹放到某处并添加到编译路径和头文件包含路径中
 
-   例如若使用CMake构建工程，就在CMakeLists.txt中添加这段代码：
+   **若使用CMake构建工程，在CMakeLists.txt中使用add_subdirectory并且链接静态库即可：**
 
     ```cmake
-    file(GLOB_RECURSE FRAMEWORK_SOURCE <path/to/framework>/*.cc)
-    include_directories(<path/to/framework>)
-    add_executable(${PROJECT_NAME} ${FRAMEWORK_SOURCE} <其他需要编译的文件>)
+    add_subdirectory(<仓库路径>)
+    link_libraries(irobot_ec_lib)
     ```
 
 2. 在CMakeLists.txt或者工程设置里添加对应开发板芯片的预处理宏定义（一些IDE会自动添加）
@@ -91,7 +90,6 @@ doxygen ./Doxyfile
     ```cmake
     add_definitions(-DSTM32F407xx)
     # add_definitions(-DSTM32H723xx)
-    # or whatever :)
     ```
 
 3. 在代码里按需包含头文件（未来计划只用包含一个头文件，目前还没做）
