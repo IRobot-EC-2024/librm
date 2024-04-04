@@ -35,11 +35,11 @@ doxygen ./Doxyfile
 
 - `unittest/`：单元测试
 
-- `framework/`
+- `src/`
 
     - `bsp/`：板级支持包
         - [ ] `dji_devboard_c/`：大疆C板
-        - [ ] `dm_h7/`：DM-H7开发板
+        - [ ] `ycmc_h7a/`：YCMC-H7A开发板
 
     - [ ] `components/`：组件，指各种设备的抽象封装
         - `motor/`：电机
@@ -50,10 +50,10 @@ doxygen ./Doxyfile
             - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
             - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
 
-    - [ ] `hal_wrapper/`：HAL库的类封装
+    - [ ] `hal_wrapper/`：HAL库之上的进一步封装
 
     - `modules/`：模块，指软件功能模块
-        - `algorithm/`：算法
+        - `algorithm/`
             - [x] `mecanum/`：麦轮运动学解算
             - [x] `mahony/`：Mahony姿态解算
             - [x] `pid/`：PID控制器
@@ -74,13 +74,13 @@ doxygen ./Doxyfile
 
 ## 使用方法
 
-1. Clone仓库，把`framework/`文件夹放到某处并添加到编译路径和头文件包含路径中
+1. Clone仓库，把`src/`文件夹放到某处并添加到编译路径和头文件包含路径中
 
    **若使用CMake构建工程，在CMakeLists.txt中使用add_subdirectory并且链接静态库即可：**
 
     ```cmake
     add_subdirectory(<仓库路径>)
-    link_libraries(irobot_ec_lib)
+    link_libraries(irobotEC)
     ```
 
 2. 在CMakeLists.txt或者工程设置里添加对应开发板芯片的预处理宏定义（一些IDE会自动添加）
@@ -95,6 +95,6 @@ doxygen ./Doxyfile
 3. 在代码里按需包含头文件（未来计划只用包含一个头文件，目前还没做）
 
     ```cpp
-    #include "framework/components/motor/dji/dji_motor.h"
+    #include "components/motor/dji/dji_motor.h"
     // #include ...
     ```
