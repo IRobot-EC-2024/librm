@@ -43,10 +43,10 @@ doxygen ./Doxyfile
 
     - [ ] `components/`：组件，指各种设备的抽象封装
         - `motor/`：电机
-            - [x] `dji/`：大疆电机
-            - [ ] `unitree/`：宇树电机
+            - [x] `dji_motor.cc/.h`：大疆电机
+            - [ ] `unitree_motor.cc/.h`：宇树电机
         - `sensor/`：传感器
-            - [ ] `icm42688p`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
+            - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
             - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
             - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
 
@@ -95,6 +95,6 @@ doxygen ./Doxyfile
 3. 在代码里按需包含头文件（未来计划只用包含一个头文件，目前还没做）
 
     ```cpp
-    #include "components/motor/dji/dji_motor.h"
+    #include "components/motor/dji_motor.h"
     // #include ...
     ```
