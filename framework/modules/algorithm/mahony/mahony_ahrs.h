@@ -1,34 +1,44 @@
-//=====================================================================================================
-// MahonyAHRS.h
-//=====================================================================================================
-//
-// Madgwick's implementation of Mayhony's AHRS algorithm.
-// See: http://www.x-io.co.uk/node/8#open_source_ahrs_and_imu_algorithms
-//
-// Date			Author			Notes
-// 29/09/2011	SOH Madgwick    Initial release
-// 02/10/2011	SOH Madgwick	Optimised for reduced CPU load
-//
-//=====================================================================================================
+
 #ifndef EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
 #define EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
 
-//----------------------------------------------------------------------------------------------------
-// Variable declaration
+#include <array>
 
-extern volatile float twoKp;           // 2 * proportional gain (Kp)
-extern volatile float twoKi;           // 2 * integral gain (Ki)
-extern volatile float q0, q1, q2, q3;  // quaternion of sensor frame relative to auxiliary frame
+#include "modules/typedefs.h"
 
-//---------------------------------------------------------------------------------------------------
-// Function declarations
+namespace irobot_ec::modules::algorithm {
 
-void MahonyAHRSupdate(float q[4], float gx, float gy, float gz, float ax, float ay, float az, float mx, float my,
-                      float mz);
+class MahonyAhrs {
+ public:
+  MahonyAhrs(fp32 sample_freq = 1000.0f, fp32 kp = 1.0f, fp32 ki = 0.0f);
+  ~MahonyAhrs() = default;
 
-void MahonyAHRSupdateIMU(float q[4], float gx, float gy, float gz, float ax, float ay, float az);
+  void Update(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz);
+  void UpdateImu(float gx, float gy, float gz, float ax, float ay, float az);
+  [[nodiscard]] fp32 quat_w() const;
+  [[nodiscard]] fp32 quat_x() const;
+  [[nodiscard]] fp32 quat_y() const;
+  [[nodiscard]] fp32 quat_z() const;
+  [[nodiscard]] fp32 euler_yaw() const;
+  [[nodiscard]] fp32 euler_pitch() const;
+  [[nodiscard]] fp32 euler_roll() const;
+
+ private:
+  fp32 two_kp_, two_ki_;
+  fp32 q0_, q1_, q2_, q3_;
+  fp32 recip_norm_;
+  fp32 q0q0_, q0q1_, q0q2_, q0q3_, q1q1_, q1q2_, q1q3_, q2q2_, q2q3_, q3q3_;
+  fp32 hx_, hy_, bx_, bz_;
+  fp32 halfvx_, halfvy_, halfvz_, halfwx_, halfwy_, halfwz_;
+  fp32 halfex_, halfey_, halfez_;
+  fp32 qa_, qb_, qc_;
+  fp32 quaternion_[4];
+  fp32 euler_ypr_[3];
+  fp32 sample_freq_;
+  volatile fp32 integral_fb_x_ = 0.0f, integral_fb_y_ = 0.0f,
+                integral_fb_z_ = 0.0f;  // integral error terms scaled by Ki
+};
+
+}  // namespace irobot_ec::modules::algorithm
 
 #endif  // EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
-//=====================================================================================================
-// End of file
-//=====================================================================================================
