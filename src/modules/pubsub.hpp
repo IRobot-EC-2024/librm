@@ -1,6 +1,5 @@
-
 /**
- * @file  modules/c_topic_subscriber.hpp
+ * @file  modules/pubsub.hpp
  * @brief 模仿ROS的发布-订阅消息模式，但是稍有不同
  * @brief 去掉了Topic的概念，只保留了Publisher和Subscriber
  */

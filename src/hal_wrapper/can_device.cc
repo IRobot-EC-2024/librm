@@ -1,7 +1,7 @@
-
 /**
  * @file  hal_wrapper/can_device.cc
  * @brief CAN外设包装类
+ * @todo  目前只支持STM32F407，有待寻找一种更通用的实现方法
  */
 
 #include "hal_wrapper/hal.h"

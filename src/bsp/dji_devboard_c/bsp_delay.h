@@ -1,3 +1,7 @@
+/**
+ * @file  bsp/dji_devboard_c/bsp_delay.h
+ * @brief 利用systick实现的精确延时
+ */
 
 #ifndef EC_LIB_DJI_C_BSP_DELAY_H
 #define EC_LIB_DJI_C_BSP_DELAY_H

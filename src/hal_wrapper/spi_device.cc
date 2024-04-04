@@ -1,6 +1,7 @@
 /**
- * @file  hal_wrapper/hal_spi.cc
- * @brief SPI设备包装类
+ * @file  hal_wrapper/spi_device.cc
+ * @brief SPI设备抽象
+ * @todo  实现不够通用，有改进空间
  */
 
 #include "spi_device.h"
@@ -14,7 +15,7 @@ namespace irobot_ec::hal {
  * @param cs_gpio_port  片选引脚所在GPIO端口
  * @param cs_pin        片选引脚编号
  */
-SpiDeviceBase::SpiDeviceBase(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, uint16_t cs_pin)
+SpiDevice::SpiDevice(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, uint16_t cs_pin)
     : hspi_(&hspi), cs_gpio_port_(cs_gpio_port), cs_pin_(cs_pin) {
   HAL_GPIO_WritePin(cs_gpio_port_, cs_pin_, GPIO_PIN_SET);
 }
@@ -23,7 +24,7 @@ SpiDeviceBase::SpiDeviceBase(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port
  * @brief 读写一个字节
  * @param tx_data 待发送的数据
  */
-void SpiDeviceBase::ReadWriteByte(uint8_t tx_data) {
+void SpiDevice::ReadWriteByte(uint8_t tx_data) {
   HAL_SPI_TransmitReceive(this->hspi_, &tx_data, &this->single_byte_buffer_, 1, 1000);
 }
 
@@ -32,7 +33,7 @@ void SpiDeviceBase::ReadWriteByte(uint8_t tx_data) {
  * @param reg 寄存器地址
  * @param len 待读取的字节数
  */
-void SpiDeviceBase::ReadWriteBytes(const uint8_t reg, const uint8_t len) {
+void SpiDevice::ReadWriteBytes(const uint8_t reg, const uint8_t len) {
   this->ReadWriteByte(reg | 0x80);
 
   for (int i = 0; i < len; i++) {
@@ -46,7 +47,7 @@ void SpiDeviceBase::ReadWriteBytes(const uint8_t reg, const uint8_t len) {
  * @param reg   寄存器地址
  * @param data  待写入的数据
  */
-void SpiDeviceBase::WriteByte(uint8_t reg, uint8_t data) {
+void SpiDevice::WriteByte(uint8_t reg, uint8_t data) {
   HAL_GPIO_WritePin(this->cs_gpio_port_, this->cs_pin_, GPIO_PIN_RESET);
   this->ReadWriteByte(reg);
   this->ReadWriteByte(data);
@@ -57,19 +58,19 @@ void SpiDeviceBase::WriteByte(uint8_t reg, uint8_t data) {
  * @brief   获取单字节缓冲区的值
  * @return  单字节缓冲区的值
  */
-uint8_t SpiDeviceBase::single_byte_buffer() const { return this->single_byte_buffer_; }
+uint8_t SpiDevice::single_byte_buffer() const { return this->single_byte_buffer_; }
 
 /**
  * @brief   获取缓冲区指针
  * @return  缓冲区指针
  */
-const uint8_t *SpiDeviceBase::buffer() const { return this->buffer_; }
+const uint8_t *SpiDevice::buffer() const { return this->buffer_; }
 
 /**
  * @brief 读一个字节
  * @param reg 寄存器地址
  */
-void SpiDeviceBase::ReadByte(uint8_t reg) {
+void SpiDevice::ReadByte(uint8_t reg) {
   HAL_GPIO_WritePin(this->cs_gpio_port_, this->cs_pin_, GPIO_PIN_RESET);
   this->ReadWriteByte(reg | 0x80);
   this->ReadWriteByte(0x55);
@@ -81,7 +82,7 @@ void SpiDeviceBase::ReadByte(uint8_t reg) {
  * @param reg 寄存器地址
  * @param len 待读取的字节数
  */
-void SpiDeviceBase::ReadBytes(uint8_t reg, uint8_t len) {
+void SpiDevice::ReadBytes(uint8_t reg, uint8_t len) {
   HAL_GPIO_WritePin(this->cs_gpio_port_, this->cs_pin_, GPIO_PIN_RESET);
   this->ReadWriteByte(reg | 0x80);
   this->ReadWriteBytes(reg, len);

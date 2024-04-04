@@ -1,3 +1,8 @@
+/**
+ * @file  modules/algorithm/mahony/mahony_ahrs.h
+ * @brief Mahony姿态解算算法
+ * @todo  利用DSP库加速运算
+ */
 
 #ifndef EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
 #define EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H

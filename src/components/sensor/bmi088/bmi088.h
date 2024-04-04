@@ -1,6 +1,7 @@
 /**
  * @file    components/sensor/bmi088/bmi088.h
  * @brief   BMI088传感器类
+ * @todo    DMA传输+硬件片选(maybe)
  */
 
 #ifndef EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
@@ -88,8 +89,8 @@ class BMI088 {
   void InitAccelerometer();
   void InitGyroscope();
 
-  hal::SpiDeviceBase accel_device_;
-  hal::SpiDeviceBase gyro_device_;
+  hal::SpiDevice accel_device_;
+  hal::SpiDevice gyro_device_;
 
   BMI088Status status_{BMI088Status::NO_SENSOR};
   BMI088GyroRange gyro_range_{BMI088GyroRange::GYRO_2000};

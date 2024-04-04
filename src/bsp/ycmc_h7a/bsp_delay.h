@@ -1,3 +1,7 @@
+/**
+ * @file  bsp/ycmc_h7a/bsp_delay.h
+ * @brief 利用systick实现的精确延时
+ */
 
 #ifndef EC_LIB_YCMC_H7A_BSP_DELAY_H
 #define EC_LIB_YCMC_H7A_BSP_DELAY_H

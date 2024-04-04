@@ -1,6 +1,7 @@
 /**
- * @file  hal_wrapper/hal_spi.h
- * @brief SPI设备包装类
+ * @file  hal_wrapper/spi_device.h
+ * @brief SPI设备抽象
+ * @todo  实现不够通用，有改进空间
  */
 
 #ifndef EC_LIB_HAL_WRAPPER_HAL_SPI_H
@@ -13,11 +14,11 @@ namespace irobot_ec::hal {
 /**
  * @brief SPI设备基类
  */
-class SpiDeviceBase {
+class SpiDevice {
  public:
-  SpiDeviceBase(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, uint16_t cs_pin);
-  SpiDeviceBase() = delete;
-  ~SpiDeviceBase() = default;
+  SpiDevice(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, uint16_t cs_pin);
+  SpiDevice() = delete;
+  ~SpiDevice() = default;
 
   void ReadByte(uint8_t reg);
   void ReadBytes(uint8_t reg, uint8_t len);

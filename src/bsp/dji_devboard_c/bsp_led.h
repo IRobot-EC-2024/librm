@@ -1,3 +1,8 @@
+/**
+ * @file  bsp/dji_devboard_c/bsp_led.h
+ * @brief 大疆c板led灯(ws2812)
+ * @todo  未完成
+ */
 
 #ifndef EC_LIB_DJI_C_BSP_LED_H
 #define EC_LIB_DJI_C_BSP_LED_H

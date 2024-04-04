@@ -1,6 +1,6 @@
 /**
  * @file    bsp/dji_devboard_c/bsp_ins.h
- * @brief   大疆C板惯导功能实现
+ * @brief   大疆C板惯导
  * @todo    温控未实现
  */
 
@@ -30,7 +30,7 @@ namespace irobot_ec::bsp::dji_devboard_c {
  */
 class Ins : public InsInterface {
  public:
-  explicit Ins(fp32 sample_freq = 1000.0f);
+  explicit Ins(fp32 sample_rate = 1000.0f);
 
   [[nodiscard]] fp32 acc_x() const override;
   [[nodiscard]] fp32 acc_y() const override;

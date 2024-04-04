@@ -1,3 +1,7 @@
+/**
+ * @file  modules/algorithm/utils/utils.cc
+ * @brief 通用工具函数
+ */
 
 #include "utils.hpp"
 

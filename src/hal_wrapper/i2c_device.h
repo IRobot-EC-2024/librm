@@ -1,3 +1,8 @@
+/**
+ * @file  hal_wrapper/i2c_device.h
+ * @brief i2c设备抽象
+ * @todo  实现不够通用，有改进空间
+ */
 
 #ifndef EC_LIB_HAL_WRAPPER_I2C_DEVICE_H
 #define EC_LIB_HAL_WRAPPER_I2C_DEVICE_H

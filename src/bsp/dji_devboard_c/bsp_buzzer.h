@@ -1,3 +1,8 @@
+/**
+ * @file  bsp/dji_devboard_c/bsp_buzzer.h
+ * @brief 大疆c板蜂鸣器
+ * @todo  未完成
+ */
 
 #ifndef EC_LIB_DJI_C_BSP_BUZZER_H
 #define EC_LIB_DJI_C_BSP_BUZZER_H

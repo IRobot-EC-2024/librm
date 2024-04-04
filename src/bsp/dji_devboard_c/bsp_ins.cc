@@ -1,3 +1,8 @@
+/**
+ * @file    bsp/dji_devboard_c/bsp_ins.h
+ * @brief   大疆C板惯导
+ * @todo    温控未实现
+ */
 
 #include "hal_wrapper/hal.h"
 
@@ -9,12 +14,12 @@
 namespace irobot_ec::bsp::dji_devboard_c {
 
 /**
- * @param sample_freq 惯导的更新频率，默认值1000hz
+ * @param sample_rate 惯导的更新频率，默认值1000hz
  */
-Ins::Ins(fp32 sample_freq)
+Ins::Ins(fp32 sample_rate)
     : bmi088_(hspi1, GPIOA, GPIO_PIN_4, GPIOB, GPIO_PIN_0),
       ist8310_(hi2c3, GPIOG, GPIO_PIN_6),
-      mahony_(sample_freq),
+      mahony_(sample_rate),
       heater_pwm_(&htim10) {
   HAL_TIM_PWM_Start(heater_pwm_, TIM_CHANNEL_1);
 }

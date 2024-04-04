@@ -1,11 +1,10 @@
-
 /**
  * @file  modules/algorithm/utils/utils.hpp
- * @brief 一些常用的工具函数
+ * @brief 通用工具函数
  */
 
-#ifndef EC_LIB_MODULES_ALGORITHM_UTILS_HPP
-#define EC_LIB_MODULES_ALGORITHM_UTILS_HPP
+#ifndef EC_LIB_MODULES_ALGORITHM_UTILS_UTILS_HPP
+#define EC_LIB_MODULES_ALGORITHM_UTILS_UTILS_HPP
 
 #include <cmath>
 
@@ -92,4 +91,4 @@ void quatToEuler(const fp32 q[4], fp32 euler[3]);
 
 }  // namespace irobot_ec::modules::algorithm::utils
 
-#endif  // EC_LIB_MODULES_ALGORITHM_UTILS_HPP
+#endif  // EC_LIB_MODULES_ALGORITHM_UTILS_UTILS_HPP

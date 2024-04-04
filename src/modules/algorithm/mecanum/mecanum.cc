@@ -1,5 +1,5 @@
 /**
- * @file  modules/algorithm/mecanum/mecanum.cpp
+ * @file  modules/algorithm/mecanum/mecanum.cc
  * @brief 麦轮正运动学解算
  */
 

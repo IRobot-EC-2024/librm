@@ -1,9 +1,7 @@
-
-// TODO: 未完成
-
 /**
- * @file  components/rc/remote_control/remote_control
+ * @file  components/rc/remote_control.cc
  * @brief 遥控器的类封装
+ * @todo  未完成
  */
 
 #include "remote_control.h"

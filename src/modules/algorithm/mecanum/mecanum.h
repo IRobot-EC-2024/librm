@@ -6,8 +6,6 @@
 #ifndef EC_LIB_MODULES_ALGORITHM_MECANUM_MECANUM_H
 #define EC_LIB_MODULES_ALGORITHM_MECANUM_MECANUM_H
 
-#include <array>
-
 #include "modules/typedefs.h"
 
 namespace irobot_ec::modules::algorithm {

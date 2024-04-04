@@ -1,3 +1,7 @@
+/**
+ * @file  modules/exception/exception.cc
+ * @brief 异常处理
+ */
 
 #ifndef EC_LIB_MODULES_EXCEPTIONS_H
 #define EC_LIB_MODULES_EXCEPTIONS_H
