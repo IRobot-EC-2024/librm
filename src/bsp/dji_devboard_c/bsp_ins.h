@@ -9,8 +9,7 @@
 
 #include "hal_wrapper/hal.h"
 
-#if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_TIM_MODULE_ENABLED) && \
-    defined(STM32F407xx)
+#if defined(I2C3) && defined(SPI1) && defined(TIM10) && defined(STM32F407xx)
 
 #include "i2c.h"
 #include "spi.h"
