@@ -78,7 +78,7 @@ void DjiMotorBase::SendCommand() {
 /**
  * @brief   电机反馈数据解码回调函数
  */
-void DjiMotorBase::RxCallback(hal::can::CanRxMsg *msg) {
+void DjiMotorBase::RxCallback(bsp::CanRxMsg *msg) {
   this->encoder_ = (msg->data[0] << 8) | msg->data[1];
   this->rpm_ = (msg->data[2] << 8) | msg->data[3];
   this->current_ = (msg->data[4] << 8) | msg->data[5];

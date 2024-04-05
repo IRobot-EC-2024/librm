@@ -43,7 +43,7 @@ class DjiMotorBase : public irobot_ec::hal::can::CanDeviceBase {
 
   template <int16_t current_bound, uint8_t buffer_index>
   void SetCurrentTemplate(int16_t current);
-  void RxCallback(irobot_ec::hal::can::CanRxMsg *msg) override;
+  void RxCallback(bsp::CanRxMsg *msg) override;
 
   uint16_t id_{};  // 电机ID
   /**   FEEDBACK DATA   **/
