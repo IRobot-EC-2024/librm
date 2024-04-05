@@ -82,7 +82,7 @@ void DjiMotorBase::RxCallback(hal::can::CanRxMsg *msg) {
   this->encoder_ = (msg->data[0] << 8) | msg->data[1];
   this->rpm_ = (msg->data[2] << 8) | msg->data[3];
   this->current_ = (msg->data[4] << 8) | msg->data[5];
-  this->temperature_ = msg->data[6] << 8;
+  this->temperature_ = msg->data[6];
 }
 
 /**
