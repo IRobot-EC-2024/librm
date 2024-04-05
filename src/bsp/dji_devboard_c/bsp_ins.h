@@ -9,7 +9,8 @@
 
 #include "hal_wrapper/hal.h"
 
-#if defined(I2C3) && defined(SPI1) && defined(TIM10) && defined(STM32F407xx)
+#if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_TIM_MODULE_ENABLED) && \
+    defined(STM32F407xx)
 
 #include "i2c.h"
 #include "spi.h"
@@ -30,6 +31,7 @@ namespace irobot_ec::bsp::dji_devboard_c {
 class Ins : public InsInterface {
  public:
   explicit Ins(fp32 sample_rate = 1000.0f);
+  ~Ins() override = default;
 
   [[nodiscard]] fp32 acc_x() const override;
   [[nodiscard]] fp32 acc_y() const override;

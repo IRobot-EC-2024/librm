@@ -6,11 +6,21 @@
 
 #include "hal_wrapper/hal.h"
 
-#if defined(I2C3) && defined(SPI1) && defined(TIM10) && defined(STM32F407xx)
+#if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_TIM_MODULE_ENABLED) && \
+    defined(STM32F407xx)
 
 #include "bsp_ins.h"
+#include "modules/exception/exception.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
+
+using modules::exception::Exception;
+using modules::exception::ThrowException;
+
+// 防止没有启用SPI1和I2C3编译报错
+__weak SPI_HandleTypeDef hspi1 = {.Instance = nullptr};
+__weak I2C_HandleTypeDef hi2c3 = {.Instance = nullptr};
+__weak TIM_HandleTypeDef htim10 = {.Instance = nullptr};
 
 /**
  * @param sample_rate 惯导的更新频率，默认值1000hz
@@ -20,6 +30,9 @@ Ins::Ins(fp32 sample_rate)
       ist8310_(hi2c3, GPIOG, GPIO_PIN_6),
       mahony_(sample_rate),
       heater_pwm_(&htim10) {
+  if (hspi1.Instance == nullptr || hi2c3.Instance == nullptr || htim10.Instance == nullptr) {
+    ThrowException(Exception::kHALError);  // SPI1或I2C3未启用
+  }
   HAL_TIM_PWM_Start(heater_pwm_, TIM_CHANNEL_1);
 }
 

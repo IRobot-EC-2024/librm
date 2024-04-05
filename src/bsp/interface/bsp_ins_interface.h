@@ -15,6 +15,7 @@ namespace irobot_ec::bsp {
  */
 class InsInterface {
  public:
+  virtual ~InsInterface() = default;
   /**
    * @brief     获取加速度计数据
    * @return    加速度
