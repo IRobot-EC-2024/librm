@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: 'true'
+          submodules: 'recursive'
 
       - name: Copy source files to template project
         run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32f407ighx/framework
@@ -40,7 +40,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: 'true'
+          submodules: 'recursive'
 
       - name: Copy source files to template project
         run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32h723vgtx/framework
