@@ -1,7 +1,6 @@
-
 name: build
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 env:
   BUILD_TYPE: Release
@@ -12,14 +11,19 @@ jobs:
     steps:
       - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
         uses: carlosperate/arm-none-eabi-gcc-action@v1.8.1
-        
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: 'true'
 
       - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/framework ${{github.workspace}}/stm32cube_template/stm32f407ighx/Src
+        run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32f407ighx/framework
+
+      - name: Add library target/link library
+        run: |
+          sed -i '67 a add_subdirectory(framework)' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
+          sed -i '68 a link_libraries(irobotEC)' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
 
       - name: Configure CMake
         run: cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=arm-none-eabi-g++ -S${{github.workspace}}/stm32cube_template/stm32f407ighx -B${{github.workspace}}/stm32cube_template/stm32f407ighx/build -G "Unix Makefiles"
@@ -32,18 +36,22 @@ jobs:
     steps:
       - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
         uses: carlosperate/arm-none-eabi-gcc-action@v1.8.1
-      
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: 'true'
 
       - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/framework ${{github.workspace}}/stm32cube_template/stm32h723vgtx/Core/Src
+        run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32h723vgtx/framework
+
+      - name: Add library target/link library
+        run: |
+          sed -i '67 a add_subdirectory(framework)' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
+          sed -i '68 a link_libraries(irobotEC)' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
 
       - name: Configure CMake
         run: cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=arm-none-eabi-g++ -S${{github.workspace}}/stm32cube_template/stm32h723vgtx -B${{github.workspace}}/stm32cube_template/stm32h723vgtx/build -G "Unix Makefiles"
 
       - name: Build
         run: cmake --build ${{github.workspace}}/stm32cube_template/stm32h723vgtx/build --target all
-
