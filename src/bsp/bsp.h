@@ -19,6 +19,7 @@
 #if defined(STM32F407xx)
 #include "bsp/dji_devboard_c/bsp_delay.h"
 #include "bsp/dji_devboard_c/bsp_ins.h"
+#include "bsp/dji_devboard_c/bsp_can.h"
 #elif defined(STM32H723xx)
 #include "bsp/ycmc_h7a/bsp_delay.h"
 #endif
@@ -34,6 +35,7 @@ class BspFactory {
   BspFactory() = delete;
 
   static DelayInterface &GetDelay();
+  static CanInterface &GetCan();
 
  private:
   ~BspFactory() = default;

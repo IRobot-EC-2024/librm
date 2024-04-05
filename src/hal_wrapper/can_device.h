@@ -2,7 +2,8 @@
 /**
  * @file  hal_wrapper/can_device.h
  * @brief CAN外设包装类
- * @todo  目前只支持STM32F407，有待寻找一种更通用的实现方法
+ * @todo  这里需要同时支持bxcan和fdcan，两者的API不同，需要重构，去掉所有对HAL库的直接依赖
+ * @todo  2024/4/5 第一次重构，将设置CAN过滤器的代码从这里移动到bsp库中
  */
 
 #ifndef EC_LIB_HAL_WRAPPER_HAL_CAN_H
@@ -13,21 +14,14 @@
 #ifdef HAL_CAN_MODULE_ENABLED
 
 #include <unordered_map>
-
 #include "can.h"
+
+#include "bsp/interface/bsp_can_interface.h"
 
 namespace irobot_ec::hal::can {
 
 /**
- * @brief CAN message data pack
- */
-struct CanRxMsg {
-  uint8_t data[8];
-  CAN_RxHeaderTypeDef header;
-};
-
-/**
- * @brief CAN device base class
+ * @brief CAN设备的基类
  */
 class CanDeviceBase {
   friend void ::HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
@@ -37,7 +31,7 @@ class CanDeviceBase {
   CanDeviceBase() = default;
   CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id);
 
-  virtual void RxCallback(CanRxMsg *msg) = 0;
+  virtual void RxCallback(bsp::CanRxMsg *msg) = 0;
 
   void Transmit(const uint8_t *data, uint32_t size);
 

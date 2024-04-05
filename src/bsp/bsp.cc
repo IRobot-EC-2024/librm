@@ -21,4 +21,18 @@ DelayInterface &BspFactory::GetDelay() {
 #endif
 }
 
+/**
+ * @brief   获取Can实现
+ * @return  CanInterface&
+ */
+CanInterface &BspFactory::GetCan() {
+#if defined(STM32F407xx)  // 大疆c板
+  return dji_devboard_c::Can::GetInstance();
+#elif defined(STM32H723xx)  // YCMC-H7A
+  return nullptr;  // TODO
+#else
+  return nullptr;
+#endif
+}
+
 }  // namespace irobot_ec::bsp
