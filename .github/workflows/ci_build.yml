@@ -17,12 +17,9 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32f407ighx/framework
-
       - name: Add library target/link library
         run: |
-          sed -i '67 a add_subdirectory(framework)' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
+          sed -i '67 a add_subdirectory(${{github.workspace}})' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
           sed -i '68 a link_libraries(irobotEC)' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
 
       - name: Configure CMake
@@ -42,12 +39,9 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32h723vgtx/framework
-
       - name: Add library target/link library
         run: |
-          sed -i '67 a add_subdirectory(framework)' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
+          sed -i '67 a add_subdirectory(${{github.workspace}})' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
           sed -i '68 a link_libraries(irobotEC)' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
 
       - name: Configure CMake
