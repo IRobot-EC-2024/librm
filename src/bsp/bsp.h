@@ -14,7 +14,7 @@
 #include "interface/bsp_delay_interface.h"
 #include "interface/bsp_ins_interface.h"
 
-// 根据宏定义导入不同的bsp实现
+// 根据宏定义导入对应平台的bsp实现
 #include "hal_wrapper/hal.h"
 #if defined(STM32F407xx)
 #include "bsp/dji_devboard_c/bsp_delay.h"
@@ -23,6 +23,9 @@
 #elif defined(STM32H723xx)
 #include "bsp/ycmc_h7a/bsp_delay.h"
 #endif
+
+// 导入通用的bsp实现
+#include "common/bsp_uart.h"
 
 namespace irobot_ec::bsp {
 
