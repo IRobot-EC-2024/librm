@@ -46,6 +46,8 @@ doxygen ./Doxyfile
       - `motor/`：电机
           - [x] `dji_motor.cc/.h`：大疆电机
           - [ ] `unitree_motor.cc/.h`：宇树电机
+      - `rc/`：遥控器/接收机
+          - [x] `dr16.cc/.h`：大疆DR16接收机
       - `sensor/`：传感器
           - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
           - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
