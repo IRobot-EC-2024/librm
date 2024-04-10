@@ -21,6 +21,8 @@
 
 namespace irobot_ec::bsp {
 
+using UartCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
+
 enum class UartMode {
   kNormal,
   kInterrupt,
@@ -34,18 +36,18 @@ enum class UartMode {
  */
 class Uart {
  public:
-  Uart(UART_HandleTypeDef &huart, usize rx_size, UartMode tx_mode = UartMode::kNormal,
+  Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode = UartMode::kNormal,
        UartMode rx_mode = UartMode::kNormal);
 
   void Write(const u8 *data, usize size);
   void StartReceive();
-  void AttachRxCallback(std::function<void(const std::vector<u8> &)> &callback);
+  void AttachRxCallback(UartCallbackFunction &callback);
   [[nodiscard]] const std::vector<u8> &rx_buffer() const;
 
  private:
-  void HalRxCpltCallback();
+  void HalRxCpltCallback(u16 rx_len);
 
-  std::function<void(const std::vector<u8> &)> *rx_callback_{nullptr};
+  UartCallbackFunction *rx_callback_{nullptr};
   UART_HandleTypeDef *huart_;
   UartMode tx_mode_;
   UartMode rx_mode_;

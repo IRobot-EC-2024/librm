@@ -30,27 +30,27 @@ using irobot_ec::modules::exception::ThrowException;
  * 并不能直接强转成函数指针。借助这个函数，可以把std::function对象转换成函数指针。然后就可以把这个类内的回调函数传给HAL库了。
  */
 template <typename CallbackFunctionType, typename HandleType>
-static CallbackFunctionType StdFunctionToCallbackFunctionPtr(std::function<void()> fn) {
+static CallbackFunctionType StdFunctionToCallbackFunctionPtr(std::function<void(u16)> fn) {
   static auto fn_v = std::move(fn);
-  return [](HandleType *dummy1, u16 dummy2) { fn_v(); };
+  return [](HandleType *handle, u16 rx_len) { fn_v(rx_len); };
 }
 
 namespace irobot_ec::bsp {
 
 /**
- * @param huart     HAL库的UART句柄
- * @param rx_size   接收缓冲区大小
- * @param mode      UART工作模式（正常、中断、DMA）
+ * @param huart            HAL库的UART句柄
+ * @param rx_buffer_size   接收缓冲区大小
+ * @param mode             UART工作模式（正常、中断、DMA）
  */
-Uart::Uart(UART_HandleTypeDef &huart, usize rx_size, UartMode tx_mode, UartMode rx_mode)
+Uart::Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode, UartMode rx_mode)
     : huart_(&huart),
       tx_mode_(tx_mode),
       rx_mode_(rx_mode),
-      rx_buf_{std::vector<u8>(rx_size), std::vector<u8>(rx_size)} {
+      rx_buf_{std::vector<u8>(rx_buffer_size), std::vector<u8>(rx_buffer_size)} {
   // 注册接收完成回调函数
   HAL_UART_RegisterRxEventCallback(&huart,
                                    StdFunctionToCallbackFunctionPtr<pUART_RxEventCallbackTypeDef, UART_HandleTypeDef>(
-                                       std::bind(&Uart::HalRxCpltCallback, this)));
+                                       std::bind(&Uart::HalRxCpltCallback, this, std::placeholders::_1)));
   // 检查dma模式下是否已经配置好DMA
   if (tx_mode == UartMode::kDma && this->huart_->hdmatx == nullptr) {
     ThrowException(Exception::kHALError);
@@ -106,7 +106,7 @@ void Uart::StartReceive() {
  * @brief 注册用户定义的接收完成回调函数
  * @param callback 回调函数
  */
-void Uart::AttachRxCallback(std::function<void(const std::vector<u8> &)> &callback) { this->rx_callback_ = &callback; }
+void Uart::AttachRxCallback(UartCallbackFunction &callback) { this->rx_callback_ = &callback; }
 
 /**
  * @return 接收缓冲区
@@ -115,9 +115,10 @@ const std::vector<u8> &Uart::rx_buffer() const { return rx_buf_[buffer_selector_
 
 /**
  * @brief 接收完成回调函数
- * @note  这个回调函数是给HAL库用的，要实现自己的功能就在外部定义一个void(const std::vector<u8> &)类型的回调函数，然后通过AttachRxCallback注册
+ * @note  这个回调函数是给HAL库用的，要实现自己的功能就在外部定义一个UartCallbackFunction
+ * 类型的回调函数，然后通过AttachRxCallback注册
  */
-void Uart::HalRxCpltCallback() {
+void Uart::HalRxCpltCallback(u16 rx_len) {
   // 判断rx模式，重新启动接收
   switch (this->rx_mode_) {
     case UartMode::kNormal:
@@ -137,7 +138,7 @@ void Uart::HalRxCpltCallback() {
   }
   // 调用子类重写的回调函数
   if (this->rx_callback_ != nullptr) {
-    (*this->rx_callback_)(this->rx_buf_[this->buffer_selector_]);
+    (*this->rx_callback_)(this->rx_buf_[this->buffer_selector_], rx_len);
   }
   // 切换缓冲区
   this->buffer_selector_ = !this->buffer_selector_;
