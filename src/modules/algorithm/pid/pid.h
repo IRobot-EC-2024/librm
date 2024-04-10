@@ -65,7 +65,7 @@ class PID {
 #if defined(ARM_MATH_DSP)
   arm_pid_instance_f32 dsp_pid_;
 #endif
-  f32 *external_diff_input_;     // 外部提供的微分输入
+  f32 *external_diff_input_;      // 外部提供的微分输入
   bool use_external_diff_input_;  // 是否使用外部提供的微分输入
 
   PIDType type_;

@@ -33,7 +33,7 @@ static CallbackFunctionType StdFunctionToCallbackFunctionPtr(std::function<void(
   return [](HandleType *dummy1, u16 dummy2) { fn_v(); };
 }
 
-namespace irobot_ec::hal {
+namespace irobot_ec::bsp {
 
 /**
  * @param huart     HAL库的UART句柄
@@ -135,6 +135,6 @@ void Uart::HalRxCpltCallback() {
   this->buffer_selector_ = !this->buffer_selector_;
 }
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::bsp
 
 #endif

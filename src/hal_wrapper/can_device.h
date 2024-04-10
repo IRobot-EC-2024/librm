@@ -36,8 +36,8 @@ class CanDeviceBase {
   void Transmit(const u8 *data, u32 size);
 
  protected:
-  u32 rx_std_id_;             // rx standard id
-  u32 tx_mailbox_;            // tx mailbox
+  u32 rx_std_id_;                  // rx standard id
+  u32 tx_mailbox_;                 // tx mailbox
   CAN_TxHeaderTypeDef tx_header_;  // tx header
   CAN_HandleTypeDef *hcan_;        // CAN peripheral handle
 

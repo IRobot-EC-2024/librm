@@ -41,7 +41,7 @@ class MahonyAhrs {
   f32 euler_ypr_[3];
   f32 sample_freq_;
   volatile f32 integral_fb_x_ = 0.0f, integral_fb_y_ = 0.0f,
-                integral_fb_z_ = 0.0f;  // integral error terms scaled by Ki
+               integral_fb_z_ = 0.0f;  // integral error terms scaled by Ki
 };
 
 }  // namespace irobot_ec::modules::algorithm

@@ -14,7 +14,7 @@
 
 #include "modules/typedefs.h"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::bsp {
 
 enum class UartMode {
   kNormal,
@@ -47,7 +47,7 @@ class Uart {
   bool buffer_selector_{false};
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::bsp
 
 #endif
 #endif  // EC_LIB_BSP_COMMON_BSP_UART_H
