@@ -1,3 +1,7 @@
+/**
+ * @file  bsp/common/bsp_uart.h
+ * @brief UART类库
+ */
 
 #ifndef EC_LIB_BSP_COMMON_BSP_UART_H
 #define EC_LIB_BSP_COMMON_BSP_UART_H
@@ -11,6 +15,7 @@
 #if defined(HAL_UART_MODULE_ENABLED)
 
 #include <vector>
+#include <functional>
 
 #include "modules/typedefs.h"
 
@@ -32,14 +37,15 @@ class Uart {
   Uart(UART_HandleTypeDef &huart, usize rx_size, UartMode tx_mode = UartMode::kNormal,
        UartMode rx_mode = UartMode::kNormal);
 
-  virtual void RxCallback();
   void Write(const u8 *data, usize size);
   void StartReceive();
+  void AttachRxCallback(std::function<void()> callback);
   [[nodiscard]] const std::vector<u8> &rx_buffer() const;
 
  private:
   void HalRxCpltCallback();
 
+  std::function<void()> *rx_callback_{nullptr};
   UART_HandleTypeDef *huart_;
   UartMode tx_mode_;
   UartMode rx_mode_;

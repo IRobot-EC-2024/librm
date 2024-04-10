@@ -1,3 +1,7 @@
+/**
+ * @file  bsp/common/bsp_uart.cc
+ * @brief UART类库
+ */
 
 #include "hal/hal.h"
 #if defined(USE_HAL_UART_REGISTER_CALLBACKS)
@@ -8,8 +12,6 @@
 #if defined(HAL_UART_MODULE_ENABLED)
 
 #include "bsp_uart.h"
-
-#include <functional>
 
 #include "modules/exception/exception.h"
 
@@ -59,11 +61,6 @@ Uart::Uart(UART_HandleTypeDef &huart, usize rx_size, UartMode tx_mode, UartMode 
 }
 
 /**
- * @brief 留给用户定义的接收回调函数，可以在子类中重写实现想要的功能
- */
-void Uart::RxCallback() {}
-
-/**
  * @brief 发送数据
  * @param data 数据指针
  * @param size 数据大小
@@ -105,6 +102,8 @@ void Uart::StartReceive() {
   }
 }
 
+void Uart::AttachRxCallback(std::function<void()> callback) { this->rx_callback_ = &callback; }
+
 const std::vector<u8> &Uart::rx_buffer() const { return rx_buf_[buffer_selector_]; }
 
 /**
@@ -130,7 +129,9 @@ void Uart::HalRxCpltCallback() {
 #endif
   }
   // 调用子类重写的回调函数
-  this->RxCallback();
+  if (this->rx_callback_ != nullptr) {
+    (*this->rx_callback_)();
+  }
   // 切换缓冲区
   this->buffer_selector_ = !this->buffer_selector_;
 }
