@@ -2,7 +2,7 @@
 #ifndef EC_LIB_BSP_COMMON_BSP_UART_H
 #define EC_LIB_BSP_COMMON_BSP_UART_H
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(USE_HAL_UART_REGISTER_CALLBACKS)
 #if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)
 #error "UART register callback must be enabled!"

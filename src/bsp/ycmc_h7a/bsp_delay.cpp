@@ -3,8 +3,7 @@
  * @brief 利用systick实现的精确延时
  */
 
-#include "hal_wrapper/hal.h"
-
+#include "hal/hal.h"
 #if defined(STM32H723xx)
 
 #include "bsp_delay.h"

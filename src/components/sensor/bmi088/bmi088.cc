@@ -4,9 +4,8 @@
  * @todo    DMA传输+硬件片选(maybe)
  */
 
-#include "hal_wrapper/hal.h"
-
-#ifdef HAL_SPI_MODULE_ENABLED
+#include "hal/hal.h"
+#if defined(HAL_SPI_MODULE_ENABLED)
 
 #include <vector>
 

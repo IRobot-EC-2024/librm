@@ -4,9 +4,8 @@
  * @brief 大疆电机的类封装
  */
 
-#include "hal_wrapper/hal.h"
-
-#ifdef HAL_CAN_MODULE_ENABLED
+#include "hal/hal.h"
+#if defined(HAL_CAN_MODULE_ENABLED)
 
 #include "dji_motor.h"
 #include "modules/algorithm/utils/utils.hpp"

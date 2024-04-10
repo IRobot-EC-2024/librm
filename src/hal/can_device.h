@@ -9,12 +9,10 @@
 #ifndef EC_LIB_HAL_WRAPPER_HAL_CAN_H
 #define EC_LIB_HAL_WRAPPER_HAL_CAN_H
 
-#include "hal_wrapper/hal.h"
-
-#ifdef HAL_CAN_MODULE_ENABLED
+#include "hal.h"
+#if defined(HAL_CAN_MODULE_ENABLED)
 
 #include <unordered_map>
-#include "can.h"
 
 #include "bsp/interface/bsp_can_interface.h"
 

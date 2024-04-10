@@ -5,9 +5,8 @@
  * @todo  2024/4/5 第一次重构，将设置CAN过滤器的代码从这里移动到bsp库中
  */
 
-#include "hal_wrapper/hal.h"
-
-#ifdef HAL_CAN_MODULE_ENABLED
+#include "hal.h"
+#if defined(HAL_CAN_MODULE_ENABLED)
 
 #include "can_device.h"
 

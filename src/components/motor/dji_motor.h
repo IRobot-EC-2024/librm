@@ -7,15 +7,14 @@
 #ifndef EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 #define EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_H
 
-#include "hal_wrapper/hal.h"
-
+#include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include <array>
 #include <list>
 #include <unordered_map>
 
-#include "hal_wrapper/can_device.h"
+#include "hal/can_device.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components::motor {

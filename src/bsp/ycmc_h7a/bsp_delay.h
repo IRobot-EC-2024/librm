@@ -6,8 +6,7 @@
 #ifndef EC_LIB_YCMC_H7A_BSP_DELAY_H
 #define EC_LIB_YCMC_H7A_BSP_DELAY_H
 
-#include "hal_wrapper/hal.h"
-
+#include "hal/hal.h"
 #if defined(STM32H723xx)
 
 #include "bsp/interface/bsp_delay_interface.h"

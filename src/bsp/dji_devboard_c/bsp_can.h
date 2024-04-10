@@ -7,6 +7,9 @@
 #ifndef EC_LIB_BSP_DJI_DEVBOARD_C_BSP_CAN_H_
 #define EC_LIB_BSP_DJI_DEVBOARD_C_BSP_CAN_H_
 
+#include "hal/hal.h"
+#if defined(HAL_CAN_MODULE_ENABLED) && defined(STM32F407xx)
+
 #include "bsp/interface/bsp_can_interface.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
@@ -29,5 +32,7 @@ class Can : public CanInterface {
 };
 
 }  // namespace irobot_ec::bsp::dji_devboard_c
+
+#endif
 
 #endif  // EC_LIB_BSP_DJI_DEVBOARD_C_BSP_CAN_H_

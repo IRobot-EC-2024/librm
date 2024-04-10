@@ -4,8 +4,7 @@
  * @todo    温控未实现
  */
 
-#include "hal_wrapper/hal.h"
-
+#include "hal/hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED) && defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_TIM_MODULE_ENABLED) && \
     defined(STM32F407xx)
 

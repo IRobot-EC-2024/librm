@@ -6,10 +6,10 @@
 #ifndef EC_LIB_COMPONENTS_SENSOR_IST8310_IST8310_H_
 #define EC_LIB_COMPONENTS_SENSOR_IST8310_IST8310_H_
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
 
-#include "hal_wrapper/i2c_device.h"
+#include "hal/i2c_device.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components::sensor {

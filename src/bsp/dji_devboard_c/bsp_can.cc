@@ -4,12 +4,12 @@
  * @todo  see: src/hal_wrapper/can_device.h
  */
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED) && defined(STM32F407xx)
 
 #include "bsp_can.h"
 
-#include "hal_wrapper/can_device.h"
+#include "hal/can_device.h"
 #include "modules/exception/exception.h"
 
 using irobot_ec::hal::can::CanDeviceBase;

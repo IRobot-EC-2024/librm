@@ -7,10 +7,10 @@
 #ifndef EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 #define EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED)
 
-#include "hal_wrapper/spi_device.h"
+#include "hal/spi_device.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components::sensor {

@@ -7,7 +7,7 @@
 #ifndef EC_LIB_COMPONENTS_MOTOR_UNITREE_MOTOR_H
 #define EC_LIB_COMPONENTS_MOTOR_UNITREE_MOTOR_H
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
 
 #include "modules/typedefs.h"

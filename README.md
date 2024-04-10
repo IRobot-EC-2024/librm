@@ -51,7 +51,7 @@ doxygen ./Doxyfile
           - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
           - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
 
-  - [ ] `hal_wrapper/`：HAL库之上的进一步封装
+  - [ ] `hal/`：基于HAL库的进一步封装（计划重构去掉这一部分，并入bsp）
 
   - `modules/`：模块，指软件功能模块
       - `algorithm/`

@@ -1,5 +1,5 @@
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(USE_HAL_UART_REGISTER_CALLBACKS)
 #if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)
 #error "UART register callback must be enabled!"  // 必须启用UART的Register callback

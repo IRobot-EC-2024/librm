@@ -6,8 +6,7 @@
 #ifndef EC_LIB_DJI_C_BSP_DELAY_H
 #define EC_LIB_DJI_C_BSP_DELAY_H
 
-#include "hal_wrapper/hal.h"
-
+#include "hal/hal.h"
 #if defined(STM32F407xx)
 
 #include "bsp/interface/bsp_delay_interface.h"

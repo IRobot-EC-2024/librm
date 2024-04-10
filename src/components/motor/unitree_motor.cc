@@ -4,6 +4,9 @@
  * @todo  未完成
  */
 
+#include "hal/hal.h"
+#if defined(HAL_UART_MODULE_ENABLED)
+
 #include "unitree_motor.h"
 
-/* EOF */
+#endif

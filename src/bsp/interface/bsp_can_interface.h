@@ -6,7 +6,7 @@
 #ifndef EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_
 #define EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_
 
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include "can.h"

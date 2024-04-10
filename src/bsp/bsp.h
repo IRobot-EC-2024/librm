@@ -15,7 +15,7 @@
 #include "interface/bsp_ins_interface.h"
 
 // 根据宏定义导入对应平台的bsp实现
-#include "hal_wrapper/hal.h"
+#include "hal/hal.h"
 #if defined(STM32F407xx)
 #include "bsp/dji_devboard_c/bsp_delay.h"
 #include "bsp/dji_devboard_c/bsp_ins.h"
