@@ -10,32 +10,34 @@
 #include "hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
 
+#include "modules/typedefs.h"
+
 namespace irobot_ec::hal {
 /**
  * @brief SPI设备基类
  */
 class SpiDevice {
  public:
-  SpiDevice(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, uint16_t cs_pin);
+  SpiDevice(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, u16 cs_pin);
   SpiDevice() = delete;
   ~SpiDevice() = default;
 
-  void ReadByte(uint8_t reg);
-  void ReadBytes(uint8_t reg, uint8_t len);
-  void WriteByte(uint8_t reg, uint8_t data);
+  void ReadByte(u8 reg);
+  void ReadBytes(u8 reg, u8 len);
+  void WriteByte(u8 reg, u8 data);
 
-  [[nodiscard]] uint8_t single_byte_buffer() const;
-  [[nodiscard]] const uint8_t *buffer() const;
+  [[nodiscard]] u8 single_byte_buffer() const;
+  [[nodiscard]] const u8 *buffer() const;
 
  protected:
-  void ReadWriteByte(uint8_t tx_data);
-  void ReadWriteBytes(uint8_t reg, uint8_t len);
+  void ReadWriteByte(u8 tx_data);
+  void ReadWriteBytes(u8 reg, u8 len);
 
   SPI_HandleTypeDef *hspi_;
   GPIO_TypeDef *cs_gpio_port_;
-  uint16_t cs_pin_;
-  uint8_t single_byte_buffer_{};
-  uint8_t buffer_[8]{0};
+  u16 cs_pin_;
+  u8 single_byte_buffer_{};
+  u8 buffer_[8]{0};
 };
 }  // namespace irobot_ec::hal
 

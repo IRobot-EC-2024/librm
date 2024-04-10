@@ -8,8 +8,7 @@
 #define EC_LIB_COMPONENTS_SENSOR_BMI088_BMI088_H
 
 #include "hal_wrapper/hal.h"
-
-#ifdef HAL_SPI_MODULE_ENABLED
+#if defined(HAL_SPI_MODULE_ENABLED)
 
 #include "hal_wrapper/spi_device.h"
 #include "modules/typedefs.h"
@@ -19,7 +18,7 @@ namespace irobot_ec::components::sensor {
 /**
  * @brief BMI088传感器状态
  */
-enum class BMI088Status : uint8_t {
+enum class BMI088Status : u8 {
   NO_ERROR = 0x00,
   ACC_PWR_CTRL_ERROR = 0x01,
   ACC_PWR_CONF_ERROR = 0x02,
@@ -43,7 +42,7 @@ enum class BMI088Status : uint8_t {
 /**
  * @brief BMI088陀螺仪量程
  */
-enum class BMI088GyroRange : uint8_t {
+enum class BMI088GyroRange : u8 {
   GYRO_2000 = 0u,
   GYRO_1000 = 1u,
   GYRO_500 = 2u,
@@ -54,7 +53,7 @@ enum class BMI088GyroRange : uint8_t {
 /**
  * @brief BMI088加速度计量程
  */
-enum class BMI088AccelRange : uint8_t {
+enum class BMI088AccelRange : u8 {
   ACC_RANGE_3G = 0u,
   ACC_RANGE_6G = 1u,
   ACC_RANGE_12G = 2u,
@@ -68,22 +67,22 @@ class BMI088 {
  public:
   BMI088() = delete;
   ~BMI088() = default;
-  BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
-         GPIO_TypeDef *cs1_gyro_gpio_port, uint16_t cs1_gyro_pin);
+  BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, u16 cs1_accel_pin,
+         GPIO_TypeDef *cs1_gyro_gpio_port, u16 cs1_gyro_pin);
 
   // no copy
   BMI088(const BMI088 &) = delete;
   BMI088 &operator=(const BMI088 &) = delete;
 
   void Update();
-  [[nodiscard]] fp32 temperature() const;
+  [[nodiscard]] f32 temperature() const;
   [[nodiscard]] BMI088Status status() const;
-  [[nodiscard]] fp32 gyro_x() const;
-  [[nodiscard]] fp32 gyro_y() const;
-  [[nodiscard]] fp32 gyro_z() const;
-  [[nodiscard]] fp32 accel_x() const;
-  [[nodiscard]] fp32 accel_y() const;
-  [[nodiscard]] fp32 accel_z() const;
+  [[nodiscard]] f32 gyro_x() const;
+  [[nodiscard]] f32 gyro_y() const;
+  [[nodiscard]] f32 gyro_z() const;
+  [[nodiscard]] f32 accel_x() const;
+  [[nodiscard]] f32 accel_y() const;
+  [[nodiscard]] f32 accel_z() const;
 
  private:
   void InitAccelerometer();
@@ -96,9 +95,9 @@ class BMI088 {
   BMI088GyroRange gyro_range_{BMI088GyroRange::GYRO_2000};
   BMI088AccelRange accel_range_{BMI088AccelRange::ACC_RANGE_3G};
 
-  fp32 gyro_[3]{0};
-  fp32 accel_[3]{0};
-  fp32 temperature_{};
+  f32 gyro_[3]{0};
+  f32 accel_[3]{0};
+  f32 temperature_{};
 };
 }  // namespace irobot_ec::components::sensor
 

@@ -18,40 +18,40 @@ class InsInterface {
   virtual ~InsInterface() = default;
   /**
    * @brief     获取加速度计数据
-   * @return    加速度
+   * @return    加速度(m/s^2)
    */
-  virtual fp32 acc_x() const = 0;
-  virtual fp32 acc_y() const = 0;
-  virtual fp32 acc_z() const = 0;
+  virtual f32 acc_x() const = 0;
+  virtual f32 acc_y() const = 0;
+  virtual f32 acc_z() const = 0;
   /**
    * @brief     获取陀螺仪数据
-   * @return    角速度
+   * @return    角速度(rad/s)
    */
-  virtual fp32 gyro_x() const = 0;
-  virtual fp32 gyro_y() const = 0;
-  virtual fp32 gyro_z() const = 0;
+  virtual f32 gyro_x() const = 0;
+  virtual f32 gyro_y() const = 0;
+  virtual f32 gyro_z() const = 0;
   /**
    * @brief     获取磁力计数据
-   * @return    磁场
+   * @return    磁场(uT)
    */
-  virtual fp32 mag_x() const = 0;
-  virtual fp32 mag_y() const = 0;
-  virtual fp32 mag_z() const = 0;
+  virtual f32 mag_x() const = 0;
+  virtual f32 mag_y() const = 0;
+  virtual f32 mag_z() const = 0;
   /**
    * @brief     获取欧拉角数据
    * @return    欧拉角(yaw, pitch, roll)
    */
-  virtual fp32 yaw() const = 0;
-  virtual fp32 pitch() const = 0;
-  virtual fp32 roll() const = 0;
+  virtual f32 yaw() const = 0;
+  virtual f32 pitch() const = 0;
+  virtual f32 roll() const = 0;
   /**
    * @brief     获取四元数数据
    * @return    四元数(w, x, y, z)
    */
-  virtual fp32 quat_w() const = 0;
-  virtual fp32 quat_x() const = 0;
-  virtual fp32 quat_y() const = 0;
-  virtual fp32 quat_z() const = 0;
+  virtual f32 quat_w() const = 0;
+  virtual f32 quat_x() const = 0;
+  virtual f32 quat_y() const = 0;
+  virtual f32 quat_z() const = 0;
   /**
    * @brief     更新数据
    */

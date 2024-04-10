@@ -12,6 +12,8 @@
 
 #include <vector>
 
+#include "modules/typedefs.h"
+
 namespace irobot_ec::hal {
 
 enum class UartMode {
@@ -27,13 +29,13 @@ enum class UartMode {
  */
 class Uart {
  public:
-  Uart(UART_HandleTypeDef &huart, size_t rx_size, UartMode tx_mode = UartMode::kNormal,
+  Uart(UART_HandleTypeDef &huart, usize rx_size, UartMode tx_mode = UartMode::kNormal,
        UartMode rx_mode = UartMode::kNormal);
 
   virtual void RxCallback();
-  void Write(const uint8_t *data, size_t size);
+  void Write(const u8 *data, usize size);
   void StartReceive();
-  [[nodiscard]] const std::vector<uint8_t> &rx_buffer() const;
+  [[nodiscard]] const std::vector<u8> &rx_buffer() const;
 
  private:
   void HalRxCpltCallback();
@@ -41,7 +43,7 @@ class Uart {
   UART_HandleTypeDef *huart_;
   UartMode tx_mode_;
   UartMode rx_mode_;
-  std::vector<uint8_t> rx_buf_[2];
+  std::vector<u8> rx_buf_[2];
   bool buffer_selector_{false};
 };
 

@@ -25,8 +25,8 @@ class Delay : public DelayInterface {
   Delay(const Delay &) = delete;
   Delay &operator=(const Delay &) = delete;
 
-  void DelayUs(uint32_t us) override;
-  void DelayMs(uint32_t ms) override;
+  void DelayUs(u32 us) override;
+  void DelayMs(u32 ms) override;
 
   static Delay &GetInstance();
 

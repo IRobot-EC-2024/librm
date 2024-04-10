@@ -17,22 +17,22 @@ class Mecanum {
  public:
   Mecanum() = delete;
   ~Mecanum() = default;
-  Mecanum(fp32 wheel_base, fp32 wheel_track);
+  Mecanum(f32 wheel_base, f32 wheel_track);
 
   // no copy
   Mecanum(const Mecanum &) = delete;
   Mecanum &operator=(const Mecanum &) = delete;
 
-  void Calculate(fp32 vx, fp32 vy, fp32 wz);
-  [[nodiscard]] fp32 v_lf() const;
-  [[nodiscard]] fp32 v_rf() const;
-  [[nodiscard]] fp32 v_lb() const;
-  [[nodiscard]] fp32 v_rb() const;
+  void Calculate(f32 vx, f32 vy, f32 wz);
+  [[nodiscard]] f32 v_lf() const;
+  [[nodiscard]] f32 v_rf() const;
+  [[nodiscard]] f32 v_lb() const;
+  [[nodiscard]] f32 v_rb() const;
 
  private:
-  fp32 wheel_base_;   // 轮子间距
-  fp32 wheel_track_;  // 轮子轴距
-  fp32 speeds_[4];
+  f32 wheel_base_;   // 轮子间距
+  f32 wheel_track_;  // 轮子轴距
+  f32 speeds_[4];
 };
 
 }  // namespace irobot_ec::modules::algorithm

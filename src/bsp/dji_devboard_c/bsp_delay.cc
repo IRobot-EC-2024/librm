@@ -15,12 +15,12 @@ namespace irobot_ec::bsp::dji_devboard_c {
  * @brief 延时微秒
  * @param us 微秒
  */
-void Delay::DelayUs(uint32_t us) {
-  uint32_t ticks = 0;
-  uint32_t t_old = 0;
-  uint32_t t_now = 0;
-  uint32_t t_cnt = 0;
-  uint32_t reload = 0;
+void Delay::DelayUs(u32 us) {
+  u32 ticks = 0;
+  u32 t_old = 0;
+  u32 t_now = 0;
+  u32 t_cnt = 0;
+  u32 reload = 0;
   reload = SysTick->LOAD;
   ticks = us * 168;
   t_old = SysTick->VAL;
@@ -44,7 +44,7 @@ void Delay::DelayUs(uint32_t us) {
  * @brief 延时毫秒
  * @param ms 毫秒
  */
-void Delay::DelayMs(uint32_t ms) {
+void Delay::DelayMs(u32 ms) {
   while (ms--) {
     this->DelayUs(1000);
   }

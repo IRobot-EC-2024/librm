@@ -5,7 +5,6 @@
  */
 
 #include "hal_wrapper/hal.h"
-
 #if defined(HAL_TIM_MODULE_ENABLED) && defined(STM32F407xx)
 
 #include "bsp_buzzer.h"

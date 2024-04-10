@@ -11,12 +11,12 @@
 //---------------------------------------------------------------------------------------------------
 // Fast inverse square-root
 // See: http://en.wikipedia.org/wiki/Fast_inverse_square_root
-static float InvSqrt(float x) {
-  float halfx = 0.5f * x;
-  float y = x;
+static f32 InvSqrt(f32 x) {
+  f32 halfx = 0.5f * x;
+  f32 y = x;
   long i = *(long *)&y;
   i = 0x5f3759df - (i >> 1);
-  y = *(float *)&i;
+  y = *(f32 *)&i;
   y = y * (1.5f - (halfx * y * y));
   return y;
 }
@@ -28,7 +28,7 @@ namespace irobot_ec::modules::algorithm {
  * @param kp          比例增益，默认值2.0f
  * @param ki          积分增益，默认值0.0f
  */
-MahonyAhrs::MahonyAhrs(float sample_freq, float kp, float ki)
+MahonyAhrs::MahonyAhrs(f32 sample_freq, f32 kp, f32 ki)
     : two_kp_(2.f * kp),
       two_ki_(2.f * ki),
       sample_freq_(sample_freq),
@@ -51,7 +51,7 @@ MahonyAhrs::MahonyAhrs(float sample_freq, float kp, float ki)
  * @param my    磁力计y轴磁场强度
  * @param mz    磁力计z轴磁场强度
  */
-void MahonyAhrs::Update(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz) {
+void MahonyAhrs::Update(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az, f32 mx, f32 my, f32 mz) {
   // Use IMU algorithm if magnetometer measurement invalid (avoids NaN in magnetometer normalisation)
   if ((mx == 0.0f) && (my == 0.0f) && (mz == 0.0f)) {
     UpdateImu(gx, gy, gz, ax, ay, az);
@@ -154,11 +154,11 @@ void MahonyAhrs::Update(float gx, float gy, float gz, float ax, float ay, float 
  * @param ay    加速度计y轴加速度
  * @param az    加速度计z轴加速度
  */
-void MahonyAhrs::UpdateImu(float gx, float gy, float gz, float ax, float ay, float az) {
-  float recipNorm;
-  float halfvx, halfvy, halfvz;
-  float halfex, halfey, halfez;
-  float qa, qb, qc;
+void MahonyAhrs::UpdateImu(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az) {
+  f32 recipNorm;
+  f32 halfvx, halfvy, halfvz;
+  f32 halfex, halfey, halfez;
+  f32 qa, qb, qc;
 
   // Compute feedback only if accelerometer measurement valid (avoids NaN in accelerometer normalisation)
   if (!((ax == 0.0f) && (ay == 0.0f) && (az == 0.0f))) {
@@ -223,36 +223,36 @@ void MahonyAhrs::UpdateImu(float gx, float gy, float gz, float ax, float ay, flo
 /**
  * @return 四元数w分量
  */
-fp32 MahonyAhrs::quat_w() const { return quaternion_[0]; }
+f32 MahonyAhrs::quat_w() const { return quaternion_[0]; }
 
 /**
  * @return 四元数x分量
  */
-fp32 MahonyAhrs::quat_x() const { return quaternion_[1]; }
+f32 MahonyAhrs::quat_x() const { return quaternion_[1]; }
 
 /**
  * @return 四元数y分量
  */
-fp32 MahonyAhrs::quat_y() const { return quaternion_[2]; }
+f32 MahonyAhrs::quat_y() const { return quaternion_[2]; }
 
 /**
  * @return 四元数z分量
  */
-fp32 MahonyAhrs::quat_z() const { return quaternion_[3]; }
+f32 MahonyAhrs::quat_z() const { return quaternion_[3]; }
 
 /**
  * @return 偏航角(弧度)
  */
-fp32 MahonyAhrs::euler_yaw() const { return euler_ypr_[0]; }
+f32 MahonyAhrs::euler_yaw() const { return euler_ypr_[0]; }
 
 /**
  * @return 俯仰角(弧度)
  */
-fp32 MahonyAhrs::euler_pitch() const { return euler_ypr_[1]; }
+f32 MahonyAhrs::euler_pitch() const { return euler_ypr_[1]; }
 
 /**
  * @return 横滚角(弧度)
  */
-fp32 MahonyAhrs::euler_roll() const { return euler_ypr_[2]; }
+f32 MahonyAhrs::euler_roll() const { return euler_ypr_[2]; }
 
 }  // namespace irobot_ec::modules::algorithm

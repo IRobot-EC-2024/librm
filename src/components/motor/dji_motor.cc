@@ -26,8 +26,8 @@ using irobot_ec::modules::exception::ThrowException;
  * @note 0 :GM6020, 1: M3508, 2: M2006
  * @note 一个缓冲区组是一个键值对字典(can总线指针, 16字节的缓冲区数组)，一条CAN总线上的一种电机对应一个缓冲区(u8[16])
  */
-std::array<std::unordered_map<CAN_HandleTypeDef *, std::array<uint8_t, 18>> *, 3> DjiMotorBase::tx_bufs_ = {
-    nullptr, nullptr, nullptr};
+std::array<std::unordered_map<CAN_HandleTypeDef *, std::array<u8, 18>> *, 3> DjiMotorBase::tx_bufs_ = {nullptr, nullptr,
+                                                                                                       nullptr};
 /**
  * @brief 电机对象链表
  */
@@ -39,11 +39,11 @@ std::list<DjiMotorBase *> DjiMotorBase::motor_list_{};
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID
  */
-DjiMotorBase::DjiMotorBase(uint8_t buffer_index, CAN_HandleTypeDef *hcan, uint16_t rx_std_id)
+DjiMotorBase::DjiMotorBase(u8 buffer_index, CAN_HandleTypeDef *hcan, u16 rx_std_id)
     : hal::can::CanDeviceBase(hcan, rx_std_id) {
   // 构造的电机对象对应电机型号的发送缓冲区还未创建，就创建一个
   if (DjiMotorBase::tx_bufs_[buffer_index] == nullptr) {
-    DjiMotorBase::tx_bufs_[buffer_index] = new std::unordered_map<CAN_HandleTypeDef *, std::array<uint8_t, 18>>;
+    DjiMotorBase::tx_bufs_[buffer_index] = new std::unordered_map<CAN_HandleTypeDef *, std::array<u8, 18>>;
   }
 
   // 构造的电机对象所在的CAN总线对应的发送缓冲区还未分配，就给它分配一个
@@ -89,25 +89,25 @@ void DjiMotorBase::RxCallback(bsp::CanRxMsg *msg) {
  * @brief   获取电机的编码器值
  * @return  编码器值(0~8191 => 0~360°)
  */
-uint16_t DjiMotorBase::encoder() const { return this->encoder_; }
+u16 DjiMotorBase::encoder() const { return this->encoder_; }
 
 /**
  * @brief   获取电机的转速
  * @return  RPM(rad/s)
  */
-int16_t DjiMotorBase::rpm() const { return this->rpm_; }
+i16 DjiMotorBase::rpm() const { return this->rpm_; }
 
 /**
  * @brief   获取电机的实际电流
  * @return  电流值(无单位)
  */
-int16_t DjiMotorBase::current() const { return this->current_; }
+i16 DjiMotorBase::current() const { return this->current_; }
 
 /**
  * @brief   获取电机的温度
  * @return  温度(°C)
  */
-uint8_t DjiMotorBase::temperature() const { return this->temperature_; }
+u8 DjiMotorBase::temperature() const { return this->temperature_; }
 
 /**
  * @brief  设置电机的输出电流，本模板函数留给子类实例化，设定电流范围
@@ -115,9 +115,9 @@ uint8_t DjiMotorBase::temperature() const { return this->temperature_; }
  * @tparam buffer_index  电机类型索引，对应到tx_bufs_数组的索引。0: GM6020, 1: M3508, 2: M2006
  * @param  current       设定电流值
  */
-template <int16_t current_bound, uint8_t buffer_index>
-void DjiMotorBase::SetCurrentTemplate(int16_t current) {
-  current = absConstrain(current, (int16_t)current_bound);
+template <i16 current_bound, u8 buffer_index>
+void DjiMotorBase::SetCurrentTemplate(i16 current) {
+  current = absConstrain(current, (i16)current_bound);
 
   /**
    * 这段代码的解释：
@@ -145,7 +145,7 @@ void DjiMotorBase::SetCurrentTemplate(int16_t current) {
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID(1~7)
  */
-GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(0, hcan, 0x204 + id) {
+GM6020::GM6020(CAN_HandleTypeDef *hcan, u16 id) : DjiMotorBase(0, hcan, 0x204 + id) {
   if (1 <= id && id <= 4) {
     this->id_ = id;
     this->tx_header_.StdId = 0x1ff;
@@ -162,7 +162,7 @@ GM6020::GM6020(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(0, hcan, 0x2
  * @param current 电流值(-30000 ~ 30000)
  * @note  这个函数不会直接发送电流命令，而是将电流值写入发送缓冲区。发送命令使用DjiMotorBase::SendCommand()
  */
-void GM6020::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<30000, 0>(current); }
+void GM6020::SetCurrent(i16 current) { DjiMotorBase::SetCurrentTemplate<30000, 0>(current); }
 
 /***************************
  * CLASS M2006
@@ -173,7 +173,7 @@ void GM6020::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<3000
  * @param hcan  指向CAN总线对象的指针
  * @param id    电机ID(1~8)
  */
-M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(1, hcan, 0x200 + id) {
+M2006::M2006(CAN_HandleTypeDef *hcan, u16 id) : DjiMotorBase(1, hcan, 0x200 + id) {
   if (1 <= id && id <= 4) {
     this->id_ = id;
     this->tx_header_.StdId = 0x200;
@@ -190,7 +190,7 @@ M2006::M2006(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(1, hcan, 0x200
  * @param current 电流值(-10000 ~ 10000)
  * @note  这个函数不会直接发送电流命令，而是将电流值写入发送缓冲区。发送命令使用DjiMotorBase::SendCommand()
  */
-void M2006::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<10000, 1>(current); }
+void M2006::SetCurrent(i16 current) { DjiMotorBase::SetCurrentTemplate<10000, 1>(current); }
 
 /***************************
  * CLASS M3508
@@ -201,7 +201,7 @@ void M2006::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<10000
  * @param can_bus   指向CAN总线对象的指针
  * @param id        电机ID(1~8)
  */
-M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(2, hcan, 0x200 + id) {
+M3508::M3508(CAN_HandleTypeDef *hcan, u16 id) : DjiMotorBase(2, hcan, 0x200 + id) {
   if (1 <= id && id <= 4) {
     this->id_ = id;
     this->tx_header_.StdId = 0x200;
@@ -218,6 +218,6 @@ M3508::M3508(CAN_HandleTypeDef *hcan, uint16_t id) : DjiMotorBase(2, hcan, 0x200
  * @param current 电流值(-16384 ~ 16384)
  * @note  这个函数不会直接发送电流命令，而是将电流值写入发送缓冲区。发送命令使用DjiMotorBase::SendCommand()
  */
-void M3508::SetCurrent(int16_t current) { DjiMotorBase::SetCurrentTemplate<16384, 2>(current); }
+void M3508::SetCurrent(i16 current) { DjiMotorBase::SetCurrentTemplate<16384, 2>(current); }
 
 #endif  // HAL_CAN_MODULE_ENABLED

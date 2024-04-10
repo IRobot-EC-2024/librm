@@ -19,12 +19,12 @@ class DelayInterface {
    * @brief 延时微秒
    * @param us  微秒
    */
-  virtual void DelayUs(uint32_t us) = 0;
+  virtual void DelayUs(u32 us) = 0;
   /**
    * @brief 延时毫秒
    * @param ms  毫秒
    */
-  virtual void DelayMs(uint32_t ms) = 0;
+  virtual void DelayMs(u32 ms) = 0;
 };
 
 }  // namespace irobot_ec::bsp

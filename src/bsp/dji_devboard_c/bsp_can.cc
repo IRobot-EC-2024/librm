@@ -40,7 +40,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef* hcan) {
 
 namespace irobot_ec::bsp::dji_devboard_c {
 
-void Can::InitCanFilter(CAN_HandleTypeDef* hcan, uint16_t id, uint16_t mask) {
+void Can::InitCanFilter(CAN_HandleTypeDef* hcan, u16 id, u16 mask) {
   CAN_FilterTypeDef can_filter_st;
   can_filter_st.FilterActivation = ENABLE;
   can_filter_st.FilterMode = CAN_FILTERMODE_IDMASK;
@@ -50,10 +50,10 @@ void Can::InitCanFilter(CAN_HandleTypeDef* hcan, uint16_t id, uint16_t mask) {
   can_filter_st.FilterMaskIdHigh = mask >> 8;
   can_filter_st.FilterMaskIdLow = mask;
   can_filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
-  if (reinterpret_cast<uint32_t>(hcan->Instance) == 0x40006400) {
+  if (reinterpret_cast<u32>(hcan->Instance) == 0x40006400) {
     // 如果是CAN1
     can_filter_st.FilterBank = 0;
-  } else if (reinterpret_cast<uint32_t>(hcan->Instance) == 0x40006800) {
+  } else if (reinterpret_cast<u32>(hcan->Instance) == 0x40006800) {
     // 如果是CAN2
     can_filter_st.SlaveStartFilterBank = 14;
     can_filter_st.FilterBank = 14;

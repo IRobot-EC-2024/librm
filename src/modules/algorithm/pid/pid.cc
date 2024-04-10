@@ -14,7 +14,7 @@ namespace irobot_ec::modules::algorithm {
 
 using irobot_ec::modules::algorithm::utils::absConstrain;
 
-PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout)
+PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout)
     : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout), use_external_diff_input_(false) {
 #if defined(ARM_MATH_DSP)
   if (type == PIDType::kDsp) {
@@ -28,7 +28,7 @@ PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout)
 #endif
 }
 
-PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 *external_diff_input)
+PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 *external_diff_input)
     : kp_(kp),
       ki_(ki),
       kd_(kd),
@@ -49,7 +49,7 @@ PID::PID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, f
 #endif
 }
 
-void PID::update(fp32 set, fp32 ref) {
+void PID::update(f32 set, f32 ref) {
   this->error_[2] = this->error_[1];
   this->error_[1] = this->error_[0];
 
@@ -112,7 +112,7 @@ void PID::clear() {
 #endif
 }
 
-void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout) {
+void PID::switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout) {
   this->kp_ = kp;
   this->ki_ = ki;
   this->kd_ = kd;
@@ -130,12 +130,12 @@ void PID::switchParameter(fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout
 #endif
 }
 
-fp32 PID::value() const { return this->out_; }
+f32 PID::value() const { return this->out_; }
 
-RingPID::RingPID(PIDType type, fp32 kp, fp32 ki, fp32 kd, fp32 max_out, fp32 max_iout, fp32 cycle)
+RingPID::RingPID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 cycle)
     : PID(type, kp, ki, kd, max_out, max_iout), cycle_(cycle) {}
 
-void RingPID::update(fp32 set, fp32 ref) {
+void RingPID::update(f32 set, f32 ref) {
   this->error_[2] = this->error_[1];
   this->error_[1] = this->error_[0];
 

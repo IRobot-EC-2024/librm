@@ -25,7 +25,7 @@ __weak TIM_HandleTypeDef htim10 = {.Instance = nullptr};
 /**
  * @param sample_rate 惯导的更新频率，默认值1000hz
  */
-Ins::Ins(fp32 sample_rate)
+Ins::Ins(f32 sample_rate)
     : bmi088_(hspi1, GPIOA, GPIO_PIN_4, GPIOB, GPIO_PIN_0),
       ist8310_(hi2c3, GPIOG, GPIO_PIN_6),
       mahony_(sample_rate),
@@ -36,23 +36,23 @@ Ins::Ins(fp32 sample_rate)
   HAL_TIM_PWM_Start(heater_pwm_, TIM_CHANNEL_1);
 }
 
-fp32 Ins::acc_x() const { return this->acc_[0]; }
-fp32 Ins::acc_y() const { return this->acc_[1]; }
-fp32 Ins::acc_z() const { return this->acc_[2]; }
-fp32 Ins::gyro_x() const { return this->gyro_[0]; }
-fp32 Ins::gyro_y() const { return this->gyro_[1]; }
-fp32 Ins::gyro_z() const { return this->gyro_[2]; }
-fp32 Ins::mag_x() const { return this->mag_[0]; }
-fp32 Ins::mag_y() const { return this->mag_[1]; }
-fp32 Ins::mag_z() const { return this->mag_[2]; }
-fp32 Ins::yaw() const { return this->ypr_[0]; }
-fp32 Ins::pitch() const { return this->ypr_[1]; }
-fp32 Ins::roll() const { return this->ypr_[2]; }
-fp32 Ins::quat_w() const { return this->quaternion_[0]; }
-fp32 Ins::quat_x() const { return this->quaternion_[1]; }
-fp32 Ins::quat_y() const { return this->quaternion_[2]; }
-fp32 Ins::quat_z() const { return this->quaternion_[3]; }
-fp32 Ins::temperature() const { return this->temperature_; }
+f32 Ins::acc_x() const { return this->acc_[0]; }
+f32 Ins::acc_y() const { return this->acc_[1]; }
+f32 Ins::acc_z() const { return this->acc_[2]; }
+f32 Ins::gyro_x() const { return this->gyro_[0]; }
+f32 Ins::gyro_y() const { return this->gyro_[1]; }
+f32 Ins::gyro_z() const { return this->gyro_[2]; }
+f32 Ins::mag_x() const { return this->mag_[0]; }
+f32 Ins::mag_y() const { return this->mag_[1]; }
+f32 Ins::mag_z() const { return this->mag_[2]; }
+f32 Ins::yaw() const { return this->ypr_[0]; }
+f32 Ins::pitch() const { return this->ypr_[1]; }
+f32 Ins::roll() const { return this->ypr_[2]; }
+f32 Ins::quat_w() const { return this->quaternion_[0]; }
+f32 Ins::quat_x() const { return this->quaternion_[1]; }
+f32 Ins::quat_y() const { return this->quaternion_[2]; }
+f32 Ins::quat_z() const { return this->quaternion_[3]; }
+f32 Ins::temperature() const { return this->temperature_; }
 
 /**
  * @brief     更新惯导数据

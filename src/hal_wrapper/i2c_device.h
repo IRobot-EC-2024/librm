@@ -10,6 +10,8 @@
 #include "hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
 
+#include "modules/typedefs.h"
+
 namespace irobot_ec::hal {
 
 /**
@@ -17,19 +19,19 @@ namespace irobot_ec::hal {
  */
 class I2cDevice {
  public:
-  I2cDevice(I2C_HandleTypeDef &hi2c, uint8_t addr);
+  I2cDevice(I2C_HandleTypeDef &hi2c, u8 addr);
   I2cDevice() = delete;
   ~I2cDevice() = default;
 
-  void Write(uint8_t reg, uint8_t *data, uint16_t size);
-  void Read(uint8_t reg, uint16_t size);
+  void Write(u8 reg, u8 *data, uint16_t size);
+  void Read(u8 reg, uint16_t size);
 
-  [[nodiscard]] const uint8_t *buffer() const;
+  [[nodiscard]] const u8 *buffer() const;
 
  protected:
   I2C_HandleTypeDef *hi2c_;
-  uint8_t addr_;
-  uint8_t buffer_[8]{0};
+  u8 addr_;
+  u8 buffer_[8]{0};
 };
 
 }  // namespace irobot_ec::hal

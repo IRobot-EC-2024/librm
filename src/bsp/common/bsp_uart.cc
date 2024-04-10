@@ -30,7 +30,7 @@ using irobot_ec::modules::exception::ThrowException;
 template <typename CallbackFunctionType, typename HandleType>
 static CallbackFunctionType StdFunctionToCallbackFunctionPtr(std::function<void()> fn) {
   static auto fn_v = std::move(fn);
-  return [](HandleType *dummy1, uint16_t dummy2) { fn_v(); };
+  return [](HandleType *dummy1, u16 dummy2) { fn_v(); };
 }
 
 namespace irobot_ec::hal {
@@ -40,11 +40,11 @@ namespace irobot_ec::hal {
  * @param rx_size   接收缓冲区大小
  * @param mode      UART工作模式（正常、中断、DMA）
  */
-Uart::Uart(UART_HandleTypeDef &huart, size_t rx_size, UartMode tx_mode, UartMode rx_mode)
+Uart::Uart(UART_HandleTypeDef &huart, usize rx_size, UartMode tx_mode, UartMode rx_mode)
     : huart_(&huart),
       tx_mode_(tx_mode),
       rx_mode_(rx_mode),
-      rx_buf_{std::vector<uint8_t>(rx_size), std::vector<uint8_t>(rx_size)} {
+      rx_buf_{std::vector<u8>(rx_size), std::vector<u8>(rx_size)} {
   // 注册接收完成回调函数
   HAL_UART_RegisterRxEventCallback(&huart,
                                    StdFunctionToCallbackFunctionPtr<pUART_RxEventCallbackTypeDef, UART_HandleTypeDef>(
@@ -68,17 +68,17 @@ void Uart::RxCallback() {}
  * @param data 数据指针
  * @param size 数据大小
  */
-void Uart::Write(const uint8_t *data, size_t size) {
+void Uart::Write(const u8 *data, usize size) {
   switch (this->tx_mode_) {
     case UartMode::kNormal:
-      HAL_UART_Transmit(this->huart_, const_cast<uint8_t *>(data), size, HAL_MAX_DELAY);
+      HAL_UART_Transmit(this->huart_, const_cast<u8 *>(data), size, HAL_MAX_DELAY);
       break;
     case UartMode::kInterrupt:
-      HAL_UART_Transmit_IT(this->huart_, const_cast<uint8_t *>(data), size);
+      HAL_UART_Transmit_IT(this->huart_, const_cast<u8 *>(data), size);
       break;
 #if defined(HAL_DMA_MODULE_ENABLED)
     case UartMode::kDma:
-      HAL_UART_Transmit_DMA(this->huart_, const_cast<uint8_t *>(data), size);
+      HAL_UART_Transmit_DMA(this->huart_, const_cast<u8 *>(data), size);
       break;
 #endif
   }
@@ -105,7 +105,7 @@ void Uart::StartReceive() {
   }
 }
 
-const std::vector<uint8_t> &Uart::rx_buffer() const { return rx_buf_[buffer_selector_]; }
+const std::vector<u8> &Uart::rx_buffer() const { return rx_buf_[buffer_selector_]; }
 
 /**
  * @brief 接收完成回调函数

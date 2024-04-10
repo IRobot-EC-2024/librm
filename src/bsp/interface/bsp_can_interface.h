@@ -16,7 +16,7 @@
 namespace irobot_ec::bsp {
 
 struct CanRxMsg {
-  uint8_t data[8];
+  u8 data[8];
   CAN_RxHeaderTypeDef header;
 };
 
@@ -24,7 +24,7 @@ class CanInterface {
  public:
   virtual ~CanInterface() = default;
 
-  virtual void InitCanFilter(CAN_HandleTypeDef *hcan, uint16_t id = 0, uint16_t mask = 0) = 0;
+  virtual void InitCanFilter(CAN_HandleTypeDef *hcan, u16 id = 0, u16 mask = 0) = 0;
 };
 
 }  // namespace irobot_ec::bsp

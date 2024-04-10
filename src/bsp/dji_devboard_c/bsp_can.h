@@ -19,7 +19,7 @@ class Can : public CanInterface {
   Can(const Can &) = delete;
   Can &operator=(const Can &) = delete;
 
-  void InitCanFilter(CAN_HandleTypeDef *hcan, uint16_t id, uint16_t mask) override;
+  void InitCanFilter(CAN_HandleTypeDef *hcan, u16 id, u16 mask) override;
 
   static Can &GetInstance();
 

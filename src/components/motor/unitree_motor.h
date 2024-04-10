@@ -7,9 +7,10 @@
 #ifndef EC_LIB_COMPONENTS_MOTOR_UNITREE_MOTOR_H
 #define EC_LIB_COMPONENTS_MOTOR_UNITREE_MOTOR_H
 
-#if defined(USART_MODULE_ENABLED)
+#include "hal_wrapper/hal.h"
+#if defined(HAL_UART_MODULE_ENABLED)
 
-#include "typedefs.h"
+#include "modules/typedefs.h"
 
 namespace irobot_ec::components::motor {
 
@@ -30,13 +31,13 @@ class UnitreeMotorBase {
   ~UnitreeMotorBase() = default;
 
  protected:
-  uint8_t tx_buffer_[17];
-  uint16_t id_{};
+  u8 tx_buffer_[17];
+  u16 id_{};
 
   /** MOTOR FEEDBACK DATA **/
   UnitreeMotorMode mode_{};
-  int16_t tau_{};       // Divide by 256 to get the real value(N*m)
-  int16_t velocity_{};  // Divide by 1000 to get the real value(rad/s)
+  i16 tau_{};       // Divide by 256 to get the real value(N*m)
+  i16 velocity_{};  // Divide by 1000 to get the real value(rad/s)
 
   /*************************/
 };

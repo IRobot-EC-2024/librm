@@ -67,27 +67,27 @@ void irobot_ec::modules::SerialPlotter::Update() {
   for (auto it = this->variable_list_.begin(); it != this->variable_list_.end(); it++) {
     std::stringstream ss;
 
-    if (it->first == typeid(int8_t)) {
-      this->buffer_ += std::to_string(*((int8_t *)it->second));
-    } else if (it->first == typeid(uint8_t)) {
-      this->buffer_ += std::to_string(*((uint8_t *)it->second));
-    } else if (it->first == typeid(int16_t)) {
-      this->buffer_ += std::to_string(*((int16_t *)it->second));
-    } else if (it->first == typeid(uint16_t)) {
-      this->buffer_ += std::to_string(*((uint16_t *)it->second));
-    } else if (it->first == typeid(int32_t)) {
-      this->buffer_ += std::to_string(*((int32_t *)it->second));
-    } else if (it->first == typeid(uint32_t)) {
-      this->buffer_ += std::to_string(*((uint32_t *)it->second));
-    } else if (it->first == typeid(int64_t)) {
-      this->buffer_ += std::to_string(*((int64_t *)it->second));
-    } else if (it->first == typeid(uint64_t)) {
-      this->buffer_ += std::to_string(*((uint64_t *)it->second));
-    } else if (it->first == typeid(fp32)) {
-      ss << std::fixed << std::setprecision(7) << *((fp32 *)it->second);
+    if (it->first == typeid(i8)) {
+      this->buffer_ += std::to_string(*((i8 *)it->second));
+    } else if (it->first == typeid(u8)) {
+      this->buffer_ += std::to_string(*((u8 *)it->second));
+    } else if (it->first == typeid(i16)) {
+      this->buffer_ += std::to_string(*((i16 *)it->second));
+    } else if (it->first == typeid(u16)) {
+      this->buffer_ += std::to_string(*((u16 *)it->second));
+    } else if (it->first == typeid(i32)) {
+      this->buffer_ += std::to_string(*((i32 *)it->second));
+    } else if (it->first == typeid(u32)) {
+      this->buffer_ += std::to_string(*((u32 *)it->second));
+    } else if (it->first == typeid(i64)) {
+      this->buffer_ += std::to_string(*((i64 *)it->second));
+    } else if (it->first == typeid(u64)) {
+      this->buffer_ += std::to_string(*((u64 *)it->second));
+    } else if (it->first == typeid(f32)) {
+      ss << std::fixed << std::setprecision(7) << *((f32 *)it->second);
       this->buffer_ += ss.str();
-    } else if (it->first == typeid(fp64)) {
-      ss << std::fixed << std::setprecision(7) << *((fp64 *)it->second);
+    } else if (it->first == typeid(f64)) {
+      ss << std::fixed << std::setprecision(7) << *((f64 *)it->second);
       this->buffer_ += ss.str();
     }  // AddVariable函数保证变量一定是基本类型，所以不需要else
 

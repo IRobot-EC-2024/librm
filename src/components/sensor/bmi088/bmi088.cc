@@ -21,30 +21,30 @@ using namespace irobot_ec::components::sensor;
  * @brief BMI088加速度计初始化序列
  * @note  顺序：寄存器地址，写入值，错误码
  */
-const static std::vector<std::vector<uint8_t>> BMI088_ACCEL_INIT_SEQUENCE = {
-    {BMI088_ACC_PWR_CTRL, BMI088_ACC_ENABLE_ACC_ON, static_cast<uint8_t>(BMI088Status::ACC_PWR_CTRL_ERROR)},
-    {BMI088_ACC_PWR_CONF, BMI088_ACC_PWR_ACTIVE_MODE, static_cast<uint8_t>(BMI088Status::ACC_PWR_CONF_ERROR)},
+const static std::vector<std::vector<u8>> BMI088_ACCEL_INIT_SEQUENCE = {
+    {BMI088_ACC_PWR_CTRL, BMI088_ACC_ENABLE_ACC_ON, static_cast<u8>(BMI088Status::ACC_PWR_CTRL_ERROR)},
+    {BMI088_ACC_PWR_CONF, BMI088_ACC_PWR_ACTIVE_MODE, static_cast<u8>(BMI088Status::ACC_PWR_CONF_ERROR)},
     {BMI088_ACC_CONF, BMI088_ACC_NORMAL | BMI088_ACC_800_HZ | BMI088_ACC_CONF_MUST_Set,
-     static_cast<uint8_t>(BMI088Status::ACC_CONF_ERROR)},
-    {BMI088_ACC_RANGE, BMI088_ACC_RANGE_3G, static_cast<uint8_t>(BMI088Status::ACC_RANGE_ERROR)},
+     static_cast<u8>(BMI088Status::ACC_CONF_ERROR)},
+    {BMI088_ACC_RANGE, BMI088_ACC_RANGE_3G, static_cast<u8>(BMI088Status::ACC_RANGE_ERROR)},
     {BMI088_INT1_IO_CTRL, BMI088_ACC_INT1_IO_ENABLE | BMI088_ACC_INT1_GPIO_PP | BMI088_ACC_INT1_GPIO_LOW,
-     static_cast<uint8_t>(BMI088Status::INT1_IO_CTRL_ERROR)},
-    {BMI088_INT_MAP_DATA, BMI088_ACC_INT1_DRDY_INTERRUPT, static_cast<uint8_t>(BMI088Status::INT_MAP_DATA_ERROR)}};
+     static_cast<u8>(BMI088Status::INT1_IO_CTRL_ERROR)},
+    {BMI088_INT_MAP_DATA, BMI088_ACC_INT1_DRDY_INTERRUPT, static_cast<u8>(BMI088Status::INT_MAP_DATA_ERROR)}};
 
 /**
  * @brief BMI088陀螺仪初始化序列
  * @note  顺序：寄存器地址，写入值，错误码
  */
-const static std::vector<std::vector<uint8_t>> BMI088_GYRO_INIT_SEQUENCE = {
-    {BMI088_GYRO_RANGE, BMI088_GYRO_2000, static_cast<uint8_t>(BMI088Status::GYRO_RANGE_ERROR)},
+const static std::vector<std::vector<u8>> BMI088_GYRO_INIT_SEQUENCE = {
+    {BMI088_GYRO_RANGE, BMI088_GYRO_2000, static_cast<u8>(BMI088Status::GYRO_RANGE_ERROR)},
     {BMI088_GYRO_BANDWIDTH, BMI088_GYRO_1000_116_HZ | BMI088_GYRO_BANDWIDTH_MUST_SET,
-     static_cast<uint8_t>(BMI088Status::GYRO_BANDWIDTH_ERROR)},
-    {BMI088_GYRO_LPM1, BMI088_GYRO_NORMAL_MODE, static_cast<uint8_t>(BMI088Status::GYRO_LPM1_ERROR)},
-    {BMI088_GYRO_CTRL, BMI088_DRDY_ON, static_cast<uint8_t>(BMI088Status::GYRO_CTRL_ERROR)},
+     static_cast<u8>(BMI088Status::GYRO_BANDWIDTH_ERROR)},
+    {BMI088_GYRO_LPM1, BMI088_GYRO_NORMAL_MODE, static_cast<u8>(BMI088Status::GYRO_LPM1_ERROR)},
+    {BMI088_GYRO_CTRL, BMI088_DRDY_ON, static_cast<u8>(BMI088Status::GYRO_CTRL_ERROR)},
     {BMI088_GYRO_INT3_INT4_IO_CONF, BMI088_GYRO_INT3_GPIO_PP | BMI088_GYRO_INT3_GPIO_LOW,
-     static_cast<uint8_t>(BMI088Status::GYRO_INT3_INT4_IO_CONF_ERROR)},
+     static_cast<u8>(BMI088Status::GYRO_INT3_INT4_IO_CONF_ERROR)},
     {BMI088_GYRO_INT3_INT4_IO_MAP, BMI088_GYRO_DRDY_IO_INT3,
-     static_cast<uint8_t>(BMI088Status::GYRO_INT3_INT4_IO_MAP_ERROR)}};
+     static_cast<u8>(BMI088Status::GYRO_INT3_INT4_IO_MAP_ERROR)}};
 
 /**
  * @param hspi                  SPI外设句柄
@@ -53,8 +53,8 @@ const static std::vector<std::vector<uint8_t>> BMI088_GYRO_INIT_SEQUENCE = {
  * @param cs1_gyro_gpio_port    陀螺仪片选引脚所在GPIO端口
  * @param cs1_gyro_pin          陀螺仪片选引脚编号
  */
-BMI088::BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, uint16_t cs1_accel_pin,
-               GPIO_TypeDef *cs1_gyro_gpio_port, uint16_t cs1_gyro_pin)
+BMI088::BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, u16 cs1_accel_pin,
+               GPIO_TypeDef *cs1_gyro_gpio_port, u16 cs1_gyro_pin)
     : accel_device_(hspi, cs1_accel_gpio_port, cs1_accel_pin), gyro_device_(hspi, cs1_gyro_gpio_port, cs1_gyro_pin) {
   this->InitGyroscope();
   this->InitAccelerometer();
@@ -143,22 +143,22 @@ void BMI088::InitGyroscope() {
  * @brief 更新传感器数据
  */
 void BMI088::Update() {
-  const uint8_t *buf = this->accel_device_.buffer();
+  const u8 *buf = this->accel_device_.buffer();
 
   this->accel_device_.ReadBytes(BMI088_ACCEL_XOUT_L, 6);
-  this->accel_[0] = ((int16_t)((buf[1]) << 8) | buf[0]) * BMI088_ACCEL_SENSITIVITY[(uint8_t)this->accel_range_];
-  this->accel_[1] = ((int16_t)((buf[3]) << 8) | buf[2]) * BMI088_ACCEL_SENSITIVITY[(uint8_t)this->accel_range_];
-  this->accel_[2] = ((int16_t)((buf[5]) << 8) | buf[4]) * BMI088_ACCEL_SENSITIVITY[(uint8_t)this->accel_range_];
+  this->accel_[0] = ((i16)((buf[1]) << 8) | buf[0]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[1] = ((i16)((buf[3]) << 8) | buf[2]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[2] = ((i16)((buf[5]) << 8) | buf[4]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
 
   this->gyro_device_.ReadBytes(BMI088_GYRO_CHIP_ID, 8);
   if (buf[0] == BMI088_GYRO_CHIP_ID_VALUE) {
-    this->gyro_[0] = ((int16_t)((buf[3]) << 8) | buf[2]) * BMI088_GYRO_SENSITIVITY[(uint8_t)this->gyro_range_];
-    this->gyro_[1] = ((int16_t)((buf[5]) << 8) | buf[4]) * BMI088_GYRO_SENSITIVITY[(uint8_t)this->gyro_range_];
-    this->gyro_[2] = ((int16_t)((buf[7]) << 8) | buf[6]) * BMI088_GYRO_SENSITIVITY[(uint8_t)this->gyro_range_];
+    this->gyro_[0] = ((i16)((buf[3]) << 8) | buf[2]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+    this->gyro_[1] = ((i16)((buf[5]) << 8) | buf[4]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+    this->gyro_[2] = ((i16)((buf[7]) << 8) | buf[6]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
   }
   this->accel_device_.ReadBytes(BMI088_TEMP_M, 2);
 
-  auto bmi088_raw_temp = (int16_t)((buf[0] << 3) | (buf[1] >> 5));
+  auto bmi088_raw_temp = (i16)((buf[0] << 3) | (buf[1] >> 5));
   if (bmi088_raw_temp > 1023) {
     bmi088_raw_temp -= 2048;
   }
@@ -175,36 +175,36 @@ BMI088Status BMI088::status() const { return this->status_; }
  * @brief   获取传感器温度
  * @return  传感器温度
  */
-fp32 BMI088::temperature() const { return this->temperature_; }
+f32 BMI088::temperature() const { return this->temperature_; }
 
 /**
  * @return  陀螺仪X轴数据(rad/s)
  */
-fp32 BMI088::gyro_x() const { return this->gyro_[0]; }
+f32 BMI088::gyro_x() const { return this->gyro_[0]; }
 
 /**
  * @return  陀螺仪Y轴数据(rad/s)
  */
-fp32 BMI088::gyro_y() const { return this->gyro_[1]; }
+f32 BMI088::gyro_y() const { return this->gyro_[1]; }
 
 /**
  * @return  陀螺仪Z轴数据(rad/s)
  */
-fp32 BMI088::gyro_z() const { return this->gyro_[2]; }
+f32 BMI088::gyro_z() const { return this->gyro_[2]; }
 
 /**
  * @return  加速度计X轴数据(m/s^2)
  */
-fp32 BMI088::accel_x() const { return this->accel_[0]; }
+f32 BMI088::accel_x() const { return this->accel_[0]; }
 
 /**
  * @return  加速度计Y轴数据(m/s^2)
  */
-fp32 BMI088::accel_y() const { return this->accel_[1]; }
+f32 BMI088::accel_y() const { return this->accel_[1]; }
 
 /**
  * @return  加速度计Z轴数据(m/s^2)
  */
-fp32 BMI088::accel_z() const { return this->accel_[2]; }
+f32 BMI088::accel_z() const { return this->accel_[2]; }
 
 #endif

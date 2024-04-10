@@ -22,7 +22,7 @@ using irobot_ec::modules::exception::ThrowException;
  * CLASS CANDeviceBase
  ****************************/
 
-std::unordered_map<CAN_HandleTypeDef*, std::unordered_map<uint32_t, CanDeviceBase*>> CanDeviceBase::device_map_ = {};
+std::unordered_map<CAN_HandleTypeDef*, std::unordered_map<u32, CanDeviceBase*>> CanDeviceBase::device_map_ = {};
 
 /**
  * @brief 析构函数
@@ -35,14 +35,14 @@ CanDeviceBase::~CanDeviceBase() { CanDeviceBase::device_map_[this->hcan_].erase(
  * @param hcan      指向CAN外设句柄结构体的指针
  * @param rx_std_id 本设备的rx标准帧ID
  */
-CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef* hcan, uint32_t rx_std_id)
+CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef* hcan, u32 rx_std_id)
     : hcan_(hcan),
       rx_std_id_(rx_std_id),
       tx_header_{.StdId = 0, .ExtId = 0, .IDE = CAN_ID_STD, .RTR = CAN_RTR_DATA, .DLC = 8} {
   // 检查是否已经初始化过这个CAN总线
   if (CanDeviceBase::device_map_.find(hcan) == CanDeviceBase::device_map_.end()) {
     bsp::BspFactory::GetCan().InitCanFilter(hcan);
-    CanDeviceBase::device_map_[hcan] = std::unordered_map<uint32_t, CanDeviceBase*>();
+    CanDeviceBase::device_map_[hcan] = std::unordered_map<u32, CanDeviceBase*>();
   }
 
   // 检查这个CAN总线上有没有rx_std_id相同的设备
@@ -58,9 +58,9 @@ CanDeviceBase::CanDeviceBase(CAN_HandleTypeDef* hcan, uint32_t rx_std_id)
  * @param data 数据指针
  * @param size 数据长度
  */
-void CanDeviceBase::Transmit(const uint8_t* data, uint32_t size) {
+void CanDeviceBase::Transmit(const u8* data, u32 size) {
   this->tx_header_.DLC = size;
-  if (HAL_CAN_AddTxMessage(this->hcan_, &this->tx_header_, const_cast<uint8_t*>(data), &this->tx_mailbox_) != HAL_OK) {
+  if (HAL_CAN_AddTxMessage(this->hcan_, &this->tx_header_, const_cast<u8*>(data), &this->tx_mailbox_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_AddTxMessage error
   }
 }

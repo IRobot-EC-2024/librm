@@ -29,21 +29,21 @@ class CanDeviceBase {
  public:
   ~CanDeviceBase();
   CanDeviceBase() = default;
-  CanDeviceBase(CAN_HandleTypeDef *hcan, uint32_t rx_std_id);
+  CanDeviceBase(CAN_HandleTypeDef *hcan, u32 rx_std_id);
 
   virtual void RxCallback(bsp::CanRxMsg *msg) = 0;
 
-  void Transmit(const uint8_t *data, uint32_t size);
+  void Transmit(const u8 *data, u32 size);
 
  protected:
-  uint32_t rx_std_id_;             // rx standard id
-  uint32_t tx_mailbox_;            // tx mailbox
+  u32 rx_std_id_;             // rx standard id
+  u32 tx_mailbox_;            // tx mailbox
   CAN_TxHeaderTypeDef tx_header_;  // tx header
   CAN_HandleTypeDef *hcan_;        // CAN peripheral handle
 
  private:
   // <hcan, <rx_std_id, device>>
-  static std::unordered_map<CAN_HandleTypeDef *, std::unordered_map<uint32_t, CanDeviceBase *>> device_map_;
+  static std::unordered_map<CAN_HandleTypeDef *, std::unordered_map<u32, CanDeviceBase *>> device_map_;
 };
 
 }  // namespace irobot_ec::hal::can

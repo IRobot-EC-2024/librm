@@ -7,7 +7,7 @@
 
 using namespace irobot_ec::modules::algorithm::utils;
 
-fp32 deadline(fp32 value, fp32 min_value, fp32 max_value) {
+f32 deadline(f32 value, f32 min_value, f32 max_value) {
   if (value < min_value || value > max_value) {
     return 0;
   } else {
@@ -15,7 +15,7 @@ fp32 deadline(fp32 value, fp32 min_value, fp32 max_value) {
   }
 }
 
-fp32 constrain(fp32 input, fp32 min_value, fp32 max_value) {
+f32 constrain(f32 input, f32 min_value, f32 max_value) {
   if (input < min_value) {
     return min_value;
   } else if (input > max_value) {
@@ -25,8 +25,8 @@ fp32 constrain(fp32 input, fp32 min_value, fp32 max_value) {
   }
 }
 
-fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value) {
-  fp32 cycle = max_value - min_value;
+f32 loopConstrain(f32 input, f32 min_value, f32 max_value) {
+  f32 cycle = max_value - min_value;
   if (cycle < 0) {
     return input;
   }
@@ -43,9 +43,9 @@ fp32 loopConstrain(fp32 input, fp32 min_value, fp32 max_value) {
   return input;
 }
 
-fp32 degToRad(fp32 deg) { return deg * M_PI / 180; }
+f32 degToRad(f32 deg) { return deg * M_PI / 180; }
 
-void quatToEuler(const fp32 q[4], fp32 euler[3]) {
+void quatToEuler(const f32 q[4], f32 euler[3]) {
   euler[0] = atan2f(2 * (q[0] * q[1] + q[2] * q[3]), 1 - 2 * (q[1] * q[1] + q[2] * q[2]));
   euler[1] = asinf(2 * (q[0] * q[2] - q[3] * q[1]));
   euler[2] = atan2f(2 * (q[0] * q[3] + q[1] * q[2]), 1 - 2 * (q[2] * q[2] + q[3] * q[3]));
