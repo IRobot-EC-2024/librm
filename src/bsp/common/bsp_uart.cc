@@ -102,13 +102,20 @@ void Uart::StartReceive() {
   }
 }
 
-void Uart::AttachRxCallback(std::function<void()> callback) { this->rx_callback_ = &callback; }
+/**
+ * @brief 注册用户定义的接收完成回调函数
+ * @param callback 回调函数
+ */
+void Uart::AttachRxCallback(std::function<void(const std::vector<u8> &)> &callback) { this->rx_callback_ = &callback; }
 
+/**
+ * @return 接收缓冲区
+ */
 const std::vector<u8> &Uart::rx_buffer() const { return rx_buf_[buffer_selector_]; }
 
 /**
  * @brief 接收完成回调函数
- * @note  这个函数会在HAL库的回调函数中被调用
+ * @note  这个回调函数是给HAL库用的，要实现自己的功能就在外部定义一个void(const std::vector<u8> &)类型的回调函数，然后通过AttachRxCallback注册
  */
 void Uart::HalRxCpltCallback() {
   // 判断rx模式，重新启动接收
@@ -130,7 +137,7 @@ void Uart::HalRxCpltCallback() {
   }
   // 调用子类重写的回调函数
   if (this->rx_callback_ != nullptr) {
-    (*this->rx_callback_)();
+    (*this->rx_callback_)(this->rx_buf_[this->buffer_selector_]);
   }
   // 切换缓冲区
   this->buffer_selector_ = !this->buffer_selector_;

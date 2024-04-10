@@ -39,13 +39,13 @@ class Uart {
 
   void Write(const u8 *data, usize size);
   void StartReceive();
-  void AttachRxCallback(std::function<void()> callback);
+  void AttachRxCallback(std::function<void(const std::vector<u8> &)> &callback);
   [[nodiscard]] const std::vector<u8> &rx_buffer() const;
 
  private:
   void HalRxCpltCallback();
 
-  std::function<void()> *rx_callback_{nullptr};
+  std::function<void(const std::vector<u8> &)> *rx_callback_{nullptr};
   UART_HandleTypeDef *huart_;
   UartMode tx_mode_;
   UartMode rx_mode_;
