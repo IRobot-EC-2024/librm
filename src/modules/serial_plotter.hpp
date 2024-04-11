@@ -7,17 +7,16 @@
 #ifndef EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 #define EC_LIB_MODULES_SERIAL_PLOTTER_HPP
 
-#include <algorithm>
 #include <iomanip>
 #include <list>
 #include <sstream>
-#include <type_traits>
-#include <typeinfo>
+#include <variant>
 
-#include "modules/exception/exception.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::modules {
+
+using VariableVariant = std::variant<i8 *, i16 *, i32 *, i64 *, u8 *, u16 *, u32 *, u64 *, f32 *, f64 *, bool *>;
 
 /**
  * @brief 串口绘图器
@@ -37,18 +36,17 @@ class SerialPlotter {
  public:
   SerialPlotter() = default;
   void Update();
-  [[nodiscard]] const std::string *buffer() const;
+  [[nodiscard]] const std::string &buffer() const;
+  template <typename T, typename SFINAE = std::enable_if_t<std::is_fundamental<T>::value>>
+  void AddVariable(T &variable);
+  template <typename T, typename SFINAE = std::enable_if_t<std::is_fundamental<T>::value>>
+  void RemoveVariable(T &variable);
 
  private:
-  template <typename T, std::enable_if_t<std::is_fundamental<T>::value, int>>
-  void AddVariable(T *variable);
-  void RemoveVariable(void *variable);
-
+  std::ostringstream ostringstream_;
   std::string buffer_;
-  std::list<std::pair<std::type_info, void *>> variable_list_;
+  std::list<VariableVariant> variable_list_;
 };
-
-}  // namespace irobot_ec::modules
 
 /*********************/
 /** Implementation ***/
@@ -63,72 +61,61 @@ void irobot_ec::modules::SerialPlotter::Update() {
   }
 
   this->buffer_.clear();
+  this->ostringstream_.str("");
 
-  for (auto it = this->variable_list_.begin(); it != this->variable_list_.end(); it++) {
-    std::stringstream ss;
-
-    if (it->first == typeid(i8)) {
-      this->buffer_ += std::to_string(*((i8 *)it->second));
-    } else if (it->first == typeid(u8)) {
-      this->buffer_ += std::to_string(*((u8 *)it->second));
-    } else if (it->first == typeid(i16)) {
-      this->buffer_ += std::to_string(*((i16 *)it->second));
-    } else if (it->first == typeid(u16)) {
-      this->buffer_ += std::to_string(*((u16 *)it->second));
-    } else if (it->first == typeid(i32)) {
-      this->buffer_ += std::to_string(*((i32 *)it->second));
-    } else if (it->first == typeid(u32)) {
-      this->buffer_ += std::to_string(*((u32 *)it->second));
-    } else if (it->first == typeid(i64)) {
-      this->buffer_ += std::to_string(*((i64 *)it->second));
-    } else if (it->first == typeid(u64)) {
-      this->buffer_ += std::to_string(*((u64 *)it->second));
-    } else if (it->first == typeid(f32)) {
-      ss << std::fixed << std::setprecision(7) << *((f32 *)it->second);
-      this->buffer_ += ss.str();
-    } else if (it->first == typeid(f64)) {
-      ss << std::fixed << std::setprecision(7) << *((f64 *)it->second);
-      this->buffer_ += ss.str();
-    }  // AddVariable函数保证变量一定是基本类型，所以不需要else
-
-    if (it != --this->variable_list_.end()) {
-      this->buffer_ += ",";
+  for (const auto &var : this->variable_list_) {
+    std::visit([this](auto &&arg) { this->ostringstream_ << std::fixed << std::setprecision(8) << *arg; }, var);
+    if (&var == &this->variable_list_.back()) {
+      this->ostringstream_ << "\r\n";
     } else {
-      this->buffer_ += "\r\n";
+      this->ostringstream_ << ",";
     }
   }
+  this->buffer_ = this->ostringstream_.str();
 }
 
 /**
- * @brief   获取缓冲区指针
- * @return  缓冲区指针
+ * @brief   获取缓冲区
+ * @return  缓冲区引用
  */
-const std::string *irobot_ec::modules::SerialPlotter::buffer() const { return &this->buffer_; }
+const std::string &SerialPlotter::buffer() const { return this->buffer_; }
 
 /**
  * @brief   向绘图器注册一个变量
  * @tparam  T           变量类型
- * @param   variable    变量指针
+ * @param   variable    变量引用
  */
-template <typename T, std::enable_if_t<std::is_fundamental<T>::value, int>>
-void irobot_ec::modules::SerialPlotter::AddVariable(T *variable) {
-  // 如果变量已经添加过，就不添加，直接返回
-  if (std::find_if(this->variable_list_.begin(), this->variable_list_.end(),
-                   [variable](const std::pair<std::type_info, void *> &pair) { return pair.second == variable; }) !=
-      this->variable_list_.end()) {
-    return;
+template <typename T, typename SFINAE>
+void SerialPlotter::AddVariable(T &variable) {
+  void *this_var = nullptr;
+  for (const auto &var : this->variable_list_) {
+    std::visit([&this_var](auto &&arg) { this_var = (void *)arg; }, var);
+    if ((void *)(&variable) == this_var) {
+      // 如果变量已经添加过，就不添加，直接返回
+      return;
+    }
   }
 
-  this->variable_list_.emplace_back(typeid(T), variable);
+  this->variable_list_.emplace_back(&variable);
 }
 
 /**
  * @brief   从绘图器中移除一个变量
- * @param   variable    变量指针
+ * @tparam  T           变量类型
+ * @param   variable    变量引用
  */
-void irobot_ec::modules::SerialPlotter::RemoveVariable(void *variable) {
-  this->variable_list_.remove_if(
-      [variable](const std::pair<std::type_info, void *> &pair) { return pair.second == variable; });
+template <typename T, typename SFINAE>
+void SerialPlotter::RemoveVariable(T &variable) {
+  void *this_var = nullptr;
+  for (const auto &var : this->variable_list_) {
+    std::visit([&this_var](auto &&arg) { this_var = (void *)arg; }, var);
+    if ((void *)(&variable) == this_var) {
+      this->variable_list_.remove(var);
+      return;
+    }
+  }
 }
+
+}  // namespace irobot_ec::modules
 
 #endif  // EC_LIB_MODULES_SERIAL_PLOTTER_HPP
