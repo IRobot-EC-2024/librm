@@ -122,15 +122,16 @@ void Uart::HalRxCpltCallback(u16 rx_len) {
   // 判断rx模式，重新启动接收
   switch (this->rx_mode_) {
     case UartMode::kNormal:
-      HAL_UART_Receive(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[!this->buffer_selector_].size(),
-                       HAL_MAX_DELAY);
+      HAL_UART_Receive(this->huart_, this->rx_buf_[!this->buffer_selector_].data(),
+                       this->rx_buf_[!this->buffer_selector_].size(), HAL_MAX_DELAY);
       break;
     case UartMode::kInterrupt:
-      HAL_UART_Receive_IT(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[!this->buffer_selector_].size());
+      HAL_UART_Receive_IT(this->huart_, this->rx_buf_[!this->buffer_selector_].data(),
+                          this->rx_buf_[!this->buffer_selector_].size());
       break;
 #if defined(HAL_DMA_MODULE_ENABLED)
     case UartMode::kDma:
-      HAL_UARTEx_ReceiveToIdle_DMA(this->huart_, this->rx_buf_[0].data(),
+      HAL_UARTEx_ReceiveToIdle_DMA(this->huart_, this->rx_buf_[!this->buffer_selector_].data(),
                                    this->rx_buf_[!this->buffer_selector_].size());
       __HAL_DMA_DISABLE_IT(this->huart_->hdmarx, DMA_IT_HT);  // 关闭DMA半传输中断
       break;
