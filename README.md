@@ -5,9 +5,7 @@
 [![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
 
-*如果只维护一份底层代码，不仅可以不用每辆车都写一遍，而且使用中可以不断修补迭代，这个底层代码实现能被最优化。（欢迎贡献！）*
-
-使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。
+使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。目前只支持大疆C板和YCMC-H7A开发板。
 
 项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
 。推荐使用clang-format自动格式化代码。CI系统会检查代码是否符合规范，style
@@ -44,7 +42,7 @@ doxygen ./Doxyfile
 
   - [ ] `components/`：组件，指各种设备的抽象封装
       - `motor/`：电机
-          - [x] `dji_motor.cc/.h`：大疆电机
+          - [x] `dji_motor.cc/.hpp`：大疆电机
           - [ ] `unitree_motor.cc/.h`：宇树电机
       - `rc/`：遥控器/接收机
           - [x] `dr16.cc/.h`：大疆DR16接收机
