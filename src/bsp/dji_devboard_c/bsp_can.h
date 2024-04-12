@@ -40,7 +40,7 @@ class Can final : public CanBase {
   void Stop() override;
 
  private:
-  void FiFo0MsgPendingCallback();
+  void Fifo0MsgPendingCallback();
 
   u32 tx_mailbox_{0};
   CanRxMsg rx_msg_buffer_{};

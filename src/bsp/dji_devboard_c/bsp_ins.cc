@@ -9,6 +9,7 @@
     defined(STM32F407xx)
 
 #include "bsp_ins.h"
+
 #include "modules/exception/exception.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
@@ -58,7 +59,9 @@ f32 Ins::temperature() const { return this->temperature_; }
  */
 void Ins::Update() {
   this->bmi088_.Update();
-  this->ist8310_.Update();
+  if (!this->bypass_mag_) {
+    this->ist8310_.Update();
+  }
   this->acc_[0] = this->bmi088_.accel_x();
   this->acc_[1] = this->bmi088_.accel_y();
   this->acc_[2] = this->bmi088_.accel_z();

@@ -15,7 +15,14 @@ namespace irobot_ec::modules::algorithm {
 using irobot_ec::modules::algorithm::utils::absConstrain;
 
 PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout)
-    : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout), use_external_diff_input_(false) {
+    : kp_(kp),
+      ki_(ki),
+      kd_(kd),
+      type_(type),
+      max_out_(max_out),
+      max_iout_(max_iout),
+      use_external_diff_input_(false),
+      external_diff_input_(nullptr) {
 #if defined(ARM_MATH_DSP)
   if (type == PIDType::kDsp) {
     this->dsp_pid_ = {

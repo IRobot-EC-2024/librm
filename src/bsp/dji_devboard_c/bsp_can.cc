@@ -43,7 +43,7 @@ namespace irobot_ec::bsp::dji_devboard_c {
  */
 Can::Can(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
   HAL_CAN_RegisterCallback(this->hcan_, HAL_CAN_RX_FIFO0_MSG_PENDING_CB_ID,
-                           StdFunctionToCallbackFunctionPtr(std::bind(&Can::FiFo0MsgPendingCallback, this)));
+                           StdFunctionToCallbackFunctionPtr(std::bind(&Can::Fifo0MsgPendingCallback, this)));
   this->SetFilter(0, 0);
   this->Begin();
 }
@@ -119,7 +119,7 @@ void Can::Stop() {
  * @brief FIFO0消息挂起回调函数
  * @note  这个函数会被HAL库调用
  */
-void Can::FiFo0MsgPendingCallback() {
+void Can::Fifo0MsgPendingCallback() {
   static CAN_RxHeaderTypeDef rx_header;
   HAL_CAN_GetRxMessage(this->hcan_, CAN_RX_FIFO0, &rx_header, this->rx_msg_buffer_.data);
   if (this->device_list_.find(rx_header.StdId) == this->device_list_.end()) {
