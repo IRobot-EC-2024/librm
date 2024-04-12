@@ -1,7 +1,6 @@
 /**
  * @file  bsp/dji_devboard_c/bsp_can.h
- * @brief CAN类库
- * @todo  see: src/hal_wrapper/can_device.h
+ * @brief bxCAN类库
  */
 
 #ifndef EC_LIB_BSP_DJI_DEVBOARD_C_BSP_CAN_H_

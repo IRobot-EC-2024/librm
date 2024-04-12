@@ -1,7 +1,6 @@
 /**
  * @file  bsp/dji_devboard_c/bsp_can.cc
- * @brief 对大疆c板CAN外设的一些操作集合
- * @todo  see: src/hal_wrapper/can_device.h
+ * @brief bxCAN类库
  */
 
 #include "hal/hal.h"
