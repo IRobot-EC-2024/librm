@@ -42,12 +42,12 @@
 
 namespace irobot_ec::components {
 
-enum class MotorType { GM6020, M3508, M2006 };
-template <MotorType motor_type>
-struct MotorInfo {};
+enum class DjiMotorType { GM6020, M3508, M2006 };
+template <DjiMotorType motor_type>
+struct DjiMotorProperties {};
 
 template <>
-struct MotorInfo<MotorType::GM6020> {
+struct DjiMotorProperties<DjiMotorType::GM6020> {
   static constexpr u16 kRxId = 0x205;
   static constexpr u16 kControlId[2] = {0x1ff, 0x2ff};
   static constexpr i16 kCurrentBound = 30000;
@@ -55,7 +55,7 @@ struct MotorInfo<MotorType::GM6020> {
 };
 
 template <>
-struct MotorInfo<MotorType::M3508> {
+struct DjiMotorProperties<DjiMotorType::M3508> {
   static constexpr u16 kRxId = 0x201;
   static constexpr u16 kControlId[2] = {0x200, 0x1ff};
   static constexpr i16 kCurrentBound = 16384;
@@ -63,7 +63,7 @@ struct MotorInfo<MotorType::M3508> {
 };
 
 template <>
-struct MotorInfo<MotorType::M2006> {
+struct DjiMotorProperties<DjiMotorType::M2006> {
   static constexpr u16 kRxId = 0x200;
   static constexpr u16 kControlId[2] = {0x200, 0x1ff};
   static constexpr i16 kCurrentBound = 10000;
@@ -90,7 +90,7 @@ class DjiMotorBase : public bsp::CanDeviceBase {
  * @attention 本类是抽象类，不可实例化
  * @attention 子类必须实现SetCurrent函数，用于设置电机的电流/电压
  */
-template <MotorType motor_type>
+template <DjiMotorType motor_type>
 class DjiMotor final : public DjiMotorBase {
  public:
   DjiMotor() = delete;
@@ -122,17 +122,18 @@ class DjiMotor final : public DjiMotorBase {
   /***********************/
 };
 
-using GM6020 = DjiMotor<MotorType::GM6020>;
-using M3508 = DjiMotor<MotorType::M3508>;
-using M2006 = DjiMotor<MotorType::M2006>;
+using GM6020 = DjiMotor<DjiMotorType::GM6020>;
+using M3508 = DjiMotor<DjiMotorType::M3508>;
+using M2006 = DjiMotor<DjiMotorType::M2006>;
 
 /**
  * @tparam motor_type 电机类型(GM6020, M3508, M2006)
  * @param  can        指向CAN总线对象的指针
  * @param  id
  */
-template <MotorType motor_type>
-DjiMotor<motor_type>::DjiMotor(bsp::CanInterface &can, u16 id) : DjiMotorBase(can, MotorInfo<motor_type>::kRxId) {
+template <DjiMotorType motor_type>
+DjiMotor<motor_type>::DjiMotor(bsp::CanInterface &can, u16 id)
+    : DjiMotorBase(can, DjiMotorProperties<motor_type>::kRxId) {
   // 检查有没有构造过ID一样的电机
   for (const auto &motor : DjiMotorBase::motor_list_) {
     if (motor->id_ == id) {
@@ -140,8 +141,8 @@ DjiMotor<motor_type>::DjiMotor(bsp::CanInterface &can, u16 id) : DjiMotorBase(ca
     }
   }
   // 构造的电机对象对应CAN总线的发送缓冲区还未创建，就创建一个
-  if (MotorInfo<motor_type>::tx_buf_.find(&can) == MotorInfo<motor_type>::tx_buf_.end()) {
-    MotorInfo<motor_type>::tx_buf_.insert({&can, {0}});
+  if (DjiMotorProperties<motor_type>::tx_buf_.find(&can) == DjiMotorProperties<motor_type>::tx_buf_.end()) {
+    DjiMotorProperties<motor_type>::tx_buf_.insert({&can, {0}});
   }
   // 把自己加到电机对象链表里
   this->id_ = id;
@@ -154,18 +155,18 @@ DjiMotor<motor_type>::DjiMotor(bsp::CanInterface &can, u16 id) : DjiMotorBase(ca
  * @tparam motor_type 电机类型
  * @param  current    设定电流值
  */
-template <MotorType motor_type>
+template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::SetCurrent(i16 current) {
   // 限幅到电机能接受的最大电流
-  current = irobot_ec::modules::algorithm::utils::absConstrain(current, MotorInfo<motor_type>::kCurrentBound);
+  current = irobot_ec::modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
   // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区
-  MotorInfo<motor_type>::tx_buf_[this->can_][(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-  MotorInfo<motor_type>::tx_buf_[this->can_][(this->id_ - 1) * 2 + 1] = current & 0xff;
+  DjiMotorProperties<motor_type>::tx_buf_[this->can_][(this->id_ - 1) * 2] = (current >> 8) & 0xff;
+  DjiMotorProperties<motor_type>::tx_buf_[this->can_][(this->id_ - 1) * 2 + 1] = current & 0xff;
   // 根据电机ID判断缓冲区前八位需要发送，还是后八位需要发送，把对应的标志位置1
   if (1 <= this->id_ && this->id_ <= 4) {
-    MotorInfo<motor_type>::tx_buf_[this->can_][16] = 1;
+    DjiMotorProperties<motor_type>::tx_buf_[this->can_][16] = 1;
   } else if (5 <= this->id_ && this->id_ <= 8) {
-    MotorInfo<motor_type>::tx_buf_[this->can_][17] = 1;
+    DjiMotorProperties<motor_type>::tx_buf_[this->can_][17] = 1;
   }
 }
 
@@ -173,20 +174,21 @@ void DjiMotor<motor_type>::SetCurrent(i16 current) {
  * @brief  向所有电机发出控制消息
  * @tparam motor_type 电机类型
  */
-template <MotorType motor_type>
+template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::SendCommand() {
   for (auto &motor : DjiMotorBase::motor_list_) {
     // 遍历所有电机对象，检查标志位，对应缓冲区的标志位为1则发送，然后将标志位清零
-    if (MotorInfo<motor_type>::tx_buf_[this->can_][16] == 1) {
+    if (DjiMotorProperties<motor_type>::tx_buf_[this->can_][16] == 1) {
       // 发前八字节
-      motor->can().Write(MotorInfo<motor_type>::kControlId[0], MotorInfo<motor_type>::tx_buf_[this->can_].data(), 8);
-      MotorInfo<motor_type>::tx_buf_[this->can_][16] = 0;
+      motor->can().Write(DjiMotorProperties<motor_type>::kControlId[0],
+                         DjiMotorProperties<motor_type>::tx_buf_[this->can_].data(), 8);
+      DjiMotorProperties<motor_type>::tx_buf_[this->can_][16] = 0;
     }
-    if (MotorInfo<motor_type>::tx_buf_[this->can_][17] == 1) {
+    if (DjiMotorProperties<motor_type>::tx_buf_[this->can_][17] == 1) {
       // 发后八字节
-      motor->can().Write(MotorInfo<motor_type>::kControlId[1], MotorInfo<motor_type>::tx_buf_[this->can_].data() + 8,
-                         8);
-      MotorInfo<motor_type>::tx_buf_[this->can_][17] = 0;
+      motor->can().Write(DjiMotorProperties<motor_type>::kControlId[1],
+                         DjiMotorProperties<motor_type>::tx_buf_[this->can_].data() + 8, 8);
+      DjiMotorProperties<motor_type>::tx_buf_[this->can_][17] = 0;
     }
   }
 }
@@ -196,7 +198,7 @@ void DjiMotor<motor_type>::SendCommand() {
  * @tparam motor_type 电机类型
  * @param  msg        收到的消息
  */
-template <MotorType motor_type>
+template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::RxCallback(const bsp::CanRxMsg *msg) {
   this->encoder_ = (msg->data[0] << 8) | msg->data[1];
   this->rpm_ = (msg->data[2] << 8) | msg->data[3];

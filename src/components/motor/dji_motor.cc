@@ -13,9 +13,9 @@ namespace irobot_ec::components {
 /**
  * @brief 三种型号电机各自的发送缓冲区
  */
-std::unordered_map<bsp::CanInterface *, std::array<u8, 18>> MotorInfo<MotorType::GM6020>::tx_buf_{};
-std::unordered_map<bsp::CanInterface *, std::array<u8, 18>> MotorInfo<MotorType::M3508>::tx_buf_{};
-std::unordered_map<bsp::CanInterface *, std::array<u8, 18>> MotorInfo<MotorType::M2006>::tx_buf_{};
+std::unordered_map<bsp::CanInterface *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::GM6020>::tx_buf_{};
+std::unordered_map<bsp::CanInterface *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M3508>::tx_buf_{};
+std::unordered_map<bsp::CanInterface *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M2006>::tx_buf_{};
 
 /**
  * @brief 所有电机对象
