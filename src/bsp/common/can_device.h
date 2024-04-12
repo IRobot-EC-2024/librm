@@ -27,18 +27,18 @@ class CanDeviceBase {
  public:
   virtual ~CanDeviceBase() = default;
   CanDeviceBase() = delete;
-  CanDeviceBase(CanInterface &can, u32 rx_std_id);
+  CanDeviceBase(CanBase &can, u32 rx_std_id);
 
   // 禁止拷贝构造
   CanDeviceBase(const CanDeviceBase &) = delete;
   CanDeviceBase &operator=(const CanDeviceBase &) = delete;
 
   virtual void RxCallback(const bsp::CanRxMsg *msg) = 0;
-  CanInterface &can();
+  CanBase &can();
 
  protected:
   u32 rx_std_id_;  // 这个设备的rx消息标准帧id
-  CanInterface *can_;
+  CanBase *can_;
 };
 
 }  // namespace irobot_ec::bsp

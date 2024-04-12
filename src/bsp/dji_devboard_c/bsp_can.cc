@@ -38,6 +38,9 @@ static pCAN_CallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void(
 
 namespace irobot_ec::bsp::dji_devboard_c {
 
+/**
+ * @param hcan HAL库的CAN_HandleTypeDef
+ */
 Can::Can(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
   HAL_CAN_RegisterCallback(this->hcan_, HAL_CAN_RX_FIFO0_MSG_PENDING_CB_ID,
                            StdFunctionToCallbackFunctionPtr(std::bind(&Can::FiFo0MsgPendingCallback, this)));
@@ -45,6 +48,11 @@ Can::Can(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
   this->Begin();
 }
 
+/**
+ * @brief 设置过滤器
+ * @param id
+ * @param mask
+ */
 void Can::SetFilter(u16 id, u16 mask) {
   CAN_FilterTypeDef can_filter_st;
   can_filter_st.FilterActivation = ENABLE;
@@ -68,6 +76,12 @@ void Can::SetFilter(u16 id, u16 mask) {
   }
 }
 
+/**
+ * @brief 向总线上发送数据
+ * @param id    数据帧ID
+ * @param data  数据指针
+ * @param size  数据长度
+ */
 void Can::Write(u16 id, const u8 *data, usize size) {
   static CAN_TxHeaderTypeDef tx_header;
   tx_header.StdId = id;
@@ -79,6 +93,10 @@ void Can::Write(u16 id, const u8 *data, usize size) {
     ThrowException(Exception::kHALError);  // HAL_CAN_AddTxMessage error
   }
 }
+
+/**
+ * @brief 启动CAN外设
+ */
 void Can::Begin() {
   if (HAL_CAN_Start(this->hcan_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_Start error
@@ -87,18 +105,28 @@ void Can::Begin() {
     ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
   }
 }
+
+/**
+ * @brief 停止CAN外设
+ */
 void Can::Stop() {
   if (HAL_CAN_Stop(this->hcan_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_Stop error
   };
 }
 
+/**
+ * @brief FIFO0消息挂起回调函数
+ * @note  这个函数会被HAL库调用
+ */
 void Can::FiFo0MsgPendingCallback() {
   static CAN_RxHeaderTypeDef rx_header;
   HAL_CAN_GetRxMessage(this->hcan_, CAN_RX_FIFO0, &rx_header, this->rx_msg_buffer_.data);
   if (this->device_list_.find(rx_header.StdId) == this->device_list_.end()) {
     return;
   }
+  this->rx_msg_buffer_.rx_std_id = rx_header.StdId;
+  this->rx_msg_buffer_.dlc = rx_header.DLC;
   this->device_list_[rx_header.StdId]->RxCallback(&this->rx_msg_buffer_);
 }
 

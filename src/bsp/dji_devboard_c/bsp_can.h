@@ -16,18 +16,15 @@
 
 #include <unordered_map>
 
+#include "bsp/common/can_device.h"
 #include "bsp/interface/bsp_can_interface.h"
 
-namespace irobot_ec::bsp {
-
-class CanDeviceBase;
-
-namespace dji_devboard_c {
+namespace irobot_ec::bsp::dji_devboard_c {
 
 /**
  * @brief bxCAN类库
  */
-class Can : public CanInterface {
+class Can final : public CanBase {
  public:
   explicit Can(CAN_HandleTypeDef &hcan);
   Can() = delete;
@@ -39,8 +36,8 @@ class Can : public CanInterface {
 
   void SetFilter(u16 id, u16 mask) override;
   void Write(u16 id, const u8 *data, usize size) override;
-  void Begin();
-  void Stop();
+  void Begin() override;
+  void Stop() override;
 
  private:
   void FiFo0MsgPendingCallback();
@@ -48,11 +45,9 @@ class Can : public CanInterface {
   u32 tx_mailbox_{0};
   CanRxMsg rx_msg_buffer_{};
   CAN_HandleTypeDef *hcan_{nullptr};
-  std::unordered_map<u32, CanDeviceBase *> device_list_;  // <rx_std_id, device>
 };
 
-}  // namespace dji_devboard_c
-}  // namespace irobot_ec::bsp
+}  // namespace irobot_ec::bsp::dji_devboard_c
 
 #endif
 
