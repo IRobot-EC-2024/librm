@@ -372,7 +372,7 @@ PREDEFINED             = STM32F407xx \
                          HAL_TIM_MODULE_ENABLED=1 \
                          HAL_UART_MODULE_ENABLED=1 \
                          HAL_USART_MODULE_ENABLED=1 \
-                         ARM_MATH_DSP
+                         ARM_MATH_DSP \
 EXPAND_AS_DEFINED      =
 SKIP_FUNCTION_MACROS   = YES
 #---------------------------------------------------------------------------
