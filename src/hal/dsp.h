@@ -1,5 +1,5 @@
 /**
- * @file      hal_wrapper/dsp.h
+ * @file      hal/dsp.h
  * @brief     简化导入DSP库的语句，引入此文件即可使用DSP库（如果支持并且启用了的话）
  * @attention 检查包含路径和链接器设置，确保DSP库确实已经正确启用！！
  */

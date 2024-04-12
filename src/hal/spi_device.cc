@@ -1,5 +1,5 @@
 /**
- * @file  hal_wrapper/spi_device.cc
+ * @file  hal/spi_device.cc
  * @brief SPI设备抽象
  * @todo  实现不够通用，有改进空间
  */

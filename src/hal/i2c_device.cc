@@ -1,5 +1,5 @@
 /**
- * @file  hal_wrapper/i2c_device.cc
+ * @file  hal/i2c_device.cc
  * @brief i2c设备抽象
  * @todo  实现不够通用，有改进空间
  */

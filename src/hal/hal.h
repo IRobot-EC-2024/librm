@@ -1,5 +1,5 @@
 /**
- * @file  hal_wrapper/hal.h
+ * @file  hal/hal.h
  * @brief 根据宏定义引入不同的芯片型号的HAL库
  */
 
