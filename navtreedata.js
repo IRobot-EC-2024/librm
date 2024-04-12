@@ -24,44 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "RM EC C++ Library", "index.html", [
-    [ "命名空间", "namespaces.html", [
-      [ "命名空间列表", "namespaces.html", "namespaces_dup" ],
-      [ "命名空间成员", "namespacemembers.html", [
-        [ "全部", "namespacemembers.html", null ],
-        [ "函数", "namespacemembers_func.html", null ],
-        [ "枚举", "namespacemembers_enum.html", null ],
-        [ "枚举值", "namespacemembers_eval.html", null ]
-      ] ]
-    ] ],
-    [ "类", "annotated.html", [
-      [ "类列表", "annotated.html", "annotated_dup" ],
-      [ "类索引", "classes.html", null ],
-      [ "类继承关系", "hierarchy.html", "hierarchy" ],
-      [ "类成员", "functions.html", [
-        [ "全部", "functions.html", null ],
-        [ "函数", "functions_func.html", null ],
-        [ "变量", "functions_vars.html", null ]
-      ] ]
-    ] ],
-    [ "文件", "files.html", [
-      [ "文件列表", "files.html", "files_dup" ],
-      [ "文件成员", "globals.html", [
-        [ "全部", "globals.html", "globals_dup" ],
-        [ "函数", "globals_func.html", null ],
-        [ "变量", "globals_vars.html", null ],
-        [ "类型定义", "globals_type.html", null ],
-        [ "宏定义", "globals_defs.html", null ]
-      ] ]
-    ] ]
-  ] ]
+  [ "RM EC C++ Library", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a7101285701df5de391e3856f7f77a49e",
-"mahony__ahrs_8h.html#a8f488fe3c7786e3a328a6062dea4862f"
+"index.html"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';
