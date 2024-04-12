@@ -19,11 +19,11 @@ namespace irobot_ec::components {
  * @brief 超级电容的错误flags各位的定义
  */
 enum class SuperCapError : u16 {
-  kOverVoltage = 1u << 0,
-  kOverCurrent = 1u << 1,
-  kUnderVoltage = 1u << 2,
-  kInputUnderVoltage = 1u << 3,
-  kNoData = 1u << 4,
+  kOverVoltage = 1u << 0,        // 电容过压
+  kOverCurrent = 1u << 1,        // 电容过流
+  kUnderVoltage = 1u << 2,       // 电容欠压
+  kInputUnderVoltage = 1u << 3,  // 裁判系统欠压
+  kNoData = 1u << 4,             // 未读到数据
 
   // 5-15 reserved
 };

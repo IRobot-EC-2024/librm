@@ -50,7 +50,7 @@ doxygen ./Doxyfile
           - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
           - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
           - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
-
+      - [x] `supercap.cc/.h`：超级电容
   - [ ] `hal/`：基于HAL库的进一步封装（计划重构去掉这一部分，并入bsp）
 
   - `modules/`：模块，指软件功能模块
