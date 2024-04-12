@@ -1,5 +1,5 @@
 /**
- * @file  components/motor/unitree/unitree_motor.h
+ * @file  components/motor/unitree_motor.h
  * @brief 宇树电机的类封装
  * @todo  未完成
  */

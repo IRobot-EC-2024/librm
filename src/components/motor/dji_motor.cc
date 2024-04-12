@@ -1,5 +1,5 @@
 /**
- * @file  components/motor/dji/dji_motor.cc
+ * @file  components/motor/dji_motor.cc
  * @brief 大疆电机的类封装
  */
 

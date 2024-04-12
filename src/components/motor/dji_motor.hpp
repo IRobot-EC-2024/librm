@@ -1,6 +1,6 @@
 
 /**
- * @file  components/motor/dji/dji_motor.hpp
+ * @file  components/motor/dji_motor.hpp
  * @brief 大疆电机的类封装
  *
  * @note DJI GM6020电机
