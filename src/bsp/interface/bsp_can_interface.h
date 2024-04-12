@@ -9,22 +9,22 @@
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
-#include "can.h"
-
 #include "modules/typedefs.h"
 
 namespace irobot_ec::bsp {
 
 struct CanRxMsg {
   u8 data[8];
-  CAN_RxHeaderTypeDef header;
+  u32 rx_std_id;
+  u32 dlc;
 };
 
 class CanInterface {
  public:
   virtual ~CanInterface() = default;
 
-  virtual void InitCanFilter(CAN_HandleTypeDef *hcan, u16 id = 0, u16 mask = 0) = 0;
+  virtual void Write(u16 id, const u8 *data, usize size) = 0;
+  virtual void SetFilter(u16 id, u16 mask) = 0;
 };
 
 }  // namespace irobot_ec::bsp

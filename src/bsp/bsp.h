@@ -38,7 +38,6 @@ class BspFactory {
   BspFactory() = delete;
 
   static DelayInterface &GetDelay();
-  static CanInterface &GetCan();
 
  private:
   ~BspFactory() = default;
