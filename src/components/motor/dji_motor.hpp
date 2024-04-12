@@ -79,7 +79,11 @@ class DjiMotorBase : public bsp::CanDeviceBase {
   DjiMotorBase() = delete;
   ~DjiMotorBase() override = default;
 
+  static void SendCommand();
+
   static std::list<DjiMotorBase *> motor_list_;  // 电机对象链表
+  std::array<u8, 18> *tx_buf_;                   // 发送缓冲区
+  u16 control_id_[2];                            // 控制报文ID
   u16 id_{};                                     // 电机ID
 
  protected:
@@ -103,7 +107,6 @@ class DjiMotor final : public DjiMotorBase {
   DjiMotor &operator=(const DjiMotor &) = delete;
 
   void SetCurrent(i16 current);
-  void SendCommand();
 
   /** 取值函数 **/
   [[nodiscard]] u16 encoder() const { return this->encoder_; }
@@ -147,6 +150,8 @@ DjiMotor<motor_type>::DjiMotor(bsp::CanBase &can, u16 id)
   }
   // 把自己加到电机对象链表里
   this->id_ = id;
+  this->tx_buf_ = &DjiMotorProperties<motor_type>::tx_buf_[&can];
+  memcpy(this->control_id_, DjiMotorProperties<motor_type>::kControlId, sizeof(this->control_id_));
   DjiMotorBase::motor_list_.push_back(this);
 }
 
@@ -161,36 +166,13 @@ void DjiMotor<motor_type>::SetCurrent(i16 current) {
   // 限幅到电机能接受的最大电流
   current = irobot_ec::modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
   // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区
-  DjiMotorProperties<motor_type>::tx_buf_[this->can_][(this->id_ - 1) * 2] = (current >> 8) & 0xff;
-  DjiMotorProperties<motor_type>::tx_buf_[this->can_][(this->id_ - 1) * 2 + 1] = current & 0xff;
+  this->tx_buf_->at((this->id_ - 1) * 2) = (current >> 8) & 0xff;
+  this->tx_buf_->at((this->id_ - 1) * 2 + 1) = current & 0xff;
   // 根据电机ID判断缓冲区前八位需要发送，还是后八位需要发送，把对应的标志位置1
   if (1 <= this->id_ && this->id_ <= 4) {
-    DjiMotorProperties<motor_type>::tx_buf_[this->can_][16] = 1;
+    this->tx_buf_->at(16) = 1;
   } else if (5 <= this->id_ && this->id_ <= 8) {
-    DjiMotorProperties<motor_type>::tx_buf_[this->can_][17] = 1;
-  }
-}
-
-/**
- * @brief  向所有电机发出控制消息
- * @tparam motor_type 电机类型
- */
-template <DjiMotorType motor_type>
-void DjiMotor<motor_type>::SendCommand() {
-  for (auto &motor : DjiMotorBase::motor_list_) {
-    // 遍历所有电机对象，检查标志位，对应缓冲区的标志位为1则发送，然后将标志位清零
-    if (DjiMotorProperties<motor_type>::tx_buf_[this->can_][16] == 1) {
-      // 发前八字节
-      motor->can().Write(DjiMotorProperties<motor_type>::kControlId[0],
-                         DjiMotorProperties<motor_type>::tx_buf_[this->can_].data(), 8);
-      DjiMotorProperties<motor_type>::tx_buf_[this->can_][16] = 0;
-    }
-    if (DjiMotorProperties<motor_type>::tx_buf_[this->can_][17] == 1) {
-      // 发后八字节
-      motor->can().Write(DjiMotorProperties<motor_type>::kControlId[1],
-                         DjiMotorProperties<motor_type>::tx_buf_[this->can_].data() + 8, 8);
-      DjiMotorProperties<motor_type>::tx_buf_[this->can_][17] = 0;
-    }
+    this->tx_buf_->at(17) = 1;
   }
 }
 
