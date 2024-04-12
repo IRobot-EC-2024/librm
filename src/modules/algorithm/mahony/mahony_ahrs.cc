@@ -142,7 +142,7 @@ void MahonyAhrs::Update(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az, f32 mx, 
   quaternion_[1] *= recip_norm_;
   quaternion_[2] *= recip_norm_;
   quaternion_[3] *= recip_norm_;
-  utils::quatToEuler(quaternion_, euler_ypr_);
+  utils::QuatToEuler(quaternion_, euler_ypr_);
 }
 
 /**
@@ -217,7 +217,7 @@ void MahonyAhrs::UpdateImu(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az) {
   quaternion_[1] *= recipNorm;
   quaternion_[2] *= recipNorm;
   quaternion_[3] *= recipNorm;
-  utils::quatToEuler(quaternion_, euler_ypr_);
+  utils::QuatToEuler(quaternion_, euler_ypr_);
 }
 
 /**
