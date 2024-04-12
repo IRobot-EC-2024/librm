@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/components/motor/dji_motor.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('dji__motor_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a>  </div>
+  <div class="headertitle">
+<div class="title">dji_motor.hpp 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="hal_8h_source.html">hal/hal.h</a>&quot;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;list&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &quot;<a class="el" href="typedefs_8h_source.html">modules/typedefs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8hpp_source.html">modules/algorithm/utils/utils.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="exception_8h_source.html">modules/exception/exception.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="can__device_8h_source.html">bsp/common/can_device.h</a>&quot;</code><br />
+</div>
+<p><a href="dji__motor_8hpp_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structirobot__ec_1_1components_1_1DjiMotorProperties.html">irobot_ec::components::DjiMotorProperties&lt; motor_type &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structirobot__ec_1_1components_1_1DjiMotorProperties_3_01DjiMotorType_1_1GM6020_01_4.html">irobot_ec::components::DjiMotorProperties&lt; DjiMotorType::GM6020 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structirobot__ec_1_1components_1_1DjiMotorProperties_3_01DjiMotorType_1_1M3508_01_4.html">irobot_ec::components::DjiMotorProperties&lt; DjiMotorType::M3508 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structirobot__ec_1_1components_1_1DjiMotorProperties_3_01DjiMotorType_1_1M2006_01_4.html">irobot_ec::components::DjiMotorProperties&lt; DjiMotorType::M2006 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1components_1_1DjiMotorBase.html">irobot_ec::components::DjiMotorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI电机的基类，用来利用多态性实现存储不同类型的电机对象  <a href="classirobot__ec_1_1components_1_1DjiMotorBase.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1components_1_1DjiMotor.html">irobot_ec::components::DjiMotor&lt; motor_type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI电机  <a href="classirobot__ec_1_1components_1_1DjiMotor.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:namespaceirobot__ec"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceirobot__ec_1_1components"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components.html">irobot_ec::components</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a098844c4aefe848e4e835d1dd3332e11"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components.html#a098844c4aefe848e4e835d1dd3332e11">irobot_ec::components::GM6020</a> = DjiMotor&lt; DjiMotorType::GM6020 &gt;</td></tr>
+<tr class="separator:a098844c4aefe848e4e835d1dd3332e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178ae7a42b06e4b15dba055ce0665682"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components.html#a178ae7a42b06e4b15dba055ce0665682">irobot_ec::components::M3508</a> = DjiMotor&lt; DjiMotorType::M3508 &gt;</td></tr>
+<tr class="separator:a178ae7a42b06e4b15dba055ce0665682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf72682f2d145b71b753feb0a49ae21"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components.html#abbf72682f2d145b71b753feb0a49ae21">irobot_ec::components::M2006</a> = DjiMotor&lt; DjiMotorType::M2006 &gt;</td></tr>
+<tr class="separator:abbf72682f2d145b71b753feb0a49ae21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a69747cb084bf833b129f125124aeeb5e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1components.html#a69747cb084bf833b129f125124aeeb5e">irobot_ec::components::DjiMotorType</a> { <a class="el" href="namespaceirobot__ec_1_1components.html#a69747cb084bf833b129f125124aeeb5eacb80879d0cffef8dda7b49a4d234e7fa">irobot_ec::components::GM6020</a>
+, <a class="el" href="namespaceirobot__ec_1_1components.html#a69747cb084bf833b129f125124aeeb5ea2a11d96160e8fc87860f3f795e81b080">irobot_ec::components::M3508</a>
+, <a class="el" href="namespaceirobot__ec_1_1components.html#a69747cb084bf833b129f125124aeeb5ea93f5090472f646ad30fccecc43f7b2c7">irobot_ec::components::M2006</a>
+ }</td></tr>
+<tr class="separator:a69747cb084bf833b129f125124aeeb5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_3c4c7c1a85608ccd561c026bec818e51.html">components</a></li><li class="navelem"><a class="el" href="dir_2f44455c3ea36c0e7994a2d7ead2490d.html">motor</a></li><li class="navelem"><a class="el" href="dji__motor_8hpp.html">dji_motor.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

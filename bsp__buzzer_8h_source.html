@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/bsp/dji_devboard_c/bsp_buzzer.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('bsp__buzzer_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">bsp_buzzer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bsp__buzzer_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef EC_LIB_DJI_C_BSP_BUZZER_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define EC_LIB_DJI_C_BSP_BUZZER_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if defined(HAL_TIM_MODULE_ENABLED) &amp;&amp; defined(STM32F407xx)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c.html">   13</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer.html">irobot_ec::bsp::dji_devboard_c::buzzer</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html">Buzzer</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#aa1113465412d2d55875789bbee677449">   17</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#aa1113465412d2d55875789bbee677449">Buzzer</a>(TIM_HandleTypeDef htim);</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a79e903e7c2b2d5b5cf75d4ea0044e25f">   18</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a79e903e7c2b2d5b5cf75d4ea0044e25f">Buzzer</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#af3247cf29b0b603674f3155ef8f2ebe1">   19</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#af3247cf29b0b603674f3155ef8f2ebe1">~Buzzer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a0f46f1563f40d33e2eef110e1bf8ddf1">   21</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a0f46f1563f40d33e2eef110e1bf8ddf1">on</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a7101285701df5de391e3856f7f77a49e">   22</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a7101285701df5de391e3856f7f77a49e">off</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  TIM_HandleTypeDef *htim;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}  <span class="comment">// namespace irobot_ec::bsp::dji_devboard_c::buzzer</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_DJI_C_BSP_BUZZER_H</span></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html">irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer</a></div><div class="ttdef"><b>Definition:</b> bsp_buzzer.h:15</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer_html_a0f46f1563f40d33e2eef110e1bf8ddf1"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a0f46f1563f40d33e2eef110e1bf8ddf1">irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::on</a></div><div class="ttdeci">void on()</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer_html_a7101285701df5de391e3856f7f77a49e"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a7101285701df5de391e3856f7f77a49e">irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::off</a></div><div class="ttdeci">void off()</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer_html_a79e903e7c2b2d5b5cf75d4ea0044e25f"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a79e903e7c2b2d5b5cf75d4ea0044e25f">irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::Buzzer</a></div><div class="ttdeci">Buzzer()=delete</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer_html_aa1113465412d2d55875789bbee677449"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#aa1113465412d2d55875789bbee677449">irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::Buzzer</a></div><div class="ttdeci">Buzzer(TIM_HandleTypeDef htim)</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer_html_af3247cf29b0b603674f3155ef8f2ebe1"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#af3247cf29b0b603674f3155ef8f2ebe1">irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::~Buzzer</a></div><div class="ttdeci">~Buzzer()=default</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_html"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer.html">irobot_ec::bsp::dji_devboard_c::buzzer</a></div><div class="ttdef"><b>Definition:</b> bsp_buzzer.h:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0937102de6aefa85ea195f3f88a55c7c.html">bsp</a></li><li class="navelem"><a class="el" href="dir_355ca32cc071898da714b3148d44703a.html">dji_devboard_c</a></li><li class="navelem"><a class="el" href="bsp__buzzer_8h.html">bsp_buzzer.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

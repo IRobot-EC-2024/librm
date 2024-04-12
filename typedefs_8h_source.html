@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/modules/typedefs.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('typedefs_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">typedefs.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="typedefs_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef EC_LIB_MODULES_TYPEDEFS_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EC_LIB_MODULES_TYPEDEFS_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cctype&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">   17</a></span>&#160;<span class="keyword">typedef</span> uint8_t <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">   18</a></span>&#160;<span class="keyword">typedef</span> uint16_t <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">   19</a></span>&#160;<span class="keyword">typedef</span> uint32_t <a class="code" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">   20</a></span>&#160;<span class="keyword">typedef</span> uint64_t <a class="code" href="typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">u64</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="typedefs_8h.html#ae3702327b5f47e83b431e22b33da7b58">   21</a></span>&#160;<span class="keyword">typedef</span> int8_t <a class="code" href="typedefs_8h.html#ae3702327b5f47e83b431e22b33da7b58">i8</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">   22</a></span>&#160;<span class="keyword">typedef</span> int16_t <a class="code" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a48d6cd8e4135fb2ff7e7f2dac84089ec">   23</a></span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="typedefs_8h.html#a48d6cd8e4135fb2ff7e7f2dac84089ec">i32</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a85cb35fbe5bf2961d7ad5f26814a91a2">   24</a></span>&#160;<span class="keyword">typedef</span> int64_t <a class="code" href="typedefs_8h.html#a85cb35fbe5bf2961d7ad5f26814a91a2">i64</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">size_t</span> <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">float</span> <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="typedefs_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">   27</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">double</span> <a class="code" href="typedefs_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">f64</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_MODULES_TYPEDEFS_H</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/* EOF */</span></div>
+<div class="ttc" id="atypedefs_8h_html_a3f7e2bcbb0b4c338f3c4f6c937cd4234"><div class="ttname"><a href="typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">u64</a></div><div class="ttdeci">uint64_t u64</div><div class="ttdef"><b>Definition:</b> typedefs.h:20</div></div>
+<div class="ttc" id="atypedefs_8h_html_a48d6cd8e4135fb2ff7e7f2dac84089ec"><div class="ttname"><a href="typedefs_8h.html#a48d6cd8e4135fb2ff7e7f2dac84089ec">i32</a></div><div class="ttdeci">int32_t i32</div><div class="ttdef"><b>Definition:</b> typedefs.h:23</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5148c9c1252e19e12def2814f71690e3"><div class="ttname"><a href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a></div><div class="ttdeci">size_t usize</div><div class="ttdef"><b>Definition:</b> typedefs.h:25</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5f6906312a689f27d70e9d086649d3fd"><div class="ttname"><a href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a></div><div class="ttdeci">float f32</div><div class="ttdef"><b>Definition:</b> typedefs.h:26</div></div>
+<div class="ttc" id="atypedefs_8h_html_a85cb35fbe5bf2961d7ad5f26814a91a2"><div class="ttname"><a href="typedefs_8h.html#a85cb35fbe5bf2961d7ad5f26814a91a2">i64</a></div><div class="ttdeci">int64_t i64</div><div class="ttdef"><b>Definition:</b> typedefs.h:24</div></div>
+<div class="ttc" id="atypedefs_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition:</b> typedefs.h:17</div></div>
+<div class="ttc" id="atypedefs_8h_html_a94dab5770726ccbef8c7d026cfbdf8e5"><div class="ttname"><a href="typedefs_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5">f64</a></div><div class="ttdeci">double f64</div><div class="ttdef"><b>Definition:</b> typedefs.h:27</div></div>
+<div class="ttc" id="atypedefs_8h_html_ace9d960e74685e2cd84b36132dbbf8aa"><div class="ttname"><a href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a></div><div class="ttdeci">uint16_t u16</div><div class="ttdef"><b>Definition:</b> typedefs.h:18</div></div>
+<div class="ttc" id="atypedefs_8h_html_ad309dbcaeea13aa602d686964156ea0b"><div class="ttname"><a href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a></div><div class="ttdeci">int16_t i16</div><div class="ttdef"><b>Definition:</b> typedefs.h:22</div></div>
+<div class="ttc" id="atypedefs_8h_html_ae3702327b5f47e83b431e22b33da7b58"><div class="ttname"><a href="typedefs_8h.html#ae3702327b5f47e83b431e22b33da7b58">i8</a></div><div class="ttdeci">int8_t i8</div><div class="ttdef"><b>Definition:</b> typedefs.h:21</div></div>
+<div class="ttc" id="atypedefs_8h_html_afaa62991928fb9fb18ff0db62a040aba"><div class="ttname"><a href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div><div class="ttdeci">uint32_t u32</div><div class="ttdef"><b>Definition:</b> typedefs.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ddb4d7e95cc2d6c8e1ade10a20d7247d.html">modules</a></li><li class="navelem"><a class="el" href="typedefs_8h.html">typedefs.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

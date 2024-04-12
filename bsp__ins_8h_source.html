@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/bsp/dji_devboard_c/bsp_ins.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('bsp__ins_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">bsp_ins.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bsp__ins_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef EC_LIB_DJI_C_BSP_INS_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define EC_LIB_DJI_C_BSP_INS_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if defined(HAL_I2C_MODULE_ENABLED) &amp;&amp; defined(HAL_SPI_MODULE_ENABLED) &amp;&amp; defined(HAL_TIM_MODULE_ENABLED) &amp;&amp; \</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">    defined(STM32F407xx)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bsp__ins__interface_8h.html">bsp/interface/bsp_ins_interface.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bmi088_8h.html">components/sensor/bmi088/bmi088.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ist8310_8h.html">components/sensor/ist8310/ist8310.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mahony__ahrs_8h.html">modules/algorithm/mahony/mahony_ahrs.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">modules/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c.html">irobot_ec::bsp::dji_devboard_c</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html">Ins</a> : <span class="keyword">public</span> <a class="code" href="classirobot__ec_1_1bsp_1_1InsInterface.html">InsInterface</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a9bca379452693549d4a12752b1e45a20">Ins</a>(<a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> sample_rate = 1000.0f);</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a8d351dd58758440a23d6d15843fadbd0">   29</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a8d351dd58758440a23d6d15843fadbd0">~Ins</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#ad9d3c9ea8e8c2455af6153ae69d9daae">acc_x</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a25bc7efcc702060cc567780039e50426">acc_y</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a20a52d6bc92bfc5f63adb920cb30a18a">acc_z</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#abd304d03bc2bf9516fe03d4c8f6071e7">gyro_x</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#ab6a8f10604a07958bca4d874f909efa0">gyro_y</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a6a18e9472bc00405f6446a636498d6e8">gyro_z</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a08ea79f6668ace55cff0f32abf72ec7b">mag_x</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a4ac0cbb11e3e2c3c7c0ff8b68e1b89b8">mag_y</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a2f768b6607e1a552fcb0c7390cb4a52f">mag_z</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#af9c5d27a18eca848aa768a6e312d9af3">yaw</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a35a4055855371d02de8737937339eb08">pitch</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#aecef6dc32513abbc7bac40c72f37eec5">roll</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a44aa0fc0456d8293ed0361b38e429f92">quat_w</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a797918de6d8355795a709cfd29d7723b">quat_x</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a995e8e14b22332bd74a95d032427b8d7">quat_y</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a7fa12476dfc44e229030dceec13081b9">quat_z</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a9afd35a3d80ede51021f2fdcef1ba837">temperature</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a0c8f1dfc2fd3b17fdad88f348945fc6a">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a27a740496d0106789b65b3b3950f6c85">BypassMagnetometer</a>(<span class="keywordtype">bool</span> bypass);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="classirobot__ec_1_1components_1_1sensor_1_1BMI088.html">components::sensor::BMI088</a> bmi088_;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="classirobot__ec_1_1components_1_1sensor_1_1IST8310.html">components::sensor::IST8310</a> ist8310_;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html">modules::algorithm::MahonyAhrs</a> mahony_;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  TIM_HandleTypeDef *heater_pwm_;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> acc_[3]{0};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> gyro_[3]{0};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> mag_[3]{0};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> ypr_[3]{0};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> quaternion_[4]{0};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> temperature_{};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">bool</span> bypass_mag_{<span class="keyword">true</span>};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}  <span class="comment">// namespace irobot_ec::bsp::dji_devboard_c</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_DJI_C_BSP_INS_H</span></div>
+<div class="ttc" id="abmi088_8h_html"><div class="ttname"><a href="bmi088_8h.html">bmi088.h</a></div><div class="ttdoc">BMI088传感器类</div></div>
+<div class="ttc" id="absp__ins__interface_8h_html"><div class="ttname"><a href="bsp__ins__interface_8h.html">bsp_ins_interface.h</a></div><div class="ttdoc">惯导功能接口</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1InsInterface_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1InsInterface.html">irobot_ec::bsp::InsInterface</a></div><div class="ttdoc">惯导功能接口</div><div class="ttdef"><b>Definition:</b> bsp_ins_interface.h:16</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html">irobot_ec::bsp::dji_devboard_c::Ins</a></div><div class="ttdoc">大疆C板惯导功能实现</div><div class="ttdef"><b>Definition:</b> bsp_ins.h:26</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a08ea79f6668ace55cff0f32abf72ec7b"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a08ea79f6668ace55cff0f32abf72ec7b">irobot_ec::bsp::dji_devboard_c::Ins::mag_x</a></div><div class="ttdeci">f32 mag_x() const override</div><div class="ttdoc">获取磁力计数据</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:45</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a0c8f1dfc2fd3b17fdad88f348945fc6a"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a0c8f1dfc2fd3b17fdad88f348945fc6a">irobot_ec::bsp::dji_devboard_c::Ins::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdoc">更新惯导数据</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:60</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a20a52d6bc92bfc5f63adb920cb30a18a"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a20a52d6bc92bfc5f63adb920cb30a18a">irobot_ec::bsp::dji_devboard_c::Ins::acc_z</a></div><div class="ttdeci">f32 acc_z() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:41</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a25bc7efcc702060cc567780039e50426"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a25bc7efcc702060cc567780039e50426">irobot_ec::bsp::dji_devboard_c::Ins::acc_y</a></div><div class="ttdeci">f32 acc_y() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:40</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a27a740496d0106789b65b3b3950f6c85"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a27a740496d0106789b65b3b3950f6c85">irobot_ec::bsp::dji_devboard_c::Ins::BypassMagnetometer</a></div><div class="ttdeci">void BypassMagnetometer(bool bypass)</div><div class="ttdoc">设置是否禁用磁力计</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:95</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a2f768b6607e1a552fcb0c7390cb4a52f"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a2f768b6607e1a552fcb0c7390cb4a52f">irobot_ec::bsp::dji_devboard_c::Ins::mag_z</a></div><div class="ttdeci">f32 mag_z() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:47</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a35a4055855371d02de8737937339eb08"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a35a4055855371d02de8737937339eb08">irobot_ec::bsp::dji_devboard_c::Ins::pitch</a></div><div class="ttdeci">f32 pitch() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:49</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a44aa0fc0456d8293ed0361b38e429f92"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a44aa0fc0456d8293ed0361b38e429f92">irobot_ec::bsp::dji_devboard_c::Ins::quat_w</a></div><div class="ttdeci">f32 quat_w() const override</div><div class="ttdoc">获取四元数数据</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:51</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a4ac0cbb11e3e2c3c7c0ff8b68e1b89b8"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a4ac0cbb11e3e2c3c7c0ff8b68e1b89b8">irobot_ec::bsp::dji_devboard_c::Ins::mag_y</a></div><div class="ttdeci">f32 mag_y() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:46</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a6a18e9472bc00405f6446a636498d6e8"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a6a18e9472bc00405f6446a636498d6e8">irobot_ec::bsp::dji_devboard_c::Ins::gyro_z</a></div><div class="ttdeci">f32 gyro_z() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:44</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a797918de6d8355795a709cfd29d7723b"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a797918de6d8355795a709cfd29d7723b">irobot_ec::bsp::dji_devboard_c::Ins::quat_x</a></div><div class="ttdeci">f32 quat_x() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:52</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a7fa12476dfc44e229030dceec13081b9"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a7fa12476dfc44e229030dceec13081b9">irobot_ec::bsp::dji_devboard_c::Ins::quat_z</a></div><div class="ttdeci">f32 quat_z() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:54</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a8d351dd58758440a23d6d15843fadbd0"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a8d351dd58758440a23d6d15843fadbd0">irobot_ec::bsp::dji_devboard_c::Ins::~Ins</a></div><div class="ttdeci">~Ins() override=default</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a995e8e14b22332bd74a95d032427b8d7"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a995e8e14b22332bd74a95d032427b8d7">irobot_ec::bsp::dji_devboard_c::Ins::quat_y</a></div><div class="ttdeci">f32 quat_y() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:53</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a9afd35a3d80ede51021f2fdcef1ba837"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a9afd35a3d80ede51021f2fdcef1ba837">irobot_ec::bsp::dji_devboard_c::Ins::temperature</a></div><div class="ttdeci">f32 temperature() const</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:55</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_a9bca379452693549d4a12752b1e45a20"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a9bca379452693549d4a12752b1e45a20">irobot_ec::bsp::dji_devboard_c::Ins::Ins</a></div><div class="ttdeci">Ins(f32 sample_rate=1000.0f)</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:28</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_ab6a8f10604a07958bca4d874f909efa0"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#ab6a8f10604a07958bca4d874f909efa0">irobot_ec::bsp::dji_devboard_c::Ins::gyro_y</a></div><div class="ttdeci">f32 gyro_y() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:43</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_abd304d03bc2bf9516fe03d4c8f6071e7"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#abd304d03bc2bf9516fe03d4c8f6071e7">irobot_ec::bsp::dji_devboard_c::Ins::gyro_x</a></div><div class="ttdeci">f32 gyro_x() const override</div><div class="ttdoc">获取陀螺仪数据</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:42</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_ad9d3c9ea8e8c2455af6153ae69d9daae"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#ad9d3c9ea8e8c2455af6153ae69d9daae">irobot_ec::bsp::dji_devboard_c::Ins::acc_x</a></div><div class="ttdeci">f32 acc_x() const override</div><div class="ttdoc">获取加速度计数据</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:39</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_aecef6dc32513abbc7bac40c72f37eec5"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#aecef6dc32513abbc7bac40c72f37eec5">irobot_ec::bsp::dji_devboard_c::Ins::roll</a></div><div class="ttdeci">f32 roll() const override</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:50</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins_html_af9c5d27a18eca848aa768a6e312d9af3"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#af9c5d27a18eca848aa768a6e312d9af3">irobot_ec::bsp::dji_devboard_c::Ins::yaw</a></div><div class="ttdeci">f32 yaw() const override</div><div class="ttdoc">获取欧拉角数据</div><div class="ttdef"><b>Definition:</b> bsp_ins.cc:48</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1components_1_1sensor_1_1BMI088_html"><div class="ttname"><a href="classirobot__ec_1_1components_1_1sensor_1_1BMI088.html">irobot_ec::components::sensor::BMI088</a></div><div class="ttdoc">BMI088传感器类</div><div class="ttdef"><b>Definition:</b> bmi088.h:66</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1components_1_1sensor_1_1IST8310_html"><div class="ttname"><a href="classirobot__ec_1_1components_1_1sensor_1_1IST8310.html">irobot_ec::components::sensor::IST8310</a></div><div class="ttdoc">IST8310磁力计</div><div class="ttdef"><b>Definition:</b> ist8310.h:26</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs_html"><div class="ttname"><a href="classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html">irobot_ec::modules::algorithm::MahonyAhrs</a></div><div class="ttdef"><b>Definition:</b> mahony_ahrs.h:16</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="aist8310_8h_html"><div class="ttname"><a href="ist8310_8h.html">ist8310.h</a></div></div>
+<div class="ttc" id="amahony__ahrs_8h_html"><div class="ttname"><a href="mahony__ahrs_8h.html">mahony_ahrs.h</a></div><div class="ttdoc">Mahony姿态解算算法</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_1_1dji__devboard__c_html"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp_1_1dji__devboard__c.html">irobot_ec::bsp::dji_devboard_c</a></div><div class="ttdef"><b>Definition:</b> bsp_buzzer.h:13</div></div>
+<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">工程内全局数据类型定义</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5f6906312a689f27d70e9d086649d3fd"><div class="ttname"><a href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a></div><div class="ttdeci">float f32</div><div class="ttdef"><b>Definition:</b> typedefs.h:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0937102de6aefa85ea195f3f88a55c7c.html">bsp</a></li><li class="navelem"><a class="el" href="dir_355ca32cc071898da714b3148d44703a.html">dji_devboard_c</a></li><li class="navelem"><a class="el" href="bsp__ins_8h.html">bsp_ins.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

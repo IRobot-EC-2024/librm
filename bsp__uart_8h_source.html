@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/bsp/common/bsp_uart.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('bsp__uart_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">bsp_uart.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bsp__uart_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef EC_LIB_BSP_COMMON_BSP_UART_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EC_LIB_BSP_COMMON_BSP_UART_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if defined(USE_HAL_UART_REGISTER_CALLBACKS)</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#error &quot;UART register callback must be enabled!&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#if defined(HAL_UART_MODULE_ENABLED)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">modules/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1bsp.html">irobot_ec::bsp</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1bsp.html#abb22bea50d15653cab755108c7dcf3e1">   24</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceirobot__ec_1_1bsp.html#abb22bea50d15653cab755108c7dcf3e1">UartCallbackFunction</a> = std::function&lt;void(<span class="keyword">const</span> std::vector&lt;u8&gt; &amp;, <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>)&gt;;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">   26</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">UartMode</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a07fa7a19aa722c635a15e94cb7f50416">kNormal</a>,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a5226558f5ccca12b5009c9e2f97d50ae">kInterrupt</a>,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#if defined(HAL_DMA_MODULE_ENABLED)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a1d17438b16d76f9f506107eab4a24b10">kDma</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1Uart.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1Uart.html">Uart</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1Uart.html#a8f41166b48ae74a19f3bb08fd3bb62fc">Uart</a>(UART_HandleTypeDef &amp;huart, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> rx_buffer_size, <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">UartMode</a> tx_mode = <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a07fa7a19aa722c635a15e94cb7f50416">UartMode::kNormal</a>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;       <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">UartMode</a> rx_mode = <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a07fa7a19aa722c635a15e94cb7f50416">UartMode::kNormal</a>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1Uart.html#ad52c63702b99e6242fe5b45eacc87430">Write</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1Uart.html#a84ac92941abb3cc6a6173603c20e2430">StartReceive</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1Uart.html#aed4ec7cbcebb70605a11adc0545d2ccf">AttachRxCallback</a>(<a class="code" href="namespaceirobot__ec_1_1bsp.html#abb22bea50d15653cab755108c7dcf3e1">UartCallbackFunction</a> &amp;callback);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  [[nodiscard]] <span class="keyword">const</span> std::vector&lt;u8&gt; &amp;<a class="code" href="classirobot__ec_1_1bsp_1_1Uart.html#a433194f34840317ff402c09e0a07778b">rx_buffer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> HalRxCpltCallback(<a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> rx_len);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1bsp.html#abb22bea50d15653cab755108c7dcf3e1">UartCallbackFunction</a> *rx_callback_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  UART_HandleTypeDef *huart_;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">UartMode</a> tx_mode_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">UartMode</a> rx_mode_;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  std::vector&lt;u8&gt; rx_buf_[2];</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">bool</span> buffer_selector_{<span class="keyword">false</span>};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}  <span class="comment">// namespace irobot_ec::bsp</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_BSP_COMMON_BSP_UART_H</span></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1Uart_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1Uart.html">irobot_ec::bsp::Uart</a></div><div class="ttdoc">UART类</div><div class="ttdef"><b>Definition:</b> bsp_uart.h:37</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1Uart_html_a433194f34840317ff402c09e0a07778b"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1Uart.html#a433194f34840317ff402c09e0a07778b">irobot_ec::bsp::Uart::rx_buffer</a></div><div class="ttdeci">const std::vector&lt; u8 &gt; &amp; rx_buffer() const</div><div class="ttdef"><b>Definition:</b> bsp_uart.cc:114</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1Uart_html_a84ac92941abb3cc6a6173603c20e2430"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1Uart.html#a84ac92941abb3cc6a6173603c20e2430">irobot_ec::bsp::Uart::StartReceive</a></div><div class="ttdeci">void StartReceive()</div><div class="ttdoc">开始接收数据</div><div class="ttdef"><b>Definition:</b> bsp_uart.cc:87</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1Uart_html_a8f41166b48ae74a19f3bb08fd3bb62fc"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1Uart.html#a8f41166b48ae74a19f3bb08fd3bb62fc">irobot_ec::bsp::Uart::Uart</a></div><div class="ttdeci">Uart(UART_HandleTypeDef &amp;huart, usize rx_buffer_size, UartMode tx_mode=UartMode::kNormal, UartMode rx_mode=UartMode::kNormal)</div><div class="ttdef"><b>Definition:</b> bsp_uart.cc:45</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1Uart_html_ad52c63702b99e6242fe5b45eacc87430"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1Uart.html#ad52c63702b99e6242fe5b45eacc87430">irobot_ec::bsp::Uart::Write</a></div><div class="ttdeci">void Write(const u8 *data, usize size)</div><div class="ttdoc">发送数据</div><div class="ttdef"><b>Definition:</b> bsp_uart.cc:68</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1Uart_html_aed4ec7cbcebb70605a11adc0545d2ccf"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1Uart.html#aed4ec7cbcebb70605a11adc0545d2ccf">irobot_ec::bsp::Uart::AttachRxCallback</a></div><div class="ttdeci">void AttachRxCallback(UartCallbackFunction &amp;callback)</div><div class="ttdoc">注册用户定义的接收完成回调函数</div><div class="ttdef"><b>Definition:</b> bsp_uart.cc:109</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html">irobot_ec::bsp</a></div><div class="ttdef"><b>Definition:</b> bsp.cc:8</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html_a2527166ccceb678e65e8650e8e54c464"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464">irobot_ec::bsp::UartMode</a></div><div class="ttdeci">UartMode</div><div class="ttdef"><b>Definition:</b> bsp_uart.h:26</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html_a2527166ccceb678e65e8650e8e54c464a07fa7a19aa722c635a15e94cb7f50416"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a07fa7a19aa722c635a15e94cb7f50416">irobot_ec::bsp::UartMode::kNormal</a></div><div class="ttdeci">@ kNormal</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html_a2527166ccceb678e65e8650e8e54c464a1d17438b16d76f9f506107eab4a24b10"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a1d17438b16d76f9f506107eab4a24b10">irobot_ec::bsp::UartMode::kDma</a></div><div class="ttdeci">@ kDma</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html_a2527166ccceb678e65e8650e8e54c464a5226558f5ccca12b5009c9e2f97d50ae"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464a5226558f5ccca12b5009c9e2f97d50ae">irobot_ec::bsp::UartMode::kInterrupt</a></div><div class="ttdeci">@ kInterrupt</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html_abb22bea50d15653cab755108c7dcf3e1"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html#abb22bea50d15653cab755108c7dcf3e1">irobot_ec::bsp::UartCallbackFunction</a></div><div class="ttdeci">std::function&lt; void(const std::vector&lt; u8 &gt; &amp;, u16)&gt; UartCallbackFunction</div><div class="ttdef"><b>Definition:</b> bsp_uart.h:24</div></div>
+<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">工程内全局数据类型定义</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5148c9c1252e19e12def2814f71690e3"><div class="ttname"><a href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a></div><div class="ttdeci">size_t usize</div><div class="ttdef"><b>Definition:</b> typedefs.h:25</div></div>
+<div class="ttc" id="atypedefs_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition:</b> typedefs.h:17</div></div>
+<div class="ttc" id="atypedefs_8h_html_ace9d960e74685e2cd84b36132dbbf8aa"><div class="ttname"><a href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a></div><div class="ttdeci">uint16_t u16</div><div class="ttdef"><b>Definition:</b> typedefs.h:18</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0937102de6aefa85ea195f3f88a55c7c.html">bsp</a></li><li class="navelem"><a class="el" href="dir_cdfeef69aa697aa3545a1954a35c80ea.html">common</a></li><li class="navelem"><a class="el" href="bsp__uart_8h.html">bsp_uart.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

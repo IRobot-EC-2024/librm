@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/bsp/interface/bsp_can_interface.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('bsp__can__interface_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">bsp_can_interface.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bsp__can__interface_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if defined(HAL_CAN_MODULE_ENABLED)</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">modules/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1bsp.html">irobot_ec::bsp</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span>CanDeviceBase;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html">   18</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html">CanRxMsg</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#acbaab728be926e671163a53e4512824f">   19</a></span>&#160;  <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> <a class="code" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#acbaab728be926e671163a53e4512824f">data</a>[8];</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#adcb0dcfd3870ae2303f20bfcef5a4d00">   20</a></span>&#160;  <a class="code" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#adcb0dcfd3870ae2303f20bfcef5a4d00">rx_std_id</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#a46dd70b15a6d62b05fab4a3206c1450f">   21</a></span>&#160;  <a class="code" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#a46dd70b15a6d62b05fab4a3206c1450f">dlc</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanInterface.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html">CanInterface</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanInterface.html#a5648d0ad2dc94762639994b81c788652">   29</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html#a5648d0ad2dc94762639994b81c788652">~CanInterface</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanInterface.html#ab7e3f37aaa5389b966b38fbbe4c6eb29">   37</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html#ab7e3f37aaa5389b966b38fbbe4c6eb29">Write</a>(<a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> <span class="keywordtype">id</span>, <span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanInterface.html#aded349744e195f7db2d2728b135b8edc">   44</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html#aded349744e195f7db2d2728b135b8edc">SetFilter</a>(<a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> <span class="keywordtype">id</span>, <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> mask) = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanInterface.html#aa36fa1b5f9cb0fc109229e5c7e6bfaf8">   49</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html#aa36fa1b5f9cb0fc109229e5c7e6bfaf8">Begin</a>() = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanInterface.html#a50fc9e64961042b7c84bc724dd313546">   54</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html#a50fc9e64961042b7c84bc724dd313546">Stop</a>() = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanBase.html">   60</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1CanBase.html">CanBase</a> : <span class="keyword">public</span> <a class="code" href="classirobot__ec_1_1bsp_1_1CanInterface.html">CanInterface</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanBase.html#aafa931520bcddb3fa869964271db4416">   61</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classirobot__ec_1_1bsp_1_1CanDeviceBase.html">CanDeviceBase</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanBase.html#ae3383373f43d9c1a3824b802276001fe">   64</a></span>&#160;  <a class="code" href="classirobot__ec_1_1bsp_1_1CanBase.html#ae3383373f43d9c1a3824b802276001fe">~CanBase</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1bsp_1_1CanBase.html#a7164bc07057ee405bdd11a16b9761811">   67</a></span>&#160;  std::unordered_map&lt;u32, CanDeviceBase *&gt; <a class="code" href="classirobot__ec_1_1bsp_1_1CanBase.html#a7164bc07057ee405bdd11a16b9761811">device_list_</a>;  <span class="comment">// &lt;rx_std_id, device&gt;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}  <span class="comment">// namespace irobot_ec::bsp</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_</span></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanBase_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanBase.html">irobot_ec::bsp::CanBase</a></div><div class="ttdoc">CAN外设基类</div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:60</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanBase_html_a7164bc07057ee405bdd11a16b9761811"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanBase.html#a7164bc07057ee405bdd11a16b9761811">irobot_ec::bsp::CanBase::device_list_</a></div><div class="ttdeci">std::unordered_map&lt; u32, CanDeviceBase * &gt; device_list_</div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:67</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanBase_html_ae3383373f43d9c1a3824b802276001fe"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanBase.html#ae3383373f43d9c1a3824b802276001fe">irobot_ec::bsp::CanBase::~CanBase</a></div><div class="ttdeci">~CanBase() override=default</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanDeviceBase_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanDeviceBase.html">irobot_ec::bsp::CanDeviceBase</a></div><div class="ttdoc">CAN设备的基类</div><div class="ttdef"><b>Definition:</b> can_device.h:28</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanInterface_html"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanInterface.html">irobot_ec::bsp::CanInterface</a></div><div class="ttdoc">CAN外设接口</div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:27</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanInterface_html_a50fc9e64961042b7c84bc724dd313546"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanInterface.html#a50fc9e64961042b7c84bc724dd313546">irobot_ec::bsp::CanInterface::Stop</a></div><div class="ttdeci">virtual void Stop()=0</div><div class="ttdoc">停止CAN外设</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanInterface_html_a5648d0ad2dc94762639994b81c788652"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanInterface.html#a5648d0ad2dc94762639994b81c788652">irobot_ec::bsp::CanInterface::~CanInterface</a></div><div class="ttdeci">virtual ~CanInterface()=default</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanInterface_html_aa36fa1b5f9cb0fc109229e5c7e6bfaf8"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanInterface.html#aa36fa1b5f9cb0fc109229e5c7e6bfaf8">irobot_ec::bsp::CanInterface::Begin</a></div><div class="ttdeci">virtual void Begin()=0</div><div class="ttdoc">启动CAN外设</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanInterface_html_ab7e3f37aaa5389b966b38fbbe4c6eb29"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanInterface.html#ab7e3f37aaa5389b966b38fbbe4c6eb29">irobot_ec::bsp::CanInterface::Write</a></div><div class="ttdeci">virtual void Write(u16 id, const u8 *data, usize size)=0</div><div class="ttdoc">向总线上发送数据</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1bsp_1_1CanInterface_html_aded349744e195f7db2d2728b135b8edc"><div class="ttname"><a href="classirobot__ec_1_1bsp_1_1CanInterface.html#aded349744e195f7db2d2728b135b8edc">irobot_ec::bsp::CanInterface::SetFilter</a></div><div class="ttdeci">virtual void SetFilter(u16 id, u16 mask)=0</div><div class="ttdoc">设置过滤器</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1bsp_html"><div class="ttname"><a href="namespaceirobot__ec_1_1bsp.html">irobot_ec::bsp</a></div><div class="ttdef"><b>Definition:</b> bsp.cc:8</div></div>
+<div class="ttc" id="astructirobot__ec_1_1bsp_1_1CanRxMsg_html"><div class="ttname"><a href="structirobot__ec_1_1bsp_1_1CanRxMsg.html">irobot_ec::bsp::CanRxMsg</a></div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:18</div></div>
+<div class="ttc" id="astructirobot__ec_1_1bsp_1_1CanRxMsg_html_a46dd70b15a6d62b05fab4a3206c1450f"><div class="ttname"><a href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#a46dd70b15a6d62b05fab4a3206c1450f">irobot_ec::bsp::CanRxMsg::dlc</a></div><div class="ttdeci">u32 dlc</div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:21</div></div>
+<div class="ttc" id="astructirobot__ec_1_1bsp_1_1CanRxMsg_html_acbaab728be926e671163a53e4512824f"><div class="ttname"><a href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#acbaab728be926e671163a53e4512824f">irobot_ec::bsp::CanRxMsg::data</a></div><div class="ttdeci">u8 data[8]</div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:19</div></div>
+<div class="ttc" id="astructirobot__ec_1_1bsp_1_1CanRxMsg_html_adcb0dcfd3870ae2303f20bfcef5a4d00"><div class="ttname"><a href="structirobot__ec_1_1bsp_1_1CanRxMsg.html#adcb0dcfd3870ae2303f20bfcef5a4d00">irobot_ec::bsp::CanRxMsg::rx_std_id</a></div><div class="ttdeci">u32 rx_std_id</div><div class="ttdef"><b>Definition:</b> bsp_can_interface.h:20</div></div>
+<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">工程内全局数据类型定义</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5148c9c1252e19e12def2814f71690e3"><div class="ttname"><a href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a></div><div class="ttdeci">size_t usize</div><div class="ttdef"><b>Definition:</b> typedefs.h:25</div></div>
+<div class="ttc" id="atypedefs_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition:</b> typedefs.h:17</div></div>
+<div class="ttc" id="atypedefs_8h_html_ace9d960e74685e2cd84b36132dbbf8aa"><div class="ttname"><a href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a></div><div class="ttdeci">uint16_t u16</div><div class="ttdef"><b>Definition:</b> typedefs.h:18</div></div>
+<div class="ttc" id="atypedefs_8h_html_afaa62991928fb9fb18ff0db62a040aba"><div class="ttname"><a href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div><div class="ttdeci">uint32_t u32</div><div class="ttdef"><b>Definition:</b> typedefs.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0937102de6aefa85ea195f3f88a55c7c.html">bsp</a></li><li class="navelem"><a class="el" href="dir_440a0420ae2f34c53ed5d9b640d463d0.html">interface</a></li><li class="navelem"><a class="el" href="bsp__can__interface_8h.html">bsp_can_interface.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
