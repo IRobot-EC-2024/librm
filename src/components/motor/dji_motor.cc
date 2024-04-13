@@ -35,12 +35,12 @@ void DjiMotorBase::SendCommand() {
     // 遍历所有电机对象，检查标志位，对应缓冲区的标志位为1则发送，然后将标志位清零
     if (motor->tx_buf_->at(16) == 1) {
       // 发前八字节
-      motor->can().Write(motor->control_id_[0], motor->tx_buf_->data(), 8);
+      motor->can_->Write(motor->control_id_[0], motor->tx_buf_->data(), 8);
       motor->tx_buf_->at(16) = 0;
     }
     if (motor->tx_buf_->at(17) == 1) {
       // 发后八字节
-      motor->can().Write(motor->control_id_[1], motor->tx_buf_->data() + 8, 8);
+      motor->can_->Write(motor->control_id_[1], motor->tx_buf_->data() + 8, 8);
       motor->tx_buf_->at(17) = 0;
     }
   }

@@ -37,7 +37,6 @@ class CanDeviceBase {
   CanDeviceBase &operator=(const CanDeviceBase &) = delete;
 
   virtual void RxCallback(const bsp::CanRxMsg *msg) = 0;
-  CanBase &can();
 
  protected:
   CanBase *can_;

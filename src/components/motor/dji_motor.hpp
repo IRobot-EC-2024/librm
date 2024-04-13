@@ -39,7 +39,7 @@
 #include "modules/typedefs.h"
 #include "modules/algorithm/utils/utils.hpp"
 #include "modules/exception/exception.h"
-#include "bsp/common/can_device.h"
+#include "bsp/bsp.h"
 
 namespace irobot_ec::components {
 
@@ -164,7 +164,7 @@ DjiMotor<motor_type>::DjiMotor(bsp::CanBase &can, u16 id)
 template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::SetCurrent(i16 current) {
   // 限幅到电机能接受的最大电流
-  current = irobot_ec::modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
+  current = modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
   // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区
   this->tx_buf_->at((this->id_ - 1) * 2) = (current >> 8) & 0xff;
   this->tx_buf_->at((this->id_ - 1) * 2 + 1) = current & 0xff;

@@ -26,6 +26,7 @@
 
 // 导入通用的bsp实现
 #include "common/bsp_uart.h"
+#include "common/can_device.hpp"
 
 namespace irobot_ec::bsp {
 

@@ -10,7 +10,7 @@
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include "bsp/bsp.h"
-#include "bsp/common/can_device.h"
+#include "bsp/common/can_device.hpp"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components {

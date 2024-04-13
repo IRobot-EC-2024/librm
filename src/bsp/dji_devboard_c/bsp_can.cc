@@ -15,7 +15,7 @@
 
 #include <functional>
 
-#include "bsp/common/can_device.h"
+#include "bsp/common/can_device.hpp"
 #include "modules/exception/exception.h"
 
 using irobot_ec::bsp::CanDeviceBase;

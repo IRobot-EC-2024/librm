@@ -16,7 +16,7 @@
 
 #include <unordered_map>
 
-#include "bsp/common/can_device.h"
+#include "bsp/common/can_device.hpp"
 #include "bsp/interface/bsp_can_interface.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
