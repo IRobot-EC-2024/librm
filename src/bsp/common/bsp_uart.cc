@@ -20,19 +20,16 @@ using irobot_ec::modules::exception::ThrowException;
 
 /**
  * @brief  把std::function转换为函数指针
- * @tparam CallbackFunctionType 回调函数类型
- * @tparam HandleType           外设句柄类型
- * @param  fn                   要转换的函数
- * @return                      转换后的函数指针
+ * @param  fn   要转换的函数
+ * @return      转换后的函数指针
  * @note
  * 背景：因为要用面向对象的方式对外设进行封装，所以回调函数必须存在于类内。但是存在于类内就意味着这个回调函数多了一个this参数，
  * 而HAL库要求的回调函数并没有这个this参数。通过std::bind，可以生成一个参数列表里没有this指针的std::function对象，而std::function
  * 并不能直接强转成函数指针。借助这个函数，可以把std::function对象转换成函数指针。然后就可以把这个类内的回调函数传给HAL库了。
  */
-template <typename CallbackFunctionType, typename HandleType>
-static CallbackFunctionType StdFunctionToCallbackFunctionPtr(std::function<void(u16)> fn) {
+static pUART_RxEventCallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void(u16)> fn) {
   static auto fn_v = std::move(fn);
-  return [](HandleType *handle, u16 rx_len) { fn_v(rx_len); };
+  return [](UART_HandleTypeDef *handle, u16 rx_len) { fn_v(rx_len); };
 }
 
 namespace irobot_ec::bsp {
@@ -48,9 +45,8 @@ Uart::Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode, Ua
       rx_mode_(rx_mode),
       rx_buf_{std::vector<u8>(rx_buffer_size), std::vector<u8>(rx_buffer_size)} {
   // 注册接收完成回调函数
-  HAL_UART_RegisterRxEventCallback(&huart,
-                                   StdFunctionToCallbackFunctionPtr<pUART_RxEventCallbackTypeDef, UART_HandleTypeDef>(
-                                       std::bind(&Uart::HalRxCpltCallback, this, std::placeholders::_1)));
+  HAL_UART_RegisterRxEventCallback(
+      &huart, StdFunctionToCallbackFunctionPtr(std::bind(&Uart::HalRxCpltCallback, this, std::placeholders::_1)));
   // 检查dma模式下是否已经配置好DMA
   if (tx_mode == UartMode::kDma && this->huart_->hdmatx == nullptr) {
     ThrowException(Exception::kHALError);

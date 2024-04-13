@@ -15,7 +15,6 @@
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include <unordered_map>
-#include <initializer_list>
 
 #include "bsp/interface/bsp_can_interface.h"
 #include "modules/exception/exception.h"
@@ -48,13 +47,13 @@ class CanDeviceBase {
  */
 template <typename... IdList>
 CanDeviceBase::CanDeviceBase(CanBase &can, IdList... rx_std_ids) : can_(&can) {
-  static auto loop = [&can, this](auto id) {
+  static auto _ = [&can, this](auto id) {
     if (can.device_list_.find(id) != can.device_list_.end()) {
       modules::exception::ThrowException(modules::exception::Exception::kValueError);
     }
     can.device_list_[id] = this;
   };
-  (loop(rx_std_ids), ...);
+  (_(rx_std_ids), ...);
 }
 
 }  // namespace irobot_ec::bsp
