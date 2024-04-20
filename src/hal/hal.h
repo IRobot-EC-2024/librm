@@ -1,6 +1,6 @@
 /**
  * @file  hal/hal.h
- * @brief 根据宏定义引入不同的芯片型号的HAL库
+ * @brief 根据编译宏定义引入不同的芯片型号的HAL库
  */
 
 #ifndef EC_LIB_HAL_WRAPPER_HAL_CONFIG_H

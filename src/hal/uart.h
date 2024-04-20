@@ -1,12 +1,12 @@
 /**
- * @file  bsp/common/bsp_uart.h
+ * @file  hal/uart.h
  * @brief UART类库
  */
 
 #ifndef EC_LIB_BSP_COMMON_BSP_UART_H
 #define EC_LIB_BSP_COMMON_BSP_UART_H
 
-#include "hal/hal.h"
+#include "hal.h"
 #if defined(USE_HAL_UART_REGISTER_CALLBACKS)
 #if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)
 #error "UART register callback must be enabled!"
@@ -19,7 +19,7 @@
 
 #include "modules/typedefs.h"
 
-namespace irobot_ec::bsp {
+namespace irobot_ec::hal {
 
 using UartCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
 
@@ -55,7 +55,7 @@ class Uart {
   bool buffer_selector_{false};
 };
 
-}  // namespace irobot_ec::bsp
+}  // namespace irobot_ec::hal
 
 #endif
 #endif  // EC_LIB_BSP_COMMON_BSP_UART_H

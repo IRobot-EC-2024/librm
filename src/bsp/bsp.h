@@ -19,14 +19,13 @@
 #if defined(STM32F407xx)
 #include "bsp/dji_devboard_c/bsp_delay.h"
 #include "bsp/dji_devboard_c/bsp_ins.h"
-#include "bsp/dji_devboard_c/bsp_can.h"
 #elif defined(STM32H723xx)
 #include "bsp/ycmc_h7a/bsp_delay.h"
 #endif
 
 // 导入通用的bsp实现
-#include "common/bsp_uart.h"
-#include "common/can_device.hpp"
+#include "hal/uart.h"
+#include "hal/can_device.hpp"
 
 namespace irobot_ec::bsp {
 

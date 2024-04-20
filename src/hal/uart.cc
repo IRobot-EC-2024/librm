@@ -1,5 +1,5 @@
 /**
- * @file  bsp/common/bsp_uart.cc
+ * @file  hal/uart.cc
  * @brief UART类库
  */
 
@@ -11,7 +11,7 @@
 #endif
 #if defined(HAL_UART_MODULE_ENABLED)
 
-#include "bsp_uart.h"
+#include "uart.h"
 
 #include "modules/exception/exception.h"
 
@@ -32,7 +32,7 @@ static pUART_RxEventCallbackTypeDef StdFunctionToCallbackFunctionPtr(std::functi
   return [](UART_HandleTypeDef *handle, u16 rx_len) { fn_v(rx_len); };
 }
 
-namespace irobot_ec::bsp {
+namespace irobot_ec::hal {
 
 /**
  * @param huart            HAL库的UART句柄
@@ -141,6 +141,6 @@ void Uart::HalRxCpltCallback(u16 rx_len) {
   this->buffer_selector_ = !this->buffer_selector_;
 }
 
-}  // namespace irobot_ec::bsp
+}  // namespace irobot_ec::hal
 
 #endif

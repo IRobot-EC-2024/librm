@@ -1,25 +1,20 @@
 /**
- * @file  bsp/common/can_device.h
- * @brief CAN设备包装
+ * @file  hal/can_device.h
+ * @brief CAN设备抽象类
  */
 
-#ifndef EC_LIB_HAL_WRAPPER_HAL_CAN_H
-#define EC_LIB_HAL_WRAPPER_HAL_CAN_H
+#ifndef EC_LIB_HAL_CAN_DEVICE_HPP
+#define EC_LIB_HAL_CAN_DEVICE_HPP
 
-#include "hal/hal.h"
-#if defined(USE_HAL_CAN_REGISTER_CALLBACKS)
-#if (USE_HAL_CAN_REGISTER_CALLBACKS != 1u)
-#error "CAN register callback must be enabled!"
-#endif
-#endif
-#if defined(HAL_CAN_MODULE_ENABLED)
+#include "hal.h"
+#if defined(HAL_CAN_MODULE_ENABLED) || defined(HAL_FDCAN_MODULE_ENABLED)
 
 #include <unordered_map>
 
-#include "bsp/interface/bsp_can_interface.h"
+#include "can_interface.h"
 #include "modules/exception/exception.h"
 
-namespace irobot_ec::bsp {
+namespace irobot_ec::hal {
 
 /**
  * @brief CAN设备的基类
@@ -35,7 +30,7 @@ class CanDeviceBase {
   CanDeviceBase(const CanDeviceBase &) = delete;
   CanDeviceBase &operator=(const CanDeviceBase &) = delete;
 
-  virtual void RxCallback(const bsp::CanRxMsg *msg) = 0;
+  virtual void RxCallback(const CanRxMsg *msg) = 0;
 
  protected:
   CanBase *can_;
@@ -56,8 +51,8 @@ CanDeviceBase::CanDeviceBase(CanBase &can, IdList... rx_std_ids) : can_(&can) {
   (_(rx_std_ids), ...);
 }
 
-}  // namespace irobot_ec::bsp
+}  // namespace irobot_ec::hal
 
 #endif
 
-#endif  // EC_LIB_HAL_WRAPPER_HAL_CAN_H
+#endif  // EC_LIB_HAL_CAN_DEVICE_HPP

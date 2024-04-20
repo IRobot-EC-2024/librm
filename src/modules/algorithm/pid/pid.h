@@ -10,7 +10,7 @@
 #include <memory>
 
 // 如果dsp库可用，就启用dsp库里的pid控制器支持
-#include "hal/dsp.h"
+#include "modules/dsp.h"
 
 #include "modules/typedefs.h"
 

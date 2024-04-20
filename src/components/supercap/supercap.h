@@ -9,8 +9,7 @@
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
-#include "bsp/bsp.h"
-#include "bsp/common/can_device.hpp"
+#include "hal/can.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::components {
@@ -31,9 +30,9 @@ enum class SuperCapError : u16 {
 /**
  * @brief 超级电容
  */
-class SuperCap final : public bsp::CanDeviceBase {
+class SuperCap final : public hal::CanDeviceBase {
  public:
-  explicit SuperCap(bsp::CanBase &can);
+  explicit SuperCap(hal::CanBase &can);
   SuperCap() = delete;
   ~SuperCap() override = default;
 
@@ -43,7 +42,7 @@ class SuperCap final : public bsp::CanDeviceBase {
 
   void UpdateChassisBuffer(i16 power_buffer);
   void UpdateSettings(i16 power_limit, i16 output_limit, i16 input_limit, bool power_switch, bool enable_log);
-  void RxCallback(const bsp::CanRxMsg *msg) override;
+  void RxCallback(const hal::CanRxMsg *msg) override;
 
  private:
   u8 tx_buf_[8]{0};

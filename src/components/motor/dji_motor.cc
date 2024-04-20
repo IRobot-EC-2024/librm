@@ -1,6 +1,6 @@
 /**
  * @file  components/motor/dji_motor.cc
- * @brief 大疆电机的类封装
+ * @brief 大疆电机类库
  */
 
 #include "hal/hal.h"
@@ -12,9 +12,9 @@ namespace irobot_ec::components {
 /**
  * @brief 三种型号电机各自的发送缓冲区
  */
-std::unordered_map<bsp::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::GM6020>::tx_buf_{};
-std::unordered_map<bsp::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M3508>::tx_buf_{};
-std::unordered_map<bsp::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M2006>::tx_buf_{};
+std::unordered_map<hal::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::GM6020>::tx_buf_{};
+std::unordered_map<hal::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M3508>::tx_buf_{};
+std::unordered_map<hal::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M2006>::tx_buf_{};
 
 /**
  * @brief 存放所有电机对象的链表
@@ -25,7 +25,7 @@ std::list<DjiMotorBase *> DjiMotorBase::motor_list_;
  * @param can CAN总线对象
  * @param id  电机ID(1~8)[GM6020是1~7]
  */
-DjiMotorBase::DjiMotorBase(bsp::CanBase &can, u16 id) : bsp::CanDeviceBase(can, id) {}
+DjiMotorBase::DjiMotorBase(hal::CanBase &can, u16 id) : hal::CanDeviceBase(can, id) {}
 
 /**
  * @brief  向所有电机发出控制消息

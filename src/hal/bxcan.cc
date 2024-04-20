@@ -1,24 +1,24 @@
 /**
- * @file  bsp/dji_devboard_c/bsp_can.cc
+ * @file  hal/bxcan.cc
  * @brief bxCAN类库
  */
 
 #include "hal/hal.h"
+#if defined(HAL_CAN_MODULE_ENABLED)
 #if defined(USE_HAL_CAN_REGISTER_CALLBACKS)
 #if (USE_HAL_CAN_REGISTER_CALLBACKS != 1u)
 #error "CAN register callback must be enabled!"
 #endif
 #endif
-#if defined(HAL_CAN_MODULE_ENABLED) && defined(STM32F407xx)
 
-#include "bsp_can.h"
+#include "bxcan.h"
 
 #include <functional>
 
-#include "bsp/common/can_device.hpp"
+#include "hal/can_device.hpp"
 #include "modules/exception/exception.h"
 
-using irobot_ec::bsp::CanDeviceBase;
+using irobot_ec::hal::CanDeviceBase;
 using irobot_ec::modules::exception::Exception;
 using irobot_ec::modules::exception::ThrowException;
 
@@ -36,14 +36,14 @@ static pCAN_CallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void(
   return [](CAN_HandleTypeDef *handle) { fn_v(); };
 }
 
-namespace irobot_ec::bsp::dji_devboard_c {
+namespace irobot_ec::hal {
 
 /**
  * @param hcan HAL库的CAN_HandleTypeDef
  */
-Can::Can(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
+BxCan::BxCan(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
   HAL_CAN_RegisterCallback(this->hcan_, HAL_CAN_RX_FIFO0_MSG_PENDING_CB_ID,
-                           StdFunctionToCallbackFunctionPtr(std::bind(&Can::Fifo0MsgPendingCallback, this)));
+                           StdFunctionToCallbackFunctionPtr(std::bind(&BxCan::Fifo0MsgPendingCallback, this)));
   this->SetFilter(0, 0);
   this->Begin();
 }
@@ -53,7 +53,7 @@ Can::Can(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
  * @param id
  * @param mask
  */
-void Can::SetFilter(u16 id, u16 mask) {
+void BxCan::SetFilter(u16 id, u16 mask) {
   CAN_FilterTypeDef can_filter_st;
   can_filter_st.FilterActivation = ENABLE;
   can_filter_st.FilterMode = CAN_FILTERMODE_IDMASK;
@@ -82,7 +82,7 @@ void Can::SetFilter(u16 id, u16 mask) {
  * @param data  数据指针
  * @param size  数据长度
  */
-void Can::Write(u16 id, const u8 *data, usize size) {
+void BxCan::Write(u16 id, const u8 *data, usize size) {
   static CAN_TxHeaderTypeDef tx_header;
   tx_header.StdId = id;
   tx_header.ExtId = 0;
@@ -97,7 +97,7 @@ void Can::Write(u16 id, const u8 *data, usize size) {
 /**
  * @brief 启动CAN外设
  */
-void Can::Begin() {
+void BxCan::Begin() {
   if (HAL_CAN_Start(this->hcan_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_Start error
   }
@@ -109,7 +109,7 @@ void Can::Begin() {
 /**
  * @brief 停止CAN外设
  */
-void Can::Stop() {
+void BxCan::Stop() {
   if (HAL_CAN_Stop(this->hcan_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_Stop error
   };
@@ -119,7 +119,7 @@ void Can::Stop() {
  * @brief FIFO0消息挂起回调函数
  * @note  这个函数会被HAL库调用
  */
-void Can::Fifo0MsgPendingCallback() {
+void BxCan::Fifo0MsgPendingCallback() {
   static CAN_RxHeaderTypeDef rx_header;
   HAL_CAN_GetRxMessage(this->hcan_, CAN_RX_FIFO0, &rx_header, this->rx_msg_buffer_.data);
   if (this->device_list_.find(rx_header.StdId) == this->device_list_.end()) {
@@ -130,6 +130,6 @@ void Can::Fifo0MsgPendingCallback() {
   this->device_list_[rx_header.StdId]->RxCallback(&this->rx_msg_buffer_);
 }
 
-}  // namespace irobot_ec::bsp::dji_devboard_c
+}  // namespace irobot_ec::hal
 
 #endif

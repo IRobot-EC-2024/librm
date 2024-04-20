@@ -1,17 +1,17 @@
 /**
- * @file    bsp/interface/bsp_can_interface.h
- * @brief   CAN外设接口
+ * @file    hal/interface/can_interface.h
+ * @brief   CAN接口，bxCAN和fdCAN的基类
  */
 
-#ifndef EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_
-#define EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_
+#ifndef EC_LIB_HAL_INTERFACE_CAN_INTERFACE_H
+#define EC_LIB_HAL_INTERFACE_CAN_INTERFACE_H
 
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include "modules/typedefs.h"
 
-namespace irobot_ec::bsp {
+namespace irobot_ec::hal {
 
 class CanDeviceBase;
 
@@ -22,11 +22,14 @@ struct CanRxMsg {
 };
 
 /**
- * @brief CAN外设接口
+ * @brief CAN外设基类
+ * @note  借助CanDeviceBase类使用观察者模式实现回调机制，模拟消息在CAN总线上传输的过程
  */
-class CanInterface {
+class CanBase {
+  friend class CanDeviceBase;
+
  public:
-  virtual ~CanInterface() = default;
+  virtual ~CanBase() = default;
 
   /**
    * @brief 向总线上发送数据
@@ -52,23 +55,13 @@ class CanInterface {
    * @brief 停止CAN外设
    */
   virtual void Stop() = 0;
-};
-
-/**
- * @brief CAN外设基类
- */
-class CanBase : public CanInterface {
-  friend class CanDeviceBase;
-
- public:
-  ~CanBase() override = default;
 
  protected:
   std::unordered_map<u32, CanDeviceBase *> device_list_;  // <rx_std_id, device>
 };
 
-}  // namespace irobot_ec::bsp
+}  // namespace irobot_ec::hal
 
 #endif
 
-#endif  // EC_LIB_BSP_INTERFACE_BSP_CAN_INTERFACE_H_
+#endif  // EC_LIB_HAL_INTERFACE_CAN_INTERFACE_H

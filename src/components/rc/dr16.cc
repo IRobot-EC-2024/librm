@@ -13,8 +13,8 @@ namespace irobot_ec::components {
 /**
  * @param uart UART对象
  */
-DR16::DR16(bsp::Uart &uart) : uart_(&uart) {
-  static bsp::UartCallbackFunction rx_callback =
+DR16::DR16(hal::Uart &uart) : uart_(&uart) {
+  static hal::UartCallbackFunction rx_callback =
       std::bind(&DR16::RxCallback, this, std::placeholders::_1, std::placeholders::_2);
   this->uart_->AttachRxCallback(rx_callback);
 }

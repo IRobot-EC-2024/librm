@@ -1,6 +1,6 @@
 /**
  * @file  components/motor/unitree_motor.cc
- * @brief 宇树电机的类封装
+ * @brief 宇树电机类库
  * @todo  未完成
  */
 

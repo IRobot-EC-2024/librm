@@ -13,7 +13,7 @@
 #include <functional>
 
 #include "modules/typedefs.h"
-#include "bsp/common/bsp_uart.h"
+#include "hal/uart.h"
 
 namespace irobot_ec::components {
 
@@ -54,7 +54,7 @@ enum class RcKey : u16 {
 class DR16 {
  public:
   DR16() = delete;
-  explicit DR16(irobot_ec::bsp::Uart &uart);
+  explicit DR16(hal::Uart &uart);
 
   void StartReceive();
   void RxCallback(const std::vector<u8> &data, u16 rx_len);
@@ -69,7 +69,7 @@ class DR16 {
   [[nodiscard]] bool key(RcKey key) const;
 
  private:
-  irobot_ec::bsp::Uart *uart_;
+  hal::Uart *uart_;
 
   i16 axes_[5];                // [0]: right_x, [1]: right_y, [2]: left_x, [3]: left_y, [4]: dial
   i16 mouse_[3];               // [0]: x, [1]: y, [2]: z
