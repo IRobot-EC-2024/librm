@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 3.27)
 project(irobotEC)
 
-# add libraries
+# add third party libraries
 add_subdirectory(libs)
-# redirect to ./src
+# main target
 add_subdirectory(src)
-
-# link libraries
-target_link_libraries(${PROJECT_NAME} PUBLIC crc)
+# link third party libraries
+target_link_libraries(${PROJECT_NAME} PUBLIC third_party)
