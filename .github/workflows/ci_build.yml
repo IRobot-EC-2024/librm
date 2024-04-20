@@ -15,10 +15,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          path: './eclib'
           submodules: 'recursive'
 
+      - name: Checkout empty project
+        uses: actions/checkout@v4
+        with:
+          path: './stm32cube_template'
+          submodules: 'recursive'
+          repository: IRobot-EC-2024/stm32cube_template
+
       - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32f407ighx/framework
+        run: cp -r ${{github.workspace}}/eclib ${{github.workspace}}/stm32cube_template/stm32f407ighx/framework
 
       - name: Add library target/link library
         run: |
@@ -40,10 +48,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          path: './eclib'
           submodules: 'recursive'
 
+      - name: Checkout empty project
+        uses: actions/checkout@v4
+        with:
+          path: './stm32cube_template'
+          submodules: 'recursive'
+          repository: IRobot-EC-2024/stm32cube_template
+
       - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/src ${{github.workspace}}/stm32cube_template/stm32h723vgtx/framework
+        run: cp -r ${{github.workspace}}/eclib ${{github.workspace}}/stm32cube_template/stm32h723vgtx/framework
 
       - name: Add library target/link library
         run: |
