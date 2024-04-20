@@ -1,5 +1,5 @@
 /**
- * @file    components/sensor/bmi088/bmi088.cc
+ * @file    device/sensor/bmi088/bmi088.cc
  * @brief   BMI088传感器类
  * @todo    DMA传输+硬件片选(maybe)
  */
@@ -14,7 +14,7 @@
 #include "bsp/bsp.h"
 
 using irobot_ec::bsp::BspFactory;
-using namespace irobot_ec::components::sensor;
+using namespace irobot_ec::device::sensor;
 
 /**
  * @brief BMI088加速度计初始化序列

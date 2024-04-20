@@ -1,5 +1,5 @@
 /**
- * @file  components/rc/dr16.cc
+ * @file  device/remote/dr16.cc
  * @brief DR16接收机
  */
 
@@ -8,7 +8,7 @@
 
 #include "dr16.h"
 
-namespace irobot_ec::components {
+namespace irobot_ec::device {
 
 /**
  * @param uart UART对象

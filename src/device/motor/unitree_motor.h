@@ -1,5 +1,5 @@
 /**
- * @file  components/motor/unitree_motor.h
+ * @file  device/motor/unitree_motor.h
  * @brief 宇树电机类库
  * @todo  未完成
  */
@@ -12,7 +12,7 @@
 
 #include "modules/typedefs.h"
 
-namespace irobot_ec::components::motor {
+namespace irobot_ec::device::motor {
 
 enum class UnitreeMotorMode {
   kLock = 0x00,

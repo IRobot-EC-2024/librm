@@ -1,5 +1,5 @@
 /**
- * @file  components/supercap/supercap.h
+ * @file  device/supercap/supercap.h
  * @brief 超级电容
  */
 
@@ -12,7 +12,7 @@
 #include "hal/can.h"
 #include "modules/typedefs.h"
 
-namespace irobot_ec::components {
+namespace irobot_ec::device {
 
 /**
  * @brief 超级电容的错误flags各位的定义

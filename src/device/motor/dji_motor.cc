@@ -1,5 +1,5 @@
 /**
- * @file  components/motor/dji_motor.cc
+ * @file  device/motor/dji_motor.cc
  * @brief 大疆电机类库
  */
 
@@ -8,7 +8,7 @@
 
 #include "dji_motor.hpp"
 
-namespace irobot_ec::components {
+namespace irobot_ec::device {
 /**
  * @brief 三种型号电机各自的发送缓冲区
  */

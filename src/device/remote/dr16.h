@@ -1,5 +1,5 @@
 /**
- * @file  components/rc/dr16.h
+ * @file  device/remote/dr16.h
  * @brief DR16接收机
  */
 
@@ -15,7 +15,7 @@
 #include "modules/typedefs.h"
 #include "hal/uart.h"
 
-namespace irobot_ec::components {
+namespace irobot_ec::device {
 
 /**
  * @brief 遥控器拨杆位置

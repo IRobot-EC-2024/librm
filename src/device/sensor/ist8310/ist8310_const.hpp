@@ -1,5 +1,5 @@
 /**
- * @file    components/sensor/ist8310_const.hpp
+ * @file    device/sensor/ist8310_const.hpp
  * @brief   IST8310有关常量
  */
 

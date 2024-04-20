@@ -1,5 +1,5 @@
 /**
- * @file    components/sensor/bmi088/bmi088_const.hpp
+ * @file    device/sensor/bmi088/bmi088_const.hpp
  * @brief   BMI088有关常量
  */
 

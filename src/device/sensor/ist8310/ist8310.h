@@ -1,5 +1,5 @@
 /**
- * @file    components/sensor/ist8310.h
+ * @file    device/sensor/ist8310.h
  * @brief   IST8310磁力计类
  */
 
@@ -12,7 +12,7 @@
 #include "hal/i2c_device.h"
 #include "modules/typedefs.h"
 
-namespace irobot_ec::components::sensor {
+namespace irobot_ec::device::sensor {
 
 enum class IST8310Status : u8 {
   NO_ERROR = 0x00,

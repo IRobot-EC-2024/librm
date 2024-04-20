@@ -1,5 +1,5 @@
 /**
- * @file  components/supercap/supercap.cc
+ * @file  device/supercap/supercap.cc
  * @brief 超级电容
  */
 
@@ -10,7 +10,7 @@
 
 #include "modules/algorithm/utils/utils.hpp"
 
-namespace irobot_ec::components {
+namespace irobot_ec::device {
 
 using modules::algorithm::utils::Map;
 

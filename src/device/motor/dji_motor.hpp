@@ -1,5 +1,5 @@
 /**
- * @file  components/motor/dji_motor.hpp
+ * @file  device/motor/dji_motor.hpp
  * @brief 大疆电机类库
  *
  * @note DJI GM6020电机
@@ -40,7 +40,7 @@
 #include "modules/exception/exception.h"
 #include "hal/can.h"
 
-namespace irobot_ec::components {
+namespace irobot_ec::device {
 
 enum class DjiMotorType { GM6020, M3508, M2006 };
 template <DjiMotorType motor_type>

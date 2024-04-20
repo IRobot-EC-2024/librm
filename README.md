@@ -38,7 +38,7 @@ doxygen ./Doxyfile
     - [ ] `dji_devboard_c/`：大疆C板
     - [ ] `ycmc_h7a/`：YCMC-H7A开发板
 
-  - `components/`：组件，指各种设备的抽象封装
+  - `device/`：设备驱动和封装
       - `motor/`：电机
           - [x] `dji_motor.cc/.hpp`：大疆电机
           - [ ] `unitree_motor.cc/.h`：宇树电机

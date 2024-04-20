@@ -1,5 +1,5 @@
 /**
- * @file    components/sensor/ist8310.cc
+ * @file    device/sensor/ist8310.cc
  * @brief   IST8310磁力计类
  */
 
@@ -12,7 +12,7 @@
 
 #include "bsp/bsp.h"
 
-namespace irobot_ec::components::sensor {
+namespace irobot_ec::device::sensor {
 #include "ist8310_const.hpp"
 
 // 初始化序列

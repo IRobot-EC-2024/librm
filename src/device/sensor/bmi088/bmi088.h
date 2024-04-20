@@ -1,5 +1,5 @@
 /**
- * @file    components/sensor/bmi088/bmi088.h
+ * @file    device/sensor/bmi088/bmi088.h
  * @brief   BMI088传感器类
  * @todo    DMA传输+硬件片选(maybe)
  */
@@ -13,7 +13,7 @@
 #include "hal/spi_device.h"
 #include "modules/typedefs.h"
 
-namespace irobot_ec::components::sensor {
+namespace irobot_ec::device::sensor {
 
 /**
  * @brief BMI088传感器状态
