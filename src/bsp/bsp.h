@@ -31,7 +31,6 @@ namespace irobot_ec::bsp {
 
 #if defined(STM32F407xx)
 using Delay = dji_devboard_c::Delay;
-using Can = dji_devboard_c::Can;
 using Ins = dji_devboard_c::Ins;
 #elif defined(STM32H723xx)
 using Delay = ycmc_h7a::Delay;

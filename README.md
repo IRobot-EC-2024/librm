@@ -33,7 +33,7 @@ doxygen ./Doxyfile
 
 - `src/`
 
-  - `bsp/`：板级支持包
+  - `bsp/`：板级支持包(deprecated)
     - [ ] `common/`：各个平台间通用的实现
     - [ ] `dji_devboard_c/`：大疆C板
     - [ ] `ycmc_h7a/`：YCMC-H7A开发板
@@ -50,7 +50,7 @@ doxygen ./Doxyfile
           - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
       - [x] `supercap/`：超级电容
 
-  - [ ] `hal/`：基于HAL库的进一步封装（计划重构去掉这一部分，并入bsp）
+  - [ ] `hal/`：基于STM32 HAL库封装的C++类库（计划重构这一部分，去掉bsp）
 
   - `modules/`：模块，指软件功能模块
     - `algorithm/`
