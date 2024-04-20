@@ -1,3 +1,6 @@
 [submodule "libs/crc"]
 	path = libs/crc
 	url = https://github.com/gityf/crc.git
+[submodule "libs/tinyfsm"]
+	path = libs/tinyfsm
+	url = https://github.com/digint/tinyfsm.git
