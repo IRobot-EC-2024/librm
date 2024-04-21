@@ -11,7 +11,7 @@
 #include <memory>
 #include <vector>
 
-namespace irobot_ec::modules::pub_sub {
+namespace irobot_ec::modules {
 
 /**
  * @brief 订阅者的基类
@@ -46,7 +46,7 @@ class PublisherBase {
   std::vector<SubscriberBase<MessageType> *> subscribers_;
 };
 
-}  // namespace irobot_ec::modules::pub_sub
+}  // namespace irobot_ec::modules
 
 /*********************/
 /** Implementation ***/

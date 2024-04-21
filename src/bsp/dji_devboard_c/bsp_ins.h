@@ -50,8 +50,8 @@ class Ins : public InsInterface {
   void BypassMagnetometer(bool bypass);
 
  private:
-  device::sensor::BMI088 bmi088_;
-  device::sensor::IST8310 ist8310_;
+  device::BMI088 bmi088_;
+  device::IST8310 ist8310_;
   modules::algorithm::MahonyAhrs mahony_;
   TIM_HandleTypeDef *heater_pwm_;
 
