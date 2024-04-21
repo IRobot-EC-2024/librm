@@ -13,7 +13,7 @@
 #include "hal/spi_device.h"
 #include "modules/typedefs.h"
 
-namespace irobot_ec::device::sensor {
+namespace irobot_ec::device {
 
 /**
  * @brief BMI088传感器状态
@@ -99,7 +99,7 @@ class BMI088 {
   f32 accel_[3]{0};
   f32 temperature_{};
 };
-}  // namespace irobot_ec::components::sensor
+}  // namespace irobot_ec::device::sensor
 
 #endif  // HAL_SPI_MODULE_ENABLED
 

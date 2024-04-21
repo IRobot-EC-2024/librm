@@ -12,7 +12,7 @@
 #include "hal/i2c_device.h"
 #include "modules/typedefs.h"
 
-namespace irobot_ec::device::sensor {
+namespace irobot_ec::device {
 
 enum class IST8310Status : u8 {
   NO_ERROR = 0x00,
@@ -40,7 +40,7 @@ class IST8310 : public irobot_ec::hal::I2cDevice {
   f32 mag_[3]{0};
 };
 
-}  // namespace irobot_ec::components::sensor
+}  // namespace irobot_ec::device
 
 #endif
 

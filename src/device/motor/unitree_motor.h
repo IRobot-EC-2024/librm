@@ -42,7 +42,7 @@ class UnitreeMotorBase {
   /*************************/
 };
 
-}  // namespace irobot_ec::components::motor
+}  // namespace irobot_ec::device::motor
 
 #endif
 

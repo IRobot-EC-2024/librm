@@ -78,7 +78,7 @@ class DR16 {
   u16 keyboard_key_;           // 每一位代表一个键，0为未按下，1为按下
 };
 
-}  // namespace irobot_ec::components
+}  // namespace irobot_ec::device
 
 #endif
 

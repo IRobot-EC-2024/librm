@@ -46,6 +46,6 @@ void DjiMotorBase::SendCommand() {
   }
 }
 
-}  // namespace irobot_ec::components
+}  // namespace irobot_ec::device
 
 #endif

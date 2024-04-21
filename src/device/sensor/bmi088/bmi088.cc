@@ -10,11 +10,11 @@
 #include <vector>
 
 #include "bmi088.h"
-#include "bmi088_const.hpp"
 #include "bsp/bsp.h"
 
 using irobot_ec::bsp::BspFactory;
-using namespace irobot_ec::device::sensor;
+namespace irobot_ec::device {
+#include "bmi088_const.hpp"
 
 /**
  * @brief BMI088加速度计初始化序列
@@ -205,5 +205,7 @@ f32 BMI088::accel_y() const { return this->accel_[1]; }
  * @return  加速度计Z轴数据(m/s^2)
  */
 f32 BMI088::accel_z() const { return this->accel_[2]; }
+
+}  // namespace irobot_ec::device
 
 #endif

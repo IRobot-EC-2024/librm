@@ -12,7 +12,7 @@
 
 #include "bsp/bsp.h"
 
-namespace irobot_ec::device::sensor {
+namespace irobot_ec::device {
 #include "ist8310_const.hpp"
 
 // 初始化序列
@@ -93,6 +93,6 @@ f32 IST8310::mag_y() const { return this->mag_[1]; }
  */
 f32 IST8310::mag_z() const { return this->mag_[2]; }
 
-}  // namespace irobot_ec::components::sensor
+}  // namespace irobot_ec::device
 
 #endif

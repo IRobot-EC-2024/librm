@@ -52,7 +52,7 @@ class SuperCap final : public hal::CanDeviceBase {
   u16 error_flags_{};
 };
 
-}  // namespace irobot_ec::components
+}  // namespace irobot_ec::device
 
 #endif
 

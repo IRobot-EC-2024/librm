@@ -83,6 +83,6 @@ void SuperCap::RxCallback(const hal::CanRxMsg *msg) {
   this->error_flags_ = (msg->data[4] << 8) | msg->data[5];
 }
 
-}  // namespace irobot_ec::components
+}  // namespace irobot_ec::device
 
 #endif

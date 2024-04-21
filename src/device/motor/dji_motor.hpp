@@ -188,7 +188,7 @@ void DjiMotor<motor_type>::RxCallback(const hal::CanRxMsg *msg) {
   this->temperature_ = msg->data[6];
 }
 
-}  // namespace irobot_ec::components
+}  // namespace irobot_ec::device
 
 #endif
 

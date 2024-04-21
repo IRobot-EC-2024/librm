@@ -66,6 +66,6 @@ RcSwitchState DR16::switch_l() const { return this->switches_[1]; }
 RcSwitchState DR16::switch_r() const { return this->switches_[0]; }
 bool DR16::key(RcKey key) const { return (this->keyboard_key_ & static_cast<u16>(key)); }
 
-}  // namespace irobot_ec::components
+}  // namespace irobot_ec::device
 
 #endif
