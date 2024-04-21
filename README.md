@@ -5,7 +5,8 @@
 [![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
 
-使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。项目针对RM比赛的需求在STM32 HAL库的基础上进行进一步封装，可以在一定程度上保证跨平台能力。开发在STM32F407和STM32H723平台上进行，其他芯片未经验证。
+使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。项目针对RM比赛的需求在STM32
+HAL库的基础上进行进一步封装，可以在一定程度上保证跨平台能力。开发在STM32F407和STM32H723平台上进行，其他芯片未经验证。
 
 项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
 。推荐使用clang-format自动格式化代码。CI系统会检查代码是否符合规范，style
@@ -25,7 +26,7 @@ doxygen ./Doxyfile
 
 ## 项目结构/开发进度
 
-打钩表示已完成可以使用，空格表示未完成
+未打钩的复选框表示还在开发中。
 
 - `examples/`：例程
 
@@ -33,34 +34,27 @@ doxygen ./Doxyfile
 
 - `src/`
 
-  - `bsp/`：板级支持包(deprecated)
-    - [ ] `common/`：各个平台间通用的实现
-    - [ ] `dji_devboard_c/`：大疆C板
-    - [ ] `ycmc_h7a/`：YCMC-H7A开发板
+    - `bsp/`：板级支持包(deprecated)
 
-  - `device/`：设备驱动和封装
-      - `motor/`：电机
-          - [x] `dji_motor.cc/.hpp`：大疆电机
-          - [ ] `unitree_motor.cc/.h`：宇树电机
-      - `rc/`：遥控器/接收机
-          - [x] `dr16.cc/.h`：大疆DT7遥控器/DR16接收机
-      - `sensor/`：传感器
-          - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
-          - [x] `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
-          - [x] `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
-      - [x] `supercap/`：超级电容
+    - `device/`：设备驱动和封装
+        - `motor/`：电机
+            - `dji_motor`：大疆电机
+            - [ ] `unitree_motor`：宇树电机
+        - `rc/`：遥控器/接收机
+            - `dr16`：大疆DT7遥控器/DR16接收机
+        - `sensor/`：传感器
+            - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
+            - `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
+            - `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
+        - `supercap/`：超级电容
 
-  - [ ] `hal/`：基于STM32 HAL库封装的C++类库（计划重构这一部分，去掉bsp）
+    - [ ] `hal/`：基于STM32 HAL库封装的C++类库（计划重构这一部分，去掉bsp）
 
-  - `modules/`：模块，指软件功能模块
-    - `algorithm/`
-        - [x] `mecanum/`：麦轮运动学解算
-        - [x] `mahony/`：Mahony姿态解算
-        - [x] `pid/`：PID控制器
-        - [x] `utils/`：常用工具函数
-    - [x] `exception/`：异常处理
-    - [x] `pubsub/`：发布订阅模块
-    - [x] `serial_plotter/`：串口绘图器
+    - `modules/`：模块，指软件功能模块
+        - `algorithm/`：常用算法
+        - `exception/`：异常处理
+        - `pubsub/`：发布订阅模块
+        - `serial_plotter/`：串口绘图器
 
 ## 开发环境
 
@@ -88,14 +82,14 @@ doxygen ./Doxyfile
     add_definitions(-DSTM32F407xx)
     # add_definitions(-DSTM32H723xx)
     ```
-   
-    芯片支持情况：
+
+   芯片支持情况：
     - [x] STM32F407xx
     - [x] STM32H723xx
 
 3. 启用UART、CAN、I2C、SPI的Register Callback功能，在CubeMX中的配置项位置如下图：
 
-    ![](https://img2.imgtp.com/2024/04/10/AUnAPRby.png)
+   ![](https://img2.imgtp.com/2024/04/10/AUnAPRby.png)
 
 4. 在代码里包含头文件（未来计划只用包含一个头文件，目前还没做）
 

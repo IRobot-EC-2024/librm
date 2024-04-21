@@ -36,8 +36,8 @@
 #include <cstring>
 
 #include "modules/typedefs.h"
-#include "modules/algorithm/utils/utils.hpp"
-#include "modules/exception/exception.h"
+#include "modules/algorithm/utils.hpp"
+#include "modules/exception.h"
 #include "hal/can.h"
 
 namespace irobot_ec::device {

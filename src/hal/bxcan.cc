@@ -16,7 +16,7 @@
 #include <functional>
 
 #include "hal/can_device.hpp"
-#include "modules/exception/exception.h"
+#include "modules/exception.h"
 
 using irobot_ec::hal::CanDeviceBase;
 using irobot_ec::modules::exception::Exception;

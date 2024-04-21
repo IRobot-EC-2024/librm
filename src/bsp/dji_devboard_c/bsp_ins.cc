@@ -10,7 +10,7 @@
 
 #include "bsp_ins.h"
 
-#include "modules/exception/exception.h"
+#include "modules/exception.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
 

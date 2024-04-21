@@ -13,7 +13,7 @@
 
 #include "uart.h"
 
-#include "modules/exception/exception.h"
+#include "modules/exception.h"
 
 using irobot_ec::modules::exception::Exception;
 using irobot_ec::modules::exception::ThrowException;

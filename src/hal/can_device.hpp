@@ -12,7 +12,7 @@
 #include <unordered_map>
 
 #include "can_interface.h"
-#include "modules/exception/exception.h"
+#include "modules/exception.h"
 
 namespace irobot_ec::hal {
 

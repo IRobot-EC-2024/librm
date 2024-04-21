@@ -12,9 +12,9 @@
     defined(STM32F407xx)
 
 #include "bsp/interface/bsp_ins_interface.h"
-#include "components/sensor/bmi088/bmi088.h"
-#include "components/sensor/ist8310/ist8310.h"
-#include "modules/algorithm/mahony/mahony_ahrs.h"
+#include "device/sensor/bmi088/bmi088.h"
+#include "device/sensor/ist8310/ist8310.h"
+#include "modules/algorithm/mahony_ahrs.h"
 #include "modules/typedefs.h"
 
 namespace irobot_ec::bsp::dji_devboard_c {
@@ -50,8 +50,8 @@ class Ins : public InsInterface {
   void BypassMagnetometer(bool bypass);
 
  private:
-  components::sensor::BMI088 bmi088_;
-  components::sensor::IST8310 ist8310_;
+  device::sensor::BMI088 bmi088_;
+  device::sensor::IST8310 ist8310_;
   modules::algorithm::MahonyAhrs mahony_;
   TIM_HandleTypeDef *heater_pwm_;
 

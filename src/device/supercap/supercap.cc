@@ -8,7 +8,7 @@
 
 #include "supercap.h"
 
-#include "modules/algorithm/utils/utils.hpp"
+#include "modules/algorithm/utils.hpp"
 
 namespace irobot_ec::device {
 

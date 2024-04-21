@@ -8,7 +8,7 @@
 
 #include <cstring>
 
-#include "modules/algorithm/utils/utils.hpp"
+#include "utils.hpp"
 
 namespace irobot_ec::modules::algorithm {
 

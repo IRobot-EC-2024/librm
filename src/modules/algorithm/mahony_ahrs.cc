@@ -6,7 +6,7 @@
 
 #include "mahony_ahrs.h"
 
-#include "modules/algorithm/utils/utils.hpp"
+#include "utils.hpp"
 
 //---------------------------------------------------------------------------------------------------
 // Fast inverse square-root
