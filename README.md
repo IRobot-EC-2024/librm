@@ -5,14 +5,12 @@
 [![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
 
-使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。项目针对RM比赛的需求在STM32
-HAL库的基础上进行进一步封装，可以在一定程度上保证跨平台能力。开发在STM32F407和STM32H723平台上进行，其他芯片未经验证。
+使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。开发在STM32F407和STM32H723平台上进行，其他芯片未经验证。
 
 项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
-。推荐使用clang-format自动格式化代码。CI系统会检查代码是否符合规范，style
-check失败可参考action输出结果加以修改。
+。建议使用clang-format自动格式化代码。style check action失败可参考输出结果加以修改。
 
-**NOTE: 由于使用了ARM GCC/Clang编译器的一些特性和较新版本的C/C++标准，所以不保证在Keil的AC5/AC6编译器上能够正常编译。**
+**NOTE: 由于使用了GCC/Clang编译器的一些特性和较新版本的C/C++标准，所以不保证在Keil的ARMCC编译器上能够正常编译。**
 
 ## 文档
 
@@ -40,25 +38,23 @@ doxygen ./Doxyfile
         - `motor/`：电机
             - `dji_motor`：大疆电机
             - [ ] `unitree_motor`：宇树电机
-        - `rc/`：遥控器/接收机
-            - `dr16`：大疆DT7遥控器/DR16接收机
+        - `remote/`：遥控器/接收机
+            - `dr16`：DT7遥控器/DR16接收机
         - `sensor/`：传感器
             - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
             - `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
             - `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
         - `supercap/`：超级电容
+        - [ ] `referee/`：裁判系统
 
-    - [ ] `hal/`：基于STM32 HAL库封装的C++类库（计划重构这一部分，去掉bsp）
+    - [ ] `hal/`：基于STM32 HAL库封装的C++类库
 
-    - `modules/`：模块，指软件功能模块
+    - `modules/`：软件模块
         - `algorithm/`：常用算法
         - `exception/`：异常处理
-        - `pubsub/`：发布订阅模块
         - `serial_plotter/`：串口绘图器
 
 ## 开发环境
-
-以下均为跨平台工具，Windows、Linux上都可用：
 
 - [OpenOCD](https://github.com/openocd-org/openocd/releases/) `0.12.0`
 - STM32CubeMX `6.10.0`
@@ -69,7 +65,11 @@ doxygen ./Doxyfile
 
 ## 使用方法
 
-1. Clone仓库，用以下命令添加到CMake工程中：
+1. Clone仓库（包括子模块），在CMakeLists.txt里添加为子目录并且把`irobotEC`静态库链接到主目标：
+
+    ```shell
+    git clone --recursive https://github.com/IRobot-EC-2024/ec-cpp-library.git
+   ```
 
     ```cmake
     add_subdirectory(<仓库路径>)
@@ -94,6 +94,6 @@ doxygen ./Doxyfile
 4. 在代码里包含头文件（未来计划只用包含一个头文件，目前还没做）
 
     ```cpp
-    #include "components/motor/dji_motor.h"
+    #include "device/motor/dji_motor.hpp"
     // #include ...
     ```
