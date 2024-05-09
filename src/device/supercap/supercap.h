@@ -30,7 +30,7 @@ enum class SuperCapError : u16 {
 /**
  * @brief 超级电容
  */
-class SuperCap final : public hal::CanDeviceBase {
+class SuperCap final : public CanDeviceBase {
  public:
   explicit SuperCap(hal::CanBase &can);
   SuperCap() = delete;
