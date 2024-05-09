@@ -11,8 +11,8 @@
 
 #include <unordered_map>
 
-#include "can_device.hpp"
 #include "can_interface.h"
+#include "device/can_device.hpp"
 
 namespace irobot_ec::hal {
 
@@ -35,11 +35,13 @@ class BxCan final : public CanBase {
   void Stop() override;
 
  private:
+  void RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) override;
   void Fifo0MsgPendingCallback();
 
   u32 tx_mailbox_{0};
   CanRxMsg rx_msg_buffer_{};
   CAN_HandleTypeDef *hcan_{nullptr};
+  std::unordered_map<u16, device::CanDeviceBase *> device_list_{};  // <rx_stdid, device>
 };
 
 }  // namespace irobot_ec::hal

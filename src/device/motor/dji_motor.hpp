@@ -73,7 +73,7 @@ struct DjiMotorProperties<DjiMotorType::M2006> {
 /**
  * @brief DJI电机的基类，用来利用多态性实现存储不同类型的电机对象
  */
-class DjiMotorBase : public hal::CanDeviceBase {
+class DjiMotorBase : public CanDeviceBase {
  public:
   DjiMotorBase() = delete;
   ~DjiMotorBase() override = default;

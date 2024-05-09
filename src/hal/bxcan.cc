@@ -15,10 +15,9 @@
 
 #include <functional>
 
-#include "hal/can_device.hpp"
+#include "device/can_device.hpp"
 #include "modules/exception.h"
 
-using irobot_ec::hal::CanDeviceBase;
 using irobot_ec::modules::exception::Exception;
 using irobot_ec::modules::exception::ThrowException;
 
@@ -128,6 +127,18 @@ void BxCan::Fifo0MsgPendingCallback() {
   this->rx_msg_buffer_.rx_std_id = rx_header.StdId;
   this->rx_msg_buffer_.dlc = rx_header.DLC;
   this->device_list_[rx_header.StdId]->RxCallback(&this->rx_msg_buffer_);
+}
+
+/**
+ * @brief 注册一个CAN设备
+ * @param device    设备对象
+ * @param rx_stdid  设备想要接收的的rx消息标准帧id
+ */
+void BxCan::RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) {
+  if (this->device_list_.find(rx_stdid) != this->device_list_.end()) {
+    ThrowException(Exception::kValueError);
+  }
+  this->device_list_[rx_stdid] = &device;
 }
 
 }  // namespace irobot_ec::hal

@@ -25,7 +25,7 @@ std::list<DjiMotorBase *> DjiMotorBase::motor_list_;
  * @param can CAN总线对象
  * @param id  电机ID(1~8)[GM6020是1~7]
  */
-DjiMotorBase::DjiMotorBase(hal::CanBase &can, u16 id) : hal::CanDeviceBase(can, id) {}
+DjiMotorBase::DjiMotorBase(hal::CanBase &can, u16 id) : CanDeviceBase(can, id) {}
 
 /**
  * @brief  向所有电机发出控制消息

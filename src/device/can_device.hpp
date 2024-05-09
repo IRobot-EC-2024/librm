@@ -1,20 +1,17 @@
 /**
- * @file  hal/can_device.h
+ * @file  device/can_device.h
  * @brief CAN设备抽象类
  */
 
 #ifndef EC_LIB_HAL_CAN_DEVICE_HPP
 #define EC_LIB_HAL_CAN_DEVICE_HPP
 
-#include "hal.h"
+#include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED) || defined(HAL_FDCAN_MODULE_ENABLED)
 
-#include <unordered_map>
+#include "hal/can_interface.h"
 
-#include "can_interface.h"
-#include "modules/exception.h"
-
-namespace irobot_ec::hal {
+namespace irobot_ec::device {
 
 /**
  * @brief CAN设备的基类
@@ -24,16 +21,16 @@ class CanDeviceBase {
   virtual ~CanDeviceBase() = default;
   CanDeviceBase() = delete;
   template <typename... IdList>
-  explicit CanDeviceBase(CanBase &can, IdList... rx_std_ids);
+  explicit CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids);
 
   // 禁止拷贝构造
   CanDeviceBase(const CanDeviceBase &) = delete;
   CanDeviceBase &operator=(const CanDeviceBase &) = delete;
 
-  virtual void RxCallback(const CanRxMsg *msg) = 0;
+  virtual void RxCallback(const hal::CanRxMsg *msg) = 0;
 
  protected:
-  CanBase *can_;
+  hal::CanBase *can_;
 };
 
 /**
@@ -41,17 +38,11 @@ class CanDeviceBase {
  * @param rx_std_ids 这个设备的rx消息标准帧id列表
  */
 template <typename... IdList>
-CanDeviceBase::CanDeviceBase(CanBase &can, IdList... rx_std_ids) : can_(&can) {
-  static auto _ = [&can, this](auto id) {
-    if (can.device_list_.find(id) != can.device_list_.end()) {
-      modules::exception::ThrowException(modules::exception::Exception::kValueError);
-    }
-    can.device_list_[id] = this;
-  };
-  (_(rx_std_ids), ...);
+CanDeviceBase::CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids) : can_(&can) {
+  (can.RegisterDevice(*this, rx_std_ids), ...);
 }
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::device
 
 #endif
 

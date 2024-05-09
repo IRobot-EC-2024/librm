@@ -1,19 +1,18 @@
 /**
- * @file    hal/interface/can_interface.h
+ * @file    hal/can_interface.h
  * @brief   CAN接口，bxCAN和fdCAN的基类
  */
 
-#ifndef EC_LIB_HAL_INTERFACE_CAN_INTERFACE_H
-#define EC_LIB_HAL_INTERFACE_CAN_INTERFACE_H
-
-#include "hal/hal.h"
-#if defined(HAL_CAN_MODULE_ENABLED)
+#ifndef EC_LIB_HAL_CAN_INTERFACE_H
+#define EC_LIB_HAL_CAN_INTERFACE_H
 
 #include "modules/typedefs.h"
 
-namespace irobot_ec::hal {
-
+namespace irobot_ec::device {
 class CanDeviceBase;
+}
+
+namespace irobot_ec::hal {
 
 struct CanRxMsg {
   u8 data[8];
@@ -23,10 +22,10 @@ struct CanRxMsg {
 
 /**
  * @brief CAN外设基类
- * @note  借助CanDeviceBase类使用观察者模式实现回调机制，模拟消息在CAN总线上传输的过程
+ * @note  借助CanDeviceBase类使用观察者模式实现回调机制
  */
 class CanBase {
-  friend class CanDeviceBase;
+  friend class device::CanDeviceBase;
 
  public:
   virtual ~CanBase() = default;
@@ -57,11 +56,13 @@ class CanBase {
   virtual void Stop() = 0;
 
  protected:
-  std::unordered_map<u32, CanDeviceBase *> device_list_;  // <rx_std_id, device>
+  /**
+   * @brief 注册CAN设备
+   * @param device 设备对象
+   */
+  virtual void RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) = 0;
 };
 
 }  // namespace irobot_ec::hal
 
-#endif
-
-#endif  // EC_LIB_HAL_INTERFACE_CAN_INTERFACE_H
+#endif  // EC_LIB_HAL_CAN_INTERFACE_H
