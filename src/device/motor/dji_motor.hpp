@@ -31,18 +31,15 @@
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include <array>
-#include <list>
 #include <unordered_map>
-#include <cstring>
 
 #include "modules/typedefs.h"
 #include "modules/algorithm/utils.hpp"
-#include "modules/exception.h"
 #include "hal/can.h"
 
 namespace irobot_ec::device {
 
-enum class DjiMotorType { GM6020, M3508, M2006 };
+enum class DjiMotorType { Default, GM6020, M3508, M2006 };
 template <DjiMotorType motor_type>
 struct DjiMotorProperties {};
 
@@ -71,31 +68,12 @@ struct DjiMotorProperties<DjiMotorType::M2006> {
 };
 
 /**
- * @brief DJI电机的基类，用来利用多态性实现存储不同类型的电机对象
- */
-class DjiMotorBase : public CanDeviceBase {
- public:
-  DjiMotorBase() = delete;
-  ~DjiMotorBase() override = default;
-
-  static void SendCommand();
-
-  static std::list<DjiMotorBase *> motor_list_;  // 电机对象链表
-  std::array<u8, 18> *tx_buf_;                   // 发送缓冲区
-  u16 control_id_[2];                            // 控制报文ID
-  u16 id_{};                                     // 电机ID
-
- protected:
-  DjiMotorBase(hal::CanBase &can, u16 id);
-};
-
-/**
  * @brief     DJI电机
  * @attention 本类是抽象类，不可实例化
  * @attention 子类必须实现SetCurrent函数，用于设置电机的电流/电压
  */
-template <DjiMotorType motor_type>
-class DjiMotor final : public DjiMotorBase {
+template <DjiMotorType motor_type = DjiMotorType::Default>
+class DjiMotor final : public CanDeviceBase {
  public:
   DjiMotor() = delete;
   ~DjiMotor() override = default;
@@ -106,6 +84,7 @@ class DjiMotor final : public DjiMotorBase {
   DjiMotor &operator=(const DjiMotor &) = delete;
 
   void SetCurrent(i16 current);
+  static void SendCommand();
 
   /** 取值函数 **/
   [[nodiscard]] u16 encoder() const { return this->encoder_; }
@@ -117,6 +96,7 @@ class DjiMotor final : public DjiMotorBase {
  private:
   void RxCallback(const hal::CanRxMsg *msg) override;
 
+  u16 id_{};  // 电机ID
   /**   FEEDBACK DATA   **/
   u16 encoder_{};     // 电机编码器值
   i16 rpm_{};         // 电机转速
@@ -136,22 +116,11 @@ using M2006 = DjiMotor<DjiMotorType::M2006>;
  */
 template <DjiMotorType motor_type>
 DjiMotor<motor_type>::DjiMotor(hal::CanBase &can, u16 id)
-    : DjiMotorBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id) {
-  // 检查有没有构造过ID一样的电机
-  for (const auto &motor : DjiMotorBase::motor_list_) {
-    if (motor->id_ == id) {
-      modules::exception::ThrowException(modules::exception::Exception::kValueError);  // 电机ID冲突
-    }
-  }
-  // 构造的电机对象对应CAN总线的发送缓冲区还未创建，就创建一个
+    : CanDeviceBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id) {
+  // 如果这个电机对象所在CAN总线的发送缓冲区还未创建，就创建一个
   if (DjiMotorProperties<motor_type>::tx_buf_.find(&can) == DjiMotorProperties<motor_type>::tx_buf_.end()) {
     DjiMotorProperties<motor_type>::tx_buf_.insert({&can, {0}});
   }
-  // 把自己加到电机对象链表里
-  this->id_ = id;
-  this->tx_buf_ = &DjiMotorProperties<motor_type>::tx_buf_[&can];
-  memcpy(this->control_id_, DjiMotorProperties<motor_type>::kControlId, sizeof(this->control_id_));
-  DjiMotorBase::motor_list_.push_back(this);
 }
 
 /**
@@ -164,15 +133,42 @@ template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::SetCurrent(i16 current) {
   // 限幅到电机能接受的最大电流
   current = modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
-  // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区
-  this->tx_buf_->at((this->id_ - 1) * 2) = (current >> 8) & 0xff;
-  this->tx_buf_->at((this->id_ - 1) * 2 + 1) = current & 0xff;
+  // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区，写入电流值
+  DjiMotorProperties<motor_type>::tx_buf_[this->can_].at((this->id_ - 1) * 2) = (current >> 8) & 0xff;
+  DjiMotorProperties<motor_type>::tx_buf_[this->can_].at((this->id_ - 1) * 2 + 1) = current & 0xff;
   // 根据电机ID判断缓冲区前八位需要发送，还是后八位需要发送，把对应的标志位置1
   if (1 <= this->id_ && this->id_ <= 4) {
-    this->tx_buf_->at(16) = 1;
+    DjiMotorProperties<motor_type>::tx_buf_[this->can_].at(16) = 1;
   } else if (5 <= this->id_ && this->id_ <= 8) {
-    this->tx_buf_->at(17) = 1;
+    DjiMotorProperties<motor_type>::tx_buf_[this->can_].at(17) = 1;
   }
+}
+
+/**
+ * @brief 向对应型号的所有电机发出控制消息
+ */
+template <DjiMotorType motor_type>
+void DjiMotor<motor_type>::SendCommand() {
+  for (auto &buf : DjiMotorProperties<motor_type>::tx_buf_) {
+    if (buf.second.at(16) == 1) {
+      buf.first->Write(DjiMotorProperties<motor_type>::kControlId[0], buf.second.data(), 8);
+      buf.second.at(16) = 0;
+    }
+    if (buf.second.at(17) == 1) {
+      buf.first->Write(DjiMotorProperties<motor_type>::kControlId[1], buf.second.data() + 8, 8);
+      buf.second.at(17) = 0;
+    }
+  }
+}
+
+/**
+ * @brief  向所有大疆电机发出控制消息
+ */
+template <>
+inline void DjiMotor<DjiMotorType::Default>::SendCommand() {
+  GM6020::SendCommand();
+  M3508::SendCommand();
+  M2006::SendCommand();
 }
 
 /**
