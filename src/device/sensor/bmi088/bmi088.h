@@ -99,7 +99,7 @@ class BMI088 {
   f32 accel_[3]{0};
   f32 temperature_{};
 };
-}  // namespace irobot_ec::device::sensor
+}  // namespace irobot_ec::device
 
 #endif  // HAL_SPI_MODULE_ENABLED
 
