@@ -19,7 +19,7 @@ namespace irobot_ec::device {
 class CanDeviceBase {
  public:
   virtual ~CanDeviceBase() = default;
-  CanDeviceBase() = delete;
+
   template <typename... IdList>
   explicit CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids);
 
