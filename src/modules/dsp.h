@@ -12,8 +12,10 @@
 #include "hal.h"                             // 这一句是为了导入__FPU_PRESENT宏
 #include "arm_math.h"
 #else
-#warning "CMSIS-DSP library is not available, please check include path and linker settings."
+#warning "CMSIS-DSP library is not available."
 #endif
+#else
+#error "Unsupported compiler, please use GCC or Clang."
 #endif
 
 #endif  // EC_LIB_HAL_WRAPPER_DSP_H
