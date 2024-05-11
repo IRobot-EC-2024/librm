@@ -32,8 +32,6 @@ doxygen ./Doxyfile
 
 - `src/`
 
-    - `bsp/`：板级支持包(deprecated)
-
     - `device/`：设备驱动和封装
         - `motor/`：电机
             - `dji_motor`：大疆电机
@@ -51,8 +49,6 @@ doxygen ./Doxyfile
 
     - `modules/`：软件模块
         - `algorithm/`：常用算法
-        - `exception/`：异常处理
-        - `serial_plotter/`：串口绘图器
 
 ## 开发环境
 

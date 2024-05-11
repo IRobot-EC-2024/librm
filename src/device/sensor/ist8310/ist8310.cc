@@ -10,7 +10,7 @@
 
 #include <vector>
 
-#include "bsp/bsp.h"
+#include "modules/time.h"
 
 namespace irobot_ec::device {
 #include "ist8310_const.hpp"
@@ -40,9 +40,9 @@ IST8310::IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, u16 rst_pin)
   // 发送初始化序列，有错误则设置status为对应错误码
   for (const auto &operation : ist8310_init_sequence) {
     this->Write(operation[0], const_cast<u8 *>(&operation[1]), 1);
-    bsp::BspFactory::GetDelay().DelayUs(IST8310_COMM_WAIT_TIME_US);
+    modules::time::SleepUs(IST8310_COMM_WAIT_TIME_US);
     this->Read(operation[0], 1);
-    bsp::BspFactory::GetDelay().DelayUs(IST8310_COMM_WAIT_TIME_US);
+    modules::time::SleepUs(IST8310_COMM_WAIT_TIME_US);
     if (this->buffer_[0] != operation[1]) {
       this->status_ = IST8310Status::SENSOR_ERROR;
     }
@@ -55,9 +55,9 @@ IST8310::IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, u16 rst_pin)
  */
 void IST8310::Reset() {
   HAL_GPIO_WritePin(this->rst_port_, this->rst_pin_, GPIO_PIN_RESET);
-  bsp::BspFactory::GetDelay().DelayMs(IST8310_COMM_WAIT_TIME_MS);
+  modules::time::SleepMs(IST8310_COMM_WAIT_TIME_MS);
   HAL_GPIO_WritePin(this->rst_port_, this->rst_pin_, GPIO_PIN_SET);
-  bsp::BspFactory::GetDelay().DelayMs(IST8310_COMM_WAIT_TIME_MS);
+  modules::time::SleepMs(IST8310_COMM_WAIT_TIME_MS);
 }
 
 /**

@@ -7,8 +7,9 @@
 #define EC_LIB_MODULES_FREERTOS_H
 
 #if defined(__GNUC__) || defined(__clang__)
-#if __has_include("FreeRTOS.h")
+#if __has_include("cmsis_os.h")
 #define EC_LIB_USE_FREERTOS
+#include "cmsis_os.h"
 #else
 #warning "FreeRTOS is not available."
 #endif
