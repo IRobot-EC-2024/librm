@@ -12,7 +12,7 @@
 
 ## 文档
 
-文档可以自行使用Doxygen构建，也可以在[这里](https://irobot-ec-2024.github.io/ec-cpp-library/)查看。
+文档可以自行使用Doxygen构建，也可以在[这里](https://irobot-ec-2024.github.io/irobotEC/)查看。
 
 ```shell
 doxygen ./Doxyfile
