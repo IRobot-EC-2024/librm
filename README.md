@@ -1,16 +1,14 @@
-# RM EC C++ Library [WIP]
+# irobotEC [WIP]
 
 [![build](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml)
 [![clang-format Check](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/style_check.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/style_check.yml)
 [![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
 
-使用C++编写的电控库，统一所有车的底层代码和少量通用业务代码。开发在STM32F407和STM32H723平台上进行，其他芯片未经验证。
+用于统一底层代码和少量通用业务代码的电控库。 项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
+。
 
-项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
-。建议使用clang-format自动格式化代码。style check action失败可参考输出结果加以修改。
-
-**NOTE: 由于使用了GCC/Clang编译器的一些特性和较新版本的C/C++标准，所以不保证在Keil的ARMCC编译器上能够正常编译。**
+**NOTE: 本项目使用GNU ARMGCC工具链开发，用其他工具链编译可能不通过**
 
 ## 文档
 
@@ -52,11 +50,9 @@ doxygen ./Doxyfile
 
 ## 开发环境
 
-- [OpenOCD](https://github.com/openocd-org/openocd/releases/) `0.12.0`
 - STM32CubeMX `6.10.0`
     - STM32Cube MCU Package for STM32F4 series `1.28.0`
     - STM32Cube MCU Package for STM32H7 series `1.11.1`
-- [CMake](https://cmake.org/download/) `3.28.3`
 - [GNU Arm Embedded Toolchain, AArch32 bare-metal target (arm-none-eabi)](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) `13.2.Rel1`
 
 ## 使用方法
@@ -79,15 +75,15 @@ doxygen ./Doxyfile
     # add_definitions(-DSTM32H723xx)
     ```
 
-   芯片支持情况：
+   可选项：
     - [x] STM32F407xx
     - [x] STM32H723xx
 
-3. 启用UART、CAN、I2C、SPI的Register Callback功能，在CubeMX中的配置项位置如下图：
+3. 启用UART、CANFD、CAN、I2C、SPI的Register Callback功能，在CubeMX中的配置项位置如下图：
 
    ![](https://img2.imgtp.com/2024/04/10/AUnAPRby.png)
 
-4. 在代码里包含头文件（未来计划只用包含一个头文件，目前还没做）
+4. 包含头文件，按需使用
 
     ```cpp
     #include "device/motor/dji_motor.hpp"
