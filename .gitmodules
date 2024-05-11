@@ -4,3 +4,6 @@
 [submodule "libs/tinyfsm"]
 	path = libs/tinyfsm
 	url = https://github.com/digint/tinyfsm.git
+[submodule "libs/tweeny"]
+	path = libs/tweeny
+	url = https://github.com/mobius3/tweeny.git
