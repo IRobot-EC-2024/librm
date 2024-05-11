@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RM EC C++ Library: src/device/supercap/supercap.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RM EC C++ Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('supercap_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">supercap.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="supercap_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef EC_LIB_COMPONENTS_SUPERCAP_SUPERCAP_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EC_LIB_COMPONENTS_SUPERCAP_SUPERCAP_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if defined(HAL_CAN_MODULE_ENABLED)</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="can_8h.html">hal/can.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">modules/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4a">   20</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4a">SuperCapError</a> : <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa5b899cabb290b99ccb0a20d0c76471fa">kOverVoltage</a> = 1u &lt;&lt; 0,        <span class="comment">// 电容过压</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa3682d43af35c981acfac7517d9ec8bf9">kOverCurrent</a> = 1u &lt;&lt; 1,        <span class="comment">// 电容过流</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa56696b8f72116b20b66cb8f3e312b139">kUnderVoltage</a> = 1u &lt;&lt; 2,       <span class="comment">// 电容欠压</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa943a6e7d0cf0f3d16469604e31da61a7">kInputUnderVoltage</a> = 1u &lt;&lt; 3,  <span class="comment">// 裁判系统欠压</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa50ec98d6918446dccb689557dd045b51">kNoData</a> = 1u &lt;&lt; 4,             <span class="comment">// 未读到数据</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="comment">// 5-15 reserved</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1device_1_1SuperCap.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html">SuperCap</a> final : <span class="keyword">public</span> <a class="code" href="classirobot__ec_1_1device_1_1CanDeviceBase.html">CanDeviceBase</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#a9aa91ad9979a3edb44926fb64b6d069c">SuperCap</a>(<a class="code" href="classirobot__ec_1_1hal_1_1CanBase.html">hal::CanBase</a> &amp;can);</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1device_1_1SuperCap.html#a9aa91ad9979a3edb44926fb64b6d069c">   36</a></span>&#160;  <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#a9aa91ad9979a3edb44926fb64b6d069c">SuperCap</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1device_1_1SuperCap.html#a9e9985dd9d629a3c755d4b6629813b2e">   37</a></span>&#160;  <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#a9e9985dd9d629a3c755d4b6629813b2e">~SuperCap</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#acdfe7c89ce24419a0735cb2e835d9ee0">voltage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#ac2855b04432cb30f64bad6eed74ca235">current</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#aed6cb20d918c10405026c6a01befb7c0">error</a>(<a class="code" href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4a">SuperCapError</a> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#aed6cb20d918c10405026c6a01befb7c0">error</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#a6ef9fa124ee0c9b04082f13b1f0967a5">UpdateChassisBuffer</a>(<a class="code" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a> power_buffer);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#a44a7e30d412a57435fbaf1e89d741c4c">UpdateSettings</a>(<a class="code" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a> power_limit, <a class="code" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a> output_limit, <a class="code" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a> input_limit, <span class="keywordtype">bool</span> power_switch, <span class="keywordtype">bool</span> enable_log);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1device_1_1SuperCap.html#abd400a25c6f3e17d391c780f9c3f05a8">RxCallback</a>(<span class="keyword">const</span> <a class="code" href="structirobot__ec_1_1hal_1_1CanRxMsg.html">hal::CanRxMsg</a> *msg) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> tx_buf_[8]{0};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> voltage_{};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> current_{};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> error_flags_{};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace irobot_ec::device</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_COMPONENTS_SUPERCAP_SUPERCAP_H</span></div>
+<div class="ttc" id="acan_8h_html"><div class="ttname"><a href="can_8h.html">can.h</a></div><div class="ttdoc">根据HAL库的宏定义决定Can是bxCAN还是fdCAN，并且在can_interface.h里提供一个接口类CanBase实现多态</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1CanDeviceBase_html"><div class="ttname"><a href="classirobot__ec_1_1device_1_1CanDeviceBase.html">irobot_ec::device::CanDeviceBase</a></div><div class="ttdoc">CAN设备的基类</div><div class="ttdef"><b>Definition:</b> can_device.hpp:19</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html">irobot_ec::device::SuperCap</a></div><div class="ttdoc">超级电容</div><div class="ttdef"><b>Definition:</b> supercap.h:33</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_a44a7e30d412a57435fbaf1e89d741c4c"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#a44a7e30d412a57435fbaf1e89d741c4c">irobot_ec::device::SuperCap::UpdateSettings</a></div><div class="ttdeci">void UpdateSettings(i16 power_limit, i16 output_limit, i16 input_limit, bool power_switch, bool enable_log)</div><div class="ttdoc">更新超级电容设置</div><div class="ttdef"><b>Definition:</b> supercap.cc:63</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_a6ef9fa124ee0c9b04082f13b1f0967a5"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#a6ef9fa124ee0c9b04082f13b1f0967a5">irobot_ec::device::SuperCap::UpdateChassisBuffer</a></div><div class="ttdeci">void UpdateChassisBuffer(i16 power_buffer)</div><div class="ttdoc">更新底盘功率缓冲</div><div class="ttdef"><b>Definition:</b> supercap.cc:42</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_a9aa91ad9979a3edb44926fb64b6d069c"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#a9aa91ad9979a3edb44926fb64b6d069c">irobot_ec::device::SuperCap::SuperCap</a></div><div class="ttdeci">SuperCap()=delete</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_a9e9985dd9d629a3c755d4b6629813b2e"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#a9e9985dd9d629a3c755d4b6629813b2e">irobot_ec::device::SuperCap::~SuperCap</a></div><div class="ttdeci">~SuperCap() override=default</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_abd400a25c6f3e17d391c780f9c3f05a8"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#abd400a25c6f3e17d391c780f9c3f05a8">irobot_ec::device::SuperCap::RxCallback</a></div><div class="ttdeci">void RxCallback(const hal::CanRxMsg *msg) override</div><div class="ttdoc">CAN回调函数，解码收到的反馈报文</div><div class="ttdef"><b>Definition:</b> supercap.cc:80</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_ac2855b04432cb30f64bad6eed74ca235"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#ac2855b04432cb30f64bad6eed74ca235">irobot_ec::device::SuperCap::current</a></div><div class="ttdeci">f32 current() const</div><div class="ttdef"><b>Definition:</b> supercap.cc:27</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_acdfe7c89ce24419a0735cb2e835d9ee0"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#acdfe7c89ce24419a0735cb2e835d9ee0">irobot_ec::device::SuperCap::voltage</a></div><div class="ttdeci">f32 voltage() const</div><div class="ttdef"><b>Definition:</b> supercap.cc:22</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1device_1_1SuperCap_html_aed6cb20d918c10405026c6a01befb7c0"><div class="ttname"><a href="classirobot__ec_1_1device_1_1SuperCap.html#aed6cb20d918c10405026c6a01befb7c0">irobot_ec::device::SuperCap::error</a></div><div class="ttdeci">bool error(SuperCapError error) const</div><div class="ttdef"><b>Definition:</b> supercap.cc:33</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1CanBase_html"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1CanBase.html">irobot_ec::hal::CanBase</a></div><div class="ttdoc">CAN外设基类</div><div class="ttdef"><b>Definition:</b> can_interface.h:27</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据编译宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a></div><div class="ttdef"><b>Definition:</b> can_device.hpp:14</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html_a2acbff3b877d907f394e964a2eaabc4a"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4a">irobot_ec::device::SuperCapError</a></div><div class="ttdeci">SuperCapError</div><div class="ttdoc">超级电容的错误flags各位的定义</div><div class="ttdef"><b>Definition:</b> supercap.h:20</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html_a2acbff3b877d907f394e964a2eaabc4aa3682d43af35c981acfac7517d9ec8bf9"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa3682d43af35c981acfac7517d9ec8bf9">irobot_ec::device::SuperCapError::kOverCurrent</a></div><div class="ttdeci">@ kOverCurrent</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html_a2acbff3b877d907f394e964a2eaabc4aa50ec98d6918446dccb689557dd045b51"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa50ec98d6918446dccb689557dd045b51">irobot_ec::device::SuperCapError::kNoData</a></div><div class="ttdeci">@ kNoData</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html_a2acbff3b877d907f394e964a2eaabc4aa56696b8f72116b20b66cb8f3e312b139"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa56696b8f72116b20b66cb8f3e312b139">irobot_ec::device::SuperCapError::kUnderVoltage</a></div><div class="ttdeci">@ kUnderVoltage</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html_a2acbff3b877d907f394e964a2eaabc4aa5b899cabb290b99ccb0a20d0c76471fa"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa5b899cabb290b99ccb0a20d0c76471fa">irobot_ec::device::SuperCapError::kOverVoltage</a></div><div class="ttdeci">@ kOverVoltage</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html_a2acbff3b877d907f394e964a2eaabc4aa943a6e7d0cf0f3d16469604e31da61a7"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa943a6e7d0cf0f3d16469604e31da61a7">irobot_ec::device::SuperCapError::kInputUnderVoltage</a></div><div class="ttdeci">@ kInputUnderVoltage</div></div>
+<div class="ttc" id="astructirobot__ec_1_1hal_1_1CanRxMsg_html"><div class="ttname"><a href="structirobot__ec_1_1hal_1_1CanRxMsg.html">irobot_ec::hal::CanRxMsg</a></div><div class="ttdef"><b>Definition:</b> can_interface.h:17</div></div>
+<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">工程内全局数据类型定义</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5f6906312a689f27d70e9d086649d3fd"><div class="ttname"><a href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a></div><div class="ttdeci">float f32</div><div class="ttdef"><b>Definition:</b> typedefs.h:26</div></div>
+<div class="ttc" id="atypedefs_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition:</b> typedefs.h:17</div></div>
+<div class="ttc" id="atypedefs_8h_html_ace9d960e74685e2cd84b36132dbbf8aa"><div class="ttname"><a href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a></div><div class="ttdeci">uint16_t u16</div><div class="ttdef"><b>Definition:</b> typedefs.h:18</div></div>
+<div class="ttc" id="atypedefs_8h_html_ad309dbcaeea13aa602d686964156ea0b"><div class="ttname"><a href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a></div><div class="ttdeci">int16_t i16</div><div class="ttdef"><b>Definition:</b> typedefs.h:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16dc92632bab467dc50b01bd02b3341a.html">device</a></li><li class="navelem"><a class="el" href="dir_d572d726000cb3cad64d9240734ade8e.html">supercap</a></li><li class="navelem"><a class="el" href="supercap_8h.html">supercap.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

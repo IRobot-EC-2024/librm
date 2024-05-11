@@ -1,19 +1,15 @@
 var searchData=
 [
-  ['_7ebmi088_723',['~BMI088',['../classirobot__ec_1_1components_1_1sensor_1_1BMI088.html#a46e758ac74ac79f0a9fb5b38352d7eb8',1,'irobot_ec::components::sensor::BMI088']]],
-  ['_7ebuzzer_724',['~Buzzer',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#af3247cf29b0b603674f3155ef8f2ebe1',1,'irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer']]],
-  ['_7ecan_725',['~Can',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Can.html#ae0f3702292512331260bb769d4810b18',1,'irobot_ec::bsp::dji_devboard_c::Can']]],
-  ['_7ecanbase_726',['~CanBase',['../classirobot__ec_1_1bsp_1_1CanBase.html#ae3383373f43d9c1a3824b802276001fe',1,'irobot_ec::bsp::CanBase']]],
-  ['_7ecandevicebase_727',['~CanDeviceBase',['../classirobot__ec_1_1bsp_1_1CanDeviceBase.html#a07074e117904539d3f1e4ac8e78cd651',1,'irobot_ec::bsp::CanDeviceBase']]],
-  ['_7ecaninterface_728',['~CanInterface',['../classirobot__ec_1_1bsp_1_1CanInterface.html#a5648d0ad2dc94762639994b81c788652',1,'irobot_ec::bsp::CanInterface']]],
-  ['_7edjimotor_729',['~DjiMotor',['../classirobot__ec_1_1components_1_1DjiMotor.html#a04304129cc8bd435de59c52b4e763f7a',1,'irobot_ec::components::DjiMotor']]],
-  ['_7edjimotorbase_730',['~DjiMotorBase',['../classirobot__ec_1_1components_1_1DjiMotorBase.html#ad7dfb9b30b144ec0e69bec8603868d31',1,'irobot_ec::components::DjiMotorBase']]],
-  ['_7ei2cdevice_731',['~I2cDevice',['../classirobot__ec_1_1hal_1_1I2cDevice.html#ab340fb2515f2cc4c278af5d2df565fa5',1,'irobot_ec::hal::I2cDevice']]],
-  ['_7eins_732',['~Ins',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a8d351dd58758440a23d6d15843fadbd0',1,'irobot_ec::bsp::dji_devboard_c::Ins']]],
-  ['_7einsinterface_733',['~InsInterface',['../classirobot__ec_1_1bsp_1_1InsInterface.html#ada9a4bb503bc7970c995bbecbd68f2e4',1,'irobot_ec::bsp::InsInterface']]],
-  ['_7eled_734',['~LED',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html#a51fd4a7edd5ed137966f39e4d60e25dd',1,'irobot_ec::bsp::dji_devboard_c::led::LED']]],
-  ['_7emahonyahrs_735',['~MahonyAhrs',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a6c14d116a4f50f35cf8e5f5bdcce2346',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
-  ['_7emecanum_736',['~Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a2c0fd312a0ced87df2236af386d8bd89',1,'irobot_ec::modules::algorithm::Mecanum']]],
-  ['_7espidevice_737',['~SpiDevice',['../classirobot__ec_1_1hal_1_1SpiDevice.html#a7ecddaa09a939d1414e51e9763acb369',1,'irobot_ec::hal::SpiDevice']]],
-  ['_7eunitreemotorbase_738',['~UnitreeMotorBase',['../classirobot__ec_1_1components_1_1motor_1_1UnitreeMotorBase.html#a10772a4f6dcb14874d5d449d911b24c7',1,'irobot_ec::components::motor::UnitreeMotorBase']]]
+  ['_7ebmi088_677',['~BMI088',['../classirobot__ec_1_1device_1_1BMI088.html#aad931a00ccb8ee7af0fe12718d144b31',1,'irobot_ec::device::BMI088']]],
+  ['_7ebxcan_678',['~BxCan',['../classirobot__ec_1_1hal_1_1BxCan.html#a676a6e98e6ca31aa5799366d8df91ba7',1,'irobot_ec::hal::BxCan']]],
+  ['_7ecanbase_679',['~CanBase',['../classirobot__ec_1_1hal_1_1CanBase.html#aa6491c2b0d6d99066eca4a04c599bc46',1,'irobot_ec::hal::CanBase']]],
+  ['_7ecandevicebase_680',['~CanDeviceBase',['../classirobot__ec_1_1device_1_1CanDeviceBase.html#a7e57ec1fc3fe8cf34a992eb46f0757e7',1,'irobot_ec::device::CanDeviceBase']]],
+  ['_7edevice_681',['~Device',['../classirobot__ec_1_1device_1_1Device.html#a019fe812dda1edd16b2afca5548249be',1,'irobot_ec::device::Device']]],
+  ['_7edjimotor_682',['~DjiMotor',['../classirobot__ec_1_1device_1_1DjiMotor.html#ae516ecddcde3141558681f6451db0293',1,'irobot_ec::device::DjiMotor']]],
+  ['_7ei2cdevice_683',['~I2cDevice',['../classirobot__ec_1_1hal_1_1I2cDevice.html#ab340fb2515f2cc4c278af5d2df565fa5',1,'irobot_ec::hal::I2cDevice']]],
+  ['_7emahonyahrs_684',['~MahonyAhrs',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a6c14d116a4f50f35cf8e5f5bdcce2346',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
+  ['_7emecanum_685',['~Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a2c0fd312a0ced87df2236af386d8bd89',1,'irobot_ec::modules::algorithm::Mecanum']]],
+  ['_7espidevice_686',['~SpiDevice',['../classirobot__ec_1_1hal_1_1SpiDevice.html#a7ecddaa09a939d1414e51e9763acb369',1,'irobot_ec::hal::SpiDevice']]],
+  ['_7esupercap_687',['~SuperCap',['../classirobot__ec_1_1device_1_1SuperCap.html#a9e9985dd9d629a3c755d4b6629813b2e',1,'irobot_ec::device::SuperCap']]],
+  ['_7eunitreemotorbase_688',['~UnitreeMotorBase',['../classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html#adb3a615799cbc68a318debbfd62117ec',1,'irobot_ec::device::motor::UnitreeMotorBase']]]
 ];

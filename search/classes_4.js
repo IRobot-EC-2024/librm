@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['led_537',['LED',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1led_1_1LED.html',1,'irobot_ec::bsp::dji_devboard_c::led']]]
+  ['mahonyahrs_512',['MahonyAhrs',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html',1,'irobot_ec::modules::algorithm']]],
+  ['mecanum_513',['Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html',1,'irobot_ec::modules::algorithm']]]
 ];

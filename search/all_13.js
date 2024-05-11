@@ -1,22 +1,12 @@
 var searchData=
 [
-  ['u16_470',['u16',['../typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa',1,'typedefs.h']]],
-  ['u32_471',['u32',['../typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba',1,'typedefs.h']]],
-  ['u64_472',['u64',['../typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234',1,'typedefs.h']]],
-  ['u8_473',['u8',['../typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca',1,'typedefs.h']]],
-  ['uart_474',['Uart',['../classirobot__ec_1_1bsp_1_1Uart.html',1,'irobot_ec::bsp::Uart'],['../classirobot__ec_1_1bsp_1_1Uart.html#a8f41166b48ae74a19f3bb08fd3bb62fc',1,'irobot_ec::bsp::Uart::Uart()']]],
-  ['uartcallbackfunction_475',['UartCallbackFunction',['../namespaceirobot__ec_1_1bsp.html#abb22bea50d15653cab755108c7dcf3e1',1,'irobot_ec::bsp']]],
-  ['uartmode_476',['UartMode',['../namespaceirobot__ec_1_1bsp.html#a2527166ccceb678e65e8650e8e54c464',1,'irobot_ec::bsp']]],
-  ['unitree_5fmotor_2ecc_477',['unitree_motor.cc',['../unitree__motor_8cc.html',1,'']]],
-  ['unitree_5fmotor_2eh_478',['unitree_motor.h',['../unitree__motor_8h.html',1,'']]],
-  ['unitreemotorbase_479',['UnitreeMotorBase',['../classirobot__ec_1_1components_1_1motor_1_1UnitreeMotorBase.html',1,'irobot_ec::components::motor::UnitreeMotorBase'],['../classirobot__ec_1_1components_1_1motor_1_1UnitreeMotorBase.html#ab2dc1efec099817e95ff3537bd461596',1,'irobot_ec::components::motor::UnitreeMotorBase::UnitreeMotorBase()']]],
-  ['unitreemotormode_480',['UnitreeMotorMode',['../namespaceirobot__ec_1_1components_1_1motor.html#ab525f126de221229895d4ea345093f29',1,'irobot_ec::components::motor']]],
-  ['unregistersubscriber_481',['UnregisterSubscriber',['../classirobot__ec_1_1modules_1_1pub__sub_1_1PublisherBase.html#ace02839b6fcaf17790cc86f38472a61c',1,'irobot_ec::modules::pub_sub::PublisherBase']]],
-  ['update_482',['Update',['../classirobot__ec_1_1components_1_1sensor_1_1BMI088.html#a7574a893c87a5ec928851968944daebc',1,'irobot_ec::components::sensor::BMI088::Update()'],['../classirobot__ec_1_1modules_1_1SerialPlotter.html#a37683ee2bd62e8072bedce63f7822633',1,'irobot_ec::modules::SerialPlotter::Update()'],['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a602ca92eb5a67e3a89e6260149d8d96a',1,'irobot_ec::modules::algorithm::MahonyAhrs::Update()'],['../classirobot__ec_1_1components_1_1sensor_1_1IST8310.html#ade07e58bffc1080e55a740b0e64a802c',1,'irobot_ec::components::sensor::IST8310::Update()'],['../classirobot__ec_1_1bsp_1_1InsInterface.html#aad79d50f255e7b967ff5ec3e0761be58',1,'irobot_ec::bsp::InsInterface::Update()'],['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a0c8f1dfc2fd3b17fdad88f348945fc6a',1,'irobot_ec::bsp::dji_devboard_c::Ins::Update()']]],
-  ['update_483',['update',['../classirobot__ec_1_1modules_1_1algorithm_1_1RingPID.html#a801c0cc47f5e0c52ca6cd5a0df759a16',1,'irobot_ec::modules::algorithm::RingPID::update()'],['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a5a58b34e676c16c8d3189e4b41112b75',1,'irobot_ec::modules::algorithm::PID::update()']]],
-  ['updateimu_484',['UpdateImu',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#aa28d93c865ae447996e907386cd85693',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
-  ['use_5fexternal_5fdiff_5finput_5f_485',['use_external_diff_input_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a8264830f7d92bcc794bc9c08373a8537',1,'irobot_ec::modules::algorithm::PID']]],
-  ['usize_486',['usize',['../typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3',1,'typedefs.h']]],
-  ['utils_2ecc_487',['utils.cc',['../utils_8cc.html',1,'']]],
-  ['utils_2ehpp_488',['utils.hpp',['../utils_8hpp.html',1,'']]]
+  ['tau_5f_441',['tau_',['../classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html#a6c30eb3f68327ec768fea0bef6d0e2ae',1,'irobot_ec::device::motor::UnitreeMotorBase']]],
+  ['temperature_442',['temperature',['../classirobot__ec_1_1device_1_1DjiMotor.html#ab735fd315ce0376a9243f923ce4842ab',1,'irobot_ec::device::DjiMotor::temperature()'],['../classirobot__ec_1_1device_1_1BMI088.html#a9c10db6debe1640fcd5dd74d03909a8f',1,'irobot_ec::device::BMI088::temperature()']]],
+  ['throwexception_443',['ThrowException',['../namespaceirobot__ec_1_1modules_1_1exception.html#aa88dc95b1cf9a72389f30395b73da1d3',1,'irobot_ec::modules::exception']]],
+  ['time_2ecc_444',['time.cc',['../time_8cc.html',1,'']]],
+  ['time_2eh_445',['time.h',['../time_8h.html',1,'']]],
+  ['tx_5fbuf_5f_446',['tx_buf_',['../structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1GM6020_01_4.html#a5b106af74af14b18fc201d1c6d0db86e',1,'irobot_ec::device::DjiMotorProperties&lt; DjiMotorType::GM6020 &gt;::tx_buf_()'],['../structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1M3508_01_4.html#aed5ddf00141308255e4ea5dd73e38e79',1,'irobot_ec::device::DjiMotorProperties&lt; DjiMotorType::M3508 &gt;::tx_buf_()'],['../structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1M2006_01_4.html#adf63fb7a648261125128d4e6498bdd22',1,'irobot_ec::device::DjiMotorProperties&lt; DjiMotorType::M2006 &gt;::tx_buf_()']]],
+  ['tx_5fbuffer_5f_447',['tx_buffer_',['../classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html#ac91d7e69a0d29eb62c5079dcdc6d5b00',1,'irobot_ec::device::motor::UnitreeMotorBase']]],
+  ['type_5f_448',['type_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#ae65ebdddb30bc30944dc0cd94b024a68',1,'irobot_ec::modules::algorithm::PID']]],
+  ['typedefs_2eh_449',['typedefs.h',['../typedefs_8h.html',1,'']]]
 ];

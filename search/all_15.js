@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['write_496',['Write',['../classirobot__ec_1_1bsp_1_1Uart.html#ad52c63702b99e6242fe5b45eacc87430',1,'irobot_ec::bsp::Uart::Write()'],['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Can.html#a9f8aa893240a304dbe0052ce77a2eb24',1,'irobot_ec::bsp::dji_devboard_c::Can::Write()'],['../classirobot__ec_1_1bsp_1_1CanInterface.html#ab7e3f37aaa5389b966b38fbbe4c6eb29',1,'irobot_ec::bsp::CanInterface::Write()'],['../classirobot__ec_1_1hal_1_1I2cDevice.html#aa655e338674d93583f66f35db81e8eb8',1,'irobot_ec::hal::I2cDevice::Write()']]],
-  ['writebyte_497',['WriteByte',['../classirobot__ec_1_1hal_1_1SpiDevice.html#a103e92fa05de74582a960b87cb1ec6cf',1,'irobot_ec::hal::SpiDevice']]]
+  ['v_5flb_474',['v_lb',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a5483c76ff52d30f03c8e19a5ba20414e',1,'irobot_ec::modules::algorithm::Mecanum']]],
+  ['v_5flf_475',['v_lf',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a5e964af70745725c6c3aef9bedb527df',1,'irobot_ec::modules::algorithm::Mecanum']]],
+  ['v_5frb_476',['v_rb',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a1a9986e3cd4255fe5c9d3b9b3f3384ef',1,'irobot_ec::modules::algorithm::Mecanum']]],
+  ['v_5frf_477',['v_rf',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a2f38e3ce1c9a3ecfa0fd9dcfb0199a74',1,'irobot_ec::modules::algorithm::Mecanum']]],
+  ['value_478',['value',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#ac1b83282b92d2ea9ccd5743d5be50915',1,'irobot_ec::modules::algorithm::PID']]],
+  ['variablevariant_479',['VariableVariant',['../namespaceirobot__ec_1_1modules.html#ad063769df9f55ba2136c6494f0827134',1,'irobot_ec::modules']]],
+  ['velocity_5f_480',['velocity_',['../classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html#aff0a2ee99b1ae638080dc2baef3167f5',1,'irobot_ec::device::motor::UnitreeMotorBase']]],
+  ['voltage_481',['voltage',['../classirobot__ec_1_1device_1_1SuperCap.html#acdfe7c89ce24419a0735cb2e835d9ee0',1,'irobot_ec::device::SuperCap']]]
 ];

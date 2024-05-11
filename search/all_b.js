@@ -1,18 +1,7 @@
 var searchData=
 [
-  ['m2006_387',['M2006',['../namespaceirobot__ec_1_1components.html#a69747cb084bf833b129f125124aeeb5ea93f5090472f646ad30fccecc43f7b2c7',1,'irobot_ec::components::M2006()'],['../namespaceirobot__ec_1_1components.html#abbf72682f2d145b71b753feb0a49ae21',1,'irobot_ec::components::M2006()']]],
-  ['m3508_388',['M3508',['../namespaceirobot__ec_1_1components.html#a69747cb084bf833b129f125124aeeb5ea2a11d96160e8fc87860f3f795e81b080',1,'irobot_ec::components::M3508()'],['../namespaceirobot__ec_1_1components.html#a178ae7a42b06e4b15dba055ce0665682',1,'irobot_ec::components::M3508()']]],
-  ['mag_5fx_389',['mag_x',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a08ea79f6668ace55cff0f32abf72ec7b',1,'irobot_ec::bsp::dji_devboard_c::Ins::mag_x()'],['../classirobot__ec_1_1bsp_1_1InsInterface.html#a62a9eb8d7ea22bb72285200f5580c915',1,'irobot_ec::bsp::InsInterface::mag_x()'],['../classirobot__ec_1_1components_1_1sensor_1_1IST8310.html#aed618b3f7e416b177e80df48b690412c',1,'irobot_ec::components::sensor::IST8310::mag_x()']]],
-  ['mag_5fy_390',['mag_y',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a4ac0cbb11e3e2c3c7c0ff8b68e1b89b8',1,'irobot_ec::bsp::dji_devboard_c::Ins::mag_y()'],['../classirobot__ec_1_1bsp_1_1InsInterface.html#a59df2e20627a6b001c8f3699442b8b06',1,'irobot_ec::bsp::InsInterface::mag_y()'],['../classirobot__ec_1_1components_1_1sensor_1_1IST8310.html#a541d5121ad291a570b04c450023a3409',1,'irobot_ec::components::sensor::IST8310::mag_y()']]],
-  ['mag_5fz_391',['mag_z',['../classirobot__ec_1_1bsp_1_1InsInterface.html#ad1eb3f582ca35bd92bd816690297f6f2',1,'irobot_ec::bsp::InsInterface::mag_z()'],['../classirobot__ec_1_1components_1_1sensor_1_1IST8310.html#a07af0f89ed22eb34a2b7ea642cf6e822',1,'irobot_ec::components::sensor::IST8310::mag_z()'],['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a2f768b6607e1a552fcb0c7390cb4a52f',1,'irobot_ec::bsp::dji_devboard_c::Ins::mag_z()']]],
-  ['mahony_5fahrs_2ecc_392',['mahony_ahrs.cc',['../mahony__ahrs_8cc.html',1,'']]],
-  ['mahony_5fahrs_2eh_393',['mahony_ahrs.h',['../mahony__ahrs_8h.html',1,'']]],
-  ['mahonyahrs_394',['MahonyAhrs',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html',1,'irobot_ec::modules::algorithm::MahonyAhrs'],['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#af5a5b8cce4044b35e418c9c657b01404',1,'irobot_ec::modules::algorithm::MahonyAhrs::MahonyAhrs()']]],
-  ['max_5fiout_5f_395',['max_iout_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a6705a0d09e6e289981fbf549782d6571',1,'irobot_ec::modules::algorithm::PID']]],
-  ['max_5fout_5f_396',['max_out_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a61edf9892067a966cf0b602fdc12cf5f',1,'irobot_ec::modules::algorithm::PID']]],
-  ['mecanum_397',['Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html',1,'irobot_ec::modules::algorithm::Mecanum'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#ab4856c331a943b3eeba70b0927961899',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum()=delete'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a6f088c894addf10d2006f3746b1e2128',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum(f32 wheel_base, f32 wheel_track)'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#aa717e6a68399c93231762548dbcef5b9',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum(const Mecanum &amp;)=delete']]],
-  ['mecanum_2ecc_398',['mecanum.cc',['../mecanum_8cc.html',1,'']]],
-  ['mecanum_2eh_399',['mecanum.h',['../mecanum_8h.html',1,'']]],
-  ['mode_5f_400',['mode_',['../classirobot__ec_1_1components_1_1motor_1_1UnitreeMotorBase.html#a457a8ddf93cfefcdab9c8f100963eec3',1,'irobot_ec::components::motor::UnitreeMotorBase']]],
-  ['motor_5flist_5f_401',['motor_list_',['../classirobot__ec_1_1components_1_1DjiMotorBase.html#ab56af6a27f9f415319ef529d01e925f8',1,'irobot_ec::components::DjiMotorBase']]]
+  ['last_5fonline_5ftimestamp_5f_363',['last_online_timestamp_',['../classirobot__ec_1_1device_1_1Device.html#acc34098fd8636dd34371c1936a2ef8ed',1,'irobot_ec::device::Device']]],
+  ['left_5fx_364',['left_x',['../classirobot__ec_1_1device_1_1DR16.html#a291f90700963c441b36094cc72fd5566',1,'irobot_ec::device::DR16']]],
+  ['left_5fy_365',['left_y',['../classirobot__ec_1_1device_1_1DR16.html#aeabba098e868d8c99774bc914cc965c4',1,'irobot_ec::device::DR16']]],
+  ['loopconstrain_366',['LoopConstrain',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#a11e0ae12aac42bf6eb76e60b31a7bcd1',1,'irobot_ec::modules::algorithm::utils']]]
 ];

@@ -1,8 +1,9 @@
 var utils_8cc =
 [
-    [ "constrain", "utils_8cc.html#a5dd291e15dbc183f7cf695ac936ddaeb", null ],
-    [ "deadline", "utils_8cc.html#a3b0193b47d65ffb9a6ecb2b373a7bf2a", null ],
-    [ "degToRad", "utils_8cc.html#a05c6123e4cde335fdd4a8c61a2a3f091", null ],
-    [ "loopConstrain", "utils_8cc.html#a3fba69ab155b70cf073ab71c53e2f3fa", null ],
-    [ "quatToEuler", "utils_8cc.html#a664acd9ea775c53aa11bbb7896f680d8", null ]
+    [ "Constrain", "utils_8cc.html#a2e34668861f9ca339603b697701381ae", null ],
+    [ "Deadline", "utils_8cc.html#a6dbd5335b3bc03c3d7c21e9c4e5b2fea", null ],
+    [ "DegToRad", "utils_8cc.html#a950f4576a21e6cc06f3fa14b1039e60e", null ],
+    [ "LoopConstrain", "utils_8cc.html#a11e0ae12aac42bf6eb76e60b31a7bcd1", null ],
+    [ "Map", "utils_8cc.html#a9118783e9e742ef5aeafe6ada286def2", null ],
+    [ "QuatToEuler", "utils_8cc.html#a1c0a0292feb7801aabbc71c01820a8a7", null ]
 ];

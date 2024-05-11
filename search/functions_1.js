@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['begin_623',['Begin',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Can.html#ab72222c393d4fdee79084b4acec22c5c',1,'irobot_ec::bsp::dji_devboard_c::Can::Begin()'],['../classirobot__ec_1_1bsp_1_1CanInterface.html#aa36fa1b5f9cb0fc109229e5c7e6bfaf8',1,'irobot_ec::bsp::CanInterface::Begin()']]],
-  ['bmi088_624',['BMI088',['../classirobot__ec_1_1components_1_1sensor_1_1BMI088.html#a843ddf7d5d6637a06cb0476dac98695d',1,'irobot_ec::components::sensor::BMI088::BMI088()=delete'],['../classirobot__ec_1_1components_1_1sensor_1_1BMI088.html#a09259dd31c3dcfdbf8d9ba894feb408c',1,'irobot_ec::components::sensor::BMI088::BMI088(SPI_HandleTypeDef &amp;hspi, GPIO_TypeDef *cs1_accel_gpio_port, u16 cs1_accel_pin, GPIO_TypeDef *cs1_gyro_gpio_port, u16 cs1_gyro_pin)'],['../classirobot__ec_1_1components_1_1sensor_1_1BMI088.html#aa9978ded4a6391af465066f4a9e05113',1,'irobot_ec::components::sensor::BMI088::BMI088(const BMI088 &amp;)=delete']]],
-  ['bspfactory_625',['BspFactory',['../classirobot__ec_1_1bsp_1_1BspFactory.html#a1f768441cb054202732cc67f53d5c71b',1,'irobot_ec::bsp::BspFactory']]],
-  ['buffer_626',['buffer',['../classirobot__ec_1_1hal_1_1I2cDevice.html#abdb25cb83f702d17d5cf9b0aac7f632f',1,'irobot_ec::hal::I2cDevice::buffer()'],['../classirobot__ec_1_1hal_1_1SpiDevice.html#a3f2ec6c923b8b44e101e128fb82102e4',1,'irobot_ec::hal::SpiDevice::buffer()'],['../classirobot__ec_1_1modules_1_1SerialPlotter.html#a2f52846a551c24e6be021e27f50b96ec',1,'irobot_ec::modules::SerialPlotter::buffer()']]],
-  ['buzzer_627',['Buzzer',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#aa1113465412d2d55875789bbee677449',1,'irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::Buzzer(TIM_HandleTypeDef htim)'],['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1buzzer_1_1Buzzer.html#a79e903e7c2b2d5b5cf75d4ea0044e25f',1,'irobot_ec::bsp::dji_devboard_c::buzzer::Buzzer::Buzzer()=delete']]],
-  ['bypassmagnetometer_628',['BypassMagnetometer',['../classirobot__ec_1_1bsp_1_1dji__devboard__c_1_1Ins.html#a27a740496d0106789b65b3b3950f6c85',1,'irobot_ec::bsp::dji_devboard_c::Ins']]]
+  ['absconstrain_577',['absConstrain',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#aa3e965f4a08792352c1482cba6667c5b',1,'irobot_ec::modules::algorithm::utils']]],
+  ['accel_5fx_578',['accel_x',['../classirobot__ec_1_1device_1_1BMI088.html#aef1b425b101c63020f537b3000293e9c',1,'irobot_ec::device::BMI088']]],
+  ['accel_5fy_579',['accel_y',['../classirobot__ec_1_1device_1_1BMI088.html#a764f28bd7258e48060317661dfe373b5',1,'irobot_ec::device::BMI088']]],
+  ['accel_5fz_580',['accel_z',['../classirobot__ec_1_1device_1_1BMI088.html#aacb79a53fddea68b1cec9f980b63bb67',1,'irobot_ec::device::BMI088']]],
+  ['addvariable_581',['AddVariable',['../classirobot__ec_1_1modules_1_1SerialPlotter.html#aa1372732972ae7f7e297417e64d42c6f',1,'irobot_ec::modules::SerialPlotter']]],
+  ['attachrxcallback_582',['AttachRxCallback',['../classirobot__ec_1_1hal_1_1Uart.html#ab7206eed25a6dd0798f25db1de9471e1',1,'irobot_ec::hal::Uart']]]
 ];

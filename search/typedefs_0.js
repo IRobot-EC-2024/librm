@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['can_957',['Can',['../namespaceirobot__ec_1_1bsp.html#ac51a4b0f8a98d54822d555c873e32021',1,'irobot_ec::bsp']]]
+  ['can_902',['Can',['../namespaceirobot__ec_1_1hal.html#a915e298b0b2cec4fa4fdc949cae87ae6',1,'irobot_ec::hal']]]
 ];

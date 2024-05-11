@@ -9,9 +9,13 @@ var namespaceirobot__ec_1_1modules =
         [ "kHALError", "namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828a9864ae2902cf476e08f9cbe5e734a78f", null ],
         [ "kValueError", "namespaceirobot__ec_1_1modules_1_1exception.html#a489d267545c8d47cd2613b403f3be828ace6b14f493b2461f78b52ffc453dc9fa", null ]
       ] ],
+      [ "__attribute__", "namespaceirobot__ec_1_1modules_1_1exception.html#a236614ef0e7735d9e964ea4bb225fd17", null ],
       [ "ThrowException", "namespaceirobot__ec_1_1modules_1_1exception.html#aa88dc95b1cf9a72389f30395b73da1d3", null ]
     ] ],
-    [ "pub_sub", "namespaceirobot__ec_1_1modules_1_1pub__sub.html", "namespaceirobot__ec_1_1modules_1_1pub__sub" ],
+    [ "time", "namespaceirobot__ec_1_1modules_1_1time.html", [
+      [ "SleepMs", "namespaceirobot__ec_1_1modules_1_1time.html#aa12d0d476ea0a91c68555633672fac15", null ],
+      [ "SleepUs", "namespaceirobot__ec_1_1modules_1_1time.html#afb7e36c41d7de0314212254ec92dae7e", null ]
+    ] ],
     [ "SerialPlotter", "classirobot__ec_1_1modules_1_1SerialPlotter.html", "classirobot__ec_1_1modules_1_1SerialPlotter" ],
     [ "VariableVariant", "namespaceirobot__ec_1_1modules.html#ad063769df9f55ba2136c6494f0827134", null ]
 ];

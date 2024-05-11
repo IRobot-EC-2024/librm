@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['self_5ftest_5faccel_5ferror_1052',['SELF_TEST_ACCEL_ERROR',['../namespaceirobot__ec_1_1components_1_1sensor.html#a07f1400fc7de33475d806927ae68d839af1849d80e369979d580c3223029a63ff',1,'irobot_ec::components::sensor']]],
-  ['self_5ftest_5fgyro_5ferror_1053',['SELF_TEST_GYRO_ERROR',['../namespaceirobot__ec_1_1components_1_1sensor.html#a07f1400fc7de33475d806927ae68d839a0eb8a30dc306ed64460e9f3824814fd4',1,'irobot_ec::components::sensor']]],
-  ['sensor_5ferror_1054',['SENSOR_ERROR',['../namespaceirobot__ec_1_1components_1_1sensor.html#a4c654b7dcf64dc42ab64732cd9058514a3993b9fcdbf9ec59e873519a4d02fe2f',1,'irobot_ec::components::sensor']]]
+  ['no_5ferror_1004',['NO_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3ad306b6fdee05fe87455110ddf6501e6c',1,'irobot_ec::device::NO_ERROR()'],['../namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dad306b6fdee05fe87455110ddf6501e6c',1,'irobot_ec::device::NO_ERROR()']]],
+  ['no_5fsensor_1005',['NO_SENSOR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3ab37cdaa5ea18c2d6d7a12580b6549589',1,'irobot_ec::device::NO_SENSOR()'],['../namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dab37cdaa5ea18c2d6d7a12580b6549589',1,'irobot_ec::device::NO_SENSOR()']]]
 ];
