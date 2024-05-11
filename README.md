@@ -20,41 +20,6 @@ doxygen ./Doxyfile
 
 正确构建后，文档会被放在`docs/`文件夹下。
 
-## 项目结构/开发进度
-
-未打钩的复选框表示还在开发中。
-
-- `examples/`：例程
-
-- `libs/`：第三方库
-
-- `src/`
-
-    - `device/`：设备驱动和封装
-        - `motor/`：电机
-            - `dji_motor`：大疆电机
-            - [ ] `unitree_motor`：宇树电机
-        - `remote/`：遥控器/接收机
-            - `dr16`：DT7遥控器/DR16接收机
-        - `sensor/`：传感器
-            - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
-            - `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
-            - `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
-        - `supercap/`：超级电容
-        - [ ] `referee/`：裁判系统
-
-    - [ ] `hal/`：基于STM32 HAL库封装的C++类库
-
-    - `modules/`：软件模块
-        - `algorithm/`：常用算法
-
-## 开发环境
-
-- STM32CubeMX `6.10.0`
-    - STM32Cube MCU Package for STM32F4 series `1.28.0`
-    - STM32Cube MCU Package for STM32H7 series `1.11.1`
-- [GNU Arm Embedded Toolchain, AArch32 bare-metal target (arm-none-eabi)](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) `13.2.Rel1`
-
 ## 使用方法
 
 1. Clone仓库（包括子模块），在CMakeLists.txt里添加为子目录并且把`irobotEC`静态库链接到主目标：
@@ -89,3 +54,38 @@ doxygen ./Doxyfile
     #include "device/motor/dji_motor.hpp"
     // #include ...
     ```
+
+## 项目结构/开发进度
+
+未打钩的复选框表示还在开发中。
+
+- `examples/`：例程
+
+- `libs/`：第三方库
+
+- `src/`
+
+    - `device/`：设备驱动和封装
+        - `motor/`：电机
+            - `dji_motor`：大疆电机
+            - [ ] `unitree_motor`：宇树电机
+        - `remote/`：遥控器/接收机
+            - `dr16`：DT7遥控器/DR16接收机
+        - `sensor/`：传感器
+            - [ ] `icm42688p/`：[ICM42688P IMU](https://product.tdk.com.cn/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/ds-000347-icm-42688-p-v1.6.pdf)
+            - `bmi088/`：[BMI088 IMU](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf)
+            - `ist8310/`：[IST8310磁力计](https://tw.isentek.com/userfiles/files/IST8310Datasheet_3DMagneticSensors.pdf)
+        - `supercap/`：超级电容
+        - [ ] `referee/`：裁判系统
+
+    - [ ] `hal/`：基于STM32 HAL库封装的C++类库
+
+    - `modules/`：软件模块
+        - `algorithm/`：常用算法
+
+## 开发环境
+
+- STM32CubeMX `6.10.0`
+    - STM32Cube MCU Package for STM32F4 series `1.28.0`
+    - STM32Cube MCU Package for STM32H7 series `1.11.1`
+- [GNU Arm Embedded Toolchain, AArch32 bare-metal target (arm-none-eabi)](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) `13.2.Rel1`
