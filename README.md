@@ -25,8 +25,8 @@ doxygen ./Doxyfile
 1. Clone仓库（包括子模块），在CMakeLists.txt里添加为子目录并且把`irobotEC`静态库链接到主目标：
 
     ```shell
-    git clone --recursive https://github.com/IRobot-EC-2024/ec-cpp-library.git
-   ```
+    git clone --recursive https://github.com/IRobot-EC-2024/irobotEC.git
+    ```
 
     ```cmake
     add_subdirectory(<仓库路径>)
