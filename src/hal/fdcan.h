@@ -10,8 +10,8 @@
 #include "hal.h"
 #if defined(HAL_FDCAN_MODULE_ENABLED)
 
-#include "can_device.hpp"
 #include "can_interface.h"
+#include "device/can_device.hpp"
 
 namespace irobot_ec::hal {
 

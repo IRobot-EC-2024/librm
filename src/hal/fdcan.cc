@@ -10,8 +10,11 @@
 #if (USE_HAL_FDCAN_REGISTER_CALLBACKS != 1u)
 #error "FDCAN register callback must be enabled!"
 #endif
+#error "FDCAN register callback must be enabled!"
 #endif
 
 #include "fdcan.h"
+
+namespace irobot::hal {}
 
 #endif
