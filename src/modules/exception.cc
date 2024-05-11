@@ -10,7 +10,7 @@ namespace irobot_ec::modules::exception {
  * @brief 抛出异常
  * @param e 异常类型
  */
-void ThrowException(Exception e) {
+__attribute__((weak)) void ThrowException(Exception e) {
   // 在这里处理异常
 }
 }  // namespace irobot_ec::modules::exception
