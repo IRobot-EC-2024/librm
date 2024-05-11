@@ -10,7 +10,8 @@
 #if (USE_HAL_FDCAN_REGISTER_CALLBACKS != 1u)
 #error "FDCAN register callback must be enabled!"
 #endif
-#error "FDCAN register callback must be enabled!"
+#else
+#error "Whether FDCAN register callback is enabled or not is unknown!"
 #endif
 
 #include "fdcan.h"
