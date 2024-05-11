@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "RM EC C++ Library", "index.html", [
+  [ "irobotEC", "index.html", [
     [ "待办事项列表", "todo.html", null ],
     [ "命名空间", "namespaces.html", [
       [ "命名空间列表", "namespaces.html", "namespaces_dup" ],
