@@ -1,9 +1,9 @@
 # irobotEC [WIP]
 
-[![build](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/ci_build.yml)
-[![clang-format Check](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/style_check.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/style_check.yml)
-[![docs](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/ec-cpp-library/actions/workflows/doxygen-gh-pages.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library/badge)](https://www.codefactor.io/repository/github/lunarifish/ec-cpp-library)
+[![build](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/ci_build.yml)
+[![clang-format Check](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/style_check.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/style_check.yml)
+[![docs](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/irobotec/badge)](https://www.codefactor.io/repository/github/lunarifish/irobotec)
 
 用于统一底层代码和少量通用业务代码的电控库。 项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
 。
