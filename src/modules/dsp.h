@@ -31,7 +31,7 @@
 
 #if defined(__GNUC__) || defined(__clang__)  // GCC or Clang
 #if __has_include("arm_math.h")              // C++17 or above
-#include "hal/hal.h"                             // 这一句是为了导入__FPU_PRESENT宏
+#include "hal/hal.h"                         // 这一句是为了导入__FPU_PRESENT宏
 #include "arm_math.h"
 #else
 #warning "CMSIS-DSP library is not available."
