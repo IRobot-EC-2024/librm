@@ -32,6 +32,7 @@
 
 #include <array>
 #include <unordered_map>
+#include <cmath>
 
 #include "modules/typedefs.h"
 #include "modules/algorithm/utils.hpp"
@@ -93,6 +94,9 @@ class DjiMotor final : public CanDeviceBase {
   [[nodiscard]] i16 rpm() const { return this->rpm_; }
   [[nodiscard]] i16 current() const { return this->current_; }
   [[nodiscard]] u8 temperature() const { return this->temperature_; }
+
+  [[nodiscard]] f32 pos_degree() const { return this->encoder() / kDjiMotorMaxEncoder * 360.0f; }
+  [[nodiscard]] f32 pos_rad() const { return this->encoder() / kDjiMotorMaxEncoder * M_2_PI; }
   /*************/
 
  private:
