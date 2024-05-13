@@ -21,7 +21,7 @@
 */
 
 /**
- * @file  device/motor/dji_motor.hpp
+ * @file  device/actuator/dji_motor.hpp
  * @brief 大疆电机类库
  *
  * @note DJI GM6020电机

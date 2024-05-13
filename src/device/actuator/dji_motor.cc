@@ -21,7 +21,7 @@
 */
 
 /**
- * @file  device/motor/dji_motor.cc
+ * @file  device/actuator/dji_motor.cc
  * @brief 大疆电机类库
  */
 
