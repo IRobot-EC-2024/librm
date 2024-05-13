@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['i2cdevice_510',['I2cDevice',['../classirobot__ec_1_1hal_1_1I2cDevice.html',1,'irobot_ec::hal']]],
-  ['ist8310_511',['IST8310',['../classirobot__ec_1_1device_1_1IST8310.html',1,'irobot_ec::device']]]
+  ['i2cdevice_511',['I2cDevice',['../classirobot__ec_1_1hal_1_1I2cDevice.html',1,'irobot_ec::hal']]],
+  ['ist8310_512',['IST8310',['../classirobot__ec_1_1device_1_1IST8310.html',1,'irobot_ec::device']]]
 ];

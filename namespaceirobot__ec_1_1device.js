@@ -1,6 +1,5 @@
 var namespaceirobot__ec_1_1device =
 [
-    [ "motor", "namespaceirobot__ec_1_1device_1_1motor.html", "namespaceirobot__ec_1_1device_1_1motor" ],
     [ "CanDeviceBase", "classirobot__ec_1_1device_1_1CanDeviceBase.html", "classirobot__ec_1_1device_1_1CanDeviceBase" ],
     [ "Device", "classirobot__ec_1_1device_1_1Device.html", "classirobot__ec_1_1device_1_1Device" ],
     [ "DeviceManager", "classirobot__ec_1_1device_1_1DeviceManager.html", "classirobot__ec_1_1device_1_1DeviceManager" ],
@@ -9,6 +8,7 @@ var namespaceirobot__ec_1_1device =
     [ "DjiMotorProperties< DjiMotorType::M3508 >", "structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1M3508_01_4.html", null ],
     [ "DjiMotorProperties< DjiMotorType::M2006 >", "structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1M2006_01_4.html", null ],
     [ "DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html", "classirobot__ec_1_1device_1_1DjiMotor" ],
+    [ "UnitreeMotorBase", "classirobot__ec_1_1device_1_1UnitreeMotorBase.html", "classirobot__ec_1_1device_1_1UnitreeMotorBase" ],
     [ "DR16", "classirobot__ec_1_1device_1_1DR16.html", "classirobot__ec_1_1device_1_1DR16" ],
     [ "BMI088", "classirobot__ec_1_1device_1_1BMI088.html", "classirobot__ec_1_1device_1_1BMI088" ],
     [ "IST8310", "classirobot__ec_1_1device_1_1IST8310.html", "classirobot__ec_1_1device_1_1IST8310" ],
@@ -93,5 +93,16 @@ var namespaceirobot__ec_1_1device =
       [ "kUnderVoltage", "namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa56696b8f72116b20b66cb8f3e312b139", null ],
       [ "kInputUnderVoltage", "namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa943a6e7d0cf0f3d16469604e31da61a7", null ],
       [ "kNoData", "namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4aa50ec98d6918446dccb689557dd045b51", null ]
-    ] ]
+    ] ],
+    [ "UnitreeMotorMode", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3ca", [
+      [ "kLock", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa9c253536865dcc46ddfd45e0e5198b34", null ],
+      [ "kFOC", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa7ba01a0350112e55c8b49fa969c1522c", null ],
+      [ "kCalibration", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa356b1c6cfbb35fd447187343d626c2b8", null ],
+      [ "kReserved1", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa7df7b177c448e0198264dc64974bea94", null ],
+      [ "kReserved2", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caae63c0c4600bc07f48d795951385bb785", null ],
+      [ "kReserved3", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caad01df7ee71fb30753be759dbfb8786fc", null ],
+      [ "kReserved4", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa7054d7e4b2dd68f34d7c57d8b8338809", null ],
+      [ "kReserved5", "namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caad40ba9d6b49481a011bd099baf4a4ac0", null ]
+    ] ],
+    [ "kDjiMotorMaxEncoder", "namespaceirobot__ec_1_1device.html#af354f67341c1c11b0c80739a7d2282a7", null ]
 ];

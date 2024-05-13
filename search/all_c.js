@@ -14,5 +14,5 @@ var searchData=
   ['mecanum_378',['Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html',1,'irobot_ec::modules::algorithm::Mecanum'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a6f088c894addf10d2006f3746b1e2128',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum(f32 wheel_base, f32 wheel_track)'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#aa717e6a68399c93231762548dbcef5b9',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum(const Mecanum &amp;)=delete'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#ab4856c331a943b3eeba70b0927961899',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum()=delete']]],
   ['mecanum_2ecc_379',['mecanum.cc',['../mecanum_8cc.html',1,'']]],
   ['mecanum_2eh_380',['mecanum.h',['../mecanum_8h.html',1,'']]],
-  ['mode_5f_381',['mode_',['../classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html#a76e19c15281fa0d9ac3138f6fdbbb5bd',1,'irobot_ec::device::motor::UnitreeMotorBase']]]
+  ['mode_5f_381',['mode_',['../classirobot__ec_1_1device_1_1UnitreeMotorBase.html#a237bd5f0fd91fdc6b352f4692676a15d',1,'irobot_ec::device::UnitreeMotorBase']]]
 ];

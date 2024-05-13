@@ -31,6 +31,7 @@ var NAVTREE =
       [ "命名空间成员", "namespacemembers.html", [
         [ "全部", "namespacemembers.html", null ],
         [ "函数", "namespacemembers_func.html", null ],
+        [ "变量", "namespacemembers_vars.html", null ],
         [ "类型定义", "namespacemembers_type.html", null ],
         [ "枚举", "namespacemembers_enum.html", null ]
       ] ]
@@ -62,7 +63,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classirobot__ec_1_1device_1_1Device.html#a681221b8b1cbc8eb1c71a98d1ec3f979",
-"ist8310_8h_source.html"
+"ist8310_8h.html#a93f24f2cf487dd7d1276b3032c087e7da3993b9fcdbf9ec59e873519a4d02fe2f"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

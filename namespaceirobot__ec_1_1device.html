@@ -82,20 +82,15 @@ $(document).ready(function(){initNavTree('namespaceirobot__ec_1_1device.html',''
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">命名空间</a> &#124;
 <a href="#nested-classes">类</a> &#124;
 <a href="#typedef-members">类型定义</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#enum-members">枚举</a> &#124;
+<a href="#var-members">变量</a>  </div>
   <div class="headertitle">
 <div class="title">irobot_ec::device 命名空间参考</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-命名空间</h2></td></tr>
-<tr class="memitem:namespaceirobot__ec_1_1device_1_1motor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1device_1_1motor.html">motor</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDeviceBase.html">CanDeviceBase</a></td></tr>
@@ -117,6 +112,8 @@ $(document).ready(function(){initNavTree('namespaceirobot__ec_1_1device.html',''
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1DjiMotor.html">DjiMotor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DJI电机  <a href="classirobot__ec_1_1device_1_1DjiMotor.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1UnitreeMotorBase.html">UnitreeMotorBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1DR16.html">DR16</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DR16接收机  <a href="classirobot__ec_1_1device_1_1DR16.html#details">更多...</a><br /></td></tr>
@@ -154,6 +151,19 @@ $(document).ready(function(){initNavTree('namespaceirobot__ec_1_1device.html',''
 , <a class="el" href="namespaceirobot__ec_1_1device.html#ad89b3642dec8588b5285f5673108e1e8a93f5090472f646ad30fccecc43f7b2c7">M2006</a>
  }</td></tr>
 <tr class="separator:ad89b3642dec8588b5285f5673108e1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12df34529e2463a3befb773b7a6b3ca"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3ca">UnitreeMotorMode</a> { <br />
+&#160;&#160;<a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa9c253536865dcc46ddfd45e0e5198b34">kLock</a> = 0x00
+, <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa7ba01a0350112e55c8b49fa969c1522c">kFOC</a> = 0x01
+, <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa356b1c6cfbb35fd447187343d626c2b8">kCalibration</a> = 0x02
+, <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa7df7b177c448e0198264dc64974bea94">kReserved1</a> = 0x03
+, <br />
+&#160;&#160;<a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caae63c0c4600bc07f48d795951385bb785">kReserved2</a> = 0x04
+, <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caad01df7ee71fb30753be759dbfb8786fc">kReserved3</a> = 0x05
+, <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caa7054d7e4b2dd68f34d7c57d8b8338809">kReserved4</a> = 0x06
+, <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3caad40ba9d6b49481a011bd099baf4a4ac0">kReserved5</a> = 0x07
+<br />
+ }</td></tr>
+<tr class="separator:aa12df34529e2463a3befb773b7a6b3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f873a1f61423b03ae6fe753f1fca130"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130">RcSwitchState</a> : usize { <a class="el" href="namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a8a9e8c8811f2a710615e133456229ee5">kUp</a> = 1u
 , <a class="el" href="namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a3bc2ec3237c6d119b0b5c4225122a07e">kDown</a>
 , <a class="el" href="namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a46d517fe446a90c5afd2e1f8e7def864">kMid</a>
@@ -244,6 +254,11 @@ $(document).ready(function(){initNavTree('namespaceirobot__ec_1_1device.html',''
  }</td></tr>
 <tr class="memdesc:a2acbff3b877d907f394e964a2eaabc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">超级电容的错误flags各位的定义  <a href="namespaceirobot__ec_1_1device.html#a2acbff3b877d907f394e964a2eaabc4a">更多...</a><br /></td></tr>
 <tr class="separator:a2acbff3b877d907f394e964a2eaabc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:af354f67341c1c11b0c80739a7d2282a7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1device.html#af354f67341c1c11b0c80739a7d2282a7">kDjiMotorMaxEncoder</a> = 8191</td></tr>
+<tr class="separator:af354f67341c1c11b0c80739a7d2282a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">类型定义说明</h2>
 <a id="a33249d12c2349f412a69de1ed9bb33d7"></a>
@@ -576,6 +591,61 @@ $(document).ready(function(){initNavTree('namespaceirobot__ec_1_1device.html',''
 <tr><td class="fieldname"><a id="a2acbff3b877d907f394e964a2eaabc4aa943a6e7d0cf0f3d16469604e31da61a7"></a>kInputUnderVoltage&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2acbff3b877d907f394e964a2eaabc4aa50ec98d6918446dccb689557dd045b51"></a>kNoData&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+</div>
+</div>
+<a id="aa12df34529e2463a3befb773b7a6b3ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa12df34529e2463a3befb773b7a6b3ca">&#9670;&nbsp;</a></span>UnitreeMotorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceirobot__ec_1_1device.html#aa12df34529e2463a3befb773b7a6b3ca">irobot_ec::device::UnitreeMotorMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caa9c253536865dcc46ddfd45e0e5198b34"></a>kLock&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caa7ba01a0350112e55c8b49fa969c1522c"></a>kFOC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caa356b1c6cfbb35fd447187343d626c2b8"></a>kCalibration&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caa7df7b177c448e0198264dc64974bea94"></a>kReserved1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caae63c0c4600bc07f48d795951385bb785"></a>kReserved2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caad01df7ee71fb30753be759dbfb8786fc"></a>kReserved3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caa7054d7e4b2dd68f34d7c57d8b8338809"></a>kReserved4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa12df34529e2463a3befb773b7a6b3caad40ba9d6b49481a011bd099baf4a4ac0"></a>kReserved5&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">变量说明</h2>
+<a id="af354f67341c1c11b0c80739a7d2282a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af354f67341c1c11b0c80739a7d2282a7">&#9670;&nbsp;</a></span>kDjiMotorMaxEncoder</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b">i16</a> irobot_ec::device::kDjiMotorMaxEncoder = 8191</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

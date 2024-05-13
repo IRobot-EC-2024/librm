@@ -37,6 +37,7 @@ var menudata={children:[
 {text:"e",url:"namespacemembers.html#index_e"},
 {text:"g",url:"namespacemembers.html#index_g"},
 {text:"i",url:"namespacemembers.html#index_i"},
+{text:"k",url:"namespacemembers.html#index_k"},
 {text:"l",url:"namespacemembers.html#index_l"},
 {text:"m",url:"namespacemembers.html#index_m"},
 {text:"p",url:"namespacemembers.html#index_p"},
@@ -47,6 +48,7 @@ var menudata={children:[
 {text:"u",url:"namespacemembers.html#index_u"},
 {text:"v",url:"namespacemembers.html#index_v"}]},
 {text:"函数",url:"namespacemembers_func.html"},
+{text:"变量",url:"namespacemembers_vars.html"},
 {text:"类型定义",url:"namespacemembers_type.html"},
 {text:"枚举",url:"namespacemembers_enum.html"}]}]},
 {text:"类",url:"annotated.html",children:[

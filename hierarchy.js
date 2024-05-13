@@ -27,5 +27,5 @@ var hierarchy =
     [ "irobot_ec::modules::SerialPlotter", "classirobot__ec_1_1modules_1_1SerialPlotter.html", null ],
     [ "irobot_ec::hal::SpiDevice", "classirobot__ec_1_1hal_1_1SpiDevice.html", null ],
     [ "irobot_ec::hal::Uart", "classirobot__ec_1_1hal_1_1Uart.html", null ],
-    [ "irobot_ec::device::motor::UnitreeMotorBase", "classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html", null ]
+    [ "irobot_ec::device::UnitreeMotorBase", "classirobot__ec_1_1device_1_1UnitreeMotorBase.html", null ]
 ];

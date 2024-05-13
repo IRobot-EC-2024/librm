@@ -12,7 +12,7 @@ var searchData=
   ['i64_285',['i64',['../typedefs_8h.html#a85cb35fbe5bf2961d7ad5f26814a91a2',1,'typedefs.h']]],
   ['i8_286',['i8',['../typedefs_8h.html#ae3702327b5f47e83b431e22b33da7b58',1,'typedefs.h']]],
   ['i_5fout_5f_287',['i_out_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#ae26a12cde933f4da2d753893b1c6ec9d',1,'irobot_ec::modules::algorithm::PID']]],
-  ['id_5f_288',['id_',['../classirobot__ec_1_1device_1_1motor_1_1UnitreeMotorBase.html#a0c9eeb0548beb4c5c270290efabbaf60',1,'irobot_ec::device::motor::UnitreeMotorBase']]],
+  ['id_5f_288',['id_',['../classirobot__ec_1_1device_1_1UnitreeMotorBase.html#ad6997b86aa5797394962fe29a96385ef',1,'irobot_ec::device::UnitreeMotorBase']]],
   ['int1_5fio_5fctrl_5ferror_289',['INT1_IO_CTRL_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3a7da2c6e52860145ef7576ee8f4f643fd',1,'irobot_ec::device']]],
   ['int_5fmap_5fdata_5ferror_290',['INT_MAP_DATA_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3ab4de3774a072da27c00e23227b17d225',1,'irobot_ec::device']]],
   ['irobot_5fec_291',['irobot_ec',['../namespaceirobot__ec.html',1,'']]],
@@ -31,7 +31,6 @@ var searchData=
   ['ist8310_5fwho_5fam_5fi_5fvalue_304',['IST8310_WHO_AM_I_VALUE',['../ist8310__const_8hpp.html#a148fffdc058f6df90ac304446b0021f3',1,'ist8310_const.hpp']]],
   ['ist8310status_305',['IST8310Status',['../namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d',1,'irobot_ec::device']]],
   ['modules_306',['modules',['../namespaceirobot__ec_1_1modules.html',1,'irobot_ec']]],
-  ['motor_307',['motor',['../namespaceirobot__ec_1_1device_1_1motor.html',1,'irobot_ec::device']]],
-  ['time_308',['time',['../namespaceirobot__ec_1_1modules_1_1time.html',1,'irobot_ec::modules']]],
-  ['utils_309',['utils',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html',1,'irobot_ec::modules::algorithm']]]
+  ['time_307',['time',['../namespaceirobot__ec_1_1modules_1_1time.html',1,'irobot_ec::modules']]],
+  ['utils_308',['utils',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html',1,'irobot_ec::modules::algorithm']]]
 ];
