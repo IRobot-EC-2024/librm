@@ -22,8 +22,8 @@
 
 /**
  * @file      modules/dsp.h
- * @brief     简化导入DSP库的语句，引入此文件即可使用DSP库（如果支持并且启用了的话）
- * @attention 检查包含路径和链接器设置，确保DSP库确实已经正确启用！！
+ * @brief     检查CMSIS-DSP库是否可用，主要用于库内部代码根据有无DSP库选择不同的实现，外部没有必要使用这个文件
+ * @note      docs: https://arm-software.github.io/CMSIS-DSP/latest/index.html
  */
 
 #ifndef EC_LIB_HAL_WRAPPER_DSP_H
