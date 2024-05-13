@@ -39,6 +39,8 @@
 
 namespace irobot_ec::device {
 
+constexpr i16 kDjiMotorMaxEncoder = 8191;
+
 enum class DjiMotorType { Default, GM6020, M3508, M2006 };
 template <DjiMotorType motor_type>
 struct DjiMotorProperties {};
@@ -77,7 +79,7 @@ class DjiMotor final : public CanDeviceBase {
  public:
   DjiMotor() = delete;
   ~DjiMotor() override = default;
-  DjiMotor(hal::CanBase &can, u16 id);
+  DjiMotor(hal::CanBase &can, u16 id, bool reversed = false);
 
   // 禁止拷贝构造
   DjiMotor(const DjiMotor &) = delete;
@@ -96,7 +98,8 @@ class DjiMotor final : public CanDeviceBase {
  private:
   void RxCallback(const hal::CanRxMsg *msg) override;
 
-  u16 id_{};  // 电机ID
+  u16 id_{};         // 电机ID
+  bool reversed_{};  // 是否反转
   /**   FEEDBACK DATA   **/
   u16 encoder_{};     // 电机编码器值
   i16 rpm_{};         // 电机转速
@@ -115,7 +118,7 @@ using M2006 = DjiMotor<DjiMotorType::M2006>;
  * @param  id
  */
 template <DjiMotorType motor_type>
-DjiMotor<motor_type>::DjiMotor(hal::CanBase &can, u16 id)
+DjiMotor<motor_type>::DjiMotor(hal::CanBase &can, u16 id, bool reversed)
     : CanDeviceBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id) {
   // 如果这个电机对象所在CAN总线的发送缓冲区还未创建，就创建一个
   if (DjiMotorProperties<motor_type>::tx_buf_.find(&can) == DjiMotorProperties<motor_type>::tx_buf_.end()) {
@@ -133,6 +136,10 @@ template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::SetCurrent(i16 current) {
   // 限幅到电机能接受的最大电流
   current = modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
+  // 处理反转
+  if (this->reversed_) {
+    current = static_cast<i16>(-current);
+  }
   // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区，写入电流值
   DjiMotorProperties<motor_type>::tx_buf_[this->can_].at((this->id_ - 1) * 2) = (current >> 8) & 0xff;
   DjiMotorProperties<motor_type>::tx_buf_[this->can_].at((this->id_ - 1) * 2 + 1) = current & 0xff;
@@ -179,6 +186,9 @@ inline void DjiMotor<DjiMotorType::Default>::SendCommand() {
 template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::RxCallback(const hal::CanRxMsg *msg) {
   this->encoder_ = (msg->data[0] << 8) | msg->data[1];
+  if (this->reversed_) {
+    this->encoder_ = kDjiMotorMaxEncoder - this->encoder_;
+  }
   this->rpm_ = (msg->data[2] << 8) | msg->data[3];
   this->current_ = (msg->data[4] << 8) | msg->data[5];
   this->temperature_ = msg->data[6];
