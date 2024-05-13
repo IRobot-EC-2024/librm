@@ -93,9 +93,7 @@ struct DjiMotorProperties<DjiMotorType::M2006> {
 };
 
 /**
- * @brief     DJI电机
- * @attention 本类是抽象类，不可实例化
- * @attention 子类必须实现SetCurrent函数，用于设置电机的电流/电压
+ * @brief 大疆电机(GM6020, M3508, M2006)
  */
 template <DjiMotorType motor_type = DjiMotorType::Default>
 class DjiMotor final : public CanDeviceBase {
@@ -178,7 +176,7 @@ void DjiMotor<motor_type>::SetCurrent(i16 current) {
 }
 
 /**
- * @brief 向对应型号的所有电机发出控制消息
+ * @brief 向对应型号的所有大疆电机发出控制消息
  */
 template <DjiMotorType motor_type>
 void DjiMotor<motor_type>::SendCommand() {
