@@ -90,7 +90,6 @@ class PID {
   bool use_external_diff_input_;  // 是否使用外部提供的微分输入
 
   PIDType type_;
-
 };  // class PID
 
 /**
@@ -106,7 +105,6 @@ class RingPID : public PID {
   void handleZeroCrossing();
 
   f32 cycle_;
-
 };  // class RingPID
 
 }  // namespace irobot_ec::modules::algorithm
