@@ -39,9 +39,6 @@ namespace irobot_ec::modules {
 
 using VariableVariant = std::variant<i8 *, i16 *, i32 *, i64 *, u8 *, u16 *, u32 *, u64 *, f32 *, f64 *, bool *>;
 
-template <typename T>
-concept fundamental = std::is_fundamental_v<T>;
-
 /**
  * @brief 串口绘图器
  * @note  用于将一些变量的值格式化后用串口发给上位机绘图
@@ -62,10 +59,10 @@ class SerialPlotter {
   void Update();
   [[nodiscard]] const std::string &buffer() const;
   template <typename T>
-    requires fundamental<T>
+    requires std::is_fundamental_v<T>
   void AddVariable(T &variable);
   template <typename T>
-    requires fundamental<T>
+    requires std::is_fundamental_v<T>
   void RemoveVariable(T &variable);
 
  private:
@@ -112,7 +109,7 @@ const inline std::string &SerialPlotter::buffer() const { return this->buffer_; 
  * @param   variable    变量引用
  */
 template <typename T>
-  requires fundamental<T>
+  requires std::is_fundamental_v<T>
 void SerialPlotter::AddVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
@@ -132,7 +129,7 @@ void SerialPlotter::AddVariable(T &variable) {
  * @param   variable    变量引用
  */
 template <typename T>
-  requires fundamental<T>
+  requires std::is_fundamental_v<T>
 void SerialPlotter::RemoveVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
