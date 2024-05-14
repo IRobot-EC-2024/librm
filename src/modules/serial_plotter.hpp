@@ -39,6 +39,9 @@ namespace irobot_ec::modules {
 
 using VariableVariant = std::variant<i8 *, i16 *, i32 *, i64 *, u8 *, u16 *, u32 *, u64 *, f32 *, f64 *, bool *>;
 
+template <typename T>
+concept fundamental = std::is_fundamental_v<T>;
+
 /**
  * @brief 串口绘图器
  * @note  用于将一些变量的值格式化后用串口发给上位机绘图
@@ -58,9 +61,11 @@ class SerialPlotter {
   SerialPlotter() = default;
   void Update();
   [[nodiscard]] const std::string &buffer() const;
-  template <typename T, typename SFINAE = std::enable_if_t<std::is_fundamental<T>::value>>
+  template <typename T>
+    requires fundamental<T>
   void AddVariable(T &variable);
-  template <typename T, typename SFINAE = std::enable_if_t<std::is_fundamental<T>::value>>
+  template <typename T>
+    requires fundamental<T>
   void RemoveVariable(T &variable);
 
  private:
@@ -76,13 +81,13 @@ class SerialPlotter {
 /**
  * @brief   更新绘图器数据
  */
-void irobot_ec::modules::SerialPlotter::Update() {
+inline void SerialPlotter::Update() {
   if (this->variable_list_.empty()) {
     return;
   }
 
   this->buffer_.clear();
-  this->ostringstream_.str("");
+  this->ostringstream_.str("s:");
 
   for (const auto &var : this->variable_list_) {
     std::visit([this](auto &&arg) { this->ostringstream_ << std::fixed << std::setprecision(8) << *arg; }, var);
@@ -99,19 +104,20 @@ void irobot_ec::modules::SerialPlotter::Update() {
  * @brief   获取缓冲区
  * @return  缓冲区引用
  */
-const std::string &SerialPlotter::buffer() const { return this->buffer_; }
+const inline std::string &SerialPlotter::buffer() const { return this->buffer_; }
 
 /**
  * @brief   向绘图器注册一个变量
  * @tparam  T           变量类型
  * @param   variable    变量引用
  */
-template <typename T, typename SFINAE>
+template <typename T>
+  requires fundamental<T>
 void SerialPlotter::AddVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
-    std::visit([&this_var](auto &&arg) { this_var = (void *)arg; }, var);
-    if ((void *)(&variable) == this_var) {
+    std::visit([&this_var](auto &&arg) { this_var = reinterpret_cast<void *>(arg); }, var);
+    if (reinterpret_cast<void *>(&variable) == this_var) {
       // 如果变量已经添加过，就不添加，直接返回
       return;
     }
@@ -125,12 +131,13 @@ void SerialPlotter::AddVariable(T &variable) {
  * @tparam  T           变量类型
  * @param   variable    变量引用
  */
-template <typename T, typename SFINAE>
+template <typename T>
+  requires fundamental<T>
 void SerialPlotter::RemoveVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
-    std::visit([&this_var](auto &&arg) { this_var = (void *)arg; }, var);
-    if ((void *)(&variable) == this_var) {
+    std::visit([&this_var](auto &&arg) { this_var = reinterpret_cast<void *>(arg); }, var);
+    if (reinterpret_cast<void *>(&variable)(&variable) == this_var) {
       this->variable_list_.remove(var);
       return;
     }
