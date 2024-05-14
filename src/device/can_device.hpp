@@ -49,7 +49,7 @@ class CanDeviceBase {
   CanDeviceBase(const CanDeviceBase &) = delete;
   CanDeviceBase &operator=(const CanDeviceBase &) = delete;
 
-  virtual void RxCallback(const hal::CanRxMsg *msg) = 0;
+  virtual void RxCallback(const hal::CanMsg *msg) = 0;
 
  protected:
   hal::CanBase *can_;

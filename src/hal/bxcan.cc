@@ -62,12 +62,7 @@ namespace irobot_ec::hal {
 /**
  * @param hcan HAL库的CAN_HandleTypeDef
  */
-BxCan::BxCan(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {
-  HAL_CAN_RegisterCallback(this->hcan_, HAL_CAN_RX_FIFO0_MSG_PENDING_CB_ID,
-                           StdFunctionToCallbackFunctionPtr(std::bind(&BxCan::Fifo0MsgPendingCallback, this)));
-  this->SetFilter(0, 0);
-  this->Begin();
-}
+BxCan::BxCan(CAN_HandleTypeDef &hcan) : hcan_(&hcan) {}
 
 /**
  * @brief 设置过滤器
@@ -98,21 +93,64 @@ void BxCan::SetFilter(u16 id, u16 mask) {
 }
 
 /**
- * @brief 向总线上发送数据
- * @param id    数据帧ID
+ * @brief 立刻向总线上发送数据
+ * @param id    标准帧ID
  * @param data  数据指针
  * @param size  数据长度
  */
 void BxCan::Write(u16 id, const u8 *data, usize size) {
-  static CAN_TxHeaderTypeDef tx_header;
-  tx_header.StdId = id;
-  tx_header.ExtId = 0;
-  tx_header.IDE = CAN_ID_STD;
-  tx_header.RTR = CAN_RTR_DATA;
-  tx_header.DLC = size;
-  if (HAL_CAN_AddTxMessage(this->hcan_, &tx_header, const_cast<u8 *>(data), &this->tx_mailbox_) != HAL_OK) {
+  if (size > 8) {
+    ThrowException(Exception::kValueError);  // 数据长度超过8
+  }
+  this->hal_tx_header_.StdId = id;
+  this->hal_tx_header_.DLC = size;
+  if (HAL_CAN_AddTxMessage(this->hcan_, &this->hal_tx_header_, const_cast<u8 *>(data), &this->tx_mailbox_) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_AddTxMessage error
   }
+}
+
+/**
+ * @brief 从消息队列里取出一条消息发送
+ */
+void BxCan::Write() {
+  // 按优先级从高到低遍历所有消息队列
+  for (auto &queue : this->tx_queue_) {
+    if (queue.second.empty()) {
+      continue;  // 如果是空的就换下一个
+    }
+    // 从队首取出一条消息发送
+    this->Write(queue.second.front()->rx_std_id, queue.second.front()->data.data(), queue.second.front()->dlc);
+    queue.second.pop_front();
+    // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
+    if (queue.second.size() >= kQueueMaxSize) {
+      queue.second.clear();
+    }
+    break;
+  }
+}
+
+/**
+ * @brief 向消息队列里加入一条消息
+ * @param id        数据帧ID
+ * @param data      数据指针
+ * @param size      数据长度
+ * @param priority  消息的优先级
+ */
+void BxCan::Enqueue(u16 id, const u8 *data, usize size, CanTxPriority priority) {
+  if (size > 8) {
+    ThrowException(Exception::kValueError);  // 数据长度超过8
+  }
+  // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
+  if (this->tx_queue_[priority].size() >= kQueueMaxSize) {
+    this->tx_queue_[priority].clear();
+  }
+  auto msg = std::make_shared<CanMsg>(CanMsg{
+      .rx_std_id = id,
+      .dlc = size,
+  });
+  std::copy_n(data, size, msg->data.begin());
+
+  this->tx_queue_[priority].push_back(msg);
 }
 
 /**
@@ -125,6 +163,8 @@ void BxCan::Begin() {
   if (HAL_CAN_ActivateNotification(this->hcan_, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK) {
     ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
   }
+  HAL_CAN_RegisterCallback(this->hcan_, HAL_CAN_RX_FIFO0_MSG_PENDING_CB_ID,
+                           StdFunctionToCallbackFunctionPtr(std::bind(&BxCan::Fifo0MsgPendingCallback, this)));
 }
 
 /**
@@ -137,18 +177,18 @@ void BxCan::Stop() {
 }
 
 /**
- * @brief FIFO0消息挂起回调函数
- * @note  这个函数会被HAL库调用
+ * @brief 利用Register callbacks机制，用这个函数替代HAL_CAN_RxFifo0MsgPendingCallback
+ * @note  这个函数替代了HAL_CAN_RxFifo0MsgPendingCallback，HAL库会调用这个函数，不要手动调用
  */
 void BxCan::Fifo0MsgPendingCallback() {
   static CAN_RxHeaderTypeDef rx_header;
-  HAL_CAN_GetRxMessage(this->hcan_, CAN_RX_FIFO0, &rx_header, this->rx_msg_buffer_.data);
-  if (this->device_list_.find(rx_header.StdId) == this->device_list_.end()) {
+  HAL_CAN_GetRxMessage(this->hcan_, CAN_RX_FIFO0, &rx_header, this->rx_buffer_.data.data());
+  if (this->device_list_.contains(rx_header.StdId)) {
     return;
   }
-  this->rx_msg_buffer_.rx_std_id = rx_header.StdId;
-  this->rx_msg_buffer_.dlc = rx_header.DLC;
-  this->device_list_[rx_header.StdId]->RxCallback(&this->rx_msg_buffer_);
+  this->rx_buffer_.rx_std_id = rx_header.StdId;
+  this->rx_buffer_.dlc = rx_header.DLC;
+  this->device_list_[rx_header.StdId]->RxCallback(&this->rx_buffer_);
 }
 
 /**
@@ -157,7 +197,7 @@ void BxCan::Fifo0MsgPendingCallback() {
  * @param rx_stdid  设备想要接收的的rx消息标准帧id
  */
 void BxCan::RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) {
-  if (this->device_list_.find(rx_stdid) != this->device_list_.end()) {
+  if (this->device_list_.contains(rx_stdid)) {
     ThrowException(Exception::kValueError);
   }
   this->device_list_[rx_stdid] = &device;

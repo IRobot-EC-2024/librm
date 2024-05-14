@@ -93,7 +93,8 @@ struct DjiMotorProperties<DjiMotorType::M2006> {
 };
 
 /**
- * @brief 大疆电机(GM6020, M3508, M2006)
+ * @brief  大疆电机(GM6020, M3508, M2006)
+ * @tparam motor_type 电机类型(GM6020, M3508, M2006)
  */
 template <DjiMotorType motor_type = DjiMotorType::Default>
 class DjiMotor final : public CanDeviceBase {
@@ -120,7 +121,7 @@ class DjiMotor final : public CanDeviceBase {
   /*************/
 
  private:
-  void RxCallback(const hal::CanRxMsg *msg) override;
+  void RxCallback(const hal::CanMsg *msg) override;
 
   u16 id_{};         // 电机ID
   bool reversed_{};  // 是否反转
@@ -139,11 +140,12 @@ using M2006 = DjiMotor<DjiMotorType::M2006>;
 /**
  * @tparam motor_type 电机类型(GM6020, M3508, M2006)
  * @param  can        指向CAN总线对象的指针
- * @param  id
+ * @param  id         电机ID
+ * @param  reversed   是否反转
  */
 template <DjiMotorType motor_type>
 DjiMotor<motor_type>::DjiMotor(hal::CanBase &can, u16 id, bool reversed)
-    : CanDeviceBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id) {
+    : CanDeviceBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id), reversed_(reversed) {
   // 如果这个电机对象所在CAN总线的发送缓冲区还未创建，就创建一个
   if (DjiMotorProperties<motor_type>::tx_buf_.find(&can) == DjiMotorProperties<motor_type>::tx_buf_.end()) {
     DjiMotorProperties<motor_type>::tx_buf_.insert({&can, {0}});
@@ -208,7 +210,7 @@ inline void DjiMotor<DjiMotorType::Default>::SendCommand() {
  * @param  msg        收到的消息
  */
 template <DjiMotorType motor_type>
-void DjiMotor<motor_type>::RxCallback(const hal::CanRxMsg *msg) {
+void DjiMotor<motor_type>::RxCallback(const hal::CanMsg *msg) {
   this->encoder_ = (msg->data[0] << 8) | msg->data[1];
   if (this->reversed_) {
     this->encoder_ = kDjiMotorMaxEncoder - this->encoder_;

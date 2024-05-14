@@ -61,6 +61,7 @@ class Uart {
   Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode = UartMode::kNormal,
        UartMode rx_mode = UartMode::kNormal);
 
+  void Begin();
   void Write(const u8 *data, usize size);
   void StartReceive();
   void AttachRxCallback(UartCallbackFunction &callback);

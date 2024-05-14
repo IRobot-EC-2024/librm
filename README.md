@@ -5,7 +5,7 @@
 [![docs](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/irobotec/badge)](https://www.codefactor.io/repository/github/lunarifish/irobotec)
 
-用于统一底层代码和少量通用业务代码的电控库。 项目基于C++17/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
+用于统一底层代码和少量通用业务代码的电控库。 项目基于C++20/C11标准，遵守[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)[[中文](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html)]
 。
 
 **NOTE: 本项目使用GNU ARMGCC工具链开发，用其他工具链编译可能不通过**

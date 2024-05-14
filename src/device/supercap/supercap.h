@@ -64,7 +64,7 @@ class SuperCap final : public CanDeviceBase {
 
   void UpdateChassisBuffer(i16 power_buffer);
   void UpdateSettings(i16 power_limit, i16 output_limit, i16 input_limit, bool power_switch, bool enable_log);
-  void RxCallback(const hal::CanRxMsg *msg) override;
+  void RxCallback(const hal::CanMsg *msg) override;
 
  private:
   u8 tx_buf_[8]{0};

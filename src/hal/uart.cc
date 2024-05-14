@@ -65,17 +65,22 @@ Uart::Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode, Ua
     : huart_(&huart),
       tx_mode_(tx_mode),
       rx_mode_(rx_mode),
-      rx_buf_{std::vector<u8>(rx_buffer_size), std::vector<u8>(rx_buffer_size)} {
+      rx_buf_{std::vector<u8>(rx_buffer_size), std::vector<u8>(rx_buffer_size)} {}
+
+/**
+ * @brief 初始化UART
+ */
+void Uart::Begin() {
+  // 检查dma模式下是否已经配置好DMA
+  if (this->tx_mode_ == UartMode::kDma && this->huart_->hdmatx == nullptr) {
+    ThrowException(Exception::kHALError);
+  }
+  if (this->rx_mode_ == UartMode::kDma && this->huart_->hdmarx == nullptr) {
+    ThrowException(Exception::kHALError);
+  }
   // 注册接收完成回调函数
   HAL_UART_RegisterRxEventCallback(
-      &huart, StdFunctionToCallbackFunctionPtr(std::bind(&Uart::HalRxCpltCallback, this, std::placeholders::_1)));
-  // 检查dma模式下是否已经配置好DMA
-  if (tx_mode == UartMode::kDma && this->huart_->hdmatx == nullptr) {
-    ThrowException(Exception::kHALError);
-  }
-  if (rx_mode == UartMode::kDma && this->huart_->hdmarx == nullptr) {
-    ThrowException(Exception::kHALError);
-  }
+      this->huart_, StdFunctionToCallbackFunctionPtr(std::bind(&Uart::HalRxCpltCallback, this, std::placeholders::_1)));
 }
 
 /**
