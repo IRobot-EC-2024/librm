@@ -137,7 +137,7 @@ void SerialPlotter::RemoveVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
     std::visit([&this_var](auto &&arg) { this_var = reinterpret_cast<void *>(arg); }, var);
-    if (reinterpret_cast<void *>(&variable)(&variable) == this_var) {
+    if (reinterpret_cast<void *>(&variable) == this_var) {
       this->variable_list_.remove(var);
       return;
     }
