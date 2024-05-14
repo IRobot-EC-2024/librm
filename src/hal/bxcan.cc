@@ -122,7 +122,7 @@ void BxCan::Write() {
     this->Write(queue.second.front()->rx_std_id, queue.second.front()->data.data(), queue.second.front()->dlc);
     queue.second.pop_front();
     // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
-    if (queue.second.size() >= kQueueMaxSize) {
+    if (queue.second.size() > kQueueMaxSize) {
       queue.second.clear();
     }
     break;
@@ -141,7 +141,7 @@ void BxCan::Enqueue(u16 id, const u8 *data, usize size, CanTxPriority priority) 
     ThrowException(Exception::kValueError);  // 数据长度超过8
   }
   // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
-  if (this->tx_queue_[priority].size() >= kQueueMaxSize) {
+  if (this->tx_queue_[priority].size() > kQueueMaxSize) {
     this->tx_queue_[priority].clear();
   }
   auto msg = std::make_shared<CanMsg>(CanMsg{
