@@ -15,4 +15,4 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/nanopb)
 
 # pack up all third party libraries to a single target
 add_library(third_party INTERFACE)
-target_link_libraries(third_party INTERFACE crc tinyfsm tweeny)
+target_link_libraries(third_party INTERFACE crc tinyfsm tweeny nanopb)
