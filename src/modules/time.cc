@@ -50,7 +50,7 @@ void SleepUs(u32 us) {
   u32 t_cnt = 0;
   u32 reload = 0;
   reload = SysTick->LOAD;
-  ticks = us * HAL_RCC_GetSysClockFreq();
+  ticks = us * HAL_RCC_GetHCLKFreq() / 1000000;
   t_old = SysTick->VAL;
   while (true) {
     t_now = SysTick->VAL;
