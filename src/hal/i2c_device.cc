@@ -31,8 +31,6 @@
 
 #include "i2c_device.h"
 
-#include "modules/typedefs.h"
-
 namespace irobot_ec::hal {
 
 /**
