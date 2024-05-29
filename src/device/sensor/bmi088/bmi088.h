@@ -32,8 +32,8 @@
 #include "hal/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED)
 
+#include "core/typedefs.h"
 #include "hal/spi_device.h"
-#include "modules/typedefs.h"
 
 namespace irobot_ec::device {
 

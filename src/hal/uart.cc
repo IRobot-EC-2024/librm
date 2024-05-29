@@ -35,10 +35,7 @@
 
 #include "uart.h"
 
-#include "modules/exception.h"
-
-using irobot_ec::modules::exception::Exception;
-using irobot_ec::modules::exception::ThrowException;
+#include "core/exception.h"
 
 /**
  * @brief  把std::function转换为函数指针
@@ -55,6 +52,9 @@ static pUART_RxEventCallbackTypeDef StdFunctionToCallbackFunctionPtr(std::functi
 }
 
 namespace irobot_ec::hal {
+
+using core::exception::Exception;
+using core::exception::ThrowException;
 
 /**
  * @param huart            HAL库的UART句柄

@@ -59,6 +59,8 @@ doxygen ./Doxyfile
 
 未打钩的复选框表示还在开发中。
 
+- `core/`: 支撑库运行的核心功能
+
 - `examples/`：例程
 
 - `libs/`：第三方库

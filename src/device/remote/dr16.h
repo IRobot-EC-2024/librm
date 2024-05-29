@@ -34,7 +34,7 @@
 #include <vector>
 #include <functional>
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 #include "hal/uart.h"
 
 namespace irobot_ec::device {

@@ -21,33 +21,20 @@
 */
 
 /**
- * @file  modules/typedefs.h
- * @brief 工程内全局数据类型定义
+ * @file  core/time.h
+ * @brief 时间模块
  */
 
-#ifndef IROBOTEC_MODULES_TYPEDEFS_H
-#define IROBOTEC_MODULES_TYPEDEFS_H
+#ifndef IROBOTEC_CORE_TIME_H
+#define IROBOTEC_CORE_TIME_H
 
-#ifdef __cplusplus
-#include <cstdint>
-#include <cctype>
-#else
-#include <stdint.h>
-#include <ctype.h>
-#endif
+#include "core/typedefs.h"
 
-typedef uint8_t u8;
-typedef uint16_t u16;
-typedef uint32_t u32;
-typedef uint64_t u64;
-typedef int8_t i8;
-typedef int16_t i16;
-typedef int32_t i32;
-typedef int64_t i64;
-typedef size_t usize;
-typedef float f32;
-typedef double f64;
+namespace irobot_ec::core::time {
 
-#endif  // IROBOTEC_MODULES_TYPEDEFS_H
+void SleepMs(u32 ms);
+void SleepUs(u32 us);
 
-/* EOF */
+}  // namespace irobot_ec::modules::time
+
+#endif  // IROBOTEC_CORE_TIME_H

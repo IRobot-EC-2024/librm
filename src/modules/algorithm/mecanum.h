@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H
 #define IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 namespace irobot_ec::modules::algorithm {
 

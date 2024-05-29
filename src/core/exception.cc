@@ -21,20 +21,18 @@
 */
 
 /**
- * @file  modules/time.h
- * @brief 时间模块
+ * @file  core/exception.cc
+ * @brief 异常处理
  */
 
-#ifndef IROBOTEC_TIME_H
-#define IROBOTEC_TIME_H
+#include "exception.h"
 
-#include "modules/typedefs.h"
-
-namespace irobot_ec::modules::time {
-
-void SleepMs(u32 ms);
-void SleepUs(u32 us);
-
-}  // namespace irobot_ec::modules::time
-
-#endif  // IROBOTEC_TIME_H
+namespace irobot_ec::core::exception {
+/**
+ * @brief 抛出异常
+ * @param e 异常类型
+ */
+__attribute__((weak)) void ThrowException(Exception e) {
+  // 在这里处理异常
+}
+}  // namespace irobot_ec::modules::exception

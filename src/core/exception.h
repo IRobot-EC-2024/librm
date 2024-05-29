@@ -21,26 +21,29 @@
 */
 
 /**
- * @file    device/sensor/ist8310/ist8310_const.hpp
- * @brief   IST8310有关常量
+ * @file  core/exception.h
+ * @brief 异常处理
  */
 
-#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
-#define IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
+#ifndef IROBOTEC_CORE_EXCEPTIONS_H
+#define IROBOTEC_CORE_EXCEPTIONS_H
 
-#include "core/typedefs.h"
+namespace irobot_ec::core::exception {
 
-constexpr u8 IST8310_I2C_ADDRESS = 0x0E;
-constexpr u8 IST8310_WHO_AM_I = 0x00;        // ist8310 "who am I"
-constexpr u8 IST8310_WHO_AM_I_VALUE = 0x10;  // device ID
+/**
+ * @brief 异常类型
+ */
+enum class Exception {
+  kException,
 
-constexpr u8 IST8310_COMM_WAIT_TIME_US = 150;
-constexpr u8 IST8310_COMM_WAIT_TIME_MS = 50;
+  kTypeError,
+  kKeyError,
+  kHALError,
+  kValueError,
+};
 
-constexpr u8 IST8310_DATA_READY_BIT = 2;
+void ThrowException(Exception e);
 
-constexpr u8 IST8310_DATA_OUT_X_L = 0x03;
+}  // namespace irobot_ec::modules::exception
 
-constexpr f32 IST8310_SENSITIVITY = 0.3f;  // 原始数据到单位ut的换算系数
-
-#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
+#endif

@@ -21,18 +21,31 @@
 */
 
 /**
- * @file  modules/exception.cc
- * @brief 异常处理
+ * @file  core/typedefs.h
+ * @brief 全局数据类型定义
  */
 
-#include "exception.h"
+#ifndef IROBOTEC_CORE_TYPEDEFS_H
+#define IROBOTEC_CORE_TYPEDEFS_H
 
-namespace irobot_ec::modules::exception {
-/**
- * @brief 抛出异常
- * @param e 异常类型
- */
-__attribute__((weak)) void ThrowException(Exception e) {
-  // 在这里处理异常
-}
-}  // namespace irobot_ec::modules::exception
+#ifdef __cplusplus
+#include <cstdint>
+#include <cctype>
+#else
+#include <stdint.h>
+#include <ctype.h>
+#endif
+
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
+typedef int8_t i8;
+typedef int16_t i16;
+typedef int32_t i32;
+typedef int64_t i64;
+typedef size_t usize;
+typedef float f32;
+typedef double f64;
+
+#endif  // IROBOTEC_CORE_TYPEDEFS_H

@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_HAL_CAN_INTERFACE_H
 #define IROBOTEC_HAL_CAN_INTERFACE_H
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 #include <array>
 

@@ -33,7 +33,7 @@
 // 如果dsp库可用，就启用dsp库里的pid控制器支持
 #include "modules/dsp.h"
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 namespace irobot_ec::modules::algorithm {
 

@@ -21,51 +21,39 @@
 */
 
 /**
- * @file  modules/time.cc
- * @brief 时间模块
+ * @file  irobotec.hpp
+ * @brief irobotEC库的主头文件
  */
 
-#include "modules/time.h"
-#include "modules/freertos.h"
+#ifndef IROBOTEC_H
+#define IROBOTEC_H
+
+/******** CORE ********/
+#include "core/typedefs.h"
+#include "core/exception.h"
+#include "core/time.h"
+/****************/
+
+/******** HAL WRAPPER ********/
 #include "hal/hal.h"
+#include "hal/can.h"
+#include "hal/uart.h"
+#include "hal/i2c_device.h"
+#include "hal/spi_device.h"
+/****************/
 
-namespace irobot_ec::modules::time {
+/******** DEVICE ********/
+#include "device/device.h"
+#include "device/can_device.hpp"
+#include "device/actuator/dji_motor.hpp"
+#include "device/actuator/unitree_motor.h"
+#include "device/remote/dr16.h"
+#include "device/sensor/bmi088/bmi088.h"
+#include "device/sensor/ist8310/ist8310.h"
+#include "device/supercap/supercap.h"
+/****************/
 
-void SleepMs(u32 ms) {
-#ifdef EC_LIB_USE_FREERTOS
-  if (__get_IPSR()) {  // 检测当前是否在中断里，如果在中断里则调用HAL_Delay，否则调用osDelay
-    HAL_Delay(ms);
-  } else {
-    osDelay(ms);
-  }
-#else
-  HAL_Delay(ms);
-#endif
-}
+/******** MISC MODULES ********/
+/****************/
 
-void SleepUs(u32 us) {
-  u32 ticks = 0;
-  u32 t_old = 0;
-  u32 t_now = 0;
-  u32 t_cnt = 0;
-  u32 reload = 0;
-  reload = SysTick->LOAD;
-  ticks = us * HAL_RCC_GetHCLKFreq() / 1000000;
-  t_old = SysTick->VAL;
-  while (true) {
-    t_now = SysTick->VAL;
-    if (t_now != t_old) {
-      if (t_now < t_old) {
-        t_cnt += t_old - t_now;
-      } else {
-        t_cnt += reload - t_now + t_old;
-      }
-      t_old = t_now;
-      if (t_cnt >= ticks) {
-        break;
-      }
-    }
-  }
-}
-
-}  // namespace irobot_ec::modules::time
+#endif  // IROBOTEC_H

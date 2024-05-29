@@ -32,7 +32,7 @@
 #include "hal/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 namespace irobot_ec::device {
 

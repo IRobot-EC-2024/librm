@@ -56,7 +56,7 @@
 #include <unordered_map>
 #include <cmath>
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 #include "modules/algorithm/utils.hpp"
 #include "hal/can.h"
 

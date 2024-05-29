@@ -38,10 +38,7 @@
 #include <functional>
 
 #include "device/can_device.hpp"
-#include "modules/exception.h"
-
-using irobot_ec::modules::exception::Exception;
-using irobot_ec::modules::exception::ThrowException;
+#include "core/exception.h"
 
 /**
  * @brief  把std::function转换为函数指针
@@ -58,6 +55,9 @@ static pCAN_CallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void(
 }
 
 namespace irobot_ec::hal {
+
+using core::exception::Exception;
+using core::exception::ThrowException;
 
 /**
  * @param hcan HAL库的CAN_HandleTypeDef

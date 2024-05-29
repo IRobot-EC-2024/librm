@@ -32,7 +32,7 @@
 #include "hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 namespace irobot_ec::hal {
 

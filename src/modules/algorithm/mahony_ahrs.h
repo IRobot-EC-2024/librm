@@ -31,7 +31,7 @@
 
 #include <array>
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 namespace irobot_ec::modules::algorithm {
 

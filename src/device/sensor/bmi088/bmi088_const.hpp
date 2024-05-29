@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
 #define IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
 
-#include "modules/typedefs.h"
+#include "core/typedefs.h"
 
 constexpr f32 BMI088_TEMP_FACTOR = 0.125f;
 constexpr f32 BMI088_TEMP_OFFSET = 23.0f;

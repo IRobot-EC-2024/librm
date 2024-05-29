@@ -32,7 +32,7 @@
 
 #include <vector>
 
-#include "modules/time.h"
+#include "core/time.h"
 
 namespace irobot_ec::device {
 #include "ist8310_const.hpp"

@@ -31,8 +31,8 @@
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
+#include "core/typedefs.h"
 #include "hal/can.h"
-#include "modules/typedefs.h"
 
 namespace irobot_ec::device {
 
