@@ -21,7 +21,7 @@
 */
 
 /**
- * @file  modules/algorithm/mecanum/mecanum.cc
+ * @file  modules/algorithm/mecanum.cc
  * @brief 麦轮正运动学解算
  */
 

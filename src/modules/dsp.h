@@ -26,8 +26,8 @@
  * @note      docs: https://arm-software.github.io/CMSIS-DSP/latest/index.html
  */
 
-#ifndef EC_LIB_HAL_WRAPPER_DSP_H
-#define EC_LIB_HAL_WRAPPER_DSP_H
+#ifndef IROBOTEC_HAL_WRAPPER_DSP_H
+#define IROBOTEC_HAL_WRAPPER_DSP_H
 
 #if defined(__GNUC__) || defined(__clang__)  // GCC or Clang
 #if __has_include("arm_math.h")              // C++17 or above
@@ -40,4 +40,4 @@
 #error "Unsupported compiler, please use GCC or Clang."
 #endif
 
-#endif  // EC_LIB_HAL_WRAPPER_DSP_H
+#endif  // IROBOTEC_HAL_WRAPPER_DSP_H

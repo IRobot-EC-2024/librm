@@ -25,8 +25,8 @@
  * @brief 超级电容
  */
 
-#ifndef EC_LIB_COMPONENTS_SUPERCAP_SUPERCAP_H
-#define EC_LIB_COMPONENTS_SUPERCAP_SUPERCAP_H
+#ifndef IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H
+#define IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H
 
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
@@ -78,4 +78,4 @@ class SuperCap final : public CanDeviceBase {
 
 #endif
 
-#endif  // EC_LIB_COMPONENTS_SUPERCAP_SUPERCAP_H
+#endif  // IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H

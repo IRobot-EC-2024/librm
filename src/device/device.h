@@ -26,8 +26,8 @@
  * @todo  考虑到判断设备在线需要一个参照时间，所以需要先做一个时间模块提供全局时间参照
  */
 
-#ifndef EC_LIB_DEVICE_DEVICE_H
-#define EC_LIB_DEVICE_DEVICE_H
+#ifndef IROBOTEC_DEVICE_DEVICE_H
+#define IROBOTEC_DEVICE_DEVICE_H
 
 #include <list>
 
@@ -89,4 +89,4 @@ class DeviceManager final {
 
 }  // namespace irobot_ec::device
 
-#endif  // EC_LIB_DEVICE_DEVICE_H
+#endif  // IROBOTEC_DEVICE_DEVICE_H

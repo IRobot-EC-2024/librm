@@ -21,13 +21,13 @@
 */
 
 /**
- * @file  modules/algorithm/mahony/mahony_ahrs.h
+ * @file  modules/algorithm/mahony_ahrs.h
  * @brief Mahony姿态解算算法
  * @todo  利用DSP库加速运算
  */
 
-#ifndef EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
-#define EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
+#ifndef IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H
+#define IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H
 
 #include <array>
 
@@ -68,4 +68,4 @@ class MahonyAhrs {
 
 }  // namespace irobot_ec::modules::algorithm
 
-#endif  // EC_LIB_MODULES_ALGORITHM_MAHONY_AHRS_H
+#endif  // IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H

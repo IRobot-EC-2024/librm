@@ -25,15 +25,10 @@
  * @brief UART类库
  */
 
-#ifndef EC_LIB_BSP_COMMON_BSP_UART_H
-#define EC_LIB_BSP_COMMON_BSP_UART_H
+#ifndef IROBOTEC_HAL_UART_H
+#define IROBOTEC_HAL_UART_H
 
 #include "hal.h"
-#if defined(USE_HAL_UART_REGISTER_CALLBACKS)
-#if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)
-#error "UART register callback must be enabled!"
-#endif
-#endif
 #if defined(HAL_UART_MODULE_ENABLED)
 
 #include <vector>
@@ -81,4 +76,4 @@ class Uart {
 }  // namespace irobot_ec::hal
 
 #endif
-#endif  // EC_LIB_BSP_COMMON_BSP_UART_H
+#endif  // IROBOTEC_HAL_UART_H

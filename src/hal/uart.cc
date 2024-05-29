@@ -26,12 +26,12 @@
  */
 
 #include "hal/hal.h"
+#if defined(HAL_UART_MODULE_ENABLED)
 #if defined(USE_HAL_UART_REGISTER_CALLBACKS)
 #if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)
 #error "UART register callback must be enabled!"  // 必须启用UART的Register callback
 #endif
 #endif
-#if defined(HAL_UART_MODULE_ENABLED)
 
 #include "uart.h"
 

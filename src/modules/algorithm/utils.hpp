@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  modules/algorithm/utils/utils.hpp
+ * @file  modules/algorithm/utils.hpp
  * @brief 通用工具函数
  */
 
-#ifndef EC_LIB_MODULES_ALGORITHM_UTILS_UTILS_HPP
-#define EC_LIB_MODULES_ALGORITHM_UTILS_UTILS_HPP
+#ifndef IROBOTEC_MODULES_ALGORITHM_UTILS_UTILS_HPP
+#define IROBOTEC_MODULES_ALGORITHM_UTILS_UTILS_HPP
 
 #include <cmath>
 
@@ -124,4 +124,4 @@ f32 Map(f32 value, f32 from_min, f32 from_max, f32 to_min, f32 to_max);
 
 }  // namespace irobot_ec::modules::algorithm::utils
 
-#endif  // EC_LIB_MODULES_ALGORITHM_UTILS_UTILS_HPP
+#endif  // IROBOTEC_MODULES_ALGORITHM_UTILS_UTILS_HPP

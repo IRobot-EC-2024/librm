@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  modules/exception/exception.cc
+ * @file  modules/exception.h
  * @brief 异常处理
  */
 
-#ifndef EC_LIB_MODULES_EXCEPTIONS_H
-#define EC_LIB_MODULES_EXCEPTIONS_H
+#ifndef IROBOTEC_MODULES_EXCEPTIONS_H
+#define IROBOTEC_MODULES_EXCEPTIONS_H
 
 namespace irobot_ec::modules::exception {
 

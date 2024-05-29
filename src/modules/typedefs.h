@@ -25,8 +25,8 @@
  * @brief 工程内全局数据类型定义
  */
 
-#ifndef EC_LIB_MODULES_TYPEDEFS_H
-#define EC_LIB_MODULES_TYPEDEFS_H
+#ifndef IROBOTEC_MODULES_TYPEDEFS_H
+#define IROBOTEC_MODULES_TYPEDEFS_H
 
 #ifdef __cplusplus
 #include <cstdint>
@@ -48,6 +48,6 @@ typedef size_t usize;
 typedef float f32;
 typedef double f64;
 
-#endif  // EC_LIB_MODULES_TYPEDEFS_H
+#endif  // IROBOTEC_MODULES_TYPEDEFS_H
 
 /* EOF */

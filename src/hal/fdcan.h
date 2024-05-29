@@ -26,8 +26,8 @@
  * @todo  未完成
  */
 
-#ifndef EC_LIB_HAL_FDCAN_H
-#define EC_LIB_HAL_FDCAN_H
+#ifndef IROBOTEC_HAL_FDCAN_H
+#define IROBOTEC_HAL_FDCAN_H
 
 #include "hal.h"
 #if defined(HAL_FDCAN_MODULE_ENABLED)
@@ -43,4 +43,4 @@ class FdCan : public CanBase {};
 
 #endif
 
-#endif  // EC_LIB_HAL_FDCAN_H
+#endif  // IROBOTEC_HAL_FDCAN_H

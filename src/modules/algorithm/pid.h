@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  modules/algorithm/pid/pid.h
+ * @file  modules/algorithm/pid.h
  * @brief PID控制器
  */
 
-#ifndef EC_LIB_MODULES_ALGORITHM_PID_H
-#define EC_LIB_MODULES_ALGORITHM_PID_H
+#ifndef IROBOTEC_MODULES_ALGORITHM_PID_H
+#define IROBOTEC_MODULES_ALGORITHM_PID_H
 
 #include <memory>
 
@@ -109,6 +109,6 @@ class RingPID : public PID {
 
 }  // namespace irobot_ec::modules::algorithm
 
-#endif  // EC_LIB_MODULES_ALGORITHM_PID_H
+#endif  // IROBOTEC_MODULES_ALGORITHM_PID_H
 
 /* EOF */

@@ -21,7 +21,7 @@
 */
 
 /**
- * @file  modules/algorithm/pid/pid.cc
+ * @file  modules/algorithm/pid.cc
  * @brief PID控制器
  */
 

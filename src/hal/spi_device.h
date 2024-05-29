@@ -26,8 +26,8 @@
  * @todo  实现不够通用，有改进空间
  */
 
-#ifndef EC_LIB_HAL_WRAPPER_HAL_SPI_H
-#define EC_LIB_HAL_WRAPPER_HAL_SPI_H
+#ifndef IROBOTEC_HAL_SPI_DEVICE_H
+#define IROBOTEC_HAL_SPI_DEVICE_H
 
 #include "hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
@@ -65,4 +65,4 @@ class SpiDevice {
 
 #endif
 
-#endif  // EC_LIB_HAL_WRAPPER_HAL_SPI_H
+#endif  // IROBOTEC_HAL_SPI_DEVICE_H

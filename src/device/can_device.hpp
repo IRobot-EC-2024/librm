@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  device/can_device.h
+ * @file  device/can_device.hpp
  * @brief CAN设备抽象类
  */
 
-#ifndef EC_LIB_HAL_CAN_DEVICE_HPP
-#define EC_LIB_HAL_CAN_DEVICE_HPP
+#ifndef IROBOTEC_CAN_DEVICE_HPP
+#define IROBOTEC_CAN_DEVICE_HPP
 
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED) || defined(HAL_FDCAN_MODULE_ENABLED)
@@ -68,4 +68,4 @@ CanDeviceBase::CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids) : can_(&ca
 
 #endif
 
-#endif  // EC_LIB_HAL_CAN_DEVICE_HPP
+#endif  // IROBOTEC_CAN_DEVICE_HPP

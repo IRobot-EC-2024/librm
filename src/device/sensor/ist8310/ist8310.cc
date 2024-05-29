@@ -21,7 +21,7 @@
 */
 
 /**
- * @file    device/sensor/ist8310.cc
+ * @file    device/sensor/ist8310/ist8310.cc
  * @brief   IST8310磁力计类
  */
 

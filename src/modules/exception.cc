@@ -21,7 +21,7 @@
 */
 
 /**
- * @file  modules/exception/exception.cc
+ * @file  modules/exception.cc
  * @brief 异常处理
  */
 

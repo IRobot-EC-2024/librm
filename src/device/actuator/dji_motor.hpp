@@ -46,8 +46,8 @@
  * @note https://www.robomaster.com/zh-CN/products/components/general/M2006
  */
 
-#ifndef EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_HPP
-#define EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_HPP
+#ifndef IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP
+#define IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP
 
 #include "hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
@@ -224,4 +224,4 @@ void DjiMotor<motor_type>::RxCallback(const hal::CanMsg *msg) {
 
 #endif
 
-#endif  // EC_LIB_COMPONENTS_MOTOR_DJI_MOTOR_HPP
+#endif  // IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP

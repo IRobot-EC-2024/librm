@@ -21,7 +21,7 @@
 */
 
 /**
- * @file  modules/algorithm/utils/utils.cc
+ * @file  modules/algorithm/utils.cc
  * @brief 通用工具函数
  */
 

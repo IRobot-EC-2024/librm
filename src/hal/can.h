@@ -25,8 +25,8 @@
  * @brief 根据HAL库的宏定义决定Can是bxCAN还是fdCAN，并且在can_interface.h里提供一个接口类CanBase实现多态
  */
 
-#ifndef EC_LIB_HAL_CAN_H
-#define EC_LIB_HAL_CAN_H
+#ifndef IROBOTEC_HAL_CAN_H
+#define IROBOTEC_HAL_CAN_H
 
 #include "bxcan.h"
 #include "fdcan.h"
@@ -39,4 +39,4 @@ using Can = FdCan;  // TODO: 实现FdCan类
 #endif
 }  // namespace irobot_ec::hal
 
-#endif  // EC_LIB_HAL_CAN_H
+#endif  // IROBOTEC_HAL_CAN_H

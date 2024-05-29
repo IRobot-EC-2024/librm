@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  modules/algorithm/mecanum/mecanum.h
+ * @file  modules/algorithm/mecanum.h
  * @brief 麦轮正运动学解算
  */
 
-#ifndef EC_LIB_MODULES_ALGORITHM_MECANUM_MECANUM_H
-#define EC_LIB_MODULES_ALGORITHM_MECANUM_MECANUM_H
+#ifndef IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H
+#define IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H
 
 #include "modules/typedefs.h"
 
@@ -59,4 +59,4 @@ class Mecanum {
 
 }  // namespace irobot_ec::modules::algorithm
 
-#endif  // EC_LIB_MODULES_ALGORITHM_MECANUM_MECANUM_H
+#endif  // IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H

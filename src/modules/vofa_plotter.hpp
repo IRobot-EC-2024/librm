@@ -25,8 +25,8 @@
  * @brief 绘图器，用于将变量的值格式化后发给上位机绘图，格式适配vofa的FireWater协议
  */
 
-#ifndef EC_LIB_MODULES_VOFA_PLOTTER_HPP
-#define EC_LIB_MODULES_VOFA_PLOTTER_HPP
+#ifndef IROBOTEC_MODULES_VOFA_PLOTTER_HPP
+#define IROBOTEC_MODULES_VOFA_PLOTTER_HPP
 
 #include <iomanip>
 #include <list>
@@ -143,4 +143,4 @@ void VofaPlotter::RemoveVariable(T &variable) {
 
 }  // namespace irobot_ec::modules
 
-#endif  // EC_LIB_MODULES_VOFA_PLOTTER_HPP
+#endif  // IROBOTEC_MODULES_VOFA_PLOTTER_HPP

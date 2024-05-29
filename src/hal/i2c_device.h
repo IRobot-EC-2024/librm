@@ -26,8 +26,8 @@
  * @todo  实现不够通用，有改进空间
  */
 
-#ifndef EC_LIB_HAL_WRAPPER_I2C_DEVICE_H
-#define EC_LIB_HAL_WRAPPER_I2C_DEVICE_H
+#ifndef IROBOTEC_I2C_DEVICE_H
+#define IROBOTEC_I2C_DEVICE_H
 
 #include "hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
@@ -60,4 +60,4 @@ class I2cDevice {
 
 #endif
 
-#endif  // EC_LIB_HAL_WRAPPER_I2C_DEVICE_H
+#endif  // IROBOTEC_I2C_DEVICE_H

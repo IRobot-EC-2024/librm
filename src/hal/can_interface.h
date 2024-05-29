@@ -25,8 +25,8 @@
  * @brief   bxCAN和fdCAN的接口类
  */
 
-#ifndef EC_LIB_HAL_CAN_INTERFACE_H
-#define EC_LIB_HAL_CAN_INTERFACE_H
+#ifndef IROBOTEC_HAL_CAN_INTERFACE_H
+#define IROBOTEC_HAL_CAN_INTERFACE_H
 
 #include "modules/typedefs.h"
 
@@ -109,4 +109,4 @@ class CanBase {
 
 }  // namespace irobot_ec::hal
 
-#endif  // EC_LIB_HAL_CAN_INTERFACE_H
+#endif  // IROBOTEC_HAL_CAN_INTERFACE_H

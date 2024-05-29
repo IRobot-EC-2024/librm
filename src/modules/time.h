@@ -25,8 +25,8 @@
  * @brief 时间模块
  */
 
-#ifndef EC_LIB_TIME_H
-#define EC_LIB_TIME_H
+#ifndef IROBOTEC_TIME_H
+#define IROBOTEC_TIME_H
 
 #include "modules/typedefs.h"
 
@@ -37,4 +37,4 @@ void SleepUs(u32 us);
 
 }  // namespace irobot_ec::modules::time
 
-#endif  // EC_LIB_TIME_H
+#endif  // IROBOTEC_TIME_H

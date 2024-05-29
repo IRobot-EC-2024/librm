@@ -25,8 +25,8 @@
  * @brief DR16接收机
  */
 
-#ifndef EC_LIB_COMPONENTS_DR16_H
-#define EC_LIB_COMPONENTS_DR16_H
+#ifndef IROBOTEC_DEVICE_REMOTE_DR16_H
+#define IROBOTEC_DEVICE_REMOTE_DR16_H
 
 #include "hal/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
@@ -104,4 +104,4 @@ class DR16 {
 
 #endif
 
-#endif  // EC_LIB_COMPONENTS_DR16_H
+#endif  // IROBOTEC_DEVICE_REMOTE_DR16_H
