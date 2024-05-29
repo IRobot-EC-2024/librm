@@ -35,6 +35,6 @@ namespace irobot_ec::core::time {
 void SleepMs(u32 ms);
 void SleepUs(u32 us);
 
-}  // namespace irobot_ec::modules::time
+}  // namespace irobot_ec::core::time
 
 #endif  // IROBOTEC_CORE_TIME_H

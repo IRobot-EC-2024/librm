@@ -35,4 +35,4 @@ namespace irobot_ec::core::exception {
 __attribute__((weak)) void ThrowException(Exception e) {
   // 在这里处理异常
 }
-}  // namespace irobot_ec::modules::exception
+}  // namespace irobot_ec::core::exception

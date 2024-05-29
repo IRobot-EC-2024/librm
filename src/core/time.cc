@@ -68,4 +68,4 @@ void SleepUs(u32 us) {
   }
 }
 
-}  // namespace irobot_ec::modules::time
+}  // namespace irobot_ec::core::time

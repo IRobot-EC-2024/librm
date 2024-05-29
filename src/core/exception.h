@@ -44,6 +44,6 @@ enum class Exception {
 
 void ThrowException(Exception e);
 
-}  // namespace irobot_ec::modules::exception
+}  // namespace irobot_ec::core::exception
 
 #endif
