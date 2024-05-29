@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  modules/serial_plotter.hpp
- * @brief 串口绘图器
+ * @file  modules/vofa_plotter.hpp
+ * @brief 绘图器，用于将变量的值格式化后发给上位机绘图，格式适配vofa的FireWater协议
  */
 
-#ifndef EC_LIB_MODULES_SERIAL_PLOTTER_HPP
-#define EC_LIB_MODULES_SERIAL_PLOTTER_HPP
+#ifndef EC_LIB_MODULES_VOFA_PLOTTER_HPP
+#define EC_LIB_MODULES_VOFA_PLOTTER_HPP
 
 #include <iomanip>
 #include <list>
@@ -40,8 +40,8 @@ namespace irobot_ec::modules {
 using VariableVariant = std::variant<i8 *, i16 *, i32 *, i64 *, u8 *, u16 *, u32 *, u64 *, f32 *, f64 *, bool *>;
 
 /**
- * @brief 串口绘图器
- * @note  用于将一些变量的值格式化后用串口发给上位机绘图
+ * @brief 绘图器
+ * @note  用于将变量的值格式化后发给上位机绘图
  * @note  格式适配vofa的FireWater协议，如下
  * @note  "val1,val2,val3,...\\r\\n"
  *
@@ -53,9 +53,9 @@ using VariableVariant = std::variant<i8 *, i16 *, i32 *, i64 *, u8 *, u16 *, u32
  * @note  5. 用任意手段把数据发给上位机，或者你想啥都不干也行
  * @note  6. 重复3-5
  */
-class SerialPlotter {
+class VofaPlotter {
  public:
-  SerialPlotter() = default;
+  VofaPlotter() = default;
   void Update();
   [[nodiscard]] const std::string &buffer() const;
   template <typename T>
@@ -78,7 +78,7 @@ class SerialPlotter {
 /**
  * @brief   更新绘图器数据
  */
-inline void SerialPlotter::Update() {
+inline void VofaPlotter::Update() {
   if (this->variable_list_.empty()) {
     return;
   }
@@ -101,7 +101,7 @@ inline void SerialPlotter::Update() {
  * @brief   获取缓冲区
  * @return  缓冲区引用
  */
-const inline std::string &SerialPlotter::buffer() const { return this->buffer_; }
+const inline std::string &VofaPlotter::buffer() const { return this->buffer_; }
 
 /**
  * @brief   向绘图器注册一个变量
@@ -110,7 +110,7 @@ const inline std::string &SerialPlotter::buffer() const { return this->buffer_; 
  */
 template <typename T>
   requires std::is_fundamental_v<T>
-void SerialPlotter::AddVariable(T &variable) {
+void VofaPlotter::AddVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
     std::visit([&this_var](auto &&arg) { this_var = reinterpret_cast<void *>(arg); }, var);
@@ -130,7 +130,7 @@ void SerialPlotter::AddVariable(T &variable) {
  */
 template <typename T>
   requires std::is_fundamental_v<T>
-void SerialPlotter::RemoveVariable(T &variable) {
+void VofaPlotter::RemoveVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
     std::visit([&this_var](auto &&arg) { this_var = reinterpret_cast<void *>(arg); }, var);
@@ -143,4 +143,4 @@ void SerialPlotter::RemoveVariable(T &variable) {
 
 }  // namespace irobot_ec::modules
 
-#endif  // EC_LIB_MODULES_SERIAL_PLOTTER_HPP
+#endif  // EC_LIB_MODULES_VOFA_PLOTTER_HPP
