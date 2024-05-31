@@ -37,7 +37,7 @@
 
 namespace irobot_ec::hal {
 
-class FdCan : public CanBase {};
+class FdCan : public CanInterface {};
 
 }  // namespace irobot_ec::hal
 
