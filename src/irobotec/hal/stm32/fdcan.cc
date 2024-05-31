@@ -21,39 +21,23 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/hal/stm32/fdcan.cc
+ * @brief fdCAN类库
+ * @todo  未完成
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
-
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
-
-/******** HAL WRAPPER ********/
 #include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+#if defined(HAL_FDCAN_MODULE_ENABLED)
+#if defined(USE_HAL_FDCAN_REGISTER_CALLBACKS)
+#if (USE_HAL_FDCAN_REGISTER_CALLBACKS != 1u)
+#error "FDCAN register callback must be enabled!"
+#endif
+#else
+#error "Whether FDCAN register callback is enabled or not is unknown!"
+#endif
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+#include "fdcan.h"
 
-/******** MISC MODULES ********/
-/****************/
+namespace irobot::hal {}
 
-#endif  // IROBOTEC_H
+#endif

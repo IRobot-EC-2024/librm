@@ -21,39 +21,22 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/modules/freertos.h
+ * @brief 检测FreeRTOS是否可用
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_MODULES_FREERTOS_H
+#define IROBOTEC_MODULES_FREERTOS_H
 
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
+#if defined(__GNUC__) || defined(__clang__)
+#if __has_include("cmsis_os.h")
+#define IROBOTEC_USE_FREERTOS
+#include "cmsis_os.h"
+#else
+#warning "FreeRTOS is not available."
+#endif
+#else
+#error "Unsupported compiler, please use GCC or Clang."
+#endif
 
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
-
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
-
-/******** MISC MODULES ********/
-/****************/
-
-#endif  // IROBOTEC_H
+#endif  // IROBOTEC_MODULES_FREERTOS_H

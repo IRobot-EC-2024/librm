@@ -21,39 +21,24 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/device/actuator/dji_motor.cc
+ * @brief 大疆电机类库
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
-
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
-
-/******** HAL WRAPPER ********/
 #include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+#if defined(HAL_CAN_MODULE_ENABLED)
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+#include "dji_motor.hpp"
 
-/******** MISC MODULES ********/
-/****************/
+namespace irobot_ec::device {
 
-#endif  // IROBOTEC_H
+/**
+ * @brief 三种型号电机各自的发送缓冲区
+ */
+std::unordered_map<hal::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::GM6020>::tx_buf_{};
+std::unordered_map<hal::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M3508>::tx_buf_{};
+std::unordered_map<hal::CanBase *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M2006>::tx_buf_{};
+
+}  // namespace irobot_ec::device
+
+#endif

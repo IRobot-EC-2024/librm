@@ -21,39 +21,49 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file    irobotec/device/sensor/ist8310/ist8310.h
+ * @brief   IST8310磁力计类
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_H
+#define IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_H
 
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
-
-/******** HAL WRAPPER ********/
 #include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+#if defined(HAL_I2C_MODULE_ENABLED)
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+#include "irobotec/core/typedefs.h"
+#include "irobotec/hal/i2c_device.h"
 
-/******** MISC MODULES ********/
-/****************/
+namespace irobot_ec::device {
 
-#endif  // IROBOTEC_H
+enum class IST8310Status : u8 {
+  NO_ERROR = 0x00,
+  NO_SENSOR = 0x40,
+  SENSOR_ERROR = 0x80,
+};
+
+/**
+ * @brief IST8310磁力计
+ */
+class IST8310 : public irobot_ec::hal::I2cDevice {
+ public:
+  IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, u16 rst_pin);
+  void Reset();
+  void Update();
+  [[nodiscard]] IST8310Status status() const;
+  [[nodiscard]] f32 mag_x() const;
+  [[nodiscard]] f32 mag_y() const;
+  [[nodiscard]] f32 mag_z() const;
+
+ private:
+  GPIO_TypeDef *rst_port_;
+  u16 rst_pin_;
+  IST8310Status status_;
+  f32 mag_[3]{0};
+};
+
+}  // namespace irobot_ec::device
+
+#endif
+
+#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_H

@@ -21,39 +21,24 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/hal/hal.h
+ * @brief 根据编译宏定义引入不同的芯片型号的HAL库
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_HAL_H
+#define IROBOTEC_HAL_H
 
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
+#if defined(STM32F407xx)
+#include "stm32f407xx.h"
+#include "stm32f4xx_hal.h"
+#elif defined(STM32H723xx)
+#include "stm32h723xx.h"
+#include "stm32h7xx_hal.h"
+#elif defined(ORANGEPI5)
+#else
+#error "No supported platform macro defined"
+#endif
 
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+#endif  // IROBOTEC_HAL_H
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
-
-/******** MISC MODULES ********/
-/****************/
-
-#endif  // IROBOTEC_H
+/* EOF */

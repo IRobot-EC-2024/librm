@@ -21,39 +21,42 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/modules/algorithm/mecanum.h
+ * @brief 麦轮正运动学解算
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H
+#define IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H
 
-/******** CORE ********/
 #include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
 
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+namespace irobot_ec::modules::algorithm {
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+/**
+ * @brief 麦轮正运动学解算
+ */
+class Mecanum {
+ public:
+  Mecanum() = delete;
+  ~Mecanum() = default;
+  Mecanum(f32 wheel_base, f32 wheel_track);
 
-/******** MISC MODULES ********/
-/****************/
+  // no copy
+  Mecanum(const Mecanum &) = delete;
+  Mecanum &operator=(const Mecanum &) = delete;
 
-#endif  // IROBOTEC_H
+  void Calculate(f32 vx, f32 vy, f32 wz);
+  [[nodiscard]] f32 v_lf() const;
+  [[nodiscard]] f32 v_rf() const;
+  [[nodiscard]] f32 v_lb() const;
+  [[nodiscard]] f32 v_rb() const;
+
+ private:
+  f32 wheel_base_;   // 轮子间距
+  f32 wheel_track_;  // 轮子轴距
+  f32 speeds_[4];
+};
+
+}  // namespace irobot_ec::modules::algorithm
+
+#endif  // IROBOTEC_MODULES_ALGORITHM_MECANUM_MECANUM_H

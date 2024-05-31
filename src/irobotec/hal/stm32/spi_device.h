@@ -21,39 +21,48 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/stm32/hal/spi_device.h
+ * @brief SPI设备抽象
+ * @todo  实现不够通用，有改进空间
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_HAL_SPI_DEVICE_H
+#define IROBOTEC_HAL_SPI_DEVICE_H
 
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
-
-/******** HAL WRAPPER ********/
 #include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+#if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+#include "irobotec/core/typedefs.h"
 
-/******** MISC MODULES ********/
-/****************/
+namespace irobot_ec::hal {
+/**
+ * @brief SPI设备基类
+ */
+class SpiDevice {
+ public:
+  SpiDevice(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, u16 cs_pin);
+  SpiDevice() = delete;
+  ~SpiDevice() = default;
 
-#endif  // IROBOTEC_H
+  void ReadByte(u8 reg);
+  void ReadBytes(u8 reg, u8 len);
+  void WriteByte(u8 reg, u8 data);
+
+  [[nodiscard]] u8 single_byte_buffer() const;
+  [[nodiscard]] const u8 *buffer() const;
+
+ protected:
+  void ReadWriteByte(u8 tx_data);
+  void ReadWriteBytes(u8 reg, u8 len);
+
+  SPI_HandleTypeDef *hspi_;
+  GPIO_TypeDef *cs_gpio_port_;
+  u16 cs_pin_;
+  u8 single_byte_buffer_{};
+  u8 buffer_[8]{0};
+};
+}  // namespace irobot_ec::hal
+
+#endif
+
+#endif  // IROBOTEC_HAL_SPI_DEVICE_H

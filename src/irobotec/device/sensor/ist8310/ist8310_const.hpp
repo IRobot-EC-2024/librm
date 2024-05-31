@@ -21,39 +21,26 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file    irobotec/device/sensor/ist8310/ist8310_const.hpp
+ * @brief   IST8310有关常量
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
+#define IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
 
-/******** CORE ********/
 #include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
 
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+constexpr u8 IST8310_I2C_ADDRESS = 0x0E;
+constexpr u8 IST8310_WHO_AM_I = 0x00;        // ist8310 "who am I"
+constexpr u8 IST8310_WHO_AM_I_VALUE = 0x10;  // device ID
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+constexpr u8 IST8310_COMM_WAIT_TIME_US = 150;
+constexpr u8 IST8310_COMM_WAIT_TIME_MS = 50;
 
-/******** MISC MODULES ********/
-/****************/
+constexpr u8 IST8310_DATA_READY_BIT = 2;
 
-#endif  // IROBOTEC_H
+constexpr u8 IST8310_DATA_OUT_X_L = 0x03;
+
+constexpr f32 IST8310_SENSITIVITY = 0.3f;  // 原始数据到单位ut的换算系数
+
+#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H

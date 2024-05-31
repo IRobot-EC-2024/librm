@@ -21,39 +21,18 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/core/exception.cc
+ * @brief 异常处理
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#include "exception.h"
 
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
-
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
-
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
-
-/******** MISC MODULES ********/
-/****************/
-
-#endif  // IROBOTEC_H
+namespace irobot_ec::core::exception {
+/**
+ * @brief 抛出异常
+ * @param e 异常类型
+ */
+__attribute__((weak)) void ThrowException(Exception e) {
+  // 在这里处理异常
+}
+}  // namespace irobot_ec::core::exception

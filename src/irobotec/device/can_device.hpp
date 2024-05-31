@@ -21,39 +21,51 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/device/can_device.hpp
+ * @brief CAN设备抽象类
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_CAN_DEVICE_HPP
+#define IROBOTEC_CAN_DEVICE_HPP
 
-/******** CORE ********/
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
-/****************/
-
-/******** HAL WRAPPER ********/
 #include "irobotec/hal/hal.h"
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/stm32/uart.h"
-#include "irobotec/hal/stm32/i2c_device.h"
-#include "irobotec/hal/stm32/spi_device.h"
-/****************/
+#if defined(HAL_CAN_MODULE_ENABLED) || defined(HAL_FDCAN_MODULE_ENABLED)
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088/bmi088.h"
-#include "irobotec/device/sensor/ist8310/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+#include "irobotec/hal/can_interface.h"
 
-/******** MISC MODULES ********/
-/****************/
+namespace irobot_ec::device {
 
-#endif  // IROBOTEC_H
+/**
+ * @brief CAN设备的基类
+ */
+class CanDeviceBase {
+ public:
+  virtual ~CanDeviceBase() = default;
+
+  template <typename... IdList>
+  explicit CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids);
+
+  // 禁止拷贝构造
+  CanDeviceBase(const CanDeviceBase &) = delete;
+  CanDeviceBase &operator=(const CanDeviceBase &) = delete;
+
+  virtual void RxCallback(const hal::CanMsg *msg) = 0;
+
+ protected:
+  hal::CanBase *can_;
+};
+
+/**
+ * @param can        CAN外设对象
+ * @param rx_std_ids 这个设备的rx消息标准帧id列表
+ */
+template <typename... IdList>
+CanDeviceBase::CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids) : can_(&can) {
+  (can.RegisterDevice(*this, rx_std_ids), ...);
+}
+
+}  // namespace irobot_ec::device
+
+#endif
+
+#endif  // IROBOTEC_CAN_DEVICE_HPP
