@@ -21,12 +21,12 @@
 */
 
 /**
- * @file  hal/uart.h
+ * @file  irobotec/hal/stm32/uart.h
  * @brief UART类库
  */
 
-#ifndef IROBOTEC_HAL_UART_H
-#define IROBOTEC_HAL_UART_H
+#ifndef IROBOTEC_HAL_STM32_UART_H
+#define IROBOTEC_HAL_STM32_UART_H
 
 #include "irobotec/hal/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
@@ -76,4 +76,4 @@ class Uart {
 }  // namespace irobot_ec::hal
 
 #endif
-#endif  // IROBOTEC_HAL_UART_H
+#endif  // IROBOTEC_HAL_STM32_UART_H

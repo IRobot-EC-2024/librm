@@ -21,13 +21,13 @@
 */
 
 /**
- * @file  irobotec/stm32/hal/spi_device.h
+ * @file  irobotec/hal/stm32/spi_device.h
  * @brief SPI设备抽象
  * @todo  实现不够通用，有改进空间
  */
 
-#ifndef IROBOTEC_HAL_SPI_DEVICE_H
-#define IROBOTEC_HAL_SPI_DEVICE_H
+#ifndef IROBOTEC_HAL_STM32_SPI_DEVICE_H
+#define IROBOTEC_HAL_STM32_SPI_DEVICE_H
 
 #include "irobotec/hal/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
@@ -65,4 +65,4 @@ class SpiDevice {
 
 #endif
 
-#endif  // IROBOTEC_HAL_SPI_DEVICE_H
+#endif  // IROBOTEC_HAL_STM32_SPI_DEVICE_H

@@ -26,8 +26,8 @@
  * @todo  未完成
  */
 
-#ifndef IROBOTEC_HAL_FDCAN_H
-#define IROBOTEC_HAL_FDCAN_H
+#ifndef IROBOTEC_HAL_STM32_FDCAN_H
+#define IROBOTEC_HAL_STM32_FDCAN_H
 
 #include "irobotec/hal/hal.h"
 #if defined(HAL_FDCAN_MODULE_ENABLED)
@@ -43,4 +43,4 @@ class FdCan : public CanBase {};
 
 #endif
 
-#endif  // IROBOTEC_HAL_FDCAN_H
+#endif  // IROBOTEC_HAL_STM32_FDCAN_H

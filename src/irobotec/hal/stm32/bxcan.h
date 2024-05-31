@@ -25,8 +25,8 @@
  * @brief bxCAN类库
  */
 
-#ifndef IROBOTEC_HAL_BXCAN_H
-#define IROBOTEC_HAL_BXCAN_H
+#ifndef IROBOTEC_HAL_STM32_BXCAN_H
+#define IROBOTEC_HAL_STM32_BXCAN_H
 
 #include "irobotec/hal/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
@@ -94,4 +94,4 @@ class BxCan final : public CanBase {
 
 #endif
 
-#endif  // IROBOTEC_HAL_BXCAN_H
+#endif  // IROBOTEC_HAL_STM32_BXCAN_H
