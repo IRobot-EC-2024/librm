@@ -65,7 +65,7 @@ doxygen ./Doxyfile
 
 - `libs/`：第三方库
 
-- `src/`
+- `src/irobotec/`
 
     - `device/`：设备驱动和封装
         - `actuator/`：作动器，如电机和舵机等

@@ -32,7 +32,7 @@
 #if defined(HAL_I2C_MODULE_ENABLED)
 
 #include "irobotec/core/typedefs.h"
-#include "irobotec/hal/i2c_device.h"
+#include "irobotec/hal/stm32/i2c_device.h"
 
 namespace irobot_ec::device {
 
