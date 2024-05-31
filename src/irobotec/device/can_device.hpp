@@ -43,7 +43,7 @@ class CanDeviceBase {
   virtual ~CanDeviceBase() = default;
 
   template <typename... IdList>
-  explicit CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids);
+  explicit CanDeviceBase(hal::CanInterface &can, IdList... rx_std_ids);
 
   // 禁止拷贝构造
   CanDeviceBase(const CanDeviceBase &) = delete;
@@ -52,7 +52,7 @@ class CanDeviceBase {
   virtual void RxCallback(const hal::CanMsg *msg) = 0;
 
  protected:
-  hal::CanBase *can_;
+  hal::CanInterface *can_;
 };
 
 /**
@@ -60,7 +60,7 @@ class CanDeviceBase {
  * @param rx_std_ids 这个设备的rx消息标准帧id列表
  */
 template <typename... IdList>
-CanDeviceBase::CanDeviceBase(hal::CanBase &can, IdList... rx_std_ids) : can_(&can) {
+CanDeviceBase::CanDeviceBase(hal::CanInterface &can, IdList... rx_std_ids) : can_(&can) {
   (can.RegisterDevice(*this, rx_std_ids), ...);
 }
 

@@ -73,7 +73,7 @@ struct DjiMotorProperties<DjiMotorType::GM6020> {
   static constexpr u16 kRxIdBase = 0x205;
   static constexpr u16 kControlId[2] = {0x1ff, 0x2ff};
   static constexpr i16 kCurrentBound = 30000;
-  static std::unordered_map<hal::CanBase *, std::array<u8, 18>> tx_buf_;
+  static std::unordered_map<hal::CanInterface *, std::array<u8, 18>> tx_buf_;
 };
 
 template <>
@@ -81,7 +81,7 @@ struct DjiMotorProperties<DjiMotorType::M3508> {
   static constexpr u16 kRxIdBase = 0x200;
   static constexpr u16 kControlId[2] = {0x200, 0x1ff};
   static constexpr i16 kCurrentBound = 16384;
-  static std::unordered_map<hal::CanBase *, std::array<u8, 18>> tx_buf_;
+  static std::unordered_map<hal::CanInterface *, std::array<u8, 18>> tx_buf_;
 };
 
 template <>
@@ -89,7 +89,7 @@ struct DjiMotorProperties<DjiMotorType::M2006> {
   static constexpr u16 kRxIdBase = 0x200;
   static constexpr u16 kControlId[2] = {0x200, 0x1ff};
   static constexpr i16 kCurrentBound = 10000;
-  static std::unordered_map<hal::CanBase *, std::array<u8, 18>> tx_buf_;
+  static std::unordered_map<hal::CanInterface *, std::array<u8, 18>> tx_buf_;
 };
 
 /**
@@ -101,7 +101,7 @@ class DjiMotor final : public CanDeviceBase {
  public:
   DjiMotor() = delete;
   ~DjiMotor() override = default;
-  DjiMotor(hal::CanBase &can, u16 id, bool reversed = false);
+  DjiMotor(hal::CanInterface &can, u16 id, bool reversed = false);
 
   // 禁止拷贝构造
   DjiMotor(const DjiMotor &) = delete;
@@ -144,7 +144,7 @@ using M2006 = DjiMotor<DjiMotorType::M2006>;
  * @param  reversed   是否反转
  */
 template <DjiMotorType motor_type>
-DjiMotor<motor_type>::DjiMotor(hal::CanBase &can, u16 id, bool reversed)
+DjiMotor<motor_type>::DjiMotor(hal::CanInterface &can, u16 id, bool reversed)
     : CanDeviceBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id), reversed_(reversed) {
   // 如果这个电机对象所在CAN总线的发送缓冲区还未创建，就创建一个
   if (DjiMotorProperties<motor_type>::tx_buf_.find(&can) == DjiMotorProperties<motor_type>::tx_buf_.end()) {

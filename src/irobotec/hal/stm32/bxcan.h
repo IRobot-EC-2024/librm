@@ -43,7 +43,7 @@ namespace irobot_ec::hal {
 /**
  * @brief bxCAN类库
  */
-class BxCan final : public CanBase {
+class BxCan final : public CanInterface {
  public:
   explicit BxCan(CAN_HandleTypeDef &hcan);
   BxCan() = default;

@@ -51,14 +51,14 @@ enum class CanTxPriority {
 };
 
 /**
- * @brief CAN外设基类
+ * @brief CAN接口类
  * @note  借助CanDeviceBase类使用观察者模式实现回调机制
  */
-class CanBase {
+class CanInterface {
   friend class device::CanDeviceBase;
 
  public:
-  virtual ~CanBase() = default;
+  virtual ~CanInterface() = default;
 
   /**
    * @brief 立即向总线上发送数据
