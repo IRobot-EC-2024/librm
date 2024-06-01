@@ -164,22 +164,23 @@ void BMI088::InitGyroscope() {
  * @brief 更新传感器数据
  */
 void BMI088::Update() {
-  const u8 *buf = this->accel_device_.buffer();
+  const u8 *accel_buf = this->accel_device_.buffer();
+  const u8 *gyro_buf = this->gyro_device_.buffer();
 
   this->accel_device_.ReadBytes(BMI088_ACCEL_XOUT_L, 6);
-  this->accel_[0] = ((i16)((buf[1]) << 8) | buf[0]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
-  this->accel_[1] = ((i16)((buf[3]) << 8) | buf[2]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
-  this->accel_[2] = ((i16)((buf[5]) << 8) | buf[4]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[0] = ((i16)(accel_buf[1] << 8) | accel_buf[0]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[1] = ((i16)(accel_buf[3] << 8) | accel_buf[2]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[2] = ((i16)(accel_buf[5] << 8) | accel_buf[4]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
 
-  this->gyro_device_.ReadBytes(BMI088_GYRO_CHIP_ID, 8);
-  if (buf[0] == BMI088_GYRO_CHIP_ID_VALUE) {
-    this->gyro_[0] = ((i16)((buf[3]) << 8) | buf[2]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
-    this->gyro_[1] = ((i16)((buf[5]) << 8) | buf[4]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
-    this->gyro_[2] = ((i16)((buf[7]) << 8) | buf[6]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+  if (gyro_buf[0] == BMI088_GYRO_CHIP_ID_VALUE) {
+    gyro_buf = const_cast<u8 *>(this->gyro_device_.buffer());
+    this->gyro_[0] = ((i16)(gyro_buf[3] << 8) | gyro_buf[2]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+    this->gyro_[1] = ((i16)(gyro_buf[5] << 8) | gyro_buf[4]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+    this->gyro_[2] = ((i16)(gyro_buf[7] << 8) | gyro_buf[6]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
   }
   this->accel_device_.ReadBytes(BMI088_TEMP_M, 2);
 
-  auto bmi088_raw_temp = (i16)((buf[0] << 3) | (buf[1] >> 5));
+  auto bmi088_raw_temp = (i16)(accel_buf[0] << 3 | accel_buf[1] >> 5);
   if (bmi088_raw_temp > 1023) {
     bmi088_raw_temp -= 2048;
   }
