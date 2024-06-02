@@ -21,22 +21,39 @@
 */
 
 /**
- * @file  irobotec/hal/can.h
- * @brief 根据平台宏定义决定Can的具体实现，并且在can_interface.h里提供一个接口类CanInterface实现多态
+ * @file    irobotec/hal/stm32/gpio.h
+ * @brief   stm32的GPIO类
  */
 
-#ifndef IROBOTEC_HAL_CAN_H
-#define IROBOTEC_HAL_CAN_H
+#ifndef IROBOTEC_HAL_STM32_GPIO_H
+#define IROBOTEC_HAL_STM32_GPIO_H
 
-#include "irobotec/hal/stm32/bxcan.h"
-#include "irobotec/hal/stm32/fdcan.h"
+#include "irobotec/hal/hal.h"
+#if defined(HAL_GPIO_MODULE_ENABLED)
 
-namespace irobot_ec::hal {
-#if defined(HAL_CAN_MODULE_ENABLED)
-using Can = stm32::BxCan;
-#elif defined(HAL_FDCAN_MODULE_ENABLED)
-using Can = stm32::FdCan;  // TODO: 实现FdCan类
+#include "irobotec/core/typedefs.h"
+#include "irobotec/hal/gpio_interface.h"
+
+namespace irobot_ec::hal::stm32 {
+
+/**
+ * @brief GPIO引脚类
+ */
+class Pin final : public PinInterface {
+ public:
+  Pin(GPIO_TypeDef &port, u16 pin);
+  Pin() = delete;
+  ~Pin() override = default;
+
+  void Write(bool state) override;
+  [[nodiscard]] bool Read() const override;
+
+ protected:
+  GPIO_TypeDef *port_;
+  u16 pin_;
+};
+
+}  // namespace irobot_ec::hal::stm32
 #endif
-}  // namespace irobot_ec::hal
 
-#endif  // IROBOTEC_HAL_CAN_H
+#endif  // IROBOTEC_HAL_STM32_GPIO_H
