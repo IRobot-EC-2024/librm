@@ -36,7 +36,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 
 using UartCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
 
@@ -73,7 +73,7 @@ class Uart {
   bool buffer_selector_{false};
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif
 #endif  // IROBOTEC_HAL_STM32_UART_H

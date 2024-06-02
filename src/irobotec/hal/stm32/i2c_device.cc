@@ -31,7 +31,7 @@
 
 #include "i2c_device.h"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 
 /**
  * @param hi2c I2C外设句柄
@@ -64,6 +64,6 @@ void I2cDevice::Read(u8 reg, uint16_t size) {
  */
 const u8 *I2cDevice::buffer() const { return this->buffer_; }
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif

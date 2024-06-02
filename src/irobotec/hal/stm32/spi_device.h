@@ -34,7 +34,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 /**
  * @brief SPI设备基类
  */
@@ -61,7 +61,7 @@ class SpiDevice {
   u8 single_byte_buffer_{};
   u8 buffer_[8]{0};
 };
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif
 

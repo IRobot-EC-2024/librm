@@ -51,7 +51,7 @@ static pUART_RxEventCallbackTypeDef StdFunctionToCallbackFunctionPtr(std::functi
   return [](UART_HandleTypeDef *handle, u16 rx_len) { fn_v(rx_len); };
 }
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 
 using core::exception::Exception;
 using core::exception::ThrowException;
@@ -168,6 +168,6 @@ void Uart::HalRxCpltCallback(u16 rx_len) {
   this->buffer_selector_ = !this->buffer_selector_;
 }
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif

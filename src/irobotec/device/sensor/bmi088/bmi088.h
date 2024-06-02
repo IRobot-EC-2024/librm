@@ -110,8 +110,8 @@ class BMI088 {
   void InitAccelerometer();
   void InitGyroscope();
 
-  hal::SpiDevice accel_device_;
-  hal::SpiDevice gyro_device_;
+  hal::stm32::SpiDevice accel_device_;
+  hal::stm32::SpiDevice gyro_device_;
 
   BMI088Status status_{BMI088Status::NO_SENSOR};
   BMI088GyroRange gyro_range_{BMI088GyroRange::GYRO_2000};

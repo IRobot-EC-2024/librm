@@ -22,7 +22,7 @@
 
 /**
  * @file    irobotec/hal/can_interface.h
- * @brief   bxCAN和fdCAN的接口类
+ * @brief   CAN的接口类
  */
 
 #ifndef IROBOTEC_HAL_CAN_INTERFACE_H

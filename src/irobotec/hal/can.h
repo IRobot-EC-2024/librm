@@ -33,9 +33,9 @@
 
 namespace irobot_ec::hal {
 #if defined(HAL_CAN_MODULE_ENABLED)
-using Can = BxCan;
+using Can = stm32::BxCan;
 #elif defined(HAL_FDCAN_MODULE_ENABLED)
-using Can = FdCan;  // TODO: 实现FdCan类
+using Can = stm32::FdCan;  // TODO: 实现FdCan类
 #endif
 }  // namespace irobot_ec::hal
 

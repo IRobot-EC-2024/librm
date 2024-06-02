@@ -35,11 +35,11 @@
 #include "irobotec/hal/can_interface.h"
 #include "irobotec/device/can_device.hpp"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 
 class FdCan : public CanInterface {};
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif
 

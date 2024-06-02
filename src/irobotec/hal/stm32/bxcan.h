@@ -38,7 +38,7 @@
 #include "irobotec/hal/can_interface.h"
 #include "irobotec/device/can_device.hpp"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 
 /**
  * @brief bxCAN类库
@@ -90,7 +90,7 @@ class BxCan final : public CanInterface {
   static constexpr usize kQueueMaxSize = 100;
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif
 

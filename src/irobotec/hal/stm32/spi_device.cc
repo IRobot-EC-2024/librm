@@ -31,7 +31,7 @@
 
 #include "spi_device.h"
 
-namespace irobot_ec::hal {
+namespace irobot_ec::hal::stm32 {
 /**
  * @param hspi          SPI外设句柄
  * @param cs_gpio_port  片选引脚所在GPIO端口
@@ -110,6 +110,6 @@ void SpiDevice::ReadBytes(u8 reg, u8 len) {
   this->ReadWriteBytes(reg, len);
   HAL_GPIO_WritePin(this->cs_gpio_port_, this->cs_pin_, GPIO_PIN_SET);
 }
-}  // namespace irobot_ec::hal
+}  // namespace irobot_ec::hal::stm32
 
 #endif

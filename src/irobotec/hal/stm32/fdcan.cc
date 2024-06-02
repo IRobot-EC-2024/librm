@@ -38,6 +38,6 @@
 
 #include "fdcan.h"
 
-namespace irobot::hal {}
+namespace irobot::hal::stm32 {}
 
 #endif
