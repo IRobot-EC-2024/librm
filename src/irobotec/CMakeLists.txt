@@ -21,6 +21,20 @@
 
 cmake_minimum_required(VERSION 3.27)
 
-add_subdirectory(irobotec)
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_LIST_DIR}/core/*.cc"
+        "${CMAKE_CURRENT_LIST_DIR}/device/*.cc"
+        "${CMAKE_CURRENT_LIST_DIR}/modules/*.cc")
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+if ("${IROBOTEC_PLATFORM}" STREQUAL "STM32")
+    file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/stm32/*.cc")
+elseif (${IROBOTEC_PLATFORM} STREQUAL "OrangePi")
+    file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/orangepi/*.cc"
+            "${CMAKE_CURRENT_LIST_DIR}/hal/linux/*.cc")
+elseif (${IROBOTEC_PLATFORM} STREQUAL "Jetson")
+    file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/jetson/*.cc"
+            "${CMAKE_CURRENT_LIST_DIR}/hal/linux/*.cc")
+elseif (${IROBOTEC_PLATFORM} STREQUAL "Linux")
+    file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/linux/*.cc")
+endif ()
+
+add_library(${PROJECT_NAME} STATIC ${SOURCES} ${PLATFORM_SOURCES})
