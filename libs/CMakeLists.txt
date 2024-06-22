@@ -13,9 +13,17 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/tweeny)
 # nanopb - https://github.com/nanopb/nanopb/
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/nanopb)
 
-# Eigen - https://eigen.tuxfamily.org/
+# Eigen[header only] - https://eigen.tuxfamily.org/
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/eigen)
+
+# spdlog[header only] - https://github.com/gabime/spdlog/
+if (NOT IROBOTEC_PLATFORM STREQUAL "STM32")
+    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/spdlog)
+endif ()
 
 # pack up all third party libraries to a single target
 add_library(third_party INTERFACE)
 target_link_libraries(third_party INTERFACE crc tinyfsm tweeny nanopb eigen)
+if (NOT IROBOTEC_PLATFORM STREQUAL "STM32")
+    target_link_libraries(third_party INTERFACE spdlog::spdlog)
+endif ()
