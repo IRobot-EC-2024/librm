@@ -37,6 +37,6 @@ using Uart = stm32::Uart;
 #elif defined(IROBOTEC_PLATFORM_LINUX)
 // TODO: Linux UART
 #endif
-}
+}  // namespace irobot_ec::hal
 
 #endif  // IROBOTEC_HAL_UART_H
