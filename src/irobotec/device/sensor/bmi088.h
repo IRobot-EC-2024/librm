@@ -21,13 +21,13 @@
 */
 
 /**
- * @file    irobotec/device/sensor/bmi088/bmi088.h
+ * @file    irobotec/device/sensor/bmi088.h
  * @brief   BMI088传感器类
  * @todo    DMA传输+硬件片选(maybe)
  */
 
-#ifndef IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_H
-#define IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_H
+#ifndef IROBOTEC_DEVICE_SENSOR_BMI088_H
+#define IROBOTEC_DEVICE_SENSOR_BMI088_H
 
 #include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED)
@@ -125,4 +125,4 @@ class BMI088 {
 
 #endif  // HAL_SPI_MODULE_ENABLED
 
-#endif  // IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_H
+#endif  // IROBOTEC_DEVICE_SENSOR_BMI088_H

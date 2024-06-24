@@ -21,12 +21,12 @@
 */
 
 /**
- * @file    irobotec/device/sensor/ist8310/ist8310_const.hpp
+ * @file    irobotec/device/sensor/ist8310_const.hpp
  * @brief   IST8310有关常量
  */
 
-#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
-#define IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
+#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_CONST_H
+#define IROBOTEC_DEVICE_SENSOR_IST8310_CONST_H
 
 #include <chrono>
 
@@ -47,4 +47,4 @@ constexpr u8 IST8310_DATA_OUT_X_L = 0x03;
 
 constexpr f32 IST8310_SENSITIVITY = 0.3f;  // 原始数据到单位ut的换算系数
 
-#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
+#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_CONST_H

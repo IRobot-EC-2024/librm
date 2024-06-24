@@ -21,12 +21,12 @@
 */
 
 /**
- * @file    irobotec/device/sensor/bmi088/bmi088_const.hpp
+ * @file    irobotec/device/sensor/bmi088_const.hpp
  * @brief   BMI088有关常量
  */
 
-#ifndef IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
-#define IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
+#ifndef IROBOTEC_DEVICE_SENSOR_BMI088_CONST_H
+#define IROBOTEC_DEVICE_SENSOR_BMI088_CONST_H
 
 #include <chrono>
 
@@ -256,4 +256,4 @@ constexpr u8 BMI088_GYRO_BIST_RDY = (0x1 << BMI088_GYRO_BIST_RDY_SHFITS);
 constexpr u8 BMI088_GYRO_TRIG_BIST_SHFITS = 0x0;
 constexpr u8 BMI088_GYRO_TRIG_BIST = (0x1 << BMI088_GYRO_TRIG_BIST_SHFITS);
 
-#endif  // IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
+#endif  // IROBOTEC_DEVICE_SENSOR_BMI088_CONST_H

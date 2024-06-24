@@ -21,7 +21,7 @@
 */
 
 /**
- * @file    device/sensor/bmi088/bmi088.cc
+ * @file    irobotec/device/sensor/bmi088.cc
  * @brief   BMI088传感器类
  * @todo    DMA传输+硬件片选(maybe)
  */

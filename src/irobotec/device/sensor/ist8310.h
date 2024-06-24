@@ -21,12 +21,12 @@
 */
 
 /**
- * @file    irobotec/device/sensor/ist8310/ist8310.h
+ * @file    irobotec/device/sensor/ist8310.h
  * @brief   IST8310磁力计类
  */
 
-#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_H
-#define IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_H
+#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_H
+#define IROBOTEC_DEVICE_SENSOR_IST8310_H
 
 #include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
@@ -66,4 +66,4 @@ class IST8310 : public irobot_ec::hal::stm32::I2cDevice {
 
 #endif
 
-#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_H
+#endif  // IROBOTEC_DEVICE_SENSOR_IST8310_H
