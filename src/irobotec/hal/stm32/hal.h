@@ -21,24 +21,19 @@
 */
 
 /**
- * @file  irobotec/hal/hal.h
- * @brief 根据编译宏定义引入不同的芯片型号的HAL库
+ * @file  irobotec/hal/stm32/hal.h
+ * @brief 根据不同STM32型号选择不同的HAL库
  */
 
-#ifndef IROBOTEC_HAL_H
-#define IROBOTEC_HAL_H
+#ifndef IROBOTEC_HAL_STM32_HAL_H
+#define IROBOTEC_HAL_STM32_HAL_H
 
-#if defined(STM32F407xx)
+#if defined(STM32F407xx) && __has_include("stm32f407xx.h") && __has_include("stm32f4xx_hal.h")
 #include "stm32f407xx.h"
 #include "stm32f4xx_hal.h"
-#elif defined(STM32H723xx)
+#elif defined(STM32H723xx) && __has_include("stm32h723xx.h") && __has_include("stm32h7xx_hal.h")
 #include "stm32h723xx.h"
 #include "stm32h7xx_hal.h"
-#elif defined(ORANGEPI5)
-#else
-#error "No supported platform macro defined"
 #endif
 
-#endif  // IROBOTEC_HAL_H
-
-/* EOF */
+#endif  // IROBOTEC_HAL_STM32_HAL_HÏ

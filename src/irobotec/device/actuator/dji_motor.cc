@@ -25,9 +25,6 @@
  * @brief 大疆电机类库
  */
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_CAN_MODULE_ENABLED)
-
 #include "dji_motor.hpp"
 
 namespace irobot_ec::device {
@@ -40,5 +37,3 @@ std::unordered_map<hal::CanInterface *, std::array<u8, 18>> DjiMotorProperties<D
 std::unordered_map<hal::CanInterface *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M2006>::tx_buf_{};
 
 }  // namespace irobot_ec::device
-
-#endif

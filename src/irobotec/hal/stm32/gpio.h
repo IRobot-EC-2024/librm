@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_HAL_STM32_GPIO_H
 #define IROBOTEC_HAL_STM32_GPIO_H
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_GPIO_MODULE_ENABLED)
 
 #include "irobotec/core/typedefs.h"

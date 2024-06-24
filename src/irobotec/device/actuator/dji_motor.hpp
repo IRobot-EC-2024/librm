@@ -49,16 +49,13 @@
 #ifndef IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP
 #define IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_CAN_MODULE_ENABLED)
-
 #include <array>
 #include <unordered_map>
 #include <cmath>
 
+#include "irobotec/device/can_device.hpp"
 #include "irobotec/core/typedefs.h"
 #include "irobotec/modules/algorithm/utils.hpp"
-#include "irobotec/hal/can.h"
 
 namespace irobot_ec::device {
 
@@ -221,7 +218,5 @@ void DjiMotor<motor_type>::RxCallback(const hal::CanMsg *msg) {
 }
 
 }  // namespace irobot_ec::device
-
-#endif
 
 #endif  // IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP

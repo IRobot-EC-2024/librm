@@ -28,9 +28,6 @@
 #ifndef IROBOTEC_CAN_DEVICE_HPP
 #define IROBOTEC_CAN_DEVICE_HPP
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_CAN_MODULE_ENABLED) || defined(HAL_FDCAN_MODULE_ENABLED)
-
 #include "irobotec/hal/can_interface.h"
 
 namespace irobot_ec::device {
@@ -65,7 +62,5 @@ CanDeviceBase::CanDeviceBase(hal::CanInterface &can, IdList... rx_std_ids) : can
 }
 
 }  // namespace irobot_ec::device
-
-#endif
 
 #endif  // IROBOTEC_CAN_DEVICE_HPP

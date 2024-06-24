@@ -29,9 +29,7 @@
 #ifndef IROBOTEC_DEVICE_ACTUATOR_UNITREE_MOTOR_H
 #define IROBOTEC_DEVICE_ACTUATOR_UNITREE_MOTOR_H
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_UART_MODULE_ENABLED)
-
+#include "irobotec/hal/uart.h"
 #include "irobotec/core/typedefs.h"
 
 namespace irobot_ec::device {
@@ -53,6 +51,7 @@ class UnitreeMotorBase {
   ~UnitreeMotorBase() = default;
 
  protected:
+  hal::UartInterface *uart;
   u8 tx_buffer_[17];
   u16 id_{};
 
@@ -60,14 +59,9 @@ class UnitreeMotorBase {
   UnitreeMotorMode mode_{};
   i16 tau_{};       // Divide by 256 to get the real value(N*m)
   i16 velocity_{};  // Divide by 1000 to get the real value(rad/s)
-
   /*************************/
 };
 
 }  // namespace irobot_ec::device
 
 #endif
-
-#endif  // IROBOTEC_DEVICE_ACTUATOR_UNITREE_MOTOR_H
-
-/* EOF */

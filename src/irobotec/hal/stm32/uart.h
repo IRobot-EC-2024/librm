@@ -28,17 +28,13 @@
 #ifndef IROBOTEC_HAL_STM32_UART_H
 #define IROBOTEC_HAL_STM32_UART_H
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
 
-#include <vector>
-#include <functional>
-
+#include "irobotec/hal/uart_interface.h"
 #include "irobotec/core/typedefs.h"
 
 namespace irobot_ec::hal::stm32 {
-
-using UartCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
 
 enum class UartMode {
   kNormal,
@@ -51,16 +47,16 @@ enum class UartMode {
 /**
  * @brief UART类
  */
-class Uart {
+class Uart : public UartInterface {
  public:
   Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode = UartMode::kNormal,
        UartMode rx_mode = UartMode::kNormal);
 
-  void Begin();
-  void Write(const u8 *data, usize size);
-  void StartReceive();
-  void AttachRxCallback(UartCallbackFunction &callback);
-  [[nodiscard]] const std::vector<u8> &rx_buffer() const;
+  void Begin() override;
+  void Write(const u8 *data, usize size) override;
+  void StartReceive() override;
+  void AttachRxCallback(UartCallbackFunction &callback) override;
+  [[nodiscard]] const std::vector<u8> &rx_buffer() const override;
 
  private:
   void HalRxCpltCallback(u16 rx_len);

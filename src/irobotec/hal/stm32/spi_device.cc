@@ -26,7 +26,7 @@
  * @todo  实现不够通用，有改进空间
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
 
 #include "spi_device.h"

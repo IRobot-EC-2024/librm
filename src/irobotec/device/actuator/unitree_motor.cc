@@ -26,9 +26,5 @@
  * @todo  未完成
  */
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_UART_MODULE_ENABLED)
-
 #include "unitree_motor.h"
 
-#endif

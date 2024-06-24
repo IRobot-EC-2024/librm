@@ -29,7 +29,7 @@
 #ifndef IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_H
 #define IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_H
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED)
 
 #include "irobotec/core/typedefs.h"

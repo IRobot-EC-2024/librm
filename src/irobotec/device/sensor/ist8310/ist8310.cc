@@ -25,7 +25,7 @@
  * @brief   IST8310磁力计类
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
 
 #include "ist8310.h"

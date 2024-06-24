@@ -26,15 +26,9 @@
  * @todo  未完成
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_FDCAN_MODULE_ENABLED)
-#if defined(USE_HAL_FDCAN_REGISTER_CALLBACKS)
-#if (USE_HAL_FDCAN_REGISTER_CALLBACKS != 1u)
-#error "FDCAN register callback must be enabled!"
-#endif
-#else
-#error "Whether FDCAN register callback is enabled or not is unknown!"
-#endif
+#include "irobotec/hal/stm32/check_register_callbacks.h"
 
 #include "fdcan.h"
 

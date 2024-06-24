@@ -27,12 +27,12 @@
 
 #include "irobotec/core/time.h"
 #include "irobotec/modules/freertos.h"
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 
 namespace irobot_ec::core::time {
 
 void SleepMs(u32 ms) {
-#ifdef EC_LIB_USE_FREERTOS
+#ifdef IROBOTEC_USE_FREERTOS
   if (__get_IPSR()) {  // 检测当前是否在中断里，如果在中断里则调用HAL_Delay，否则调用osDelay
     HAL_Delay(ms);
   } else {

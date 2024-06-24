@@ -25,13 +25,9 @@
  * @brief UART类库
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
-#if defined(USE_HAL_UART_REGISTER_CALLBACKS)
-#if (USE_HAL_UART_REGISTER_CALLBACKS != 1u)
-#error "UART register callback must be enabled!"  // 必须启用UART的Register callback
-#endif
-#endif
+#include "irobotec/hal/stm32/check_register_callbacks.h"
 
 #include "uart.h"
 
@@ -59,7 +55,8 @@ using core::exception::ThrowException;
 /**
  * @param huart            HAL库的UART句柄
  * @param rx_buffer_size   接收缓冲区大小
- * @param mode             UART工作模式（正常、中断、DMA）
+ * @param tx_mode          tx工作模式（正常、中断、DMA）
+ * @param rx_mode          rx工作模式（正常、中断、DMA）
  */
 Uart::Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode, UartMode rx_mode)
     : huart_(&huart),

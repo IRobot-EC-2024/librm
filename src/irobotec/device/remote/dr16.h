@@ -28,14 +28,10 @@
 #ifndef IROBOTEC_DEVICE_REMOTE_DR16_H
 #define IROBOTEC_DEVICE_REMOTE_DR16_H
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_UART_MODULE_ENABLED)
-
 #include <vector>
-#include <functional>
 
 #include "irobotec/core/typedefs.h"
-#include "irobotec/hal/stm32/uart.h"
+#include "irobotec/hal/uart.h"
 
 namespace irobot_ec::device {
 
@@ -91,7 +87,7 @@ class DR16 {
   [[nodiscard]] bool key(RcKey key) const;
 
  private:
-  hal::stm32::Uart *uart_;
+  hal::UartInterface *uart_;
 
   i16 axes_[5];                // [0]: right_x, [1]: right_y, [2]: left_x, [3]: left_y, [4]: dial
   i16 mouse_[3];               // [0]: x, [1]: y, [2]: z
@@ -103,5 +99,3 @@ class DR16 {
 }  // namespace irobot_ec::device
 
 #endif
-
-#endif  // IROBOTEC_DEVICE_REMOTE_DR16_H

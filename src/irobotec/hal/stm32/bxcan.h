@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_HAL_STM32_BXCAN_H
 #define IROBOTEC_HAL_STM32_BXCAN_H
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
 
 #include <unordered_map>

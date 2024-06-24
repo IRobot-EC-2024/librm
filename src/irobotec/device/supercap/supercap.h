@@ -28,11 +28,8 @@
 #ifndef IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H
 #define IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_CAN_MODULE_ENABLED)
-
 #include "irobotec/core/typedefs.h"
-#include "irobotec/hal/can.h"
+#include "irobotec/device/can_device.hpp"
 
 namespace irobot_ec::device {
 
@@ -75,7 +72,5 @@ class SuperCap final : public CanDeviceBase {
 };
 
 }  // namespace irobot_ec::device
-
-#endif
 
 #endif  // IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H

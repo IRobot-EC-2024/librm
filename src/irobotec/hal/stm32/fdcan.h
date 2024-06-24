@@ -29,7 +29,7 @@
 #ifndef IROBOTEC_HAL_STM32_FDCAN_H
 #define IROBOTEC_HAL_STM32_FDCAN_H
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_FDCAN_MODULE_ENABLED)
 
 #include "irobotec/hal/can_interface.h"

@@ -26,7 +26,7 @@
  * @todo  实现不够通用，有改进空间
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_I2C_MODULE_ENABLED)
 
 #include "i2c_device.h"

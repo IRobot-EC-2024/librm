@@ -26,7 +26,7 @@
  * @todo    DMA传输+硬件片选(maybe)
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_SPI_MODULE_ENABLED)
 
 #include "bmi088.h"

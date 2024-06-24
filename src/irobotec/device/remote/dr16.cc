@@ -25,9 +25,6 @@
  * @brief DR16接收机
  */
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_UART_MODULE_ENABLED)
-
 #include "dr16.h"
 
 namespace irobot_ec::device {
@@ -36,7 +33,7 @@ namespace irobot_ec::device {
  * @param uart UART对象
  */
 DR16::DR16(hal::stm32::Uart &uart) : uart_(&uart) {
-  static hal::stm32::UartCallbackFunction rx_callback =
+  static hal::UartCallbackFunction rx_callback =
       std::bind(&DR16::RxCallback, this, std::placeholders::_1, std::placeholders::_2);
   this->uart_->AttachRxCallback(rx_callback);
 }
@@ -89,5 +86,3 @@ RcSwitchState DR16::switch_r() const { return this->switches_[0]; }
 bool DR16::key(RcKey key) const { return (this->keyboard_key_ & static_cast<u16>(key)); }
 
 }  // namespace irobot_ec::device
-
-#endif

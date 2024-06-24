@@ -25,13 +25,9 @@
  * @brief bxCAN类库
  */
 
-#include "irobotec/hal/hal.h"
+#include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_CAN_MODULE_ENABLED)
-#if defined(USE_HAL_CAN_REGISTER_CALLBACKS)
-#if (USE_HAL_CAN_REGISTER_CALLBACKS != 1u)
-#error "CAN register callback must be enabled!"
-#endif
-#endif
+#include "irobotec/hal/stm32/check_register_callbacks.h"
 
 #include "bxcan.h"
 

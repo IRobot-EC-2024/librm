@@ -25,9 +25,6 @@
  * @brief 超级电容
  */
 
-#include "irobotec/hal/hal.h"
-#if defined(HAL_CAN_MODULE_ENABLED)
-
 #include "supercap.h"
 
 #include "irobotec/modules/algorithm/utils.hpp"
@@ -106,5 +103,3 @@ void SuperCap::RxCallback(const hal::CanMsg *msg) {
 }
 
 }  // namespace irobot_ec::device
-
-#endif
