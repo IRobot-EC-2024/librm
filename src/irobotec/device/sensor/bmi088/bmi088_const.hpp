@@ -28,7 +28,11 @@
 #ifndef IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
 #define IROBOTEC_DEVICE_SENSOR_BMI088_BMI088_CONST_H
 
+#include <chrono>
+
 #include "irobotec/core/typedefs.h"
+
+using namespace std::chrono_literals;
 
 constexpr f32 BMI088_TEMP_FACTOR = 0.125f;
 constexpr f32 BMI088_TEMP_OFFSET = 23.0f;
@@ -40,8 +44,8 @@ constexpr usize BMI088_GYRO_DATA_READY_BIT = 0;
 constexpr usize BMI088_ACCEL_DATA_READY_BIT = 1;
 constexpr usize BMI088_ACCEL_TEMP_DATA_READY_BIT = 2;
 
-constexpr usize BMI088_LONG_DELAY_TIME = 80;
-constexpr usize BMI088_COM_WAIT_SENSOR_TIME = 150;
+constexpr auto BMI088_LONG_DELAY_TIME = 80ms;
+constexpr auto BMI088_COM_WAIT_SENSOR_TIME = 150us;
 
 constexpr u16 BMI088_ACCEL_IIC_ADDRESS = (0x18 << 1);
 constexpr u16 BMI088_GYRO_IIC_ADDRESS = (0x68 << 1);

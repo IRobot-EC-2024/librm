@@ -31,7 +31,7 @@
 /******** CORE ********/
 #include "irobotec/core/typedefs.h"
 #include "irobotec/core/exception.h"
-#include "irobotec/core/time.h"
+#include "irobotec/core/time.hpp"
 /****************/
 
 /******** HAL WRAPPER ********/

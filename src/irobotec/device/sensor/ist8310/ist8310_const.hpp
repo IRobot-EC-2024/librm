@@ -28,14 +28,18 @@
 #ifndef IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
 #define IROBOTEC_DEVICE_SENSOR_IST8310_IST8310_CONST_H
 
+#include <chrono>
+
 #include "irobotec/core/typedefs.h"
+
+using namespace std::chrono_literals;
 
 constexpr u8 IST8310_I2C_ADDRESS = 0x0E;
 constexpr u8 IST8310_WHO_AM_I = 0x00;        // ist8310 "who am I"
 constexpr u8 IST8310_WHO_AM_I_VALUE = 0x10;  // device ID
 
-constexpr u8 IST8310_COMM_WAIT_TIME_US = 150;
-constexpr u8 IST8310_COMM_WAIT_TIME_MS = 50;
+constexpr auto IST8310_COMM_WAIT_TIME_SHORT = 150us;
+constexpr auto IST8310_COMM_WAIT_TIME_LONG = 50ms;
 
 constexpr u8 IST8310_DATA_READY_BIT = 2;
 

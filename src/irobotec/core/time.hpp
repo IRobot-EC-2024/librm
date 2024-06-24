@@ -21,17 +21,31 @@
 */
 
 /**
- * @file  irobotec/core/time.cc
- * @brief 时间模块
+ * @file  irobotec/core/time.hpp
+ * @brief 时间模块，用来包装不同平台的时间相关功能
  */
 
-#include "irobotec/core/time.h"
+#ifndef IROBOTEC_CORE_TIME_HPP
+#define IROBOTEC_CORE_TIME_HPP
+
+#include <chrono>
+#include <thread>
+
+#if defined(IROBOTEC_PLATFORM_STM32)
 #include "irobotec/modules/freertos.h"
 #include "irobotec/hal/stm32/hal.h"
+#endif
+#include "irobotec/core/typedefs.h"
 
 namespace irobot_ec::core::time {
 
-void SleepMs(u32 ms) {
+// STM32平台的延时比较复杂，所以专门实现两个函数
+#if defined(IROBOTEC_PLATFORM_STM32)
+/**
+ * @brief 给STM32平台使用的延时函数
+ * @param ms 延时时间，单位为毫秒
+ */
+inline void SleepMs(u32 ms) {
 #ifdef IROBOTEC_USE_FREERTOS
   if (__get_IPSR()) {  // 检测当前是否在中断里，如果在中断里则调用HAL_Delay，否则调用osDelay
     HAL_Delay(ms);
@@ -43,7 +57,11 @@ void SleepMs(u32 ms) {
 #endif
 }
 
-void SleepUs(u32 us) {
+/**
+ * @brief 给STM32平台使用的延时函数
+ * @param us 延时时间，单位为微秒
+ */
+inline void SleepUs(u32 us) {
   u32 ticks = 0;
   u32 t_old = 0;
   u32 t_now = 0;
@@ -67,5 +85,36 @@ void SleepUs(u32 us) {
     }
   }
 }
+#endif
 
+using namespace std::chrono_literals;
+
+template <typename T>
+concept delay_chrono_literal =
+    std::is_same_v<T, std::chrono::seconds> || std::is_same_v<T, std::chrono::milliseconds> ||
+    std::is_same_v<T, std::chrono::microseconds> || std::is_same_v<T, std::chrono::nanoseconds>;
+
+/**
+ * @tparam T        chrono_literals
+ * @param  duration 延时时间
+ */
+template <typename T>
+  requires delay_chrono_literal<T>
+void Sleep(T duration) {
+#if defined(IROBOTEC_PLATFORM_STM32)
+  if constexpr (std::is_same_v<T, std::chrono::seconds>) {
+    SleepMs(duration.count() * 1000);
+  } else if constexpr (std::is_same_v<T, std::chrono::milliseconds>) {
+    SleepMs(duration.count());
+  } else if constexpr (std::is_same_v<T, std::chrono::microseconds>) {
+    SleepUs(duration.count());
+  } else if constexpr (std::is_same_v<T, std::chrono::nanoseconds>) {
+    SleepUs(duration.count() / 1000);
+  }
+#else
+  std::this_thread::sleep_for(duration);
+#endif
+}
 }  // namespace irobot_ec::core::time
+
+#endif  // IROBOTEC_CORE_TIME_HPP
