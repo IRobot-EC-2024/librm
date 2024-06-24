@@ -29,6 +29,7 @@
 #define IROBOTEC_H
 
 /******** CORE ********/
+#include "irobotec/core/thread_pool.hpp"
 #include "irobotec/core/typedefs.h"
 #include "irobotec/core/exception.h"
 #include "irobotec/core/time.hpp"
