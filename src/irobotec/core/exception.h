@@ -42,7 +42,13 @@ enum class Exception {
   kValueError,
 };
 
-void ThrowException(Exception e);
+/**
+ * @brief 抛出异常
+ * @param e 异常类型
+ */
+__attribute__((weak)) void ThrowException(Exception e) {
+  // 在这里处理异常
+}
 
 }  // namespace irobot_ec::core::exception
 
