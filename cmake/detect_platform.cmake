@@ -38,7 +38,7 @@ else ()                                                             # 就尝试�
             ${CMAKE_C_COMPILER} MATCHES "arm-none-eabi-gcc" AND     # 使用了arm-none-eabi-gcc编译器
             "${DEFS}" MATCHES "STM32")                              # 宏定义中包含STM32字样
         set(IROBOTEC_PLATFORM "STM32")                              # 那么就认为是STM32平台
-    elseif (${CMAKE_HOST_LINUX})                                    # 如果是在Linux上编译
+    elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")                   # 如果是在Linux上编译
         set(IROBOTEC_PLATFORM "LINUX")                              # 那就认为是Linux平台
     endif ()
 endif ()
