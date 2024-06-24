@@ -114,7 +114,7 @@ class DjiMotor final : public CanDeviceBase {
   [[nodiscard]] u8 temperature() const { return this->temperature_; }
 
   [[nodiscard]] f32 pos_degree() const { return this->encoder() / kDjiMotorMaxEncoder * 360.f; }
-  [[nodiscard]] f32 pos_rad() const { return this->encoder() / kDjiMotorMaxEncoder * M_TWOPI; }
+  [[nodiscard]] f32 pos_rad() const { return this->encoder() / kDjiMotorMaxEncoder * M_PI * 2; }
   /*************/
 
  private:

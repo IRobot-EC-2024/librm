@@ -30,9 +30,11 @@
 
 #ifdef __cplusplus
 #include <cstdint>
+#include <cstddef>
 #include <cctype>
 #else
 #include <stdint.h>
+#include <stddef.h>
 #include <ctype.h>
 #endif
 
