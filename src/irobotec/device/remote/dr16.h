@@ -72,7 +72,7 @@ enum class RcKey : u16 {
 class DR16 {
  public:
   DR16() = delete;
-  explicit DR16(hal::stm32::Uart &uart);
+  explicit DR16(hal::UartInterface &uart);
 
   void StartReceive();
   void RxCallback(const std::vector<u8> &data, u16 rx_len);

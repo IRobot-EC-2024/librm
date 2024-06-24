@@ -32,7 +32,7 @@ namespace irobot_ec::device {
 /**
  * @param uart UART对象
  */
-DR16::DR16(hal::stm32::Uart &uart) : uart_(&uart) {
+DR16::DR16(hal::UartInterface &uart) : uart_(&uart) {
   static hal::UartCallbackFunction rx_callback =
       std::bind(&DR16::RxCallback, this, std::placeholders::_1, std::placeholders::_2);
   this->uart_->AttachRxCallback(rx_callback);
