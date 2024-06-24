@@ -31,8 +31,14 @@
 #include "irobotec/hal/stm32/gpio.h"
 
 namespace irobot_ec::hal {
-#if defined(HAL_GPIO_MODULE_ENABLED)
+#if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_GPIO_MODULE_ENABLED)
 using Pin = stm32::Pin;
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+#if defined(IROBOTEC_PLATFORM_LINUX_RASPI)
+// TODO: WiringPi GPIO wrapper
+#elif defined(IROBOTEC_PLATFORM_LINUX_JETSON)
+// TODO: JetsonGPIO GPIO wrapper
+#endif
 #endif
 }  // namespace irobot_ec::hal
 

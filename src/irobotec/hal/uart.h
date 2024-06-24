@@ -21,26 +21,22 @@
 */
 
 /**
- * @file  irobotec/hal/can.h
- * @brief 根据平台宏定义决定Can的具体实现，并且在can_interface.h里提供一个接口类CanInterface实现多态
+ * @file    irobotec/hal/uart.h
+ * @brief   根据平台宏定义决定Uart的具体实现，并且在uart_interface.h里提供一个接口类UartInterface实现多态
  */
 
-#ifndef IROBOTEC_HAL_CAN_H
-#define IROBOTEC_HAL_CAN_H
+#ifndef IROBOTEC_HAL_UART_H
+#define IROBOTEC_HAL_UART_H
 
-#include "irobotec/hal/stm32/bxcan.h"
-#include "irobotec/hal/stm32/fdcan.h"
+#include "uart_interface.h"
+#include "irobotec/hal/stm32/uart.h"
 
 namespace irobot_ec::hal {
-#if defined(IROBOTEC_PLATFORM_STM32)
-#if defined(HAL_CAN_MODULE_ENABLED)
-using Can = stm32::BxCan;
-#elif defined(HAL_FDCAN_MODULE_ENABLED)
-using Can = stm32::FdCan;  // TODO: 实现FdCan类
-#endif
+#if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_UART_MODULE_ENABLED)
+using Uart = stm32::Uart;
 #elif defined(IROBOTEC_PLATFORM_LINUX)
-// TODO: socketcan
+// TODO: Linux UART
 #endif
-}  // namespace irobot_ec::hal
+}
 
-#endif  // IROBOTEC_HAL_CAN_H
+#endif  // IROBOTEC_HAL_UART_H

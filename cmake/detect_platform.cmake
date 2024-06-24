@@ -19,32 +19,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-set(IROBOTEC_AVAIABLE_PLATFORMS "STM32" "Linux" "OrangePi" "Jetson")
+set(IROBOTEC_AVAIABLE_PLATFORMS "STM32" "LINUX")
+set(IROBOTEC_AVAILABLE_LINUX_TYPES "GENERAL" "JETSON" "RASPI")
 
-# 尝试通过查找和平台有关的库来检测平台
+# 尝试通过查找和平台有关的库
 find_package(WiringPi QUIET)      # raspberry pi/orange pi
 find_package(JetsonGPIO QUIET)    # jetson
 
 get_directory_property(DEFS COMPILE_DEFINITIONS)
 
 if (DEFINED IROBOTEC_PLATFORM)                                      # 如果用户定义了IROBOTEC_PLATFORM变量
-    if (NOT IROBOTEC_PLATFORM STREQUAL "STM32" OR
-            NOT IROBOTEC_PLATFORM STREQUAL "Linux")
-        message(WARNING "[irobotEC]: Invalid platform: ${IROBOTEC_PLATFORM}")   # 但是用户定义的平台不在可用平台列表里
+    if (NOT "${IROBOTEC_PLATFORM}" IN_LIST IROBOTEC_AVAIABLE_PLATFORMS)  # 但是用户定义的平台不在可用平台列表里
+        message(WARNING "[irobotEC]: Invalid platform: ${IROBOTEC_PLATFORM}\n"
+                "[irobotEC]: Available platforms: ${IROBOTEC_AVAIABLE_PLATFORMS}")
     endif ()
-else ()                                                                         # 就尝试自动检测平台
+else ()                                                             # 就尝试自动检测平台
     if (${CMAKE_CROSSCOMPILING} AND                                 # 启用了交叉编译
             ${CMAKE_C_COMPILER} MATCHES "arm-none-eabi-gcc" AND     # 使用了arm-none-eabi-gcc编译器
             "${DEFS}" MATCHES "STM32")                              # 宏定义中包含STM32字样
         set(IROBOTEC_PLATFORM "STM32")                              # 那么就认为是STM32平台
     elseif (${CMAKE_HOST_LINUX})                                    # 如果是在Linux上编译
-        if (WiringPi_FOUND)                                         # 根据有没有找到和平台有关的库来判断平台
-            set(IROBOTEC_PLATFORM "OrangePi")
-        elseif (JetsonGPIO_FOUND)
-            set(IROBOTEC_PLATFORM "Jetson")
-        else ()                                                     # 如果没有找到和平台有关的库
-            set(IROBOTEC_PLATFORM "Linux")                          # 那么就fallback到Linux平台
-        endif ()
+        set(IROBOTEC_PLATFORM "LINUX")                              # 那就认为是Linux平台
     endif ()
 endif ()
 
@@ -59,4 +54,18 @@ if (NOT DEFINED IROBOTEC_PLATFORM)
             "[irobotEC]: Available platforms: ${IROBOTEC_AVAIABLE_PLATFORMS}")
 endif ()
 
-message(STATUS "[irobotEC]: Detected platform: ${IROBOTEC_PLATFORM}")
+message(STATUS "[irobotEC]: Platform: ${IROBOTEC_PLATFORM}")
+
+# 如果顺利判断出平台是Linux，就根据找到的package进一步判断是哪一种嵌入式Linux
+if (${IROBOTEC_PLATFORM} STREQUAL "LINUX")
+    if (WiringPi_FOUND)
+        message(STATUS "[irobotEC]: Found WiringPi")
+        set(IROBOTEC_PLATFORM_LINUX_TYPE "RASPI")
+    elseif (JetsonGPIO_FOUND)
+        message(STATUS "[irobotEC]: Found WiringPi")
+        set(IROBOTEC_PLATFORM_LINUX_TYPE "JETSON")
+    else ()
+        set(IROBOTEC_PLATFORM_LINUX_TYPE "GENERAL")             # 如果什么都没找到就fallback到general linux，不提供平台驱动
+    endif ()
+    message(STATUS "[irobotEC]: Linux type: ${IROBOTEC_PLATFORM_LINUX_TYPE}")
+endif ()

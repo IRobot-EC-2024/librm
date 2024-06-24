@@ -24,6 +24,6 @@ endif ()
 # pack up all third party libraries to a single target
 add_library(third_party INTERFACE)
 target_link_libraries(third_party INTERFACE crc tinyfsm tweeny nanopb eigen)
-if (NOT IROBOTEC_PLATFORM STREQUAL "STM32")
+if (IROBOTEC_PLATFORM STREQUAL "LINUX")
     target_link_libraries(third_party INTERFACE spdlog::spdlog)
 endif ()
