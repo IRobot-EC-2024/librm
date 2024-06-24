@@ -23,7 +23,6 @@
 /**
  * @file  modules/algorithm/mahony_ahrs.h
  * @brief Mahony姿态解算算法
- * @todo  利用DSP库加速运算
  */
 
 #ifndef IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H

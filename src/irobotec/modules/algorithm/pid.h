@@ -30,8 +30,6 @@
 
 #include <memory>
 
-// 如果dsp库可用，就启用dsp库里的pid控制器支持
-#include "irobotec/modules/dsp.h"
 #include "irobotec/core/typedefs.h"
 
 namespace irobot_ec::modules::algorithm {
@@ -39,9 +37,6 @@ namespace irobot_ec::modules::algorithm {
 enum class PIDType {
   kPosition,
   kDelta,
-#if defined(ARM_MATH_DSP)
-  kDsp,
-#endif
 };
 
 /**
@@ -82,9 +77,6 @@ class PID {
   f32 d_buf_[3]{};  // 0: 这次, 1: 上次, 2: 上上次
   f32 error_[3]{};  // 0: 这次, 1: 上次, 2: 上上次
 
-#if defined(ARM_MATH_DSP)
-  arm_pid_instance_f32 dsp_pid_;
-#endif
   f32 *external_diff_input_;      // 外部提供的微分输入
   bool use_external_diff_input_;  // 是否使用外部提供的微分输入
 

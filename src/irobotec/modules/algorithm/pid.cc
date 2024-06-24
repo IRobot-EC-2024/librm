@@ -43,18 +43,7 @@ PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout)
       max_out_(max_out),
       max_iout_(max_iout),
       use_external_diff_input_(false),
-      external_diff_input_(nullptr) {
-#if defined(ARM_MATH_DSP)
-  if (type == PIDType::kDsp) {
-    this->dsp_pid_ = {
-        .Kp = kp,
-        .Ki = ki,
-        .Kd = kd,
-    };
-  }
-  arm_pid_init_f32(&this->dsp_pid_, 1);
-#endif
-}
+      external_diff_input_(nullptr) {}
 
 PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 *external_diff_input)
     : kp_(kp),
@@ -64,18 +53,7 @@ PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 *e
       max_out_(max_out),
       max_iout_(max_iout),
       use_external_diff_input_(true),
-      external_diff_input_(external_diff_input) {
-#if defined(ARM_MATH_DSP)
-  if (type == PIDType::kDsp) {
-    this->dsp_pid_ = {
-        .Kp = kp,
-        .Ki = ki,
-        .Kd = kd,
-    };
-  }
-  arm_pid_init_f32(&this->dsp_pid_, 1);
-#endif
-}
+      external_diff_input_(external_diff_input) {}
 
 void PID::update(f32 set, f32 ref) {
   this->error_[2] = this->error_[1];
@@ -114,13 +92,6 @@ void PID::update(f32 set, f32 ref) {
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
       this->out_ = absConstrain(this->out_, this->max_out_);
       break;
-
-#if defined(ARM_MATH_DSP)
-    case PIDType::kDsp:
-      this->out_ = arm_pid_f32(&this->dsp_pid_, this->error_[0]);
-      this->out_ = absConstrain(this->out_, this->max_out_);
-      break;
-#endif
   }
 }
 
@@ -133,11 +104,6 @@ void PID::clear() {
   this->d_out_ = 0;
   memset(this->d_buf_, 0, 3);
   memset(this->error_, 0, 3);
-#if defined(ARM_MATH_DSP)
-  if (this->type_ == PIDType::kDsp) {
-    arm_pid_reset_f32(&this->dsp_pid_);
-  }
-#endif
 }
 
 void PID::switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout) {
@@ -146,16 +112,6 @@ void PID::switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout) {
   this->kd_ = kd;
   this->max_out_ = max_out;
   this->max_iout_ = max_iout;
-#if defined(ARM_MATH_DSP)
-  if (this->type_ == PIDType::kDsp) {
-    this->dsp_pid_ = {
-        .Kp = kp,
-        .Ki = ki,
-        .Kd = kd,
-    };
-    arm_pid_init_f32(&this->dsp_pid_, 1);
-  }
-#endif
 }
 
 f32 PID::value() const { return this->out_; }
@@ -202,13 +158,6 @@ void RingPID::update(f32 set, f32 ref) {
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
       this->out_ = absConstrain(this->out_, this->max_out_);
       break;
-
-#if defined(ARM_MATH_DSP)
-    case PIDType::kDsp:
-      this->out_ = arm_pid_f32(&this->dsp_pid_, this->error_[0]);
-      this->out_ = absConstrain(this->out_, this->max_out_);
-      break;
-#endif
   }
 }
 
