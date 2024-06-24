@@ -71,3 +71,18 @@ jobs:
 
       - name: Build
         run: cmake --build ${{github.workspace}}/stm32cube_template/stm32h723vgtx/build --target all
+
+  build_general_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: '.'
+          submodules: 'recursive'
+
+      - name: Configure CMake
+        run: cmake . -Bbuild;cd build
+
+      - name: Build
+        run: make -j
