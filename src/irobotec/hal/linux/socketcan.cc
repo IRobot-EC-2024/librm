@@ -121,11 +121,10 @@ void SocketCan::Stop() {
 void SocketCan::RecvThread() {
   struct ::can_frame frame;
   for (;;) {
-    int t = read(this->socket_fd_, &frame, sizeof(frame));
-    if (t <= 0) {
-      return;
+    if (read(this->socket_fd_, &frame, sizeof(frame) <= 0)) {
+      continue;
     }
-    // 如果接收成功，就异步调用RxCallbackCallWorker之后立刻返回，防止漏收或延迟
+    // 如果接收成功，就异步调用RxCallbackCallWorker处理后续逻辑；之后立刻返回再次接收，防止漏收或延迟
     this->thread_pool_->enqueue(
         [this, frame]() { this->RxCallbackCallWorker(std::move(std::make_unique<struct can_frame>(frame))); });
   }
@@ -152,7 +151,7 @@ void SocketCan::RxCallbackCallWorker(std::unique_ptr<struct ::can_frame> msg) {
     msg_packet.dlc = msg->can_dlc;
     std::copy(msg->data, msg->data + msg->can_dlc, msg_packet.data.begin());
 
-    // 给这个设备加锁，发送消息
+    // 给这个设备加锁，然后调用它的回调函数
     {
       std::lock_guard<std::mutex> lock(receipient_device->second->mutex);
       receipient_device->second->dev->RxCallback(&msg_packet);
