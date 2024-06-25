@@ -126,9 +126,9 @@ void MahonyAhrs::Update(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az, f32 mx, 
 
     // Compute and apply integral feedback if enabled
     if (two_ki_ > 0.0f) {
-      integral_fb_x_ += two_ki_ * halfex_ * (1.0f / sample_freq_);  // integral error scaled by Ki
-      integral_fb_y_ += two_ki_ * halfey_ * (1.0f / sample_freq_);
-      integral_fb_z_ += two_ki_ * halfez_ * (1.0f / sample_freq_);
+      integral_fb_x_ = two_ki_ * halfex_ * (1.0f / sample_freq_) + integral_fb_x_;  // integral error scaled by Ki
+      integral_fb_y_ = two_ki_ * halfey_ * (1.0f / sample_freq_) + integral_fb_y_;
+      integral_fb_z_ = two_ki_ * halfez_ * (1.0f / sample_freq_) + integral_fb_z_;
       gx += integral_fb_x_;  // apply integral feedback
       gy += integral_fb_y_;
       gz += integral_fb_z_;
@@ -201,9 +201,9 @@ void MahonyAhrs::UpdateImu(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az) {
 
     // Compute and apply integral feedback if enabled
     if (two_ki_ > 0.0f) {
-      integral_fb_x_ += two_ki_ * halfex * (1.0f / sample_freq_);  // integral error scaled by Ki
-      integral_fb_y_ += two_ki_ * halfey * (1.0f / sample_freq_);
-      integral_fb_z_ += two_ki_ * halfez * (1.0f / sample_freq_);
+      integral_fb_x_ = two_ki_ * halfex * (1.0f / sample_freq_) + integral_fb_x_;  // integral error scaled by Ki
+      integral_fb_y_ = two_ki_ * halfey * (1.0f / sample_freq_) + integral_fb_y_;
+      integral_fb_z_ = two_ki_ * halfez * (1.0f / sample_freq_) + integral_fb_z_;
       gx += integral_fb_x_;  // apply integral feedback
       gy += integral_fb_y_;
       gz += integral_fb_z_;
