@@ -74,7 +74,7 @@ class DR16 {
   DR16() = delete;
   explicit DR16(hal::UartInterface &uart);
 
-  void StartReceive();
+  void Begin();
   void RxCallback(const std::vector<u8> &data, u16 rx_len);
 
   [[nodiscard]] i16 left_x() const;

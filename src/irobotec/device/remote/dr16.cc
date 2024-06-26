@@ -41,7 +41,7 @@ DR16::DR16(hal::UartInterface &uart) : uart_(&uart) {
 /**
  * @brief 开始接收遥控器数据
  */
-void DR16::StartReceive() { this->uart_->StartReceive(); }
+void DR16::Begin() { this->uart_->Begin(); }
 
 /**
  * @brief 串口接收完成中断回调函数
