@@ -28,9 +28,11 @@
 #ifndef IROBOTEC_HAL_UART_H
 #define IROBOTEC_HAL_UART_H
 
-#include "uart_interface.h"
+#if defined(IROBOTEC_PLATFORM_STM32)
 #include "irobotec/hal/stm32/uart.h"
+#elif defined(IROBOTEC_PLATFORM_LINUX)
 #include "irobotec/hal/linux/serial.h"
+#endif
 
 namespace irobot_ec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_UART_MODULE_ENABLED)

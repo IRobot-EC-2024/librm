@@ -28,9 +28,12 @@
 #ifndef IROBOTEC_HAL_CAN_H
 #define IROBOTEC_HAL_CAN_H
 
+#if defined(IROBOTEC_PLATFORM_STM32)
 #include "irobotec/hal/stm32/bxcan.h"
 #include "irobotec/hal/stm32/fdcan.h"
+#elif defined(IROBOTEC_PLATFORM_LINUX)
 #include "irobotec/hal/linux/socketcan.h"
+#endif
 
 namespace irobot_ec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32)

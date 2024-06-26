@@ -28,7 +28,11 @@
 #ifndef IROBOTEC_HAL_GPIO_H
 #define IROBOTEC_HAL_GPIO_H
 
+#if defined(IROBOTEC_PLATFORM_STM32)
 #include "irobotec/hal/stm32/gpio.h"
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+// TODO
+#endif
 
 namespace irobot_ec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_GPIO_MODULE_ENABLED)
