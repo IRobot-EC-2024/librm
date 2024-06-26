@@ -42,7 +42,7 @@
  * 而HAL库要求的回调函数并没有这个this参数。通过std::bind，可以生成一个参数列表里没有this指针的std::function对象，而std::function
  * 并不能直接强转成函数指针。借助这个函数，可以把std::function对象转换成函数指针。然后就可以把这个类内的回调函数传给HAL库了。
  */
-static pUART_RxEventCallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void(u16)> fn) {
+static auto StdFunctionToCallbackFunctionPtr(std::function<void(u16)> fn) -> pUART_RxEventCallbackTypeDef {
   static auto fn_v = std::move(fn);
   return [](UART_HandleTypeDef *handle, u16 rx_len) { fn_v(rx_len); };
 }
@@ -78,6 +78,23 @@ void Uart::Begin() {
   // 注册接收完成回调函数
   HAL_UART_RegisterRxEventCallback(
       this->huart_, StdFunctionToCallbackFunctionPtr(std::bind(&Uart::HalRxCpltCallback, this, std::placeholders::_1)));
+
+  // 启动接收
+  switch (this->rx_mode_) {
+    case UartMode::kNormal:
+      HAL_UART_Receive(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[this->buffer_selector_].size(),
+                       HAL_MAX_DELAY);
+      break;
+    case UartMode::kInterrupt:
+      HAL_UART_Receive_IT(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[this->buffer_selector_].size());
+      break;
+#if defined(HAL_DMA_MODULE_ENABLED)
+    case UartMode::kDma:
+      HAL_UARTEx_ReceiveToIdle_DMA(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[this->buffer_selector_].size());
+      __HAL_DMA_DISABLE_IT(this->huart_->hdmarx, DMA_IT_HT);  // 关闭DMA半传输中断
+      break;
+#endif
+  }
 }
 
 /**
@@ -96,27 +113,6 @@ void Uart::Write(const u8 *data, usize size) {
 #if defined(HAL_DMA_MODULE_ENABLED)
     case UartMode::kDma:
       HAL_UART_Transmit_DMA(this->huart_, const_cast<u8 *>(data), size);
-      break;
-#endif
-  }
-}
-
-/**
- * @brief 开始接收数据
- */
-void Uart::StartReceive() {
-  switch (this->rx_mode_) {
-    case UartMode::kNormal:
-      HAL_UART_Receive(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[this->buffer_selector_].size(),
-                       HAL_MAX_DELAY);
-      break;
-    case UartMode::kInterrupt:
-      HAL_UART_Receive_IT(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[this->buffer_selector_].size());
-      break;
-#if defined(HAL_DMA_MODULE_ENABLED)
-    case UartMode::kDma:
-      HAL_UARTEx_ReceiveToIdle_DMA(this->huart_, this->rx_buf_[0].data(), this->rx_buf_[this->buffer_selector_].size());
-      __HAL_DMA_DISABLE_IT(this->huart_->hdmarx, DMA_IT_HT);  // 关闭DMA半传输中断
       break;
 #endif
   }

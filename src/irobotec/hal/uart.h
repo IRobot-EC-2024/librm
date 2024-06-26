@@ -30,12 +30,13 @@
 
 #include "uart_interface.h"
 #include "irobotec/hal/stm32/uart.h"
+#include "irobotec/hal/linux/serial.h"
 
 namespace irobot_ec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_UART_MODULE_ENABLED)
 using Uart = stm32::Uart;
 #elif defined(IROBOTEC_PLATFORM_LINUX)
-// TODO: Linux UART
+using Uart = linux_::Serial;
 #endif
 }  // namespace irobot_ec::hal
 

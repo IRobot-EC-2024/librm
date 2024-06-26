@@ -60,11 +60,6 @@ class UartInterface {
   virtual void Write(const u8 *data, usize size) = 0;
 
   /**
-   * @brief 开始接收数据
-   */
-  virtual void StartReceive() = 0;
-
-  /**
    * @brief 绑定接收完成回调函数
    * @param callback 回调函数
    */

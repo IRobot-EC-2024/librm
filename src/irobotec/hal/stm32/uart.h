@@ -54,7 +54,6 @@ class Uart : public UartInterface {
 
   void Begin() override;
   void Write(const u8 *data, usize size) override;
-  void StartReceive() override;
   void AttachRxCallback(UartCallbackFunction &callback) override;
   [[nodiscard]] const std::vector<u8> &rx_buffer() const override;
 
