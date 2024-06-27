@@ -33,7 +33,7 @@
 #include <array>
 
 namespace irobot_ec::device {
-class CanDeviceBase;
+class CanDevice;
 }
 
 namespace irobot_ec::hal {
@@ -55,7 +55,7 @@ enum class CanTxPriority {
  * @note  借助CanDeviceBase类使用观察者模式实现回调机制
  */
 class CanInterface {
-  friend class device::CanDeviceBase;
+  friend class device::CanDevice;
 
  public:
   virtual ~CanInterface() = default;
@@ -104,7 +104,7 @@ class CanInterface {
    * @brief 注册CAN设备
    * @param device 设备对象
    */
-  virtual void RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) = 0;
+  virtual void RegisterDevice(device::CanDevice &device, u32 rx_stdid) = 0;
 };
 
 }  // namespace irobot_ec::hal

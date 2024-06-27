@@ -33,7 +33,7 @@ namespace irobot_ec::device {
 
 using modules::algorithm::utils::Map;
 
-SuperCap::SuperCap(hal::CanInterface &can) : CanDeviceBase(can, 0x30) {}
+SuperCap::SuperCap(hal::CanInterface &can) : CanDevice(can, 0x30) {}
 
 /**
  * @return 电容两端电压(V)

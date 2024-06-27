@@ -49,7 +49,7 @@ enum class SuperCapError : u16 {
 /**
  * @brief 超级电容
  */
-class SuperCap final : public CanDeviceBase {
+class SuperCap final : public CanDevice {
  public:
   explicit SuperCap(hal::CanInterface &can);
   SuperCap() = delete;

@@ -61,7 +61,7 @@ class BxCan final : public CanInterface {
   void Stop() override;
 
  private:
-  void RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) override;
+  void RegisterDevice(device::CanDevice &device, u32 rx_stdid) override;
   void Fifo0MsgPendingCallback();
 
   u32 tx_mailbox_{0};
@@ -80,7 +80,7 @@ class BxCan final : public CanInterface {
       .DLC = 0,
       .TransmitGlobalTime = DISABLE,
   };
-  std::unordered_map<u16, device::CanDeviceBase *> device_list_{};  // <rx_stdid, device>
+  std::unordered_map<u16, device::CanDevice *> device_list_{};  // <rx_stdid, device>
 
   /**
    * @brief 消息队列最大长度

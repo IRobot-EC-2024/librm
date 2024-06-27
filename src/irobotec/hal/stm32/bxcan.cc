@@ -192,7 +192,7 @@ void BxCan::Fifo0MsgPendingCallback() {
  * @param device    设备对象
  * @param rx_stdid  设备想要接收的的rx消息标准帧id
  */
-void BxCan::RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) {
+void BxCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
   if (this->device_list_.contains(rx_stdid)) {
     ThrowException(Exception::kValueError);
   }

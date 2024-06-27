@@ -94,7 +94,7 @@ struct DjiMotorProperties<DjiMotorType::M2006> {
  * @tparam motor_type 电机类型(GM6020, M3508, M2006)
  */
 template <DjiMotorType motor_type = DjiMotorType::Default>
-class DjiMotor final : public CanDeviceBase {
+class DjiMotor final : public CanDevice {
  public:
   DjiMotor() = delete;
   ~DjiMotor() override = default;
@@ -142,7 +142,7 @@ using M2006 = DjiMotor<DjiMotorType::M2006>;
  */
 template <DjiMotorType motor_type>
 DjiMotor<motor_type>::DjiMotor(hal::CanInterface &can, u16 id, bool reversed)
-    : CanDeviceBase(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id), reversed_(reversed) {
+    : CanDevice(can, DjiMotorProperties<motor_type>::kRxIdBase + id), id_(id), reversed_(reversed) {
   // 如果这个电机对象所在CAN总线的发送缓冲区还未创建，就创建一个
   if (DjiMotorProperties<motor_type>::tx_buf_.find(&can) == DjiMotorProperties<motor_type>::tx_buf_.end()) {
     DjiMotorProperties<motor_type>::tx_buf_.insert({&can, {0}});
