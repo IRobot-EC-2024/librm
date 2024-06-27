@@ -21,39 +21,29 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/hal/spi.h
+ * @brief 根据平台宏定义决定具体实现，并且在spi_interface.h里提供一个接口类SpiInterface实现多态
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_HAL_SPI_H
+#define IROBOTEC_HAL_SPI_H
 
-/******** CORE ********/
-#include "irobotec/core/thread_pool.hpp"
-#include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.hpp"
-/****************/
+#if defined(IROBOTEC_PLATFORM_STM32)
+#include "irobotec/hal/stm32/spi.h"
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+// TODO
+#endif
 
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/gpio.h"
-#include "irobotec/hal/uart.h"
-#include "irobotec/hal/spi.h"
-/****************/
+namespace irobot_ec::hal {
+#if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_GPIO_MODULE_ENABLED)
+using Spi = stm32::Spi;
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+#if defined(IROBOTEC_PLATFORM_LINUX_RASPI)
+// TODO: WiringPi GPIO wrapper
+#elif defined(IROBOTEC_PLATFORM_LINUX_JETSON)
+// TODO: JetsonGPIO GPIO wrapper
+#endif
+#endif
+}  // namespace irobot_ec::hal
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088.h"
-#include "irobotec/device/sensor/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
-
-/******** MISC MODULES ********/
-/****************/
-
-#endif  // IROBOTEC_H
+#endif  // IROBOTEC_HAL_SPI_H

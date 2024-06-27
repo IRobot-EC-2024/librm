@@ -1,7 +1,7 @@
 /*
   Copyright (c) 2024 XDU-IRobot
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
+  Permission is hereby granted, free of u8ge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -21,39 +21,39 @@
 */
 
 /**
- * @file  irobotec.hpp
- * @brief irobotEC库的主头文件
+ * @file  irobotec/hal/stm32/spi.h
+ * @brief SPI类库
  */
 
-#ifndef IROBOTEC_H
-#define IROBOTEC_H
+#ifndef IROBOTEC_HAL_STM32_SPI_H
+#define IROBOTEC_HAL_STM32_SPI_H
 
-/******** CORE ********/
-#include "irobotec/core/thread_pool.hpp"
+#include "irobotec/hal/stm32/hal.h"
+#if defined(HAL_SPI_MODULE_ENABLED)
+
+#include "irobotec/hal/spi_interface.h"
 #include "irobotec/core/typedefs.h"
-#include "irobotec/core/exception.h"
-#include "irobotec/core/time.hpp"
-/****************/
 
-/******** HAL WRAPPER ********/
-#include "irobotec/hal/can.h"
-#include "irobotec/hal/gpio.h"
-#include "irobotec/hal/uart.h"
-#include "irobotec/hal/spi.h"
-/****************/
+namespace irobot_ec::hal::stm32 {
 
-/******** DEVICE ********/
-#include "irobotec/device/device.h"
-#include "irobotec/device/can_device.hpp"
-#include "irobotec/device/actuator/dji_motor.hpp"
-#include "irobotec/device/actuator/unitree_motor.h"
-#include "irobotec/device/remote/dr16.h"
-#include "irobotec/device/sensor/bmi088.h"
-#include "irobotec/device/sensor/ist8310.h"
-#include "irobotec/device/supercap/supercap.h"
-/****************/
+class Spi final : public hal::SpiInterface {
+ public:
+  Spi(SPI_HandleTypeDef &hspi, usize timeout_ms);
+  Spi() = delete;
+  ~Spi() override = default;
 
-/******** MISC MODULES ********/
-/****************/
+  void Begin() override;
+  void Write(const u8 *data, usize size) override;
+  void Read(u8 *dst, usize size) override;
+  void ReadWrite(const u8 *tx_data, u8 *rx_buffer, usize size) override;
 
-#endif  // IROBOTEC_H
+ private:
+  SPI_HandleTypeDef *hspi_{nullptr};
+  usize transmission_timeout_{};
+};
+
+}  // namespace irobot_ec::hal::stm32
+
+#endif
+
+#endif  // IROBOTEC_HAL_STM32_SPI_H
