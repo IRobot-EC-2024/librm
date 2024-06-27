@@ -32,7 +32,7 @@
 #include <thread>
 
 #if defined(IROBOTEC_PLATFORM_STM32)
-#include "irobotec/modules/freertos.h"
+#include "irobotec/core/freertos.h"
 #include "irobotec/hal/stm32/hal.h"
 #endif
 #include "irobotec/core/typedefs.h"

@@ -21,22 +21,20 @@
 */
 
 /**
- * @file  irobotec/modules/freertos.h
+ * @file  irobotec/core/freertos.h
  * @brief 检测FreeRTOS是否可用
  */
 
-#ifndef IROBOTEC_MODULES_FREERTOS_H
-#define IROBOTEC_MODULES_FREERTOS_H
+#ifndef IROBOTEC_CORE_FREERTOS_H
+#define IROBOTEC_CORE_FREERTOS_H
 
 #if defined(__GNUC__) || defined(__clang__)
 #if __has_include("cmsis_os.h")
 #define IROBOTEC_USE_FREERTOS
 #include "cmsis_os.h"
-#else
-#warning "FreeRTOS is not available."
 #endif
 #else
 #error "Unsupported compiler, please use GCC or Clang."
 #endif
 
-#endif  // IROBOTEC_MODULES_FREERTOS_H
+#endif  // IROBOTEC_CORE_FREERTOS_H
