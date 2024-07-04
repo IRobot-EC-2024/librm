@@ -164,7 +164,7 @@ void SocketCan::RxCallbackCallWorker(std::unique_ptr<struct ::can_frame> msg) {
  * @param device 设备对象
  * @param rx_stdid 这个设备的rx消息标准帧id
  */
-void SocketCan::RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) {
+void SocketCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
   // TODO: 冲突检查，如果已经有这个ID的设备了就抛出异常
   this->device_list_[rx_stdid] = new AsyncCanDevice(device);
 }

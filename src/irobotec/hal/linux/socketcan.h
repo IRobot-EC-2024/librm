@@ -54,9 +54,9 @@ namespace irobot_ec::hal::linux_ {
  * @note  SocketCan类会异步地调用不同设备的RxCallback函数，为了保证线程安全，需要分别给每个设备加锁
  */
 struct AsyncCanDevice {
-  AsyncCanDevice(device::CanDeviceBase &dev) : dev(&dev) {}
+  AsyncCanDevice(device::CanDevice &dev) : dev(&dev) {}
   std::mutex mutex;
-  device::CanDeviceBase *dev;
+  device::CanDevice *dev;
 };
 
 class SocketCan : public hal::CanInterface {
@@ -80,7 +80,7 @@ class SocketCan : public hal::CanInterface {
   void RecvThread();
   void SendThread();
   void RxCallbackCallWorker(std::unique_ptr<struct ::can_frame> msg);
-  void RegisterDevice(device::CanDeviceBase &device, u32 rx_stdid) override;
+  void RegisterDevice(device::CanDevice &device, u32 rx_stdid) override;
 
   int socket_fd_;
   struct ::sockaddr_can addr_;
