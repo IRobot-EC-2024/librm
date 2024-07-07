@@ -46,18 +46,18 @@ enum class DmMotorStatus {
   kEnable = 0x1,
   kOverVoltage = 0x8,
   kUnderVoltage = 0x9,
-  kOverCurrent = 0xA,
-  kMosOverTemp = 0xB,
-  kCoilOverTemp = 0xC,
-  kCommLost = 0xD,
-  kOverload = 0xE,
+  kOverCurrent = 0xa,
+  kMosOverTemp = 0xb,
+  kCoilOverTemp = 0xc,
+  kCommLost = 0xd,
+  kOverload = 0xe,
 };
 
 /**
  * @brief 达妙电机的三种控制模式
  */
 enum class DmMotorControlMode {
-  kMIT,            // MIT模式
+  kMit,            // MIT模式
   kSpeedPosition,  // 速度位置模式
   kSpeed           // 速度模式
 };
@@ -105,7 +105,7 @@ struct DmMotorSettings<DmMotorControlMode::kSpeedPosition> {
  * @brief 在达妙电机的上位机软件里设置的一些会影响反馈信息的参数，需要填入这里传给类库
  */
 template <>
-struct DmMotorSettings<DmMotorControlMode::kMIT> {
+struct DmMotorSettings<DmMotorControlMode::kMit> {
   i16 master_id;                 // 电机反馈报文的ID
   i16 slave_id;                  // 电机控制报文的ID
   f32 p_max;                     // 最大位置
@@ -147,7 +147,7 @@ class DmMotor final : public CanDevice {
    * @param  kd                     微分系数
    */
   template <DmMotorControlMode mode = control_mode,
-            typename std::enable_if_t<mode == DmMotorControlMode::kMIT, int> = 0>
+            typename std::enable_if_t<mode == DmMotorControlMode::kMit, int> = 0>
   void SetPosition(f32 position_rad, f32 max_speed_rad_per_sec, f32 accel_torque_nm, f32 kp, f32 kd) {
     if (this->reversed_) {
       position_rad = this->settings_.p_max - position_rad;
