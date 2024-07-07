@@ -54,9 +54,13 @@ enum class DmMotorStatus {
 };
 
 /**
- * @brief 达妙电机的三种控制模式，分别为MIT模式、速度位置模式和速度模式
+ * @brief 达妙电机的三种控制模式
  */
-enum class DmMotorControlMode { kMIT, kSpeedPosition, kSpeed };
+enum class DmMotorControlMode {
+  kMIT,            // MIT模式
+  kSpeedPosition,  // 速度位置模式
+  kSpeed           // 速度模式
+};
 
 /**
  * @brief 达妙电机的功能指令和其对应的最后一个字节的值
@@ -148,10 +152,10 @@ class DmMotor : public CanDevice {
         modules::algorithm::utils::FloatToInt(position_rad, -this->settings_.p_max, this->settings_.p_max, 16);
     u16 vel_tmp =
         modules::algorithm::utils::FloatToInt(max_speed_rad_per_sec, -this->settings_.v_max, this->settings_.v_max, 12);
-    u16 kp_tmp = modules::algorithm::utils::FloatToInt(kp, this->settings_.kp_range.first,
-                                                       this->settings_.kp_range.second, 12);
-    u16 kd_tmp = modules::algorithm::utils::FloatToInt(kd, this->settings_.kd_range.first,
-                                                       this->settings_.kd_range.second, 12);
+    u16 kp_tmp =
+        modules::algorithm::utils::FloatToInt(kp, this->settings_.kp_range.first, this->settings_.kp_range.second, 12);
+    u16 kd_tmp =
+        modules::algorithm::utils::FloatToInt(kd, this->settings_.kd_range.first, this->settings_.kd_range.second, 12);
     u16 tor_tmp =
         modules::algorithm::utils::FloatToInt(accel_torque_nm, -this->settings_.t_max, this->settings_.t_max, 12);
 
