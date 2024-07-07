@@ -83,8 +83,8 @@ struct DmMotorSettings {};
  */
 template <>
 struct DmMotorSettings<DmMotorControlMode::kSpeed> {
-  i16 master_id;  // Master ID，即电机反馈报文的ID
-  i16 slave_id;   // Slave ID，即电机控制报文的ID
+  i16 master_id;  // 电机反馈报文的ID
+  i16 slave_id;   // 电机控制报文的ID
   f32 v_max;      // 最大速度
   f32 t_max;      // 最大扭矩
 };
@@ -94,8 +94,8 @@ struct DmMotorSettings<DmMotorControlMode::kSpeed> {
  */
 template <>
 struct DmMotorSettings<DmMotorControlMode::kSpeedPosition> {
-  i16 master_id;  // Master ID，即电机反馈报文的ID
-  i16 slave_id;   // Slave ID，即电机控制报文的ID
+  i16 master_id;  // 电机反馈报文的ID
+  i16 slave_id;   // 电机控制报文的ID
   f32 p_max;      // 最大位置
   f32 v_max;      // 最大速度
   f32 t_max;      // 最大扭矩
@@ -106,8 +106,8 @@ struct DmMotorSettings<DmMotorControlMode::kSpeedPosition> {
  */
 template <>
 struct DmMotorSettings<DmMotorControlMode::kMIT> {
-  i16 master_id;                 // Master ID，即电机反馈报文的ID
-  i16 slave_id;                  // Slave ID，即电机控制报文的ID
+  i16 master_id;                 // 电机反馈报文的ID
+  i16 slave_id;                  // 电机控制报文的ID
   f32 p_max;                     // 最大位置
   f32 v_max;                     // 最大速度
   f32 t_max;                     // 最大扭矩
@@ -146,7 +146,8 @@ class DmMotor : public CanDevice {
    * @param  kp                     比例系数
    * @param  kd                     微分系数
    */
-  template <DmMotorControlMode mode = control_mode, std::enable_if_t<mode == DmMotorControlMode::kMIT, int> = 0>
+  template <DmMotorControlMode mode = control_mode,
+            typename std::enable_if_t<mode == DmMotorControlMode::kMIT, int> = 0>
   void SetPosition(f32 position_rad, f32 max_speed_rad_per_sec, f32 accel_torque_nm, f32 kp, f32 kd) {
     u16 pos_tmp =
         modules::algorithm::utils::FloatToInt(position_rad, -this->settings_.p_max, this->settings_.p_max, 16);
@@ -162,10 +163,10 @@ class DmMotor : public CanDevice {
     this->tx_buffer_[0] = (pos_tmp >> 8);
     this->tx_buffer_[1] = pos_tmp;
     this->tx_buffer_[2] = (vel_tmp >> 4);
-    this->tx_buffer_[3] = ((vel_tmp & 0xF) << 4) | (kp_tmp >> 8);
+    this->tx_buffer_[3] = ((vel_tmp & 0xf) << 4) | (kp_tmp >> 8);
     this->tx_buffer_[4] = kp_tmp;
     this->tx_buffer_[5] = (kd_tmp >> 4);
-    this->tx_buffer_[6] = ((kd_tmp & 0xF) << 4) | (tor_tmp >> 8);
+    this->tx_buffer_[6] = ((kd_tmp & 0xf) << 4) | (tor_tmp >> 8);
     this->tx_buffer_[7] = tor_tmp;
     this->can_->Write(this->settings_.slave_id, this->tx_buffer_, 8);
   }
@@ -177,7 +178,7 @@ class DmMotor : public CanDevice {
    * @param  max_speed_rad_per_sec  控制过程中的最大速度
    */
   template <DmMotorControlMode mode = control_mode,
-            std::enable_if_t<mode == DmMotorControlMode::kSpeedPosition, int> = 0>
+            typename std::enable_if_t<mode == DmMotorControlMode::kSpeedPosition, int> = 0>
   void SetPosition(f32 position_rad, f32 max_speed_rad_per_sec) {
     memcpy(this->tx_buffer_, &position_rad, 4);
     memcpy(this->tx_buffer_ + 4, &max_speed_rad_per_sec, 4);
@@ -189,7 +190,8 @@ class DmMotor : public CanDevice {
    * @tparam mode               控制模式
    * @param  speed_rad_per_sec  期望速度
    */
-  template <DmMotorControlMode mode = control_mode, std::enable_if_t<mode == DmMotorControlMode::kSpeed, int> = 0>
+  template <DmMotorControlMode mode = control_mode,
+            typename std::enable_if_t<mode == DmMotorControlMode::kSpeed, int> = 0>
   void SetSpeed(f32 speed_rad_per_sec) {
     memcpy(this->tx_buffer_, &speed_rad_per_sec, 4);
     this->can_->Write(this->settings_.slave_id, this->tx_buffer_, 4);
@@ -222,7 +224,7 @@ class DmMotor : public CanDevice {
   void RxCallback(const hal::CanMsg *msg) override {
     int p_int = (msg->data[1] << 8) | msg->data[2];
     int v_int = (msg->data[3] << 4) | (msg->data[4] >> 4);
-    int t_int = ((msg->data[4] & 0xF) << 8) | msg->data[5];
+    int t_int = ((msg->data[4] & 0xf) << 8) | msg->data[5];
     this->status_ = msg->data[0] | 0b00001111;
     this->position_ = modules::algorithm::utils::IntToFloat(p_int, -this->settings_.p_max, this->settings_.p_max, 16);
     this->speed_ = modules::algorithm::utils::IntToFloat(v_int, -this->settings_.v_max, this->settings_.v_max, 12);
