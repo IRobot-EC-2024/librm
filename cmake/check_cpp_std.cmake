@@ -19,20 +19,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-cmake_minimum_required(VERSION 3.13)
-project(irobotEC CXX)
+# Check if the compiler supports C++17
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/check_cpp_std.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
-
-# add third party libraries
-add_subdirectory(libs)
-# main target
-add_subdirectory(src)
-# link third party libraries
-target_link_libraries(${PROJECT_NAME} PUBLIC third_party)
-
-target_compile_definitions(${PROJECT_NAME} PUBLIC -DIROBOTEC_PLATFORM_${IROBOTEC_PLATFORM})
-if (DEFINED IROBOTEC_PLATFORM_LINUX_TYPE)
-    target_compile_definitions(${PROJECT_NAME} PUBLIC -DIROBOTEC_PLATFORM_LINUX_${IROBOTEC_PLATFORM_LINUX_TYPE})
+include(CheckCXXCompilerFlag)
+check_cxx_compiler_flag("-std=c++17" COMPILER_SUPPORTS_CXX17)
+check_cxx_compiler_flag("-std=c++1z" COMPILER_SUPPORTS_CXX1Z)
+if (COMPILER_SUPPORTS_CXX17)
+    set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+elseif (COMPILER_SUPPORTS_CXX1Z)
+    set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+    message(FATAL_ERROR "[irobotEC]: The compiler ${CMAKE_CXX_COMPILER} has no C++17 support. Please use a different C++ compiler.")
 endif ()
