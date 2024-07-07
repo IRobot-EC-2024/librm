@@ -20,10 +20,10 @@
 # SOFTWARE.
 
 cmake_minimum_required(VERSION 3.13)
-project(irobotEC CXX)
+project(irobotEC)
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/check_cpp_std.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
 
 # add third party libraries
 add_subdirectory(libs)
