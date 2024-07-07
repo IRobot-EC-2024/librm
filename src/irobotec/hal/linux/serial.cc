@@ -50,7 +50,7 @@ void Serial::Write(const u8 *data, usize size) {
   this->serial_.flush();
 }
 
-void Serial::AttachRxCallback(UartCallbackFunction &callback) { this->rx_callback_ = &callback; }
+void Serial::AttachRxCallback(SerialRxCallbackFunction &callback) { this->rx_callback_ = &callback; }
 
 [[nodiscard]] const std::vector<u8> &Serial::rx_buffer() const { return this->rx_buf_[this->buffer_selector_]; }
 

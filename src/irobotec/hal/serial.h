@@ -21,57 +21,25 @@
 */
 
 /**
- * @file    irobotec/hal/gpio_interface.h
- * @brief   UART的接口类
+ * @file    irobotec/hal/serial.h
+ * @brief   根据平台宏定义决定具体实现，并且在serial_interface.h里提供一个接口类SerialInterface实现多态
  */
 
-#ifndef IROBOTEC_HAL_UART_INTERFACE_H
-#define IROBOTEC_HAL_UART_INTERFACE_H
+#ifndef IROBOTEC_HAL_UART_H
+#define IROBOTEC_HAL_UART_H
 
-#include <functional>
-#include <vector>
-
-#include "irobotec/core/typedefs.h"
+#if defined(IROBOTEC_PLATFORM_STM32)
+#include "irobotec/hal/stm32/uart.h"
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+#include "irobotec/hal/linux/serial.h"
+#endif
 
 namespace irobot_ec::hal {
-
-/**
- * @brief UART接收完成回调函数类型，传入的参数分别为接收到的数据和数据长度
- */
-using UartCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
-
-/**
- * @brief UART接口类
- */
-class UartInterface {
- public:
-  virtual ~UartInterface() = default;
-
-  /**
-   * @brief 初始化UART
-   */
-  virtual void Begin() = 0;
-
-  /**
-   * @brief 发送数据
-   * @param data 数据指针
-   * @param size 数据长度
-   */
-  virtual void Write(const u8 *data, usize size) = 0;
-
-  /**
-   * @brief 绑定接收完成回调函数
-   * @param callback 回调函数
-   */
-  virtual void AttachRxCallback(UartCallbackFunction &callback) = 0;
-
-  /**
-   * @brief 获取接收缓冲区
-   * @return 接收缓冲区
-   */
-  [[nodiscard]] virtual const std::vector<u8> &rx_buffer() const = 0;
-};
-
+#if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_UART_MODULE_ENABLED)
+using Serial = stm32::Uart;
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+using Serial = linux_::Serial;
+#endif
 }  // namespace irobot_ec::hal
 
-#endif  // IROBOTEC_HAL_UART_INTERFACE_H
+#endif  // IROBOTEC_HAL_UART_H

@@ -122,7 +122,7 @@ void Uart::Write(const u8 *data, usize size) {
  * @brief 注册用户定义的接收完成回调函数
  * @param callback 回调函数
  */
-void Uart::AttachRxCallback(UartCallbackFunction &callback) { this->rx_callback_ = &callback; }
+void Uart::AttachRxCallback(SerialRxCallbackFunction &callback) { this->rx_callback_ = &callback; }
 
 /**
  * @return 接收缓冲区

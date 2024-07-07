@@ -34,12 +34,12 @@
 
 #include "serial/serial.h"
 
-#include "irobotec/hal/uart_interface.h"
+#include "irobotec/hal/serial_interface.h"
 #include "irobotec/core/thread_pool.hpp"
 
 namespace irobot_ec::hal::linux_ {
 
-class Serial : public hal::UartInterface {
+class Serial : public hal::SerialInterface {
  public:
   Serial() = delete;
   Serial(const char *dev, usize baud, usize rx_buffer_size, std::chrono::milliseconds timeout);
@@ -47,13 +47,13 @@ class Serial : public hal::UartInterface {
 
   void Begin() override;
   void Write(const u8 *data, usize size) override;
-  void AttachRxCallback(UartCallbackFunction &callback) override;
+  void AttachRxCallback(SerialRxCallbackFunction &callback) override;
   [[nodiscard]] const std::vector<u8> &rx_buffer() const override;
 
  private:
   void RecvThread();
 
-  UartCallbackFunction *rx_callback_{nullptr};
+  SerialRxCallbackFunction *rx_callback_{nullptr};
   serial::Serial serial_{};
   std::string dev_{};
 

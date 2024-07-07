@@ -29,7 +29,7 @@
 #ifndef IROBOTEC_DEVICE_ACTUATOR_UNITREE_MOTOR_H
 #define IROBOTEC_DEVICE_ACTUATOR_UNITREE_MOTOR_H
 
-#include "irobotec/hal/uart.h"
+#include "irobotec/hal/serial.h"
 #include "irobotec/core/typedefs.h"
 
 namespace irobot_ec::device {
@@ -51,7 +51,7 @@ class UnitreeMotorBase {
   ~UnitreeMotorBase() = default;
 
  protected:
-  hal::UartInterface *uart;
+  hal::SerialInterface *serial_;
   u8 tx_buffer_[17];
   u16 id_{};
 

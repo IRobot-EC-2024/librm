@@ -31,7 +31,7 @@
 #include <vector>
 
 #include "irobotec/core/typedefs.h"
-#include "irobotec/hal/uart.h"
+#include "irobotec/hal/serial.h"
 
 namespace irobot_ec::device {
 
@@ -39,7 +39,8 @@ namespace irobot_ec::device {
  * @brief 遥控器拨杆位置
  */
 enum class RcSwitchState : usize {
-  kUp = 1u,
+  kUnknown = 0u,
+  kUp,
   kDown,
   kMid,
 };
@@ -72,7 +73,7 @@ enum class RcKey : u16 {
 class DR16 {
  public:
   DR16() = delete;
-  explicit DR16(hal::UartInterface &uart);
+  explicit DR16(hal::SerialInterface &serial);
 
   void Begin();
   void RxCallback(const std::vector<u8> &data, u16 rx_len);
@@ -87,13 +88,13 @@ class DR16 {
   [[nodiscard]] bool key(RcKey key) const;
 
  private:
-  hal::UartInterface *uart_;
+  hal::SerialInterface *serial_;
 
-  i16 axes_[5];                // [0]: right_x, [1]: right_y, [2]: left_x, [3]: left_y, [4]: dial
-  i16 mouse_[3];               // [0]: x, [1]: y, [2]: z
-  bool mouse_button_[2];       // [0]: left, [1]: right
-  RcSwitchState switches_[2];  // [0]: right, [1]: left
-  u16 keyboard_key_;           // 每一位代表一个键，0为未按下，1为按下
+  i16 axes_[5]{0};               // [0]: right_x, [1]: right_y, [2]: left_x, [3]: left_y, [4]: dial
+  i16 mouse_[3]{0};              // [0]: x, [1]: y, [2]: z
+  bool mouse_button_[2]{false};  // [0]: left, [1]: right
+  RcSwitchState switches_[2]{RcSwitchState::kUnknown};  // [0]: right, [1]: left
+  u16 keyboard_key_;                                    // 每一位代表一个键，0为未按下，1为按下
 };
 
 }  // namespace irobot_ec::device

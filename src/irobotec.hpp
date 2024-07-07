@@ -38,7 +38,7 @@
 /******** HAL WRAPPER ********/
 #include "irobotec/hal/can.h"
 #include "irobotec/hal/gpio.h"
-#include "irobotec/hal/uart.h"
+#include "irobotec/hal/serial.h"
 #include "irobotec/hal/spi.h"
 /****************/
 

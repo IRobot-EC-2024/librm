@@ -30,18 +30,18 @@
 namespace irobot_ec::device {
 
 /**
- * @param uart UART对象
+ * @param serial 串口对象
  */
-DR16::DR16(hal::UartInterface &uart) : uart_(&uart) {
-  static hal::UartCallbackFunction rx_callback =
+DR16::DR16(hal::SerialInterface &serial) : serial_(&serial) {
+  static hal::SerialRxCallbackFunction rx_callback =
       std::bind(&DR16::RxCallback, this, std::placeholders::_1, std::placeholders::_2);
-  this->uart_->AttachRxCallback(rx_callback);
+  this->serial_->AttachRxCallback(rx_callback);
 }
 
 /**
  * @brief 开始接收遥控器数据
  */
-void DR16::Begin() { this->uart_->Begin(); }
+void DR16::Begin() { this->serial_->Begin(); }
 
 /**
  * @brief 串口接收完成中断回调函数

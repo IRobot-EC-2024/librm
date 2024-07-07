@@ -31,7 +31,7 @@
 #include "irobotec/hal/stm32/hal.h"
 #if defined(HAL_UART_MODULE_ENABLED)
 
-#include "irobotec/hal/uart_interface.h"
+#include "irobotec/hal/serial_interface.h"
 #include "irobotec/core/typedefs.h"
 
 namespace irobot_ec::hal::stm32 {
@@ -47,20 +47,20 @@ enum class UartMode {
 /**
  * @brief UART类
  */
-class Uart : public UartInterface {
+class Uart : public SerialInterface {
  public:
   Uart(UART_HandleTypeDef &huart, usize rx_buffer_size, UartMode tx_mode = UartMode::kNormal,
        UartMode rx_mode = UartMode::kNormal);
 
   void Begin() override;
   void Write(const u8 *data, usize size) override;
-  void AttachRxCallback(UartCallbackFunction &callback) override;
+  void AttachRxCallback(SerialRxCallbackFunction &callback) override;
   [[nodiscard]] const std::vector<u8> &rx_buffer() const override;
 
  private:
   void HalRxCpltCallback(u16 rx_len);
 
-  UartCallbackFunction *rx_callback_{nullptr};
+  SerialRxCallbackFunction *rx_callback_{nullptr};
   UART_HandleTypeDef *huart_;
   UartMode tx_mode_;
   UartMode rx_mode_;
