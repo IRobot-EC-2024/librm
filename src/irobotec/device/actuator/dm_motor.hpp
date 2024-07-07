@@ -120,7 +120,7 @@ struct DmMotorSettings<DmMotorControlMode::kMIT> {
  * @tparam control_mode 电机的控制模式
  */
 template <DmMotorControlMode control_mode>
-class DmMotor : public CanDevice {
+class DmMotor final : public CanDevice {
  public:
   DmMotor() = delete;
   ~DmMotor() override = default;
