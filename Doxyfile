@@ -130,23 +130,8 @@ INPUT_ENCODING         = UTF-8
 INPUT_FILE_ENCODING    =
 FILE_PATTERNS          = *.c \
                          *.cc \
-                         *.cxx \
-                         *.cxxm \
-                         *.cpp \
-                         *.cppm \
-                         *.ccm \
-                         *.c++ \
-                         *.c++m \
-                         *.ii \
-                         *.ixx \
-                         *.ipp \
-                         *.i++ \
                          *.h \
-                         *.hh \
-                         *.hxx \
-                         *.hpp \
-                         *.h++ \
-                         *.ixx
+                         *.hpp
 RECURSIVE              = YES
 EXCLUDE                =
 EXCLUDE_SYMLINKS       = NO
@@ -327,8 +312,11 @@ EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = YES
 INCLUDE_PATH           =
 INCLUDE_FILE_PATTERNS  =
-PREDEFINED             = STM32F407xx \
-                         STM32H723xx \
+PREDEFINED             = IROBOTEC_PLATFORM_STM32 \
+                         IROBOTEC_PLATFORM_LINUX \
+                         IROBOTEC_PLATFORM_LINUX_TYPE_JETSON \
+                         IROBOTEC_PLATFORM_LINUX_TYPE_RASPI \
+                         IROBOTEC_PLATFORM_LINUX_TYPE_GENERAL \
                          HAL_CAN_MODULE_ENABLED=1 \
                          HAL_COMP_MODULE_ENABLED=1 \
                          HAL_CORTEX_MODULE_ENABLED=1 \
