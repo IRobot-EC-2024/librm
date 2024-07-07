@@ -131,7 +131,7 @@ class DmMotor : public CanDevice {
    * @param reversed    是否反转
    */
   DmMotor(hal::CanInterface &can, DmMotorSettings<control_mode> settings, bool reversed = false)
-      : CanDevice(can), settings_(settings), reversed_(reversed) {}
+      : CanDevice(can, settings.master_id), settings_(settings), reversed_(reversed) {}
 
   // 禁止拷贝构造
   DmMotor(const DmMotor &) = delete;
