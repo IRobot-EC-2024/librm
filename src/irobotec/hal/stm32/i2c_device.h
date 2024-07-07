@@ -39,7 +39,7 @@ namespace irobot_ec::hal::stm32 {
 /**
  * @brief I2C设备
  */
-class I2cDevice {
+class [[deprecated]] I2cDevice {
  public:
   I2cDevice(I2C_HandleTypeDef &hi2c, u8 addr);
   I2cDevice() = delete;

@@ -45,7 +45,7 @@ enum class IST8310Status : u8 {
 /**
  * @brief IST8310磁力计
  */
-class IST8310 : public irobot_ec::hal::stm32::I2cDevice {
+class [[deprecated]] IST8310 : public irobot_ec::hal::stm32::I2cDevice {
  public:
   IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, u16 rst_pin);
   void Reset();

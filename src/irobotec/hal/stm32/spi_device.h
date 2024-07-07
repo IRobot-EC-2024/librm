@@ -38,7 +38,7 @@ namespace irobot_ec::hal::stm32 {
 /**
  * @brief SPI设备基类
  */
-class SpiDevice {
+class [[deprecated]] SpiDevice {
  public:
   SpiDevice(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs_gpio_port, u16 cs_pin);
   SpiDevice() = delete;

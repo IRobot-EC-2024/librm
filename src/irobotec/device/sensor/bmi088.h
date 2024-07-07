@@ -85,7 +85,7 @@ enum class BMI088AccelRange : u8 {
 /**
  * @brief BMI088传感器类
  */
-class BMI088 {
+class [[deprecated]] BMI088 {
  public:
   BMI088() = delete;
   ~BMI088() = default;
