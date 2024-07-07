@@ -46,6 +46,7 @@
 #include "irobotec/device/device.h"
 #include "irobotec/device/can_device.hpp"
 #include "irobotec/device/actuator/dji_motor.hpp"
+#include "irobotec/device/actuator/dm_motor.hpp"
 #include "irobotec/device/actuator/unitree_motor.h"
 #include "irobotec/device/remote/dr16.h"
 #include "irobotec/device/sensor/bmi088.h"

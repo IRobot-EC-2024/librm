@@ -122,6 +122,26 @@ void QuatToEuler(const f32 q[4], f32 euler[3]);
  */
 f32 Map(f32 value, f32 from_min, f32 from_max, f32 to_min, f32 to_max);
 
+/**
+ * @brief 把给定位数的整数映射到浮点数的某个范围内
+ * @param x_int 输入的整数
+ * @param x_min 目标浮点数范围的下限
+ * @param x_max 目标浮点数范围的上限
+ * @param bits  输入的整数的位数
+ * @return      映射后的浮点数
+ */
+f32 IntToFloat(int x_int, f32 x_min, f32 x_max, int bits);
+
+/**
+ * @brief 把某个范围内的浮点数映射到给定位数的整数的整个范围内
+ * @param x      输入的浮点数
+ * @param x_min  目标浮点数范围的下限
+ * @param x_max  目标浮点数范围的上限
+ * @param bits   输出的整数的位数
+ * @return       映射后的整数
+ */
+int FloatToInt(f32 x, f32 x_min, f32 x_max, int bits);
+
 }  // namespace irobot_ec::modules::algorithm::utils
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_UTILS_UTILS_HPP

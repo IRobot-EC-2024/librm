@@ -77,4 +77,16 @@ f32 Map(f32 value, f32 from_min, f32 from_max, f32 to_min, f32 to_max) {
   return (value - from_min) * (to_max - to_min) / (from_max - from_min) + to_min;
 }
 
+f32 IntToFloat(int x_int, f32 x_min, f32 x_max, int bits) {
+  f32 span = x_max - x_min;
+  f32 offset = x_min;
+  return ((f32)x_int) * span / ((f32)((1 << bits) - 1)) + offset;
+}
+
+int FloatToInt(f32 x, f32 x_min, f32 x_max, int bits) {
+  f32 span = x_max - x_min;
+  f32 offset = x_min;
+  return (int)((x - offset) * ((f32)((1 << bits) - 1)) / span);
+}
+
 }  // namespace irobot_ec::modules::algorithm::utils
