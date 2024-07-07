@@ -1,4 +1,4 @@
-# irobotEC
+# irobotEC [[en]](README_en.md)
 
 [![build](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/ci_build.yml)
 [![clang-format Check](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/style_check.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/style_check.yml)
@@ -12,9 +12,11 @@
 - [x] Raspberry Pi/Orange Pi
 - [x] Jetson
 
-## 文档
+编译所需最低C++标准为C++17。
 
-文档可以自行使用Doxygen构建，也可以在[这里](https://irobot-ec-2024.github.io/irobotEC/)查看。
+## API文档
+
+API文档可以使用Doxygen构建，也可以在[这里](https://irobot-ec-2024.github.io/irobotEC/)查阅。
 
 ```shell
 doxygen ./Doxyfile
@@ -24,35 +26,33 @@ doxygen ./Doxyfile
 
 ## 使用方法
 
-1. 下载仓库、在CMakeLists.txt里把整个仓库添加为子目录、把`irobotEC`静态库链接到主目标；注意为了连同第三方库一起下载，clone时需要使用`--recursive`参数：
+1. 下载仓库。注意为了连同第三方库一起下载，clone时需要使用`--recursive`参数：
 
     ```shell
     git clone --recursive https://github.com/IRobot-EC-2024/irobotEC.git
     ```
+
+2. 在CMakeLists.txt里把整个仓库添加为子目录，并把`irobotEC`静态库链接到需要使用本库的目标上；
 
     ```cmake
     add_subdirectory(<仓库路径>)
     target_link_libraries(<目标> PUBLIC irobotEC)
     ```
 
-2. 如果是为STM32平台编译，则需要一些额外步骤
+3. 如果是为STM32平台编译，则需要一些额外步骤
 
-   1. 在CMakeLists.txt里添加对应芯片型号的宏定义；
+    1. 在CMakeLists.txt里添加对应芯片型号的宏定义；
 
-       ```cmake
-       add_definitions(-DSTM32F407xx)
-       # add_definitions(-DSTM32H723xx)
-       ```
+        ```cmake
+        add_definitions(-DSTM32F407xx)
+        # add_definitions(-DSTM32H723xx)
+        ```
 
-      可选项：
-       - [x] STM32F407xx
-       - [x] STM32H723xx
+    2. 启用UART、CANFD、CAN的Register Callback功能，在CubeMX中的配置项位置如下图：
 
-   2. 启用UART、CANFD、CAN的Register Callback功能，在CubeMX中的配置项位置如下图：
+       ![](https://img.picui.cn/free/2024/06/25/6679bb2a8c77b.png)
 
-      ![](https://img.picui.cn/free/2024/06/25/6679bb2a8c77b.png)
-
-3. `#include "irobotec.hpp"`，开始使用。
+4. 开始使用。使用方法请参考[examples](examples/)文件夹下的例程。
 
 ## 项目结构
 

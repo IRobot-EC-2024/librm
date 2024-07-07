@@ -22,6 +22,11 @@
 cmake_minimum_required(VERSION 3.13)
 project(irobotEC)
 
+# C++17 and above
+if (${CMAKE_CXX_STANDARD} LESS 17)
+    message(FATAL_ERROR "[irobotEC]: C++17 or above is required.")
+endif ()
+
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
 
 # add third party libraries

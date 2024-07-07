@@ -179,7 +179,7 @@ void BxCan::Stop() {
 void BxCan::Fifo0MsgPendingCallback() {
   static CAN_RxHeaderTypeDef rx_header;
   HAL_CAN_GetRxMessage(this->hcan_, CAN_RX_FIFO0, &rx_header, this->rx_buffer_.data.data());
-  if (this->device_list_.contains(rx_header.StdId)) {
+  if (this->device_list_.find(rx_header.StdId) == this->device_list_.end()) {
     return;
   }
   this->rx_buffer_.rx_std_id = rx_header.StdId;
@@ -193,7 +193,7 @@ void BxCan::Fifo0MsgPendingCallback() {
  * @param rx_stdid  设备想要接收的的rx消息标准帧id
  */
 void BxCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
-  if (this->device_list_.contains(rx_stdid)) {
+  if (this->device_list_.find(rx_stdid) != this->device_list_.end()) {
     ThrowException(Exception::kValueError);
   }
   this->device_list_[rx_stdid] = &device;

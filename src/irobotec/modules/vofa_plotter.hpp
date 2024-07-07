@@ -58,11 +58,9 @@ class VofaPlotter {
   VofaPlotter() = default;
   void Update();
   [[nodiscard]] const std::string &buffer() const;
-  template <typename T>
-    requires std::is_fundamental_v<T>
+  template <typename T, typename std::enable_if_t<std::is_fundamental_v<T>, int> = 0>
   void AddVariable(T &variable);
-  template <typename T>
-    requires std::is_fundamental_v<T>
+  template <typename T, typename std::enable_if_t<std::is_fundamental_v<T>, int> = 0>
   void RemoveVariable(T &variable);
 
  private:
@@ -108,8 +106,7 @@ const inline std::string &VofaPlotter::buffer() const { return this->buffer_; }
  * @tparam  T           变量类型
  * @param   variable    变量引用
  */
-template <typename T>
-  requires std::is_fundamental_v<T>
+template <typename T, typename std::enable_if_t<std::is_fundamental_v<T>, int>>
 void VofaPlotter::AddVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
@@ -128,8 +125,7 @@ void VofaPlotter::AddVariable(T &variable) {
  * @tparam  T           变量类型
  * @param   variable    变量引用
  */
-template <typename T>
-  requires std::is_fundamental_v<T>
+template <typename T, typename std::enable_if_t<std::is_fundamental_v<T>, int>>
 void VofaPlotter::RemoveVariable(T &variable) {
   void *this_var = nullptr;
   for (const auto &var : this->variable_list_) {
