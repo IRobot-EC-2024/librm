@@ -114,6 +114,10 @@ void PID::switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout) {
   this->max_iout_ = max_iout;
 }
 
+auto PID::parameter() const -> std::tuple<f32, f32, f32> {
+  return std::make_tuple(this->kp_, this->ki_, this->kd_);
+}
+
 f32 PID::value() const { return this->out_; }
 
 RingPID::RingPID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 cycle)

@@ -29,6 +29,7 @@
 #define IROBOTEC_MODULES_ALGORITHM_PID_H
 
 #include <memory>
+#include <tuple>
 
 #include "irobotec/core/typedefs.h"
 
@@ -57,6 +58,7 @@ class PID {
   virtual void update(f32 set, f32 ref);
   void clear();
   void switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout);
+  auto parameter() const -> std::tuple<f32, f32, f32>;
   [[nodiscard]] f32 value() const;
 
  protected:
