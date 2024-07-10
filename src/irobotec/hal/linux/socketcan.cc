@@ -30,6 +30,8 @@
 
 #include <cstring>
 
+#include <iostream>
+
 namespace irobot_ec::hal::linux_ {
 
 /**
@@ -76,7 +78,6 @@ void SocketCan::Begin() {
 /**
  * @param id   过滤器ID
  * @param mask 过滤器掩码
-
  */
 void SocketCan::SetFilter(u16 id, u16 mask) {
   this->filter_.can_id = id;
@@ -121,7 +122,7 @@ void SocketCan::Stop() {
 void SocketCan::RecvThread() {
   struct ::can_frame frame;
   for (;;) {
-    if (read(this->socket_fd_, &frame, sizeof(frame) <= 0)) {
+    if (read(this->socket_fd_, &frame, sizeof(frame)) <= 0) {
       continue;
     }
     // 如果接收成功，就异步调用RxCallbackCallWorker处理后续逻辑；之后立刻返回再次接收，防止漏收或延迟

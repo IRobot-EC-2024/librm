@@ -213,7 +213,7 @@ class DmMotor final : public CanDevice {
   void SendInstruction(DmMotorInstructions instruction) {
     memset(this->tx_buffer_, 0xff, 8);
     this->tx_buffer_[7] = static_cast<u8>(instruction);
-    this->can_->Write(this->settings_.slave_id, this->tx_buffer_, 1);
+    this->can_->Write(this->settings_.slave_id, this->tx_buffer_, 8);
   }
 
   /** 取值函数 **/
