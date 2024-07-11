@@ -42,33 +42,24 @@ enum class PIDType {
 
 /**
  * @brief PID控制器
- * @note  该PID控制器支持使用外部提供的微分输入
- *        例如：电机位置闭环控制中，可以使用电机速度作为微分输入
- *        或：姿态控制中，可以使用陀螺仪输出作为微分输入，以减小位置误差和速度误差之间的耦合
- *        要使用外部提供的微分输入，只需在构造函数中多传入一个指向微分输入量的指针即可
- * @warning 外部微分输入的类型必须是f32，
- *          且必须保证外部微分输入变量的生命周期大于PID控制器对象的生命周期
- * @warning 使用外部提供的微分输入时，请注意调整Kd，以避免微分输入的幅值过大
- * @warning 使用DSP库实现时本控制器不支持积分限幅，即使设置了max_iout参数也不会生效
  */
 class PID {
  public:
   PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout);
-  PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 *external_diff_input);
-  virtual void update(f32 set, f32 ref);
-  void clear();
-  void switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout);
-  auto parameter() const -> std::tuple<f32, f32, f32>;
+  virtual void Update(f32 set, f32 ref);
+  virtual void Update(f32 set, f32 ref, f32 external_diff);
+  void Clear();
   [[nodiscard]] f32 value() const;
 
- protected:
-  f32 kp_;
-  f32 ki_;
-  f32 kd_;
+ public:
+  f32 kp_{};
+  f32 ki_{};
+  f32 kd_{};
 
   f32 max_out_{};
   f32 max_iout_{};
 
+ protected:
   f32 set_{};
   f32 fdb_{};
 
@@ -78,9 +69,6 @@ class PID {
   f32 d_out_{};
   f32 d_buf_[3]{};  // 0: 这次, 1: 上次, 2: 上上次
   f32 error_[3]{};  // 0: 这次, 1: 上次, 2: 上上次
-
-  f32 *external_diff_input_;      // 外部提供的微分输入
-  bool use_external_diff_input_;  // 是否使用外部提供的微分输入
 
   PIDType type_;
 };  // class PID
@@ -92,10 +80,11 @@ class RingPID : public PID {
  public:
   RingPID() = delete;
   RingPID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 cycle);
-  void update(f32 set, f32 ref) override;
+  void Update(f32 set, f32 ref) override;
+  void Update(f32 set, f32 ref, f32 external_diff) override;
 
  protected:
-  void handleZeroCrossing();
+  void HandleZeroCrossing();
 
   f32 cycle_;
 };  // class RingPID

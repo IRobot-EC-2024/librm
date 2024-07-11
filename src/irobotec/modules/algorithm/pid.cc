@@ -36,26 +36,9 @@ namespace irobot_ec::modules::algorithm {
 using utils::absConstrain;
 
 PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout)
-    : kp_(kp),
-      ki_(ki),
-      kd_(kd),
-      type_(type),
-      max_out_(max_out),
-      max_iout_(max_iout),
-      use_external_diff_input_(false),
-      external_diff_input_(nullptr) {}
+    : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout) {}
 
-PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 *external_diff_input)
-    : kp_(kp),
-      ki_(ki),
-      kd_(kd),
-      type_(type),
-      max_out_(max_out),
-      max_iout_(max_iout),
-      use_external_diff_input_(true),
-      external_diff_input_(external_diff_input) {}
-
-void PID::update(f32 set, f32 ref) {
+void PID::Update(f32 set, f32 ref) {
   this->error_[2] = this->error_[1];
   this->error_[1] = this->error_[0];
 
@@ -71,7 +54,7 @@ void PID::update(f32 set, f32 ref) {
       // update derivative term
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_) : (this->error_[0] - this->error_[1]);
+      this->d_buf_[0] = this->error_[0] - this->error_[1];
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->i_out_ = absConstrain(this->i_out_, this->max_iout_);
@@ -85,8 +68,7 @@ void PID::update(f32 set, f32 ref) {
 
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_)
-                                                 : (this->error_[0] - 2.0f * this->error_[1] + this->error_[2]);
+      this->d_buf_[0] = this->error_[0] - 2.0f * this->error_[1] + this->error_[2];
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
@@ -95,7 +77,46 @@ void PID::update(f32 set, f32 ref) {
   }
 }
 
-void PID::clear() {
+void PID::Update(f32 set, f32 ref, f32 external_diff) {
+  this->error_[2] = this->error_[1];
+  this->error_[1] = this->error_[0];
+
+  this->set_ = set;
+  this->fdb_ = ref;
+  this->error_[0] = set - ref;
+
+  switch (this->type_) {
+    case PIDType::kPosition:
+      this->p_out_ = this->kp_ * this->error_[0];
+      this->i_out_ += this->ki_ * this->error_[0];
+
+      // update derivative term
+      this->d_buf_[2] = this->d_buf_[1];
+      this->d_buf_[1] = this->d_buf_[0];
+      this->d_buf_[0] = external_diff;
+
+      this->d_out_ = this->kd_ * this->d_buf_[0];
+      this->i_out_ = absConstrain(this->i_out_, this->max_iout_);
+      this->out_ = this->p_out_ + this->i_out_ + this->d_out_;
+      this->out_ = absConstrain(this->out_, this->max_out_);
+      break;
+
+    case PIDType::kDelta:
+      this->p_out_ = this->kp_ * (this->error_[0] - this->error_[1]);
+      this->i_out_ = this->ki_ * this->error_[0];
+
+      this->d_buf_[2] = this->d_buf_[1];
+      this->d_buf_[1] = this->d_buf_[0];
+      this->d_buf_[0] = external_diff;
+
+      this->d_out_ = this->kd_ * this->d_buf_[0];
+      this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
+      this->out_ = absConstrain(this->out_, this->max_out_);
+      break;
+  }
+}
+
+void PID::Clear() {
   this->set_ = 0;
   this->fdb_ = 0;
   this->out_ = 0;
@@ -106,22 +127,12 @@ void PID::clear() {
   memset(this->error_, 0, 3);
 }
 
-void PID::switchParameter(f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout) {
-  this->kp_ = kp;
-  this->ki_ = ki;
-  this->kd_ = kd;
-  this->max_out_ = max_out;
-  this->max_iout_ = max_iout;
-}
-
-auto PID::parameter() const -> std::tuple<f32, f32, f32> { return std::make_tuple(this->kp_, this->ki_, this->kd_); }
-
 f32 PID::value() const { return this->out_; }
 
 RingPID::RingPID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout, f32 cycle)
     : PID(type, kp, ki, kd, max_out, max_iout), cycle_(cycle) {}
 
-void RingPID::update(f32 set, f32 ref) {
+void RingPID::Update(f32 set, f32 ref) {
   this->error_[2] = this->error_[1];
   this->error_[1] = this->error_[0];
 
@@ -129,7 +140,7 @@ void RingPID::update(f32 set, f32 ref) {
   this->fdb_ = ref;
   this->error_[0] = set - ref;
 
-  this->handleZeroCrossing();
+  this->HandleZeroCrossing();
 
   switch (this->type_) {
     case PIDType::kPosition:
@@ -139,7 +150,7 @@ void RingPID::update(f32 set, f32 ref) {
       // update derivative term
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_) : (this->error_[0] - this->error_[1]);
+      this->d_buf_[0] = this->error_[0] - this->error_[1];
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->i_out_ = absConstrain(this->i_out_, this->max_iout_);
@@ -153,8 +164,7 @@ void RingPID::update(f32 set, f32 ref) {
 
       this->d_buf_[2] = this->d_buf_[1];
       this->d_buf_[1] = this->d_buf_[0];
-      this->d_buf_[0] = use_external_diff_input_ ? *(this->external_diff_input_)
-                                                 : (this->error_[0] - 2.0f * this->error_[1] + this->error_[2]);
+      this->d_buf_[0] = this->error_[0] - 2.0f * this->error_[1] + this->error_[2];
 
       this->d_out_ = this->kd_ * this->d_buf_[0];
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
@@ -163,7 +173,48 @@ void RingPID::update(f32 set, f32 ref) {
   }
 }
 
-void RingPID::handleZeroCrossing() {
+void RingPID::Update(f32 set, f32 ref, f32 external_diff) {
+  this->error_[2] = this->error_[1];
+  this->error_[1] = this->error_[0];
+
+  this->set_ = set;
+  this->fdb_ = ref;
+  this->error_[0] = set - ref;
+
+  this->HandleZeroCrossing();
+
+  switch (this->type_) {
+    case PIDType::kPosition:
+      this->p_out_ = this->kp_ * this->error_[0];
+      this->i_out_ += this->ki_ * this->error_[0];
+
+      // update derivative term
+      this->d_buf_[2] = this->d_buf_[1];
+      this->d_buf_[1] = this->d_buf_[0];
+      this->d_buf_[0] = external_diff;
+
+      this->d_out_ = this->kd_ * this->d_buf_[0];
+      this->i_out_ = absConstrain(this->i_out_, this->max_iout_);
+      this->out_ = this->p_out_ + this->i_out_ + this->d_out_;
+      this->out_ = absConstrain(this->out_, this->max_out_);
+      break;
+
+    case PIDType::kDelta:
+      this->p_out_ = this->kp_ * (this->error_[0] - this->error_[1]);
+      this->i_out_ = this->ki_ * this->error_[0];
+
+      this->d_buf_[2] = this->d_buf_[1];
+      this->d_buf_[1] = this->d_buf_[0];
+      this->d_buf_[0] = external_diff;
+
+      this->d_out_ = this->kd_ * this->d_buf_[0];
+      this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
+      this->out_ = absConstrain(this->out_, this->max_out_);
+      break;
+  }
+}
+
+void RingPID::HandleZeroCrossing() {
   if (this->error_[0] > (this->cycle_ / 2)) {
     this->error_[0] -= this->cycle_;
   } else if (this->error_[0] < (-this->cycle_ / 2)) {

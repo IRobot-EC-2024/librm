@@ -3,4 +3,4 @@ BasedOnStyle: Google
 ColumnLimit: 120
 Standard: c++20
 PointerAlignment: Right
-SortIncludes: Never
+SortIncludes: false
