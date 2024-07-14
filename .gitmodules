@@ -1,15 +1,3 @@
-[submodule "libs/crc"]
-	path = libs/crc
-	url = https://github.com/gityf/crc.git
-[submodule "libs/tinyfsm"]
-	path = libs/tinyfsm
-	url = https://github.com/digint/tinyfsm.git
-[submodule "libs/tweeny"]
-	path = libs/tweeny
-	url = https://github.com/mobius3/tweeny.git
-[submodule "libs/spdlog"]
-	path = libs/spdlog
-	url = https://github.com/gabime/spdlog.git
 [submodule "libs/serial"]
 	path = libs/serial
 	url = https://github.com/lunarifish/serial.git
