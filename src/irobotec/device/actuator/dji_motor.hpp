@@ -67,7 +67,7 @@ struct DjiMotorProperties {};
 
 template <>
 struct DjiMotorProperties<DjiMotorType::GM6020> {
-  static constexpr u16 kRxIdBase = 0x205;
+  static constexpr u16 kRxIdBase = 0x204;
   static constexpr u16 kControlId[2] = {0x1ff, 0x2ff};
   static constexpr i16 kCurrentBound = 30000;
   static std::unordered_map<hal::CanInterface *, std::array<u8, 18>> tx_buf_;
@@ -161,7 +161,7 @@ void DjiMotor<motor_type>::SetCurrent(i16 current) {
   current = modules::algorithm::utils::absConstrain(current, DjiMotorProperties<motor_type>::kCurrentBound);
   // 处理反转
   if (this->reversed_) {
-    current = static_cast<i16>(-current);
+    current = -current;
   }
   // 根据这个电机所属的can总线(this->can_)和电机ID(this->id_)找到对应的发送缓冲区，写入电流值
   DjiMotorProperties<motor_type>::tx_buf_[this->can_].at((this->id_ - 1) * 2) = (current >> 8) & 0xff;
