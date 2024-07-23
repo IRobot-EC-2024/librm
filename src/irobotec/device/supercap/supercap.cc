@@ -27,6 +27,8 @@
 
 #include "supercap.h"
 
+#include <cstring>
+
 #include "irobotec/modules/algorithm/utils.hpp"
 
 namespace irobot_ec::device {
@@ -97,8 +99,9 @@ void SuperCap::UpdateSettings(i16 power_limit, i16 output_limit, i16 input_limit
  * @param msg 收到的消息
  */
 void SuperCap::RxCallback(const hal::CanMsg *msg) {
+  i16 current_int16 = (msg->data[2] << 8) | msg->data[3];
   this->voltage_ = Map((msg->data[0] << 8) | msg->data[1], -32000, 32000, 0, 30);
-  this->current_ = Map((msg->data[2] << 8) | msg->data[3], -32000, 32000, -20, 20);
+  this->current_ = Map(current_int16, -32000, 32000, -20, 20);
   this->error_flags_ = (msg->data[4] << 8) | msg->data[5];
 }
 
