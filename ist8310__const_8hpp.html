@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/device/sensor/ist8310/ist8310_const.hpp 文件参考</title>
+<title>irobotEC: src/irobotec/device/sensor/ist8310_const.hpp 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,7 +87,11 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
 <div class="title">ist8310_const.hpp 文件参考</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="typedefs_8h_source.html">modules/typedefs.h</a>&quot;</code><br />
+
+<p>IST8310有关常量  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
+<code>#include &quot;<a class="el" href="typedefs_8h_source.html">irobotec/core/typedefs.h</a>&quot;</code><br />
 </div>
 <p><a href="ist8310__const_8hpp_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
@@ -99,10 +103,10 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
 <tr class="separator:a9c12a82d393665eb2927e3674e442da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a148fffdc058f6df90ac304446b0021f3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#a148fffdc058f6df90ac304446b0021f3">IST8310_WHO_AM_I_VALUE</a> = 0x10</td></tr>
 <tr class="separator:a148fffdc058f6df90ac304446b0021f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37a365e7b18edfbf221513ad85bf065a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#a37a365e7b18edfbf221513ad85bf065a">IST8310_COMM_WAIT_TIME_US</a> = 150</td></tr>
-<tr class="separator:a37a365e7b18edfbf221513ad85bf065a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff5fdf3ab376fb89a4e565544372f0ad"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#aff5fdf3ab376fb89a4e565544372f0ad">IST8310_COMM_WAIT_TIME_MS</a> = 50</td></tr>
-<tr class="separator:aff5fdf3ab376fb89a4e565544372f0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67dbbb45a6472518b45702b945845481"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#a67dbbb45a6472518b45702b945845481">IST8310_COMM_WAIT_TIME_SHORT</a> = 150us</td></tr>
+<tr class="separator:a67dbbb45a6472518b45702b945845481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3b56684b2696dea3af076c9c074715"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#afa3b56684b2696dea3af076c9c074715">IST8310_COMM_WAIT_TIME_LONG</a> = 50ms</td></tr>
+<tr class="separator:afa3b56684b2696dea3af076c9c074715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf1638b5d8fd0a44667284c9b0a71679"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#aaf1638b5d8fd0a44667284c9b0a71679">IST8310_DATA_READY_BIT</a> = 2</td></tr>
 <tr class="separator:aaf1638b5d8fd0a44667284c9b0a71679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b89f637c7131f2b21ae8edf6862114f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#a7b89f637c7131f2b21ae8edf6862114f">IST8310_DATA_OUT_X_L</a> = 0x03</td></tr>
@@ -110,9 +114,11 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
 <tr class="memitem:aa4cf801b890f7bd0f5ce3c502521a0e9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ist8310__const_8hpp.html#aa4cf801b890f7bd0f5ce3c502521a0e9">IST8310_SENSITIVITY</a> = 0.3f</td></tr>
 <tr class="separator:aa4cf801b890f7bd0f5ce3c502521a0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">变量说明</h2>
-<a id="aff5fdf3ab376fb89a4e565544372f0ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff5fdf3ab376fb89a4e565544372f0ad">&#9670;&nbsp;</a></span>IST8310_COMM_WAIT_TIME_MS</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>IST8310有关常量 </p>
+</div><h2 class="groupheader">变量说明</h2>
+<a id="afa3b56684b2696dea3af076c9c074715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3b56684b2696dea3af076c9c074715">&#9670;&nbsp;</a></span>IST8310_COMM_WAIT_TIME_LONG</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -121,7 +127,7 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> IST8310_COMM_WAIT_TIME_MS = 50</td>
+          <td class="memname">constexpr auto IST8310_COMM_WAIT_TIME_LONG = 50ms</td>
         </tr>
       </table>
   </td>
@@ -133,8 +139,8 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
 
 </div>
 </div>
-<a id="a37a365e7b18edfbf221513ad85bf065a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37a365e7b18edfbf221513ad85bf065a">&#9670;&nbsp;</a></span>IST8310_COMM_WAIT_TIME_US</h2>
+<a id="a67dbbb45a6472518b45702b945845481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67dbbb45a6472518b45702b945845481">&#9670;&nbsp;</a></span>IST8310_COMM_WAIT_TIME_SHORT</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,7 +149,7 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> IST8310_COMM_WAIT_TIME_US = 150</td>
+          <td class="memname">constexpr auto IST8310_COMM_WAIT_TIME_SHORT = 150us</td>
         </tr>
       </table>
   </td>
@@ -292,7 +298,7 @@ $(document).ready(function(){initNavTree('ist8310__const_8hpp.html',''); initRes
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16dc92632bab467dc50b01bd02b3341a.html">device</a></li><li class="navelem"><a class="el" href="dir_de70adf051c3d2558635d58c2a256c19.html">sensor</a></li><li class="navelem"><a class="el" href="dir_ec6bf68624bc4db3d963821e37d0817f.html">ist8310</a></li><li class="navelem"><a class="el" href="ist8310__const_8hpp.html">ist8310_const.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_bce708cccbcbe4fa1f06b9cb50d30907.html">device</a></li><li class="navelem"><a class="el" href="dir_2508b137274e70e3ea1a364bfdd57fe9.html">sensor</a></li><li class="navelem"><a class="el" href="ist8310__const_8hpp.html">ist8310_const.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

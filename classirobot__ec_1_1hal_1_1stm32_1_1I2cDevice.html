@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>irobotEC: irobot_ec::hal::stm32::I2cDevice类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">irobotEC
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">irobot_ec::hal::stm32::I2cDevice类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>I2C设备  
+ <a href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="i2c__device_8h_source.html">i2c_device.h</a>&gt;</code></p>
+<div class="dynheader">
+类 irobot_ec::hal::stm32::I2cDevice 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.png" usemap="#irobot_5Fec::hal::stm32::I2cDevice_map" alt=""/>
+  <map id="irobot_5Fec::hal::stm32::I2cDevice_map" name="irobot_5Fec::hal::stm32::I2cDevice_map">
+<area href="classirobot__ec_1_1device_1_1IST8310.html" title="IST8310磁力计" alt="irobot_ec::device::IST8310" shape="rect" coords="0,56,189,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:af3db8d534c5ad5fadface41516cd75cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#af3db8d534c5ad5fadface41516cd75cd">I2cDevice</a> (I2C_HandleTypeDef &amp;hi2c, <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> addr)</td></tr>
+<tr class="separator:af3db8d534c5ad5fadface41516cd75cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3478ee3a55f8341a89f8421248de9530"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a3478ee3a55f8341a89f8421248de9530">I2cDevice</a> ()=delete</td></tr>
+<tr class="separator:a3478ee3a55f8341a89f8421248de9530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e18e08fb3335ffe2de60e07308cae8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a10e18e08fb3335ffe2de60e07308cae8">~I2cDevice</a> ()=default</td></tr>
+<tr class="separator:a10e18e08fb3335ffe2de60e07308cae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a53c38b2a8b455420a3b51c5cb5269"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a71a53c38b2a8b455420a3b51c5cb5269">Write</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> reg, <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, uint16_t size)</td></tr>
+<tr class="memdesc:a71a53c38b2a8b455420a3b51c5cb5269"><td class="mdescLeft">&#160;</td><td class="mdescRight">写数据  <a href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a71a53c38b2a8b455420a3b51c5cb5269">更多...</a><br /></td></tr>
+<tr class="separator:a71a53c38b2a8b455420a3b51c5cb5269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3ccf8d4ab096e73d00ff15655f8635"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a1a3ccf8d4ab096e73d00ff15655f8635">Read</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> reg, uint16_t size)</td></tr>
+<tr class="memdesc:a1a3ccf8d4ab096e73d00ff15655f8635"><td class="mdescLeft">&#160;</td><td class="mdescRight">读数据  <a href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a1a3ccf8d4ab096e73d00ff15655f8635">更多...</a><br /></td></tr>
+<tr class="separator:a1a3ccf8d4ab096e73d00ff15655f8635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9cddea8ef64bb31314800d6fb07e14d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#ad9cddea8ef64bb31314800d6fb07e14d">buffer</a> () const</td></tr>
+<tr class="memdesc:ad9cddea8ef64bb31314800d6fb07e14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取缓冲区指针  <a href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#ad9cddea8ef64bb31314800d6fb07e14d">更多...</a><br /></td></tr>
+<tr class="separator:ad9cddea8ef64bb31314800d6fb07e14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:ada0ffedbbddc7128b2e192a925c0f7f9"><td class="memItemLeft" align="right" valign="top">I2C_HandleTypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#ada0ffedbbddc7128b2e192a925c0f7f9">hi2c_</a></td></tr>
+<tr class="separator:ada0ffedbbddc7128b2e192a925c0f7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd846a5cc03cbb3090b4780b0417dda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a3dd846a5cc03cbb3090b4780b0417dda">addr_</a></td></tr>
+<tr class="separator:a3dd846a5cc03cbb3090b4780b0417dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffb5e3f7691f06064d3f94181974948"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a5ffb5e3f7691f06064d3f94181974948">buffer_</a> [8] {0}</td></tr>
+<tr class="separator:a5ffb5e3f7691f06064d3f94181974948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>I2C设备 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="af3db8d534c5ad5fadface41516cd75cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3db8d534c5ad5fadface41516cd75cd">&#9670;&nbsp;</a></span>I2cDevice() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::hal::stm32::I2cDevice::I2cDevice </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HandleTypeDef &amp;&#160;</td>
+          <td class="paramname"><em>hi2c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>I2C外设句柄 </td></tr>
+    <tr><td class="paramname">addr</td><td>I2C设备地址 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3478ee3a55f8341a89f8421248de9530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3478ee3a55f8341a89f8421248de9530">&#9670;&nbsp;</a></span>I2cDevice() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::hal::stm32::I2cDevice::I2cDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10e18e08fb3335ffe2de60e07308cae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10e18e08fb3335ffe2de60e07308cae8">&#9670;&nbsp;</a></span>~I2cDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::hal::stm32::I2cDevice::~I2cDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ad9cddea8ef64bb31314800d6fb07e14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9cddea8ef64bb31314800d6fb07e14d">&#9670;&nbsp;</a></span>buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> * irobot_ec::hal::stm32::I2cDevice::buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取缓冲区指针 </p>
+<dl class="section return"><dt>返回</dt><dd>缓冲区指针 </dd></dl>
+
+</div>
+</div>
+<a id="a1a3ccf8d4ab096e73d00ff15655f8635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3ccf8d4ab096e73d00ff15655f8635">&#9670;&nbsp;</a></span>Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::I2cDevice::Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>寄存器地址 </td></tr>
+    <tr><td class="paramname">size</td><td>数据长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a71a53c38b2a8b455420a3b51c5cb5269"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a53c38b2a8b455420a3b51c5cb5269">&#9670;&nbsp;</a></span>Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::I2cDevice::Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>写数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>寄存器地址 </td></tr>
+    <tr><td class="paramname">data</td><td>待写入的数据 </td></tr>
+    <tr><td class="paramname">size</td><td>数据长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a3dd846a5cc03cbb3090b4780b0417dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd846a5cc03cbb3090b4780b0417dda">&#9670;&nbsp;</a></span>addr_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> irobot_ec::hal::stm32::I2cDevice::addr_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ffb5e3f7691f06064d3f94181974948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ffb5e3f7691f06064d3f94181974948">&#9670;&nbsp;</a></span>buffer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> irobot_ec::hal::stm32::I2cDevice::buffer_[8] {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada0ffedbbddc7128b2e192a925c0f7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada0ffedbbddc7128b2e192a925c0f7f9">&#9670;&nbsp;</a></span>hi2c_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I2C_HandleTypeDef* irobot_ec::hal::stm32::I2cDevice::hi2c_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/irobotec/hal/stm32/<a class="el" href="i2c__device_8h_source.html">i2c_device.h</a></li>
+<li>src/irobotec/hal/stm32/<a class="el" href="i2c__device_8cc.html">i2c_device.cc</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1hal.html">hal</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html">stm32</a></li><li class="navelem"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html">I2cDevice</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

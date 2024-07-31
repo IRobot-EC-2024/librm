@@ -1,7 +1,7 @@
 var ist8310__const_8hpp =
 [
-    [ "IST8310_COMM_WAIT_TIME_MS", "ist8310__const_8hpp.html#aff5fdf3ab376fb89a4e565544372f0ad", null ],
-    [ "IST8310_COMM_WAIT_TIME_US", "ist8310__const_8hpp.html#a37a365e7b18edfbf221513ad85bf065a", null ],
+    [ "IST8310_COMM_WAIT_TIME_LONG", "ist8310__const_8hpp.html#afa3b56684b2696dea3af076c9c074715", null ],
+    [ "IST8310_COMM_WAIT_TIME_SHORT", "ist8310__const_8hpp.html#a67dbbb45a6472518b45702b945845481", null ],
     [ "IST8310_DATA_OUT_X_L", "ist8310__const_8hpp.html#a7b89f637c7131f2b21ae8edf6862114f", null ],
     [ "IST8310_DATA_READY_BIT", "ist8310__const_8hpp.html#aaf1638b5d8fd0a44667284c9b0a71679", null ],
     [ "IST8310_I2C_ADDRESS", "ist8310__const_8hpp.html#acd53e27ddf2f51a3764e78efbd1229cb", null ],

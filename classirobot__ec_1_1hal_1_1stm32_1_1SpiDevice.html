@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>irobotEC: irobot_ec::hal::stm32::SpiDevice类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">irobotEC
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">irobot_ec::hal::stm32::SpiDevice类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>SPI设备基类  
+ <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="spi__device_8h_source.html">spi_device.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a2f14c452d38469e3c89cb141a90ce064"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a2f14c452d38469e3c89cb141a90ce064">SpiDevice</a> (SPI_HandleTypeDef &amp;hspi, GPIO_TypeDef *cs_gpio_port, <a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> cs_pin)</td></tr>
+<tr class="separator:a2f14c452d38469e3c89cb141a90ce064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545cdc71af72ca992bda14ee1a9e5587"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a545cdc71af72ca992bda14ee1a9e5587">SpiDevice</a> ()=delete</td></tr>
+<tr class="separator:a545cdc71af72ca992bda14ee1a9e5587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d832d1dd7a10cbad0ffb9760302ee8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a58d832d1dd7a10cbad0ffb9760302ee8">~SpiDevice</a> ()=default</td></tr>
+<tr class="separator:a58d832d1dd7a10cbad0ffb9760302ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651855b6d9b33d84ce4e7c6c45c07102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a651855b6d9b33d84ce4e7c6c45c07102">ReadByte</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> reg)</td></tr>
+<tr class="memdesc:a651855b6d9b33d84ce4e7c6c45c07102"><td class="mdescLeft">&#160;</td><td class="mdescRight">读一个字节  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a651855b6d9b33d84ce4e7c6c45c07102">更多...</a><br /></td></tr>
+<tr class="separator:a651855b6d9b33d84ce4e7c6c45c07102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a0dcc6ec04d3dfd244f6fe4bf2571a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a66a0dcc6ec04d3dfd244f6fe4bf2571a">ReadBytes</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> reg, <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> len)</td></tr>
+<tr class="memdesc:a66a0dcc6ec04d3dfd244f6fe4bf2571a"><td class="mdescLeft">&#160;</td><td class="mdescRight">读多个字节  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a66a0dcc6ec04d3dfd244f6fe4bf2571a">更多...</a><br /></td></tr>
+<tr class="separator:a66a0dcc6ec04d3dfd244f6fe4bf2571a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29f0a7660070a1ffa7bf89d6f24e9382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a29f0a7660070a1ffa7bf89d6f24e9382">WriteByte</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> reg, <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> data)</td></tr>
+<tr class="memdesc:a29f0a7660070a1ffa7bf89d6f24e9382"><td class="mdescLeft">&#160;</td><td class="mdescRight">写一个字节  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a29f0a7660070a1ffa7bf89d6f24e9382">更多...</a><br /></td></tr>
+<tr class="separator:a29f0a7660070a1ffa7bf89d6f24e9382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b2058405360d6ad76e006ab794d58a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a4b2058405360d6ad76e006ab794d58a7">single_byte_buffer</a> () const</td></tr>
+<tr class="memdesc:a4b2058405360d6ad76e006ab794d58a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取单字节缓冲区的值  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a4b2058405360d6ad76e006ab794d58a7">更多...</a><br /></td></tr>
+<tr class="separator:a4b2058405360d6ad76e006ab794d58a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a180478b6e3f362786c190cbcd7821d65"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a180478b6e3f362786c190cbcd7821d65">buffer</a> () const</td></tr>
+<tr class="memdesc:a180478b6e3f362786c190cbcd7821d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取缓冲区指针  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a180478b6e3f362786c190cbcd7821d65">更多...</a><br /></td></tr>
+<tr class="separator:a180478b6e3f362786c190cbcd7821d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a8886c718672c01013b6be7ee19ea78b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a8886c718672c01013b6be7ee19ea78b9">ReadWriteByte</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> tx_data)</td></tr>
+<tr class="memdesc:a8886c718672c01013b6be7ee19ea78b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">读写一个字节  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a8886c718672c01013b6be7ee19ea78b9">更多...</a><br /></td></tr>
+<tr class="separator:a8886c718672c01013b6be7ee19ea78b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e9a28d009a76d3bc0cc0336ae5ec1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#ae8e9a28d009a76d3bc0cc0336ae5ec1a">ReadWriteBytes</a> (<a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> reg, <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> len)</td></tr>
+<tr class="memdesc:ae8e9a28d009a76d3bc0cc0336ae5ec1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">读写多个字节  <a href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#ae8e9a28d009a76d3bc0cc0336ae5ec1a">更多...</a><br /></td></tr>
+<tr class="separator:ae8e9a28d009a76d3bc0cc0336ae5ec1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:abfbbc415aa3bc4b08f6b39a165f83474"><td class="memItemLeft" align="right" valign="top">SPI_HandleTypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#abfbbc415aa3bc4b08f6b39a165f83474">hspi_</a></td></tr>
+<tr class="separator:abfbbc415aa3bc4b08f6b39a165f83474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc0a7b5858cbdfaa6cfbbf118be03b2"><td class="memItemLeft" align="right" valign="top">GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a1dc0a7b5858cbdfaa6cfbbf118be03b2">cs_gpio_port_</a></td></tr>
+<tr class="separator:a1dc0a7b5858cbdfaa6cfbbf118be03b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a551a776deb76805d310f9b6b1c47961c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a551a776deb76805d310f9b6b1c47961c">cs_pin_</a></td></tr>
+<tr class="separator:a551a776deb76805d310f9b6b1c47961c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f81a051c2b01d24697cb0e211ba6698"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a0f81a051c2b01d24697cb0e211ba6698">single_byte_buffer_</a> {}</td></tr>
+<tr class="separator:a0f81a051c2b01d24697cb0e211ba6698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab51b3655663eba54f25d9a0613e9c5b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#ab51b3655663eba54f25d9a0613e9c5b4">buffer_</a> [8] {0}</td></tr>
+<tr class="separator:ab51b3655663eba54f25d9a0613e9c5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>SPI设备基类 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a2f14c452d38469e3c89cb141a90ce064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f14c452d38469e3c89cb141a90ce064">&#9670;&nbsp;</a></span>SpiDevice() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::hal::stm32::SpiDevice::SpiDevice </td>
+          <td>(</td>
+          <td class="paramtype">SPI_HandleTypeDef &amp;&#160;</td>
+          <td class="paramname"><em>hspi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GPIO_TypeDef *&#160;</td>
+          <td class="paramname"><em>cs_gpio_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td>
+          <td class="paramname"><em>cs_pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hspi</td><td>SPI外设句柄 </td></tr>
+    <tr><td class="paramname">cs_gpio_port</td><td>片选引脚所在GPIO端口 </td></tr>
+    <tr><td class="paramname">cs_pin</td><td>片选引脚编号 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a545cdc71af72ca992bda14ee1a9e5587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545cdc71af72ca992bda14ee1a9e5587">&#9670;&nbsp;</a></span>SpiDevice() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::hal::stm32::SpiDevice::SpiDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58d832d1dd7a10cbad0ffb9760302ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d832d1dd7a10cbad0ffb9760302ee8">&#9670;&nbsp;</a></span>~SpiDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::hal::stm32::SpiDevice::~SpiDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a180478b6e3f362786c190cbcd7821d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a180478b6e3f362786c190cbcd7821d65">&#9670;&nbsp;</a></span>buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> * irobot_ec::hal::stm32::SpiDevice::buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取缓冲区指针 </p>
+<dl class="section return"><dt>返回</dt><dd>缓冲区指针 </dd></dl>
+
+</div>
+</div>
+<a id="a651855b6d9b33d84ce4e7c6c45c07102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a651855b6d9b33d84ce4e7c6c45c07102">&#9670;&nbsp;</a></span>ReadByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::SpiDevice::ReadByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>reg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读一个字节 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>寄存器地址 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a66a0dcc6ec04d3dfd244f6fe4bf2571a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66a0dcc6ec04d3dfd244f6fe4bf2571a">&#9670;&nbsp;</a></span>ReadBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::SpiDevice::ReadBytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读多个字节 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>寄存器地址 </td></tr>
+    <tr><td class="paramname">len</td><td>待读取的字节数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8886c718672c01013b6be7ee19ea78b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8886c718672c01013b6be7ee19ea78b9">&#9670;&nbsp;</a></span>ReadWriteByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::SpiDevice::ReadWriteByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>tx_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>读写一个字节 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx_data</td><td>待发送的数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae8e9a28d009a76d3bc0cc0336ae5ec1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e9a28d009a76d3bc0cc0336ae5ec1a">&#9670;&nbsp;</a></span>ReadWriteBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::SpiDevice::ReadWriteBytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>读写多个字节 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>寄存器地址 </td></tr>
+    <tr><td class="paramname">len</td><td>待读取的字节数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b2058405360d6ad76e006ab794d58a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b2058405360d6ad76e006ab794d58a7">&#9670;&nbsp;</a></span>single_byte_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> irobot_ec::hal::stm32::SpiDevice::single_byte_buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取单字节缓冲区的值 </p>
+<dl class="section return"><dt>返回</dt><dd>单字节缓冲区的值 </dd></dl>
+
+</div>
+</div>
+<a id="a29f0a7660070a1ffa7bf89d6f24e9382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f0a7660070a1ffa7bf89d6f24e9382">&#9670;&nbsp;</a></span>WriteByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irobot_ec::hal::stm32::SpiDevice::WriteByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>写一个字节 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>寄存器地址 </td></tr>
+    <tr><td class="paramname">data</td><td>待写入的数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="ab51b3655663eba54f25d9a0613e9c5b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab51b3655663eba54f25d9a0613e9c5b4">&#9670;&nbsp;</a></span>buffer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> irobot_ec::hal::stm32::SpiDevice::buffer_[8] {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1dc0a7b5858cbdfaa6cfbbf118be03b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc0a7b5858cbdfaa6cfbbf118be03b2">&#9670;&nbsp;</a></span>cs_gpio_port_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPIO_TypeDef* irobot_ec::hal::stm32::SpiDevice::cs_gpio_port_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a551a776deb76805d310f9b6b1c47961c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a551a776deb76805d310f9b6b1c47961c">&#9670;&nbsp;</a></span>cs_pin_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> irobot_ec::hal::stm32::SpiDevice::cs_pin_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfbbc415aa3bc4b08f6b39a165f83474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbbc415aa3bc4b08f6b39a165f83474">&#9670;&nbsp;</a></span>hspi_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPI_HandleTypeDef* irobot_ec::hal::stm32::SpiDevice::hspi_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f81a051c2b01d24697cb0e211ba6698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f81a051c2b01d24697cb0e211ba6698">&#9670;&nbsp;</a></span>single_byte_buffer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> irobot_ec::hal::stm32::SpiDevice::single_byte_buffer_ {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/irobotec/hal/stm32/<a class="el" href="spi__device_8h_source.html">spi_device.h</a></li>
+<li>src/irobotec/hal/stm32/<a class="el" href="spi__device_8cc.html">spi_device.cc</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1hal.html">hal</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html">stm32</a></li><li class="navelem"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html">SpiDevice</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

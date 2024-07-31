@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hi2c_5f_871',['hi2c_',['../classirobot__ec_1_1hal_1_1I2cDevice.html#a5dd459381c061be81c4151f0dd879e35',1,'irobot_ec::hal::I2cDevice']]],
-  ['hspi_5f_872',['hspi_',['../classirobot__ec_1_1hal_1_1SpiDevice.html#a5130e5734012d623f584ec4365a9510a',1,'irobot_ec::hal::SpiDevice']]]
+  ['hi2c_5f_994',['hi2c_',['../classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#ada0ffedbbddc7128b2e192a925c0f7f9',1,'irobot_ec::hal::stm32::I2cDevice']]],
+  ['hspi_5f_995',['hspi_',['../classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#abfbbc415aa3bc4b08f6b39a165f83474',1,'irobot_ec::hal::stm32::SpiDevice']]]
 ];

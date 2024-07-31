@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/device/sensor/ist8310/ist8310.h 源文件</title>
+<title>irobotEC: src/irobotec/device/sensor/ist8310.h 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,14 +107,14 @@ $(document).ready(function(){initNavTree('ist8310_8h_source.html',''); initResiz
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  SOFTWARE.</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef EC_LIB_COMPONENTS_SENSOR_IST8310_IST8310_H_</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define EC_LIB_COMPONENTS_SENSOR_IST8310_IST8310_H_</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef IROBOTEC_DEVICE_SENSOR_IST8310_H</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define IROBOTEC_DEVICE_SENSOR_IST8310_H</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">hal/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">irobotec/hal/stm32/hal.h</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#if defined(HAL_I2C_MODULE_ENABLED)</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="i2c__device_8h.html">hal/i2c_device.h</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">modules/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">irobotec/core/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="i2c__device_8h.html">irobotec/hal/stm32/i2c_device.h</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a> {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
@@ -124,15 +124,15 @@ $(document).ready(function(){initNavTree('ist8310_8h_source.html',''); initResiz
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7da3993b9fcdbf9ec59e873519a4d02fe2f">SENSOR_ERROR</a> = 0x80,</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1device_1_1IST8310.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1device_1_1IST8310.html">IST8310</a> : <span class="keyword">public</span> <a class="code" href="classirobot__ec_1_1hal_1_1I2cDevice.html">irobot_ec::hal::I2cDevice</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1device_1_1IST8310.html">   48</a></span>&#160;<span class="keyword">class </span>[[deprecated]] <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html">IST8310</a> : <span class="keyword">public</span> <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html">irobot_ec::hal::stm32::I2cDevice</a> {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#ada37e60c551dee2c6c62d67a5bb9d44d">IST8310</a>(I2C_HandleTypeDef &amp;hi2c, GPIO_TypeDef *rst_port, <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> rst_pin);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#aa3cb7261778d7df2a1d699f4ef3c6d9e">Reset</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#a4f790f25a5e07eaa5da86b34bc1bf315">Update</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  [[nodiscard]] <a class="code" href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d">IST8310Status</a> <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#af48cd2a76d3eb96800f0a652869047b8">status</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#af429cc7ae1041bf6c97ec3afa33e76c9">mag_x</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#a6abd0b8035449b4d5be98dd3773ee287">mag_y</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html#a75d46e944fc0c40a864c67dcdb174481">mag_z</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="classirobot__ec_1_1device_1_1IST8310.html">IST8310</a>(I2C_HandleTypeDef &amp;hi2c, GPIO_TypeDef *rst_port, <a class="code" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> rst_pin);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> Update();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  [[nodiscard]] <a class="code" href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d">IST8310Status</a> status() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> mag_x() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> mag_y() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  [[nodiscard]] <a class="code" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> mag_z() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  GPIO_TypeDef *rst_port_;</div>
@@ -145,33 +145,26 @@ $(document).ready(function(){initNavTree('ist8310_8h_source.html',''); initResiz
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_COMPONENTS_SENSOR_IST8310_IST8310_H_</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// IROBOTEC_DEVICE_SENSOR_IST8310_H</span></div>
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html">irobot_ec::device::IST8310</a></div><div class="ttdoc">IST8310磁力计</div><div class="ttdef"><b>Definition:</b> ist8310.h:48</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_a4f790f25a5e07eaa5da86b34bc1bf315"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#a4f790f25a5e07eaa5da86b34bc1bf315">irobot_ec::device::IST8310::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">更新传感器数据</div><div class="ttdef"><b>Definition:</b> ist8310.cc:88</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_a6abd0b8035449b4d5be98dd3773ee287"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#a6abd0b8035449b4d5be98dd3773ee287">irobot_ec::device::IST8310::mag_y</a></div><div class="ttdeci">f32 mag_y() const</div><div class="ttdef"><b>Definition:</b> ist8310.cc:111</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_a75d46e944fc0c40a864c67dcdb174481"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#a75d46e944fc0c40a864c67dcdb174481">irobot_ec::device::IST8310::mag_z</a></div><div class="ttdeci">f32 mag_z() const</div><div class="ttdef"><b>Definition:</b> ist8310.cc:116</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_aa3cb7261778d7df2a1d699f4ef3c6d9e"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#aa3cb7261778d7df2a1d699f4ef3c6d9e">irobot_ec::device::IST8310::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdoc">重置传感器</div><div class="ttdef"><b>Definition:</b> ist8310.cc:78</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_ada37e60c551dee2c6c62d67a5bb9d44d"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#ada37e60c551dee2c6c62d67a5bb9d44d">irobot_ec::device::IST8310::IST8310</a></div><div class="ttdeci">IST8310(I2C_HandleTypeDef &amp;hi2c, GPIO_TypeDef *rst_port, u16 rst_pin)</div><div class="ttdef"><b>Definition:</b> ist8310.cc:51</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_af429cc7ae1041bf6c97ec3afa33e76c9"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#af429cc7ae1041bf6c97ec3afa33e76c9">irobot_ec::device::IST8310::mag_x</a></div><div class="ttdeci">f32 mag_x() const</div><div class="ttdef"><b>Definition:</b> ist8310.cc:106</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1device_1_1IST8310_html_af48cd2a76d3eb96800f0a652869047b8"><div class="ttname"><a href="classirobot__ec_1_1device_1_1IST8310.html#af48cd2a76d3eb96800f0a652869047b8">irobot_ec::device::IST8310::status</a></div><div class="ttdeci">IST8310Status status() const</div><div class="ttdef"><b>Definition:</b> ist8310.cc:101</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1I2cDevice_html"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1I2cDevice.html">irobot_ec::hal::I2cDevice</a></div><div class="ttdoc">I2C设备</div><div class="ttdef"><b>Definition:</b> i2c_device.h:42</div></div>
-<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据编译宏定义引入不同的芯片型号的HAL库</div></div>
+<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1I2cDevice_html"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html">irobot_ec::hal::stm32::I2cDevice</a></div><div class="ttdoc">I2C设备</div><div class="ttdef"><b>Definition:</b> i2c_device.h:42</div></div>
+<div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据不同STM32型号选择不同的HAL库</div></div>
 <div class="ttc" id="ai2c__device_8h_html"><div class="ttname"><a href="i2c__device_8h.html">i2c_device.h</a></div><div class="ttdoc">i2c设备抽象</div></div>
-<div class="ttc" id="anamespaceirobot__ec_1_1device_html"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a></div><div class="ttdef"><b>Definition:</b> dji_motor.cc:33</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a></div><div class="ttdef"><b>Definition:</b> dji_motor.cc:30</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a93f24f2cf487dd7d1276b3032c087e7d"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d">irobot_ec::device::IST8310Status</a></div><div class="ttdeci">IST8310Status</div><div class="ttdef"><b>Definition:</b> ist8310.h:39</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a93f24f2cf487dd7d1276b3032c087e7da3993b9fcdbf9ec59e873519a4d02fe2f"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7da3993b9fcdbf9ec59e873519a4d02fe2f">irobot_ec::device::IST8310Status::SENSOR_ERROR</a></div><div class="ttdeci">@ SENSOR_ERROR</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a93f24f2cf487dd7d1276b3032c087e7dab37cdaa5ea18c2d6d7a12580b6549589"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dab37cdaa5ea18c2d6d7a12580b6549589">irobot_ec::device::IST8310Status::NO_SENSOR</a></div><div class="ttdeci">@ NO_SENSOR</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a93f24f2cf487dd7d1276b3032c087e7dad306b6fdee05fe87455110ddf6501e6c"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dad306b6fdee05fe87455110ddf6501e6c">irobot_ec::device::IST8310Status::NO_ERROR</a></div><div class="ttdeci">@ NO_ERROR</div></div>
-<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">工程内全局数据类型定义</div></div>
-<div class="ttc" id="atypedefs_8h_html_a5f6906312a689f27d70e9d086649d3fd"><div class="ttname"><a href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a></div><div class="ttdeci">float f32</div><div class="ttdef"><b>Definition:</b> typedefs.h:48</div></div>
-<div class="ttc" id="atypedefs_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition:</b> typedefs.h:39</div></div>
-<div class="ttc" id="atypedefs_8h_html_ace9d960e74685e2cd84b36132dbbf8aa"><div class="ttname"><a href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a></div><div class="ttdeci">uint16_t u16</div><div class="ttdef"><b>Definition:</b> typedefs.h:40</div></div>
+<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">全局数据类型定义</div></div>
+<div class="ttc" id="atypedefs_8h_html_a5f6906312a689f27d70e9d086649d3fd"><div class="ttname"><a href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a></div><div class="ttdeci">float f32</div><div class="ttdef"><b>Definition:</b> typedefs.h:50</div></div>
+<div class="ttc" id="atypedefs_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition:</b> typedefs.h:41</div></div>
+<div class="ttc" id="atypedefs_8h_html_ace9d960e74685e2cd84b36132dbbf8aa"><div class="ttname"><a href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a></div><div class="ttdeci">uint16_t u16</div><div class="ttdef"><b>Definition:</b> typedefs.h:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16dc92632bab467dc50b01bd02b3341a.html">device</a></li><li class="navelem"><a class="el" href="dir_de70adf051c3d2558635d58c2a256c19.html">sensor</a></li><li class="navelem"><a class="el" href="dir_ec6bf68624bc4db3d963821e37d0817f.html">ist8310</a></li><li class="navelem"><a class="el" href="ist8310_8h.html">ist8310.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_bce708cccbcbe4fa1f06b9cb50d30907.html">device</a></li><li class="navelem"><a class="el" href="dir_2508b137274e70e3ea1a364bfdd57fe9.html">sensor</a></li><li class="navelem"><a class="el" href="ist8310_8h.html">ist8310.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

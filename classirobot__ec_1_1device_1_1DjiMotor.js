@@ -2,7 +2,7 @@ var classirobot__ec_1_1device_1_1DjiMotor =
 [
     [ "DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html#a05e11d92710f60d51f3f9d2fb822705c", null ],
     [ "~DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html#ae516ecddcde3141558681f6451db0293", null ],
-    [ "DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html#ab60334964ed5246af76810311e8115f4", null ],
+    [ "DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html#a628ab086f14fa031674a18490a173ce1", null ],
     [ "DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html#ab3c92cb98794638bfb72b2a2930fd60d", null ],
     [ "current", "classirobot__ec_1_1device_1_1DjiMotor.html#a1633ef1f047217c858fe65c092516fcf", null ],
     [ "encoder", "classirobot__ec_1_1device_1_1DjiMotor.html#a6bf74bdcda91910a99c21c29830f4c1b", null ],

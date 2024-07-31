@@ -13,7 +13,8 @@ var searchData=
   ['accel_5fx_11',['accel_x',['../classirobot__ec_1_1device_1_1BMI088.html#aef1b425b101c63020f537b3000293e9c',1,'irobot_ec::device::BMI088']]],
   ['accel_5fy_12',['accel_y',['../classirobot__ec_1_1device_1_1BMI088.html#a764f28bd7258e48060317661dfe373b5',1,'irobot_ec::device::BMI088']]],
   ['accel_5fz_13',['accel_z',['../classirobot__ec_1_1device_1_1BMI088.html#aacb79a53fddea68b1cec9f980b63bb67',1,'irobot_ec::device::BMI088']]],
-  ['addr_5f_14',['addr_',['../classirobot__ec_1_1hal_1_1I2cDevice.html#a973ce781f49b5627da574b210e41c867',1,'irobot_ec::hal::I2cDevice']]],
-  ['addvariable_15',['AddVariable',['../classirobot__ec_1_1modules_1_1SerialPlotter.html#aa1372732972ae7f7e297417e64d42c6f',1,'irobot_ec::modules::SerialPlotter']]],
-  ['attachrxcallback_16',['AttachRxCallback',['../classirobot__ec_1_1hal_1_1Uart.html#ab7206eed25a6dd0798f25db1de9471e1',1,'irobot_ec::hal::Uart']]]
+  ['addr_5f_14',['addr_',['../classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a3dd846a5cc03cbb3090b4780b0417dda',1,'irobot_ec::hal::stm32::I2cDevice']]],
+  ['addvariable_15',['AddVariable',['../classirobot__ec_1_1modules_1_1VofaPlotter.html#a9fb165a23c8d6384fd117275f229cf6c',1,'irobot_ec::modules::VofaPlotter']]],
+  ['asynccandevice_16',['AsyncCanDevice',['../structirobot__ec_1_1hal_1_1linux___1_1AsyncCanDevice.html#a3a7952397f494ae56e81542949fdbbcf',1,'irobot_ec::hal::linux_::AsyncCanDevice::AsyncCanDevice()'],['../structirobot__ec_1_1hal_1_1linux___1_1AsyncCanDevice.html',1,'irobot_ec::hal::linux_::AsyncCanDevice']]],
+  ['attachrxcallback_17',['AttachRxCallback',['../classirobot__ec_1_1hal_1_1stm32_1_1Uart.html#acb0b2586a39a10b112997dfd900e3ebe',1,'irobot_ec::hal::stm32::Uart::AttachRxCallback()'],['../classirobot__ec_1_1hal_1_1SerialInterface.html#a7565de4deaa3158dd2370df58b33a15d',1,'irobot_ec::hal::SerialInterface::AttachRxCallback()'],['../classirobot__ec_1_1hal_1_1linux___1_1Serial.html#a712350c6dd433b2bed239fbb900612e6',1,'irobot_ec::hal::linux_::Serial::AttachRxCallback()']]]
 ];

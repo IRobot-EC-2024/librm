@@ -41,8 +41,8 @@ var NAVTREE =
       [ "类索引", "classes.html", null ],
       [ "类继承关系", "hierarchy.html", "hierarchy" ],
       [ "类成员", "functions.html", [
-        [ "全部", "functions.html", null ],
-        [ "函数", "functions_func.html", null ],
+        [ "全部", "functions.html", "functions_dup" ],
+        [ "函数", "functions_func.html", "functions_func" ],
         [ "变量", "functions_vars.html", null ],
         [ "相关函数", "functions_rela.html", null ]
       ] ]
@@ -62,8 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classirobot__ec_1_1device_1_1Device.html#a681221b8b1cbc8eb1c71a98d1ec3f979",
-"ist8310_8h.html#a93f24f2cf487dd7d1276b3032c087e7da3993b9fcdbf9ec59e873519a4d02fe2f"
+"classirobot__ec_1_1device_1_1DR16.html#ab5168f88d34a91abcedace31eec9be9d",
+"dir_68267d1309a1af8e8297ef4c3efbcdba.html",
+"namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dad306b6fdee05fe87455110ddf6501e6c"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

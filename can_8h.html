@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/hal/can.h 文件参考</title>
+<title>irobotEC: src/irobotec/hal/can.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,10 +89,10 @@ $(document).ready(function(){initNavTree('can_8h.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>根据HAL库的宏定义决定Can是bxCAN还是fdCAN，并且在can_interface.h里提供一个接口类CanBase实现多态  
+<p>根据平台宏定义决定Can的具体实现，并且在can_interface.h里提供一个接口类CanInterface实现多态  
 <a href="#details">更多...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bxcan_8h_source.html">bxcan.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="fdcan_8h_source.html">fdcan.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="bxcan_8h_source.html">irobotec/hal/stm32/bxcan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fdcan_8h_source.html">irobotec/hal/stm32/fdcan.h</a>&quot;</code><br />
 </div>
 <p><a href="can_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
@@ -105,17 +105,18 @@ $(document).ready(function(){initNavTree('can_8h.html',''); initResizable(); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 类型定义</h2></td></tr>
-<tr class="memitem:a915e298b0b2cec4fa4fdc949cae87ae6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html#a915e298b0b2cec4fa4fdc949cae87ae6">irobot_ec::hal::Can</a> = BxCan</td></tr>
-<tr class="separator:a915e298b0b2cec4fa4fdc949cae87ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817c8d242ce9b5d096b21d012d8d0e7b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html#a817c8d242ce9b5d096b21d012d8d0e7b">irobot_ec::hal::Can</a> = stm32::BxCan</td></tr>
+<tr class="separator:a817c8d242ce9b5d096b21d012d8d0e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>根据HAL库的宏定义决定Can是bxCAN还是fdCAN，并且在can_interface.h里提供一个接口类CanBase实现多态 </p>
+<div class="textblock"><p>根据平台宏定义决定Can的具体实现，并且在can_interface.h里提供一个接口类CanInterface实现多态 </p>
+<p>根据平台宏定义决定具体实现，并且在gpio_interface.h里提供一个接口类PinInterface实现多态</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4ce6a7f885e2866a554ba9e7335035f1.html">hal</a></li><li class="navelem"><a class="el" href="can_8h.html">can.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_f9fe69341e45802758b1ffb181c3249f.html">hal</a></li><li class="navelem"><a class="el" href="can_8h.html">can.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

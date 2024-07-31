@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/device/device.h 源文件</title>
+<title>irobotEC: src/irobotec/device/device.h 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,12 +107,12 @@ $(document).ready(function(){initNavTree('device_8h_source.html',''); initResiza
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  SOFTWARE.</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef EC_LIB_DEVICE_DEVICE_H</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define EC_LIB_DEVICE_DEVICE_H</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef IROBOTEC_DEVICE_DEVICE_H</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define IROBOTEC_DEVICE_DEVICE_H</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">modules/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">irobotec/core/typedefs.h</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a> {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('device_8h_source.html',''); initResiza
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}  <span class="comment">// namespace irobot_ec::device</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EC_LIB_DEVICE_DEVICE_H</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// IROBOTEC_DEVICE_DEVICE_H</span></div>
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1DeviceManager_html"><div class="ttname"><a href="classirobot__ec_1_1device_1_1DeviceManager.html">irobot_ec::device::DeviceManager</a></div><div class="ttdoc">设备管理器，集中更新所有设备的在线状态</div><div class="ttdef"><b>Definition:</b> device.h:74</div></div>
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1DeviceManager_html_a3eb54d038f5a3c8b73106b3119e78b56"><div class="ttname"><a href="classirobot__ec_1_1device_1_1DeviceManager.html#a3eb54d038f5a3c8b73106b3119e78b56">irobot_ec::device::DeviceManager::Update</a></div><div class="ttdeci">void Update()</div></div>
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1DeviceManager_html_a86db44e6f9bcc0c5f9060a1961005377"><div class="ttname"><a href="classirobot__ec_1_1device_1_1DeviceManager.html#a86db44e6f9bcc0c5f9060a1961005377">irobot_ec::device::DeviceManager::RegisterDevice</a></div><div class="ttdeci">void RegisterDevice(Device &amp;device)</div></div>
@@ -168,19 +168,19 @@ $(document).ready(function(){initNavTree('device_8h_source.html',''); initResiza
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1Device_html_a9df8da6a8b26bbb9e0b2cb515a36dbde"><div class="ttname"><a href="classirobot__ec_1_1device_1_1Device.html#a9df8da6a8b26bbb9e0b2cb515a36dbde">irobot_ec::device::Device::status_</a></div><div class="ttdeci">DeviceStatus status_</div><div class="ttdef"><b>Definition:</b> device.h:65</div></div>
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1Device_html_acc34098fd8636dd34371c1936a2ef8ed"><div class="ttname"><a href="classirobot__ec_1_1device_1_1Device.html#acc34098fd8636dd34371c1936a2ef8ed">irobot_ec::device::Device::last_online_timestamp_</a></div><div class="ttdeci">u64 last_online_timestamp_</div><div class="ttdef"><b>Definition:</b> device.h:66</div></div>
 <div class="ttc" id="aclassirobot__ec_1_1device_1_1Device_html_aee6621b4cf1d8c3b132e6222902ac449"><div class="ttname"><a href="classirobot__ec_1_1device_1_1Device.html#aee6621b4cf1d8c3b132e6222902ac449">irobot_ec::device::Device::IsDeviceOnline</a></div><div class="ttdeci">virtual bool IsDeviceOnline()=0</div><div class="ttdoc">更新设备状态</div></div>
-<div class="ttc" id="anamespaceirobot__ec_1_1device_html"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a></div><div class="ttdef"><b>Definition:</b> dji_motor.cc:33</div></div>
+<div class="ttc" id="anamespaceirobot__ec_1_1device_html"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html">irobot_ec::device</a></div><div class="ttdef"><b>Definition:</b> dji_motor.cc:30</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a0e1b9dbb82130924bebfc41ce82611e1"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a0e1b9dbb82130924bebfc41ce82611e1">irobot_ec::device::DeviceStatus</a></div><div class="ttdeci">DeviceStatus</div><div class="ttdoc">设备状态</div><div class="ttdef"><b>Definition:</b> device.h:41</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a0e1b9dbb82130924bebfc41ce82611e1a25c2dc47991b3df171ed5192bcf70390"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a0e1b9dbb82130924bebfc41ce82611e1a25c2dc47991b3df171ed5192bcf70390">irobot_ec::device::DeviceStatus::kUnknown</a></div><div class="ttdeci">@ kUnknown</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a0e1b9dbb82130924bebfc41ce82611e1a7073176c153e8e9ade4393e6083758f1"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a0e1b9dbb82130924bebfc41ce82611e1a7073176c153e8e9ade4393e6083758f1">irobot_ec::device::DeviceStatus::kOnline</a></div><div class="ttdeci">@ kOnline</div></div>
 <div class="ttc" id="anamespaceirobot__ec_1_1device_html_a0e1b9dbb82130924bebfc41ce82611e1a9cc9bee8afaf8fdeab8b11fc94b78e38"><div class="ttname"><a href="namespaceirobot__ec_1_1device.html#a0e1b9dbb82130924bebfc41ce82611e1a9cc9bee8afaf8fdeab8b11fc94b78e38">irobot_ec::device::DeviceStatus::kOffline</a></div><div class="ttdeci">@ kOffline</div></div>
-<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">工程内全局数据类型定义</div></div>
-<div class="ttc" id="atypedefs_8h_html_a3f7e2bcbb0b4c338f3c4f6c937cd4234"><div class="ttname"><a href="typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">u64</a></div><div class="ttdeci">uint64_t u64</div><div class="ttdef"><b>Definition:</b> typedefs.h:42</div></div>
+<div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">全局数据类型定义</div></div>
+<div class="ttc" id="atypedefs_8h_html_a3f7e2bcbb0b4c338f3c4f6c937cd4234"><div class="ttname"><a href="typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234">u64</a></div><div class="ttdeci">uint64_t u64</div><div class="ttdef"><b>Definition:</b> typedefs.h:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16dc92632bab467dc50b01bd02b3341a.html">device</a></li><li class="navelem"><a class="el" href="device_8h.html">device.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_bce708cccbcbe4fa1f06b9cb50d30907.html">device</a></li><li class="navelem"><a class="el" href="device_8h.html">device.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/hal/uart.h 文件参考</title>
+<title>irobotEC: src/irobotec/hal/stm32/uart.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,6 @@ $(document).ready(function(){initNavTree('uart_8h.html',''); initResizable(); })
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
 <a href="#namespaces">命名空间</a> &#124;
-<a href="#typedef-members">类型定义</a> &#124;
 <a href="#enum-members">枚举</a>  </div>
   <div class="headertitle">
 <div class="title">uart.h 文件参考</div>  </div>
@@ -93,17 +92,16 @@ $(document).ready(function(){initNavTree('uart_8h.html',''); initResizable(); })
 
 <p>UART类库  
 <a href="#details">更多...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="hal_8h_source.html">hal.h</a>&quot;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
-<code>#include &quot;<a class="el" href="typedefs_8h_source.html">modules/typedefs.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="hal_8h_source.html">irobotec/hal/stm32/hal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="serial__interface_8h_source.html">irobotec/hal/serial_interface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="typedefs_8h_source.html">irobotec/core/typedefs.h</a>&quot;</code><br />
 </div>
 <p><a href="uart_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1Uart.html">irobot_ec::hal::Uart</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART类  <a href="classirobot__ec_1_1hal_1_1Uart.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1Uart.html">irobot_ec::hal::stm32::Uart</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART类  <a href="classirobot__ec_1_1hal_1_1stm32_1_1Uart.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -112,19 +110,16 @@ $(document).ready(function(){initNavTree('uart_8h.html',''); initResizable(); })
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceirobot__ec_1_1hal"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html">irobot_ec::hal</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-类型定义</h2></td></tr>
-<tr class="memitem:afec80bb0e4641f9658175c5b7c39277b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html#afec80bb0e4641f9658175c5b7c39277b">irobot_ec::hal::UartCallbackFunction</a> = std::function&lt; void(const std::vector&lt; <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> &gt; &amp;, <a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>)&gt;</td></tr>
-<tr class="separator:afec80bb0e4641f9658175c5b7c39277b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceirobot__ec_1_1hal_1_1stm32"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html">irobot_ec::hal::stm32</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 枚举</h2></td></tr>
-<tr class="memitem:a0b786ac9f49323c81287e42a61e8ea77"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html#a0b786ac9f49323c81287e42a61e8ea77">irobot_ec::hal::UartMode</a> { <a class="el" href="namespaceirobot__ec_1_1hal.html#a0b786ac9f49323c81287e42a61e8ea77a07fa7a19aa722c635a15e94cb7f50416">irobot_ec::hal::kNormal</a>
-, <a class="el" href="namespaceirobot__ec_1_1hal.html#a0b786ac9f49323c81287e42a61e8ea77a5226558f5ccca12b5009c9e2f97d50ae">irobot_ec::hal::kInterrupt</a>
-, <a class="el" href="namespaceirobot__ec_1_1hal.html#a0b786ac9f49323c81287e42a61e8ea77a1d17438b16d76f9f506107eab4a24b10">irobot_ec::hal::kDma</a>
+<tr class="memitem:a52fd80f4a7e5cd449610c6d9999a9bc7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html#a52fd80f4a7e5cd449610c6d9999a9bc7">irobot_ec::hal::stm32::UartMode</a> { <a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html#a52fd80f4a7e5cd449610c6d9999a9bc7a07fa7a19aa722c635a15e94cb7f50416">irobot_ec::hal::stm32::kNormal</a>
+, <a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html#a52fd80f4a7e5cd449610c6d9999a9bc7a5226558f5ccca12b5009c9e2f97d50ae">irobot_ec::hal::stm32::kInterrupt</a>
+, <a class="el" href="namespaceirobot__ec_1_1hal_1_1stm32.html#a52fd80f4a7e5cd449610c6d9999a9bc7a1d17438b16d76f9f506107eab4a24b10">irobot_ec::hal::stm32::kDma</a>
  }</td></tr>
-<tr class="separator:a0b786ac9f49323c81287e42a61e8ea77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a52fd80f4a7e5cd449610c6d9999a9bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>UART类库 </p>
@@ -133,7 +128,7 @@ $(document).ready(function(){initNavTree('uart_8h.html',''); initResizable(); })
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4ce6a7f885e2866a554ba9e7335035f1.html">hal</a></li><li class="navelem"><a class="el" href="uart_8h.html">uart.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_f9fe69341e45802758b1ffb181c3249f.html">hal</a></li><li class="navelem"><a class="el" href="dir_17b90a8a6e262e47af89703743a41b2c.html">stm32</a></li><li class="navelem"><a class="el" href="uart_8h.html">uart.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

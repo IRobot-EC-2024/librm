@@ -108,6 +108,12 @@ $(document).ready(function(){initNavTree('namespaceirobot__ec_1_1modules_1_1algo
 <tr class="memitem:a9118783e9e742ef5aeafe6ada286def2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#a9118783e9e742ef5aeafe6ada286def2">Map</a> (<a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> value, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> from_min, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> from_max, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> to_min, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> to_max)</td></tr>
 <tr class="memdesc:a9118783e9e742ef5aeafe6ada286def2"><td class="mdescLeft">&#160;</td><td class="mdescRight">映射函数  <a href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#a9118783e9e742ef5aeafe6ada286def2">更多...</a><br /></td></tr>
 <tr class="separator:a9118783e9e742ef5aeafe6ada286def2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db9cba6f4f68d70acd2e383761024ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#a3db9cba6f4f68d70acd2e383761024ce">IntToFloat</a> (int x_int, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> x_min, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> x_max, int bits)</td></tr>
+<tr class="memdesc:a3db9cba6f4f68d70acd2e383761024ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">把给定位数的整数映射到浮点数的某个范围内  <a href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#a3db9cba6f4f68d70acd2e383761024ce">更多...</a><br /></td></tr>
+<tr class="separator:a3db9cba6f4f68d70acd2e383761024ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe679d9ddcc3458f14aa63676b1d0577"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#abe679d9ddcc3458f14aa63676b1d0577">FloatToInt</a> (<a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> x, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> x_min, <a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> x_max, int bits)</td></tr>
+<tr class="memdesc:abe679d9ddcc3458f14aa63676b1d0577"><td class="mdescLeft">&#160;</td><td class="mdescRight">把某个范围内的浮点数映射到给定位数的整数的整个范围内  <a href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#abe679d9ddcc3458f14aa63676b1d0577">更多...</a><br /></td></tr>
+<tr class="separator:abe679d9ddcc3458f14aa63676b1d0577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af59e0bf0fa7707d602b7e663e303bda8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af59e0bf0fa7707d602b7e663e303bda8"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#af59e0bf0fa7707d602b7e663e303bda8">sign</a> (const T value)</td></tr>
 <tr class="memdesc:af59e0bf0fa7707d602b7e663e303bda8"><td class="mdescLeft">&#160;</td><td class="mdescRight">符号函数  <a href="namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#af59e0bf0fa7707d602b7e663e303bda8">更多...</a><br /></td></tr>
@@ -278,6 +284,110 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>弧度 </dd></dl>
+
+</div>
+</div>
+<a id="abe679d9ddcc3458f14aa63676b1d0577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe679d9ddcc3458f14aa63676b1d0577">&#9670;&nbsp;</a></span>FloatToInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int irobot_ec::modules::algorithm::utils::FloatToInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td>
+          <td class="paramname"><em>x_min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td>
+          <td class="paramname"><em>x_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>把某个范围内的浮点数映射到给定位数的整数的整个范围内 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>输入的浮点数 </td></tr>
+    <tr><td class="paramname">x_min</td><td>目标浮点数范围的下限 </td></tr>
+    <tr><td class="paramname">x_max</td><td>目标浮点数范围的上限 </td></tr>
+    <tr><td class="paramname">bits</td><td>输出的整数的位数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>映射后的整数 </dd></dl>
+
+</div>
+</div>
+<a id="a3db9cba6f4f68d70acd2e383761024ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3db9cba6f4f68d70acd2e383761024ce">&#9670;&nbsp;</a></span>IntToFloat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a> irobot_ec::modules::algorithm::utils::IntToFloat </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x_int</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td>
+          <td class="paramname"><em>x_min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd">f32</a>&#160;</td>
+          <td class="paramname"><em>x_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>把给定位数的整数映射到浮点数的某个范围内 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x_int</td><td>输入的整数 </td></tr>
+    <tr><td class="paramname">x_min</td><td>目标浮点数范围的下限 </td></tr>
+    <tr><td class="paramname">x_max</td><td>目标浮点数范围的上限 </td></tr>
+    <tr><td class="paramname">bits</td><td>输入的整数的位数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>映射后的浮点数 </dd></dl>
 
 </div>
 </div>

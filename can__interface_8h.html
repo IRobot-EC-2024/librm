@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/hal/can_interface.h 文件参考</title>
+<title>irobotEC: src/irobotec/hal/can_interface.h 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,24 +83,26 @@ $(document).ready(function(){initNavTree('can__interface_8h.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a>  </div>
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#enum-members">枚举</a>  </div>
   <div class="headertitle">
 <div class="title">can_interface.h 文件参考</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>CAN接口，bxCAN和fdCAN的基类  
+<p>CAN的接口类  
 <a href="#details">更多...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="typedefs_8h_source.html">modules/typedefs.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="typedefs_8h_source.html">irobotec/core/typedefs.h</a>&quot;</code><br />
+<code>#include &lt;array&gt;</code><br />
 </div>
 <p><a href="can__interface_8h_source.html">浏览源代码.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structirobot__ec_1_1hal_1_1CanRxMsg.html">irobot_ec::hal::CanRxMsg</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structirobot__ec_1_1hal_1_1CanMsg.html">irobot_ec::hal::CanMsg</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanBase.html">irobot_ec::hal::CanBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN外设基类  <a href="classirobot__ec_1_1hal_1_1CanBase.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html">irobot_ec::hal::CanInterface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN接口类  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -111,15 +113,23 @@ $(document).ready(function(){initNavTree('can__interface_8h.html',''); initResiz
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceirobot__ec_1_1hal"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html">irobot_ec::hal</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:af1916bf4c88fd880429d874e479f011c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceirobot__ec_1_1hal.html#af1916bf4c88fd880429d874e479f011c">irobot_ec::hal::CanTxPriority</a> { <a class="el" href="namespaceirobot__ec_1_1hal.html#af1916bf4c88fd880429d874e479f011cacd8fe42741a3bbc973bbf1d404afeff4">irobot_ec::hal::kLow</a>
+, <a class="el" href="namespaceirobot__ec_1_1hal.html#af1916bf4c88fd880429d874e479f011ca07fa7a19aa722c635a15e94cb7f50416">irobot_ec::hal::kNormal</a>
+, <a class="el" href="namespaceirobot__ec_1_1hal.html#af1916bf4c88fd880429d874e479f011caa022f15e910eb36278094efb6e808a07">irobot_ec::hal::kHigh</a>
+ }</td></tr>
+<tr class="separator:af1916bf4c88fd880429d874e479f011c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>CAN接口，bxCAN和fdCAN的基类 </p>
+<div class="textblock"><p>CAN的接口类 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4ce6a7f885e2866a554ba9e7335035f1.html">hal</a></li><li class="navelem"><a class="el" href="can__interface_8h.html">can_interface.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_f9fe69341e45802758b1ffb181c3249f.html">hal</a></li><li class="navelem"><a class="el" href="can__interface_8h.html">can_interface.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

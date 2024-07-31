@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>irobotEC: irobot_ec::hal::CanInterface类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">irobotEC
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classirobot__ec_1_1hal_1_1CanInterface.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#friends">友元</a> &#124;
+<a href="classirobot__ec_1_1hal_1_1CanInterface-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">irobot_ec::hal::CanInterface类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>CAN接口类  
+ <a href="classirobot__ec_1_1hal_1_1CanInterface.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="can__interface_8h_source.html">can_interface.h</a>&gt;</code></p>
+<div class="dynheader">
+类 irobot_ec::hal::CanInterface 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classirobot__ec_1_1hal_1_1CanInterface.png" usemap="#irobot_5Fec::hal::CanInterface_map" alt=""/>
+  <map id="irobot_5Fec::hal::CanInterface_map" name="irobot_5Fec::hal::CanInterface_map">
+<area href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html" alt="irobot_ec::hal::linux_::SocketCan" shape="rect" coords="0,56,194,80"/>
+<area href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html" title="bxCAN类库" alt="irobot_ec::hal::stm32::BxCan" shape="rect" coords="204,56,398,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a3eea8c155074b6d467220d5ced383d78"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#a3eea8c155074b6d467220d5ced383d78">~CanInterface</a> ()=default</td></tr>
+<tr class="separator:a3eea8c155074b6d467220d5ced383d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affdef406079a643599bc8bfbc5bdbbd3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#affdef406079a643599bc8bfbc5bdbbd3">Write</a> (<a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> id, const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, <a class="el" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size)=0</td></tr>
+<tr class="memdesc:affdef406079a643599bc8bfbc5bdbbd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">立即向总线上发送数据  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#affdef406079a643599bc8bfbc5bdbbd3">更多...</a><br /></td></tr>
+<tr class="separator:affdef406079a643599bc8bfbc5bdbbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac857e0902f489b456548910367c92961"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#ac857e0902f489b456548910367c92961">Write</a> ()=0</td></tr>
+<tr class="separator:ac857e0902f489b456548910367c92961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932c45a45bc9b25308f4dc254a7ac649"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#a932c45a45bc9b25308f4dc254a7ac649">Enqueue</a> (<a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> id, const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, <a class="el" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size, <a class="el" href="namespaceirobot__ec_1_1hal.html#af1916bf4c88fd880429d874e479f011c">CanTxPriority</a> priority)=0</td></tr>
+<tr class="memdesc:a932c45a45bc9b25308f4dc254a7ac649"><td class="mdescLeft">&#160;</td><td class="mdescRight">向消息队列里加入一条消息  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#a932c45a45bc9b25308f4dc254a7ac649">更多...</a><br /></td></tr>
+<tr class="separator:a932c45a45bc9b25308f4dc254a7ac649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a300c8cdededab31d295719e30b219b9e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#a300c8cdededab31d295719e30b219b9e">SetFilter</a> (<a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> id, <a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> mask)=0</td></tr>
+<tr class="memdesc:a300c8cdededab31d295719e30b219b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置过滤器  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#a300c8cdededab31d295719e30b219b9e">更多...</a><br /></td></tr>
+<tr class="separator:a300c8cdededab31d295719e30b219b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156843658ef75fd54f4e41b671cf17e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#a156843658ef75fd54f4e41b671cf17e0">Begin</a> ()=0</td></tr>
+<tr class="memdesc:a156843658ef75fd54f4e41b671cf17e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">启动CAN外设  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#a156843658ef75fd54f4e41b671cf17e0">更多...</a><br /></td></tr>
+<tr class="separator:a156843658ef75fd54f4e41b671cf17e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab198f5b26cedeae4db84f8df79bbb487"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#ab198f5b26cedeae4db84f8df79bbb487">Stop</a> ()=0</td></tr>
+<tr class="memdesc:ab198f5b26cedeae4db84f8df79bbb487"><td class="mdescLeft">&#160;</td><td class="mdescRight">停止CAN外设  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#ab198f5b26cedeae4db84f8df79bbb487">更多...</a><br /></td></tr>
+<tr class="separator:ab198f5b26cedeae4db84f8df79bbb487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a1c70f5ba3039c377eef08815b3be1f09"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#a1c70f5ba3039c377eef08815b3be1f09">RegisterDevice</a> (<a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">device::CanDevice</a> &amp;device, <a class="el" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> rx_stdid)=0</td></tr>
+<tr class="memdesc:a1c70f5ba3039c377eef08815b3be1f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">注册CAN设备  <a href="classirobot__ec_1_1hal_1_1CanInterface.html#a1c70f5ba3039c377eef08815b3be1f09">更多...</a><br /></td></tr>
+<tr class="separator:a1c70f5ba3039c377eef08815b3be1f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:a745146b251a28f11ca56c23b8ecdf76b"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html#a745146b251a28f11ca56c23b8ecdf76b">device::CanDevice</a></td></tr>
+<tr class="separator:a745146b251a28f11ca56c23b8ecdf76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>CAN接口类 </p>
+<dl class="section note"><dt>注解</dt><dd>借助CanDeviceBase类使用观察者模式实现回调机制 </dd></dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a3eea8c155074b6d467220d5ced383d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eea8c155074b6d467220d5ced383d78">&#9670;&nbsp;</a></span>~CanInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual irobot_ec::hal::CanInterface::~CanInterface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a156843658ef75fd54f4e41b671cf17e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a156843658ef75fd54f4e41b671cf17e0">&#9670;&nbsp;</a></span>Begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::Begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>启动CAN外设 </p>
+
+<p>在 <a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#a7347a44eee8c21c2403f6a8ce84f0be2">irobot_ec::hal::stm32::BxCan</a> , 以及 <a class="el" href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#abda9cbd2796f0421dfc397eedf4de70e">irobot_ec::hal::linux_::SocketCan</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a932c45a45bc9b25308f4dc254a7ac649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932c45a45bc9b25308f4dc254a7ac649">&#9670;&nbsp;</a></span>Enqueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::Enqueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceirobot__ec_1_1hal.html#af1916bf4c88fd880429d874e479f011c">CanTxPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>向消息队列里加入一条消息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>数据帧ID </td></tr>
+    <tr><td class="paramname">data</td><td>数据指针 </td></tr>
+    <tr><td class="paramname">size</td><td>数据长度 </td></tr>
+    <tr><td class="paramname">priority</td><td>消息的优先级 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#adbf011bb74744da2ade6728ba72f0a80">irobot_ec::hal::stm32::BxCan</a> , 以及 <a class="el" href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#a4b282a2f1d8477962a5ccabaa8f11918">irobot_ec::hal::linux_::SocketCan</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a1c70f5ba3039c377eef08815b3be1f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c70f5ba3039c377eef08815b3be1f09">&#9670;&nbsp;</a></span>RegisterDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::RegisterDevice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">device::CanDevice</a> &amp;&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>&#160;</td>
+          <td class="paramname"><em>rx_stdid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>注册CAN设备 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>设备对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a300c8cdededab31d295719e30b219b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a300c8cdededab31d295719e30b219b9e">&#9670;&nbsp;</a></span>SetFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::SetFilter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置过滤器 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">mask</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#a6b0f39e4f2c6b1bbd11a30ee14a1489f">irobot_ec::hal::stm32::BxCan</a> , 以及 <a class="el" href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#ac6830a4d8bfa4e3e314778f52c3a349a">irobot_ec::hal::linux_::SocketCan</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ab198f5b26cedeae4db84f8df79bbb487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab198f5b26cedeae4db84f8df79bbb487">&#9670;&nbsp;</a></span>Stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::Stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>停止CAN外设 </p>
+
+<p>在 <a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#a97f817d65591de342346c789c1ad3cc3">irobot_ec::hal::stm32::BxCan</a> , 以及 <a class="el" href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#a0b313d0779ba8f5a0d5c523c1fdab5f1">irobot_ec::hal::linux_::SocketCan</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ac857e0902f489b456548910367c92961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac857e0902f489b456548910367c92961">&#9670;&nbsp;</a></span>Write() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::Write </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在 <a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#a10236b645b0fc2f68af62908f8bf1a5d">irobot_ec::hal::stm32::BxCan</a> , 以及 <a class="el" href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#a5f4877a1a783afd16101acc616df00e8">irobot_ec::hal::linux_::SocketCan</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="affdef406079a643599bc8bfbc5bdbbd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affdef406079a643599bc8bfbc5bdbbd3">&#9670;&nbsp;</a></span>Write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::hal::CanInterface::Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a>&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>立即向总线上发送数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>数据帧ID </td></tr>
+    <tr><td class="paramname">data</td><td>数据指针 </td></tr>
+    <tr><td class="paramname">size</td><td>数据长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在 <a class="el" href="classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#afa2db8a19dfe5dc4ed146021a4d7b4a3">irobot_ec::hal::stm32::BxCan</a> , 以及 <a class="el" href="classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#accefe8453562b62e1d1dcc959785851e">irobot_ec::hal::linux_::SocketCan</a> 内被实现.</p>
+
+</div>
+</div>
+<h2 class="groupheader">友元及相关函数文档</h2>
+<a id="a745146b251a28f11ca56c23b8ecdf76b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745146b251a28f11ca56c23b8ecdf76b">&#9670;&nbsp;</a></span>device::CanDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">device::CanDevice</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/irobotec/hal/<a class="el" href="can__interface_8h_source.html">can_interface.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1hal.html">hal</a></li><li class="navelem"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html">CanInterface</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

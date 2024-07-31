@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ist8310status_929',['IST8310Status',['../namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d',1,'irobot_ec::device']]]
+  ['exception_1069',['Exception',['../namespaceirobot__ec_1_1core_1_1exception.html#a588cba370d7b00e2c87df232e56b39ce',1,'irobot_ec::core::exception']]]
 ];

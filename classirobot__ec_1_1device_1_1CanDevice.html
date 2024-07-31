@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>irobotEC: irobot_ec::device::CanDevice类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">irobotEC
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classirobot__ec_1_1device_1_1CanDevice.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="classirobot__ec_1_1device_1_1CanDevice-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">irobot_ec::device::CanDevice类 参考<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>CAN设备的基类  
+ <a href="classirobot__ec_1_1device_1_1CanDevice.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="can__device_8hpp_source.html">can_device.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 irobot_ec::device::CanDevice 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classirobot__ec_1_1device_1_1CanDevice.png" usemap="#irobot_5Fec::device::CanDevice_map" alt=""/>
+  <map id="irobot_5Fec::device::CanDevice_map" name="irobot_5Fec::device::CanDevice_map">
+<area href="classirobot__ec_1_1device_1_1DjiMotor.html" title="大疆电机(GM6020, M3508, M2006)" alt="irobot_ec::device::DjiMotor&lt; motor_type &gt;" shape="rect" coords="0,56,266,80"/>
+<area href="classirobot__ec_1_1device_1_1DmMotor.html" title="达妙电机类库" alt="irobot_ec::device::DmMotor&lt; control_mode &gt;" shape="rect" coords="276,56,542,80"/>
+<area href="classirobot__ec_1_1device_1_1SuperCap.html" title="超级电容" alt="irobot_ec::device::SuperCap" shape="rect" coords="552,56,818,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a7ecd8d28eb568c0fa35fec3c59ae32b3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html#a7ecd8d28eb568c0fa35fec3c59ae32b3">~CanDevice</a> ()=default</td></tr>
+<tr class="separator:a7ecd8d28eb568c0fa35fec3c59ae32b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb520016083159cca306a09cf3d2807"><td class="memTemplParams" colspan="2">template&lt;typename... IdList&gt; </td></tr>
+<tr class="memitem:a0fb520016083159cca306a09cf3d2807"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html#a0fb520016083159cca306a09cf3d2807">CanDevice</a> (<a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html">hal::CanInterface</a> &amp;can, IdList... rx_std_ids)</td></tr>
+<tr class="separator:a0fb520016083159cca306a09cf3d2807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae10ee7f41f8e5199803bde09fbb22234"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html#ae10ee7f41f8e5199803bde09fbb22234">CanDevice</a> (const <a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a> &amp;)=delete</td></tr>
+<tr class="separator:ae10ee7f41f8e5199803bde09fbb22234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae519469d17758f41f47ffd9784f36de8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html#ae519469d17758f41f47ffd9784f36de8">operator=</a> (const <a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a> &amp;)=delete</td></tr>
+<tr class="separator:ae519469d17758f41f47ffd9784f36de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b86a217bf0b6274ac3b8fc44910500"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html#af5b86a217bf0b6274ac3b8fc44910500">RxCallback</a> (const <a class="el" href="structirobot__ec_1_1hal_1_1CanMsg.html">hal::CanMsg</a> *msg)=0</td></tr>
+<tr class="separator:af5b86a217bf0b6274ac3b8fc44910500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a43d9725cf85bfe67189fbf5749b64a72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html">hal::CanInterface</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html#a43d9725cf85bfe67189fbf5749b64a72">can_</a></td></tr>
+<tr class="separator:a43d9725cf85bfe67189fbf5749b64a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>CAN设备的基类 </p>
+<dl class="section note"><dt>注解</dt><dd>这个类是抽象基类，用来被CAN设备类继承，不能实例化。 </dd>
+<dd>
+使用以下几个步骤，实现一个使用CAN总线通信的设备类： </dd>
+<dd>
+1. public继承CanDevice </dd>
+<dd>
+2. 代理构造，表明自己属于哪一条CAN总线、自己要接收哪些ID的报文 </dd>
+<dd>
+3. 实现RxCallback(const hal::CanMsg *msg)函数，编写收到报文时的处理逻辑 </dd>
+<dd>
+框架对CAN总线和设备的封装使用观察者模式，CAN设备向CAN总线类"注册"自己，并且告知自己要接收哪些ID的报文； 基于具体平台实现，CAN总线类会用轮询或接管中断的方式接收所有报文，每接收到一条报文，它就会寻找有没有注册过想要接收这条报文的设备， 如果有，这个设备的RxCallback()函数就会被CAN总线类调用。 </dd></dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a7ecd8d28eb568c0fa35fec3c59ae32b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ecd8d28eb568c0fa35fec3c59ae32b3">&#9670;&nbsp;</a></span>~CanDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual irobot_ec::device::CanDevice::~CanDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fb520016083159cca306a09cf3d2807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb520016083159cca306a09cf3d2807">&#9670;&nbsp;</a></span>CanDevice() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... IdList&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::device::CanDevice::CanDevice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html">hal::CanInterface</a> &amp;&#160;</td>
+          <td class="paramname"><em>can</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IdList...&#160;</td>
+          <td class="paramname"><em>rx_std_ids</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">can</td><td>CAN外设对象 </td></tr>
+    <tr><td class="paramname">rx_std_ids</td><td>这个设备的rx消息标准帧id列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae10ee7f41f8e5199803bde09fbb22234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae10ee7f41f8e5199803bde09fbb22234">&#9670;&nbsp;</a></span>CanDevice() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">irobot_ec::device::CanDevice::CanDevice </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ae519469d17758f41f47ffd9784f36de8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae519469d17758f41f47ffd9784f36de8">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a>&amp; irobot_ec::device::CanDevice::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5b86a217bf0b6274ac3b8fc44910500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b86a217bf0b6274ac3b8fc44910500">&#9670;&nbsp;</a></span>RxCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void irobot_ec::device::CanDevice::RxCallback </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structirobot__ec_1_1hal_1_1CanMsg.html">hal::CanMsg</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在 <a class="el" href="classirobot__ec_1_1device_1_1SuperCap.html#a73061f395b3446dfbc09a92d470b6d77">irobot_ec::device::SuperCap</a> 内被实现.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a43d9725cf85bfe67189fbf5749b64a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43d9725cf85bfe67189fbf5749b64a72">&#9670;&nbsp;</a></span>can_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classirobot__ec_1_1hal_1_1CanInterface.html">hal::CanInterface</a>* irobot_ec::device::CanDevice::can_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/irobotec/device/<a class="el" href="can__device_8hpp_source.html">can_device.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceirobot__ec.html">irobot_ec</a></li><li class="navelem"><a class="el" href="namespaceirobot__ec_1_1device.html">device</a></li><li class="navelem"><a class="el" href="classirobot__ec_1_1device_1_1CanDevice.html">CanDevice</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

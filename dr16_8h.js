@@ -20,6 +20,7 @@ var dr16_8h =
       [ "kB", "dr16_8h.html#a2e0f5e30695b072a4ffc1e836949a686a3e56c011b37f0bc78fb9eb175c1181c6", null ]
     ] ],
     [ "RcSwitchState", "dr16_8h.html#a6f873a1f61423b03ae6fe753f1fca130", [
+      [ "kUnknown", "dr16_8h.html#a6f873a1f61423b03ae6fe753f1fca130a25c2dc47991b3df171ed5192bcf70390", null ],
       [ "kUp", "dr16_8h.html#a6f873a1f61423b03ae6fe753f1fca130a8a9e8c8811f2a710615e133456229ee5", null ],
       [ "kDown", "dr16_8h.html#a6f873a1f61423b03ae6fe753f1fca130a3bc2ec3237c6d119b0b5c4225122a07e", null ],
       [ "kMid", "dr16_8h.html#a6f873a1f61423b03ae6fe753f1fca130a46d517fe446a90c5afd2e1f8e7def864", null ]

@@ -5,8 +5,13 @@ var namespaceirobot__ec_1_1device =
     [ "DjiMotorProperties< DjiMotorType::M3508 >", "structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1M3508_01_4.html", null ],
     [ "DjiMotorProperties< DjiMotorType::M2006 >", "structirobot__ec_1_1device_1_1DjiMotorProperties_3_01DjiMotorType_1_1M2006_01_4.html", null ],
     [ "DjiMotor", "classirobot__ec_1_1device_1_1DjiMotor.html", "classirobot__ec_1_1device_1_1DjiMotor" ],
+    [ "DmMotorSettings", "structirobot__ec_1_1device_1_1DmMotorSettings.html", null ],
+    [ "DmMotorSettings< DmMotorControlMode::kSpeed >", "structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeed_01_4.html", "structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeed_01_4" ],
+    [ "DmMotorSettings< DmMotorControlMode::kSpeedPosition >", "structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html", "structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4" ],
+    [ "DmMotorSettings< DmMotorControlMode::kMit >", "structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html", "structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4" ],
+    [ "DmMotor", "classirobot__ec_1_1device_1_1DmMotor.html", "classirobot__ec_1_1device_1_1DmMotor" ],
     [ "UnitreeMotorBase", "classirobot__ec_1_1device_1_1UnitreeMotorBase.html", "classirobot__ec_1_1device_1_1UnitreeMotorBase" ],
-    [ "CanDeviceBase", "classirobot__ec_1_1device_1_1CanDeviceBase.html", "classirobot__ec_1_1device_1_1CanDeviceBase" ],
+    [ "CanDevice", "classirobot__ec_1_1device_1_1CanDevice.html", "classirobot__ec_1_1device_1_1CanDevice" ],
     [ "Device", "classirobot__ec_1_1device_1_1Device.html", "classirobot__ec_1_1device_1_1Device" ],
     [ "DeviceManager", "classirobot__ec_1_1device_1_1DeviceManager.html", "classirobot__ec_1_1device_1_1DeviceManager" ],
     [ "DR16", "classirobot__ec_1_1device_1_1DR16.html", "classirobot__ec_1_1device_1_1DR16" ],
@@ -59,6 +64,28 @@ var namespaceirobot__ec_1_1device =
       [ "M3508", "namespaceirobot__ec_1_1device.html#ad89b3642dec8588b5285f5673108e1e8a2a11d96160e8fc87860f3f795e81b080", null ],
       [ "M2006", "namespaceirobot__ec_1_1device.html#ad89b3642dec8588b5285f5673108e1e8a93f5090472f646ad30fccecc43f7b2c7", null ]
     ] ],
+    [ "DmMotorControlMode", "namespaceirobot__ec_1_1device.html#a1b7d9e0000495a60d5a9e97e19dc3e04", [
+      [ "kMit", "namespaceirobot__ec_1_1device.html#a1b7d9e0000495a60d5a9e97e19dc3e04a671bf1301da9c5f5da9a08002e6f89c4", null ],
+      [ "kSpeedPosition", "namespaceirobot__ec_1_1device.html#a1b7d9e0000495a60d5a9e97e19dc3e04ac423473711521422b9f206b311bca100", null ],
+      [ "kSpeed", "namespaceirobot__ec_1_1device.html#a1b7d9e0000495a60d5a9e97e19dc3e04a22f7e05f35e7f25d5f24304feb24bee8", null ]
+    ] ],
+    [ "DmMotorInstructions", "namespaceirobot__ec_1_1device.html#a88c83b957f8992efb4da7b3e79abc66c", [
+      [ "kEnable", "namespaceirobot__ec_1_1device.html#a88c83b957f8992efb4da7b3e79abc66ca239d75756e4e52e4fff58dba82889b02", null ],
+      [ "kDisable", "namespaceirobot__ec_1_1device.html#a88c83b957f8992efb4da7b3e79abc66ca229bc0c46e45e1688bdb842b616fd8d2", null ],
+      [ "kSetZeroPosition", "namespaceirobot__ec_1_1device.html#a88c83b957f8992efb4da7b3e79abc66caf858c8ebda9278d750e196a886b242a6", null ],
+      [ "kClearError", "namespaceirobot__ec_1_1device.html#a88c83b957f8992efb4da7b3e79abc66ca548850f5a9e00483fc14c43fb780562c", null ]
+    ] ],
+    [ "DmMotorStatus", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4a", [
+      [ "kUnable", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa613bcf3776943bf227b27b2bd5b74080", null ],
+      [ "kEnable", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa239d75756e4e52e4fff58dba82889b02", null ],
+      [ "kOverVoltage", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa5b899cabb290b99ccb0a20d0c76471fa", null ],
+      [ "kUnderVoltage", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa56696b8f72116b20b66cb8f3e312b139", null ],
+      [ "kOverCurrent", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa3682d43af35c981acfac7517d9ec8bf9", null ],
+      [ "kMosOverTemp", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa66d086e2a04614e75d6da8b5b23884af", null ],
+      [ "kCoilOverTemp", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa65557cc8f43113d2914a5dd89e1f2f15", null ],
+      [ "kCommLost", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa128957f2da4e677c73f8fa911ba38861", null ],
+      [ "kOverload", "namespaceirobot__ec_1_1device.html#af2e3015e55eebb5141482c2d02e60e4aa18152e5df57d9bcb5139cc3636073cc2", null ]
+    ] ],
     [ "IST8310Status", "namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d", [
       [ "NO_ERROR", "namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dad306b6fdee05fe87455110ddf6501e6c", null ],
       [ "NO_SENSOR", "namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7dab37cdaa5ea18c2d6d7a12580b6549589", null ],
@@ -83,6 +110,7 @@ var namespaceirobot__ec_1_1device =
       [ "kB", "namespaceirobot__ec_1_1device.html#a2e0f5e30695b072a4ffc1e836949a686a3e56c011b37f0bc78fb9eb175c1181c6", null ]
     ] ],
     [ "RcSwitchState", "namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130", [
+      [ "kUnknown", "namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a25c2dc47991b3df171ed5192bcf70390", null ],
       [ "kUp", "namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a8a9e8c8811f2a710615e133456229ee5", null ],
       [ "kDown", "namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a3bc2ec3237c6d119b0b5c4225122a07e", null ],
       [ "kMid", "namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130a46d517fe446a90c5afd2e1f8e7def864", null ]

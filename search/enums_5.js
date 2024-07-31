@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rckey_931',['RcKey',['../namespaceirobot__ec_1_1device.html#a2e0f5e30695b072a4ffc1e836949a686',1,'irobot_ec::device']]],
-  ['rcswitchstate_932',['RcSwitchState',['../namespaceirobot__ec_1_1device.html#a6f873a1f61423b03ae6fe753f1fca130',1,'irobot_ec::device']]]
+  ['pidtype_1071',['PIDType',['../namespaceirobot__ec_1_1modules_1_1algorithm.html#a8af05c833433a65cc4c1ccf2c5e077ee',1,'irobot_ec::modules::algorithm']]]
 ];

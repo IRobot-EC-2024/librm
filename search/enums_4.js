@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pidtype_930',['PIDType',['../namespaceirobot__ec_1_1modules_1_1algorithm.html#a8af05c833433a65cc4c1ccf2c5e077ee',1,'irobot_ec::modules::algorithm']]]
+  ['ist8310status_1070',['IST8310Status',['../namespaceirobot__ec_1_1device.html#a93f24f2cf487dd7d1276b3032c087e7d',1,'irobot_ec::device']]]
 ];
