@@ -29,18 +29,22 @@
 
 #include "utils.hpp"
 
+#if defined(IROBOTEC_PLATFORM_STM32)
 //---------------------------------------------------------------------------------------------------
 // Fast inverse square-root
 // See: http://en.wikipedia.org/wiki/Fast_inverse_square_root
 static f32 InvSqrt(f32 x) {
   f32 halfx = 0.5f * x;
   f32 y = x;
-  long i = *(long *)&y;
+  long i = *reinterpret_cast<long *>(&y);
   i = 0x5f3759df - (i >> 1);
-  y = *(f32 *)&i;
+  y = *reinterpret_cast<f32 *>(&i);
   y = y * (1.5f - (halfx * y * y));
   return y;
 }
+#elif defined(IROBOTEC_PLATFORM_LINUX)
+static f32 InvSqrt(f32 x) { return 1.0f / sqrtf(x); }
+#endif
 
 namespace irobot_ec::modules::algorithm {
 
