@@ -39,7 +39,7 @@ constexpr u16 CRC16_INIT = 0xffff;
 
 u8 Crc8(unsigned char *input, unsigned int len, unsigned char uc_crc8);
 
-u8 Crc8(const std::string_view input, unsigned char uc_crc8);
+u8 Crc8(std::string_view input, unsigned char uc_crc8);
 
 u8 Crc8(const std::string &input, unsigned char uc_crc8);
 
@@ -47,12 +47,12 @@ void AppendCrc8(unsigned char *input, unsigned int len);
 
 u16 Crc16(u8 *input, uint32_t len, u16 w_crc);
 
-u16 Crc16(const std::string_view input, u16 w_crc);
+u16 Crc16(std::string_view input, u16 w_crc);
 
 u16 Crc16(const std::string &input, u16 w_crc);
 
 void AppendCrc16(u8 *input, uint32_t len);
 
-}  // namespace crc
+}  // namespace irobot_ec::modules::algorithm
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_CRC_H
