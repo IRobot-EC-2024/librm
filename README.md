@@ -1,9 +1,9 @@
 # irobotEC [[en]](README_en.md)
 
-[![build](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/ci_build.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/ci_build.yml)
-[![clang-format Check](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/style_check.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/style_check.yml)
+[![build](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/build.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/build.yml)
+[![clang-format Check](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/lint.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/lint.yml)
 [![docs](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/lunarifish/irobotec/badge)](https://www.codefactor.io/repository/github/lunarifish/irobotec)
+[![CodeFactor](https://www.codefactor.io/repository/github/irobot-ec-2024/irobotec/badge/develop)](https://www.codefactor.io/repository/github/irobot-ec-2024/irobotec/overview/develop)
 
 跨平台Robomaster嵌入式软件开发框架，为多种硬件平台提供统一的外设API、设备驱动和算法库。
 
