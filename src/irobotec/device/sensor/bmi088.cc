@@ -86,9 +86,9 @@ BMI088::BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, u16 c
  */
 void BMI088::InitAccelerometer() {
   // 检查通信是否正常
-  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID,2);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
-  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID,2);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
 
   // soft reset一次
@@ -96,9 +96,9 @@ void BMI088::InitAccelerometer() {
   core::time::Sleep(BMI088_LONG_DELAY_TIME);
 
   // 再次检查通信是否正常
-  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID,2);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
-  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID,2);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
 
   // 检查"who am I"寄存器值是否正确
@@ -110,7 +110,7 @@ void BMI088::InitAccelerometer() {
   for (const auto &operation : BMI088_ACCEL_INIT_SEQUENCE) {
     this->accel_device_.WriteByte(operation[0], operation[1]);
     core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
-    this->accel_device_.ReadBytes(operation[0],2);
+    this->accel_device_.ReadBytes(operation[0], 2);
     core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
 
     if (accel_device_.single_byte_buffer() != operation[1]) {
