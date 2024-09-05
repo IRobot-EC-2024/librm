@@ -106,7 +106,6 @@ void SpiDevice::ReadByte(u8 reg) {
  */
 void SpiDevice::ReadBytes(u8 reg, u8 len) {
   HAL_GPIO_WritePin(this->cs_gpio_port_, this->cs_pin_, GPIO_PIN_RESET);
-  this->ReadWriteByte(reg | 0x80);
   this->ReadWriteBytes(reg, len);
   HAL_GPIO_WritePin(this->cs_gpio_port_, this->cs_pin_, GPIO_PIN_SET);
 }

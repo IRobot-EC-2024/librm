@@ -45,7 +45,7 @@ constexpr usize BMI088_ACCEL_DATA_READY_BIT = 1;
 constexpr usize BMI088_ACCEL_TEMP_DATA_READY_BIT = 2;
 
 constexpr auto BMI088_LONG_DELAY_TIME = 80ms;
-constexpr auto BMI088_COM_WAIT_SENSOR_TIME = 150us;
+constexpr auto BMI088_COM_WAIT_SENSOR_TIME = 1ms;
 
 constexpr u16 BMI088_ACCEL_IIC_ADDRESS = (0x18 << 1);
 constexpr u16 BMI088_GYRO_IIC_ADDRESS = (0x68 << 1);
