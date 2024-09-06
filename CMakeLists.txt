@@ -32,6 +32,10 @@ add_subdirectory(src)
 # link third party libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC third_party)
 
+if (EXISTS ${CMAKE_HOME_DIRECTORY}/cmake/stm32cubemx/CMakeLists.txt)
+    target_link_libraries(${PROJECT_NAME} PRIVATE stm32cubemx)
+endif ()
+
 target_compile_definitions(${PROJECT_NAME} PUBLIC -DIROBOTEC_PLATFORM_${IROBOTEC_PLATFORM})
 if (DEFINED IROBOTEC_PLATFORM_LINUX_TYPE)
     target_compile_definitions(${PROJECT_NAME} PUBLIC -DIROBOTEC_PLATFORM_LINUX_${IROBOTEC_PLATFORM_LINUX_TYPE})

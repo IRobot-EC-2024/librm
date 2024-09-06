@@ -86,9 +86,9 @@ BMI088::BMI088(SPI_HandleTypeDef &hspi, GPIO_TypeDef *cs1_accel_gpio_port, u16 c
  */
 void BMI088::InitAccelerometer() {
   // 检查通信是否正常
-  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
-  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
 
   // soft reset一次
@@ -96,9 +96,9 @@ void BMI088::InitAccelerometer() {
   core::time::Sleep(BMI088_LONG_DELAY_TIME);
 
   // 再次检查通信是否正常
-  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
-  this->accel_device_.ReadByte(BMI088_ACC_CHIP_ID);
+  this->accel_device_.ReadBytes(BMI088_ACC_CHIP_ID, 2);
   core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
 
   // 检查"who am I"寄存器值是否正确
@@ -110,14 +110,13 @@ void BMI088::InitAccelerometer() {
   for (const auto &operation : BMI088_ACCEL_INIT_SEQUENCE) {
     this->accel_device_.WriteByte(operation[0], operation[1]);
     core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
-    this->accel_device_.ReadByte(operation[0]);
+    this->accel_device_.ReadBytes(operation[0], 2);
     core::time::Sleep(BMI088_COM_WAIT_SENSOR_TIME);
 
     if (accel_device_.single_byte_buffer() != operation[1]) {
       this->status_ = (BMI088Status)operation[2];
     }
   }
-  this->status_ = BMI088Status::NO_ERROR;
 }
 
 /**
@@ -156,8 +155,6 @@ void BMI088::InitGyroscope() {
       this->status_ = (BMI088Status)operation[2];
     }
   }
-
-  this->status_ = BMI088Status::NO_ERROR;
 }
 
 /**
@@ -167,20 +164,19 @@ void BMI088::Update() {
   const u8 *accel_buf = this->accel_device_.buffer();
   const u8 *gyro_buf = this->gyro_device_.buffer();
 
-  this->accel_device_.ReadBytes(BMI088_ACCEL_XOUT_L, 6);
-  this->accel_[0] = ((i16)(accel_buf[1] << 8) | accel_buf[0]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
-  this->accel_[1] = ((i16)(accel_buf[3] << 8) | accel_buf[2]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
-  this->accel_[2] = ((i16)(accel_buf[5] << 8) | accel_buf[4]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_device_.ReadBytes(BMI088_ACCEL_XOUT_L, 7);
+  this->accel_[0] = ((i16)(accel_buf[2] << 8) | accel_buf[1]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[1] = ((i16)(accel_buf[4] << 8) | accel_buf[3]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
+  this->accel_[2] = ((i16)(accel_buf[6] << 8) | accel_buf[5]) * BMI088_ACCEL_SENSITIVITY[(u8)this->accel_range_];
 
-  if (gyro_buf[0] == BMI088_GYRO_CHIP_ID_VALUE) {
-    gyro_buf = const_cast<u8 *>(this->gyro_device_.buffer());
-    this->gyro_[0] = ((i16)(gyro_buf[3] << 8) | gyro_buf[2]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
-    this->gyro_[1] = ((i16)(gyro_buf[5] << 8) | gyro_buf[4]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
-    this->gyro_[2] = ((i16)(gyro_buf[7] << 8) | gyro_buf[6]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
-  }
-  this->accel_device_.ReadBytes(BMI088_TEMP_M, 2);
+  this->gyro_device_.ReadBytes(BMI088_GYRO_X_L, 6);
+  this->gyro_[0] = ((i16)(gyro_buf[1] << 8) | gyro_buf[0]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+  this->gyro_[1] = ((i16)(gyro_buf[3] << 8) | gyro_buf[2]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
+  this->gyro_[2] = ((i16)(gyro_buf[5] << 8) | gyro_buf[4]) * BMI088_GYRO_SENSITIVITY[(u8)this->gyro_range_];
 
-  auto bmi088_raw_temp = (i16)(accel_buf[0] << 3 | accel_buf[1] >> 5);
+  this->accel_device_.ReadBytes(BMI088_TEMP_M, 3);
+
+  auto bmi088_raw_temp = (i16)(accel_buf[1] << 3 | accel_buf[2] >> 5);
   if (bmi088_raw_temp > 1023) {
     bmi088_raw_temp -= 2048;
   }
