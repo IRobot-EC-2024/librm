@@ -1,5 +1,7 @@
 var dir_efdba444cd2b6294e675b63b0d59a357 =
 [
+    [ "crc.cc", "crc_8cc.html", "crc_8cc" ],
+    [ "crc.h", "crc_8h.html", "crc_8h" ],
     [ "mahony_ahrs.cc", "mahony__ahrs_8cc.html", null ],
     [ "mahony_ahrs.h", "mahony__ahrs_8h.html", [
       [ "MahonyAhrs", "classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html", "classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs" ]
