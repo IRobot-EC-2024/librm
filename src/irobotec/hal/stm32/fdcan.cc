@@ -47,8 +47,8 @@
  * 并不能直接强转成函数指针。借助这个函数，可以把std::function对象转换成函数指针。然后就可以把这个类内的回调函数传给HAL库了。
  */
 static pFDCAN_RxFifo0CallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void()> fn) {
-    static auto fn_v = std::move(fn);
-    return [](FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs) { fn_v(); };
+  static auto fn_v = std::move(fn);
+  return [](FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs) { fn_v(); };
 }
 
 namespace irobot_ec::hal::stm32 {
@@ -59,38 +59,38 @@ using core::exception::ThrowException;
 /**
  * @param hcan HAL库的CAN_HandleTypeDef
  */
-    FdCan::FdCan(FDCAN_HandleTypeDef &hfdcan) : hfdcan_(&hfdcan) {}
+FdCan::FdCan(FDCAN_HandleTypeDef &hfdcan) : hfdcan_(&hfdcan) {}
 
 /**
  * @brief 设置过滤器
  * @param id
  * @param mask
  */
-    void FdCan::SetFilter(u16 id, u16 mask) {
-        FDCAN_FilterTypeDef can_filter_st;
-        can_filter_st.IdType = FDCAN_STANDARD_ID;
-        can_filter_st.FilterType = FDCAN_FILTER_MASK;
-        can_filter_st.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
-        can_filter_st.FilterID1 = id;
-        can_filter_st.FilterID2 = mask;
-        can_filter_st.RxBufferIndex = 0;
-        can_filter_st.IsCalibrationMsg = 0;
-        if(reinterpret_cast<u32>(this->hfdcan_->Instance)==FDCAN1_BASE){
-            can_filter_st.FilterIndex = 0;
-        }
-        if(reinterpret_cast<u32>(this->hfdcan_->Instance)==FDCAN2_BASE){
-            can_filter_st.FilterIndex = 1;
-        }
-        if(reinterpret_cast<u32>(this->hfdcan_->Instance)==FDCAN3_BASE){
-            can_filter_st.FilterIndex = 2;
-        }
-        if(HAL_FDCAN_ConfigGlobalFilter(this->hfdcan_, FDCAN_ACCEPT_IN_RX_FIFO0, FDCAN_REJECT, DISABLE, DISABLE) == HAL_OK){
-            ThrowException(Exception::kHALError);  // HAL_CAN_ConfigFilter error
-        }
-        if(HAL_FDCAN_ConfigFilter(this->hfdcan_,&can_filter_st) == HAL_OK){
-            ThrowException(Exception::kHALError);  // HAL_CAN_ConfigFilter error
-        }
-    }
+void FdCan::SetFilter(u16 id, u16 mask) {
+  FDCAN_FilterTypeDef can_filter_st;
+  can_filter_st.IdType = FDCAN_STANDARD_ID;
+  can_filter_st.FilterType = FDCAN_FILTER_MASK;
+  can_filter_st.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+  can_filter_st.FilterID1 = id;
+  can_filter_st.FilterID2 = mask;
+  can_filter_st.RxBufferIndex = 0;
+  can_filter_st.IsCalibrationMsg = 0;
+  if (reinterpret_cast<u32>(this->hfdcan_->Instance) == FDCAN1_BASE) {
+    can_filter_st.FilterIndex = 0;
+  }
+  if (reinterpret_cast<u32>(this->hfdcan_->Instance) == FDCAN2_BASE) {
+    can_filter_st.FilterIndex = 1;
+  }
+  if (reinterpret_cast<u32>(this->hfdcan_->Instance) == FDCAN3_BASE) {
+    can_filter_st.FilterIndex = 2;
+  }
+  if (HAL_FDCAN_ConfigGlobalFilter(this->hfdcan_, FDCAN_ACCEPT_IN_RX_FIFO0, FDCAN_REJECT, DISABLE, DISABLE) == HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_ConfigFilter error
+  }
+  if (HAL_FDCAN_ConfigFilter(this->hfdcan_, &can_filter_st) == HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_ConfigFilter error
+  }
+}
 
 /**
  * @brief 立刻向总线上发送数据
@@ -98,37 +98,37 @@ using core::exception::ThrowException;
  * @param data  数据指针
  * @param size  数据长度
  */
-    void FdCan::Write(u16 id, const u8 *data, usize size) {
-        if (size > 8) {
-            // todo:发送长度大于8的消息
-            ThrowException(Exception::kValueError);  // 数据长度超过8
-        }
-        this->hal_tx_header_.Identifier = id;
-        this->hal_tx_header_.DataLength = size;
-        if (HAL_FDCAN_AddMessageToTxFifoQ(this->hfdcan_, &this->hal_tx_header_, const_cast<u8 *>(data)) != HAL_OK) {
-            ThrowException(Exception::kHALError);  // HAL_CAN_AddTxMessage error
-        }
-    }
+void FdCan::Write(u16 id, const u8 *data, usize size) {
+  if (size > 8) {
+    // todo:发送长度大于8的消息
+    ThrowException(Exception::kValueError);  // 数据长度超过8
+  }
+  this->hal_tx_header_.Identifier = id;
+  this->hal_tx_header_.DataLength = size;
+  if (HAL_FDCAN_AddMessageToTxFifoQ(this->hfdcan_, &this->hal_tx_header_, const_cast<u8 *>(data)) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_AddTxMessage error
+  }
+}
 
 /**
  * @brief 从消息队列里取出一条消息发送
  */
-    void FdCan::Write() {
-        // 按优先级从高到低遍历所有消息队列
-        for (auto &queue : this->tx_queue_) {
-            if (queue.second.empty()) {
-                continue;  // 如果是空的就换下一个
-            }
-            // 从队首取出一条消息发送
-            this->Write(queue.second.front()->rx_std_id, queue.second.front()->data.data(), queue.second.front()->dlc);
-            queue.second.pop_front();
-            // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
-            if (queue.second.size() > kQueueMaxSize) {
-                queue.second.clear();
-            }
-            break;
-        }
+void FdCan::Write() {
+  // 按优先级从高到低遍历所有消息队列
+  for (auto &queue : this->tx_queue_) {
+    if (queue.second.empty()) {
+      continue;  // 如果是空的就换下一个
     }
+    // 从队首取出一条消息发送
+    this->Write(queue.second.front()->rx_std_id, queue.second.front()->data.data(), queue.second.front()->dlc);
+    queue.second.pop_front();
+    // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
+    if (queue.second.size() > kQueueMaxSize) {
+      queue.second.clear();
+    }
+    break;
+  }
+}
 
 /**
  * @brief 向消息队列里加入一条消息
@@ -137,77 +137,77 @@ using core::exception::ThrowException;
  * @param size      数据长度
  * @param priority  消息的优先级
  */
-    void FdCan::Enqueue(u16 id, const u8 *data, usize size, CanTxPriority priority) {
-        if (size > 8) {
-            // todo:发送长度大于8的消息
-            ThrowException(Exception::kValueError);  // 数据长度超过8
-        }
-        // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
-        if (this->tx_queue_[priority].size() > kQueueMaxSize) {
-            this->tx_queue_[priority].clear();
-        }
-        auto msg = std::make_shared<CanMsg>(CanMsg{
-                .rx_std_id = id,
-                .dlc = size,
-        });
-        std::copy_n(data, size, msg->data.begin());
+void FdCan::Enqueue(u16 id, const u8 *data, usize size, CanTxPriority priority) {
+  if (size > 8) {
+    // todo:发送长度大于8的消息
+    ThrowException(Exception::kValueError);  // 数据长度超过8
+  }
+  // 检查消息队列长度是否超过了设定的最大长度，如果超过了就清空
+  if (this->tx_queue_[priority].size() > kQueueMaxSize) {
+    this->tx_queue_[priority].clear();
+  }
+  auto msg = std::make_shared<CanMsg>(CanMsg{
+      .rx_std_id = id,
+      .dlc = size,
+  });
+  std::copy_n(data, size, msg->data.begin());
 
-        this->tx_queue_[priority].push_back(msg);
-    }
+  this->tx_queue_[priority].push_back(msg);
+}
 
 /**
  * @brief 启动CAN外设
  */
-    void FdCan::Begin() {
-        if (HAL_FDCAN_ActivateNotification(this->hfdcan_, FDCAN_IT_RX_FIFO0_NEW_MESSAGE,0) != HAL_OK) {
-            ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
-        }
-        if (HAL_FDCAN_ActivateNotification(this->hfdcan_, FDCAN_IT_BUS_OFF, 0) != HAL_OK) {
-            ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
-        }
-        HAL_FDCAN_RegisterRxFifo0Callback(this->hfdcan_,
-                                 StdFunctionToCallbackFunctionPtr([this] { Fifo0MsgPendingCallback(); }));
-        if (HAL_FDCAN_Start(this->hfdcan_) != HAL_OK) {
-            ThrowException(Exception::kHALError);  // HAL_CAN_Start error
-        }
-    }
+void FdCan::Begin() {
+  if (HAL_FDCAN_ActivateNotification(this->hfdcan_, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
+  }
+  if (HAL_FDCAN_ActivateNotification(this->hfdcan_, FDCAN_IT_BUS_OFF, 0) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_ActivateNotification error
+  }
+  HAL_FDCAN_RegisterRxFifo0Callback(this->hfdcan_,
+                                    StdFunctionToCallbackFunctionPtr([this] { Fifo0MsgPendingCallback(); }));
+  if (HAL_FDCAN_Start(this->hfdcan_) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_Start error
+  }
+}
 
 /**
  * @brief 停止CAN外设
  */
-    void FdCan::Stop() {
-        if (HAL_FDCAN_Stop(this->hfdcan_) != HAL_OK) {
-            ThrowException(Exception::kHALError);  // HAL_CAN_Stop error
-        };
-    }
+void FdCan::Stop() {
+  if (HAL_FDCAN_Stop(this->hfdcan_) != HAL_OK) {
+    ThrowException(Exception::kHALError);  // HAL_CAN_Stop error
+  };
+}
 
 /**
  * @brief 利用Register callbacks机制，用这个函数替代HAL_CAN_RxFifo0MsgPendingCallback
  * @note  这个函数替代了HAL_CAN_RxFifo0MsgPendingCallback，HAL库会调用这个函数，不要手动调用
  */
-    void FdCan::Fifo0MsgPendingCallback() {
-        static FDCAN_RxHeaderTypeDef rx_header;
-        HAL_FDCAN_GetRxMessage(this->hfdcan_, FDCAN_RX_FIFO0, &rx_header, this->rx_buffer_.data.data());
-        if (this->device_list_.find(rx_header.Identifier) == this->device_list_.end()) {
-            return;
-        }
-        this->rx_buffer_.rx_std_id = rx_header.Identifier;
-        this->rx_buffer_.dlc = rx_header.DataLength;
-        this->device_list_[rx_header.Identifier]->RxCallback(&this->rx_buffer_);
-    }
+void FdCan::Fifo0MsgPendingCallback() {
+  static FDCAN_RxHeaderTypeDef rx_header;
+  HAL_FDCAN_GetRxMessage(this->hfdcan_, FDCAN_RX_FIFO0, &rx_header, this->rx_buffer_.data.data());
+  if (this->device_list_.find(rx_header.Identifier) == this->device_list_.end()) {
+    return;
+  }
+  this->rx_buffer_.rx_std_id = rx_header.Identifier;
+  this->rx_buffer_.dlc = rx_header.DataLength;
+  this->device_list_[rx_header.Identifier]->RxCallback(&this->rx_buffer_);
+}
 
 /**
  * @brief 注册一个CAN设备
  * @param device    设备对象
  * @param rx_stdid  设备想要接收的的rx消息标准帧id
  */
-    void FdCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
-        if (this->device_list_.find(rx_stdid) != this->device_list_.end()) {
-            ThrowException(Exception::kValueError);
-        }
-        this->device_list_[rx_stdid] = &device;
-    }
-
+void FdCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
+  if (this->device_list_.find(rx_stdid) != this->device_list_.end()) {
+    ThrowException(Exception::kValueError);
+  }
+  this->device_list_[rx_stdid] = &device;
 }
+
+}  // namespace irobot_ec::hal::stm32
 
 #endif
