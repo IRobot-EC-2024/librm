@@ -33,7 +33,7 @@
 /**
  * @brief max函数，由于一些神秘原因gcc-arm-none-eabi没有实现这个函数？？？？？？？（问号脸
  */
-template <typename Tp, std::enable_if_t<std::is_arithmetic_v<Tp>, int> = 0>
+template <typename Tp>
 static constexpr Tp max_(std::initializer_list<Tp> il) {
   if (il.size() == 0) {
     return 0;
