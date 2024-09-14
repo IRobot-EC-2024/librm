@@ -94,7 +94,7 @@ class SocketCan : public hal::CanInterface {
       {CanTxPriority::kHigh, {}},
       {CanTxPriority::kNormal, {}},
       {CanTxPriority::kLow, {}},
-  };                                                         // <priority, queue>
+  };  // <priority, queue>
   std::unordered_map<u16, AsyncCanDevice *> device_list_{};  // <rx_stdid, device+lock>
 
   /**
