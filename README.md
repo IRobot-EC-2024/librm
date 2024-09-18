@@ -1,7 +1,6 @@
 # irobotEC [[en]](README_en.md)
 
 [![build](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/build.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/build.yml)
-[![clang-format Check](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/lint.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/lint.yml)
 [![docs](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml/badge.svg)](https://github.com/IRobot-EC-2024/irobotEC/actions/workflows/doxygen-gh-pages.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/irobot-ec-2024/irobotec/badge/develop)](https://www.codefactor.io/repository/github/irobot-ec-2024/irobotec/overview/develop)
 
