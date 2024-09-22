@@ -88,7 +88,6 @@ inline void SleepUs(u32 us) {
 #endif
 
 /**
- * @tparam T        chrono_literals
  * @param  duration 延时时间
  */
 inline void Sleep(std::chrono::duration<int> duration) {
