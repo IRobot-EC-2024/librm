@@ -87,38 +87,16 @@ inline void SleepUs(u32 us) {
 }
 #endif
 
-using namespace std::chrono_literals;
-
-template <typename T,
-          typename std::enable_if_t<
-              std::is_same_v<T, std::chrono::hours> || std::is_same_v<T, std::chrono::minutes> ||
-                  std::is_same_v<T, std::chrono::seconds> || std::is_same_v<T, std::chrono::milliseconds> ||
-                  std::is_same_v<T, std::chrono::microseconds> || std::is_same_v<T, std::chrono::nanoseconds>,
-              int> = 0>
-struct is_chrono_literal : std::true_type {};
-
-template <typename T>
-inline constexpr bool is_chrono_literal_v = is_chrono_literal<T>::value;
-
 /**
  * @tparam T        chrono_literals
  * @param  duration 延时时间
  */
-template <typename T, typename std::enable_if_t<is_chrono_literal_v<T>, int> = 0>
-void Sleep(T duration) {
+inline void Sleep(std::chrono::duration<int> duration) {
 #if defined(IROBOTEC_PLATFORM_STM32)
-  if constexpr (std::is_same_v<T, std::chrono::hours>) {
-    SleepMs(duration.count() * 3600000);
-  } else if constexpr (std::is_same_v<T, std::chrono::minutes>) {
-    SleepMs(duration.count() * 60000);
-  } else if constexpr (std::is_same_v<T, std::chrono::seconds>) {
-    SleepMs(duration.count() * 1000);
-  } else if constexpr (std::is_same_v<T, std::chrono::milliseconds>) {
-    SleepMs(duration.count());
-  } else if constexpr (std::is_same_v<T, std::chrono::microseconds>) {
-    SleepUs(duration.count());
-  } else if constexpr (std::is_same_v<T, std::chrono::nanoseconds>) {
-    SleepUs(duration.count() / 1000);
+  if (duration < std::chrono::milliseconds(1)) {
+    SleepUs(std::chrono::duration_cast<std::chrono::microseconds>(duration).count());
+  } else {
+    SleepMs(std::chrono::duration_cast<std::chrono::milliseconds>(duration).count());
   }
 #else
   std::this_thread::sleep_for(duration);
