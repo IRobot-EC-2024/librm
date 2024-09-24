@@ -34,7 +34,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/hal/gpio_interface.h"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 /**
  * @brief GPIO引脚类
@@ -53,7 +53,7 @@ class Pin final : public PinInterface {
   u16 pin_;
 };
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 #endif
 
 #endif  // IROBOTEC_HAL_STM32_GPIO_H

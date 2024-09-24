@@ -35,7 +35,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::modules {
+namespace irobotec::modules {
 
 using VariableVariant = std::variant<i8 *, i16 *, i32 *, i64 *, u8 *, u16 *, u32 *, u64 *, f32 *, f64 *, bool *>;
 
@@ -137,6 +137,6 @@ void VofaPlotter::RemoveVariable(T &variable) {
   }
 }
 
-}  // namespace irobot_ec::modules
+}  // namespace irobotec::modules
 
 #endif  // IROBOTEC_MODULES_VOFA_PLOTTER_HPP

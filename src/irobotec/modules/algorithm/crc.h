@@ -32,7 +32,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 constexpr u8 CRC8_INIT = 0xff;
 constexpr u16 CRC16_INIT = 0xffff;
@@ -53,6 +53,6 @@ u16 Crc16(const std::string &input, u16 w_crc);
 
 void AppendCrc16(u8 *input, uint32_t len);
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_CRC_H

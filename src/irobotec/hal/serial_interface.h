@@ -33,7 +33,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 
 /**
  * @brief 串口接收完成回调函数类型，传入的参数分别为接收到的数据和数据长度

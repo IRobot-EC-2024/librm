@@ -30,7 +30,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 
 /**
  * @brief SPI接口类

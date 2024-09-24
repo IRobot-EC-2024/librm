@@ -31,7 +31,7 @@
 
 #include "irobotec/modules/algorithm/utils.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 using modules::algorithm::utils::Map;
 
@@ -105,4 +105,4 @@ void SuperCap::RxCallback(const hal::CanMsg *msg) {
   this->error_flags_ = (msg->data[4] << 8) | msg->data[5];
 }
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device

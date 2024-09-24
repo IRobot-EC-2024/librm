@@ -46,7 +46,7 @@ static f32 InvSqrt(f32 x) {
 static f32 InvSqrt(f32 x) { return 1.0f / sqrtf(x); }
 #endif
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 /**
  * @param sample_freq 采样频率(Hz)，默认值1000Hz
@@ -280,4 +280,4 @@ f32 MahonyAhrs::euler_pitch() const { return euler_ypr_[1]; }
  */
 f32 MahonyAhrs::euler_roll() const { return euler_ypr_[2]; }
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm

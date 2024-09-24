@@ -47,7 +47,7 @@
 #include "irobotec/hal/can_interface.h"
 #include "irobotec/core/thread_pool.hpp"
 
-namespace irobot_ec::hal::linux_ {
+namespace irobotec::hal::linux_ {
 
 /**
  * @brief CAN设备回调锁

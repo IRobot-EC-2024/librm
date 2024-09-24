@@ -28,7 +28,7 @@
 
 #include "device.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @return 设备在线状态

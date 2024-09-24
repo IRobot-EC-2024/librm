@@ -33,7 +33,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/hal/gpio_interface.h"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 /**
  * @param port  GPIO端口
@@ -51,5 +51,5 @@ void Pin::Write(const bool state) { HAL_GPIO_WritePin(this->port_, this->pin_, s
  */
 bool Pin::Read() const { return HAL_GPIO_ReadPin(this->port_, this->pin_) == GPIO_PIN_SET; }
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 #endif

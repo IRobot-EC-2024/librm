@@ -50,7 +50,7 @@ static pCAN_CallbackTypeDef StdFunctionToCallbackFunctionPtr(std::function<void(
   return [](CAN_HandleTypeDef *handle) { fn_v(); };
 }
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 using core::exception::Exception;
 using core::exception::ThrowException;
@@ -199,6 +199,6 @@ void BxCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
   this->device_list_[rx_stdid] = &device;
 }
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif

@@ -37,7 +37,7 @@
 #endif
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::core::time {
+namespace irobotec::core::time {
 
 // STM32平台的延时比较复杂，所以专门实现两个函数
 #if defined(IROBOTEC_PLATFORM_STM32)
@@ -102,6 +102,6 @@ void Sleep(const std::chrono::duration<Rep, Period> &duration) {
   std::this_thread::sleep_for(duration);
 #endif
 }
-}  // namespace irobot_ec::core::time
+}  // namespace irobotec::core::time
 
 #endif  // IROBOTEC_CORE_TIME_HPP

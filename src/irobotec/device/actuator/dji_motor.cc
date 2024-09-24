@@ -27,7 +27,7 @@
 
 #include "dji_motor.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief 三种型号电机各自的发送缓冲区
@@ -36,4 +36,4 @@ std::unordered_map<hal::CanInterface *, std::array<u8, 18>> DjiMotorProperties<D
 std::unordered_map<hal::CanInterface *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M3508>::tx_buf_{};
 std::unordered_map<hal::CanInterface *, std::array<u8, 18>> DjiMotorProperties<DjiMotorType::M2006>::tx_buf_{};
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device

@@ -32,7 +32,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::modules::algorithm::utils {
+namespace irobotec::modules::algorithm::utils {
 
 /**
  * @brief  符号函数
@@ -142,6 +142,6 @@ f32 IntToFloat(int x_int, f32 x_min, f32 x_max, int bits);
  */
 int FloatToInt(f32 x, f32 x_min, f32 x_max, int bits);
 
-}  // namespace irobot_ec::modules::algorithm::utils
+}  // namespace irobotec::modules::algorithm::utils
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_UTILS_UTILS_HPP

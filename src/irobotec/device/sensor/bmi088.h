@@ -35,7 +35,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/hal/stm32/spi_device.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief BMI088传感器状态
@@ -121,7 +121,7 @@ class [[deprecated]] BMI088 {
   f32 accel_[3]{0};
   f32 temperature_{};
 };
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif  // HAL_SPI_MODULE_ENABLED
 

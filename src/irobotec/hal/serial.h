@@ -34,7 +34,7 @@
 #include "irobotec/hal/linux/serial.h"
 #endif
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_UART_MODULE_ENABLED)
 using Serial = stm32::Uart;
 #elif defined(IROBOTEC_PLATFORM_LINUX)

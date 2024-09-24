@@ -35,7 +35,7 @@
 #include "irobotec/hal/linux/socketcan.h"
 #endif
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32)
 #if defined(HAL_CAN_MODULE_ENABLED)
 using Can = stm32::BxCan;
@@ -45,6 +45,6 @@ using Can = stm32::FdCan;  // TODO: 实现FdCan类
 #elif defined(IROBOTEC_PLATFORM_LINUX)
 using Can = linux_::SocketCan;
 #endif
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_CAN_H

@@ -34,7 +34,7 @@
 #include "irobotec/hal/serial_interface.h"
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 enum class UartMode {
   kNormal,
@@ -68,7 +68,7 @@ class Uart : public SerialInterface {
   bool buffer_selector_{false};
 };
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif
 #endif  // IROBOTEC_HAL_STM32_UART_H

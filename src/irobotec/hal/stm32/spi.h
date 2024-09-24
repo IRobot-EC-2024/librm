@@ -34,7 +34,7 @@
 #include "irobotec/hal/spi_interface.h"
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 class Spi final : public hal::SpiInterface {
  public:
@@ -52,7 +52,7 @@ class Spi final : public hal::SpiInterface {
   usize transmission_timeout_{};
 };
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif
 

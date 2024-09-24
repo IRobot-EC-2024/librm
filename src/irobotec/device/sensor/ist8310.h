@@ -34,7 +34,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/hal/stm32/i2c_device.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 enum class IST8310Status : u8 {
   NO_ERROR = 0x00,
@@ -45,7 +45,7 @@ enum class IST8310Status : u8 {
 /**
  * @brief IST8310磁力计
  */
-class [[deprecated]] IST8310 : public irobot_ec::hal::stm32::I2cDevice {
+class [[deprecated]] IST8310 : public irobotec::hal::stm32::I2cDevice {
  public:
   IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, u16 rst_pin);
   void Reset();
@@ -62,7 +62,7 @@ class [[deprecated]] IST8310 : public irobot_ec::hal::stm32::I2cDevice {
   f32 mag_[3]{0};
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif
 

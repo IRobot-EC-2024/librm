@@ -33,7 +33,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 enum class PIDType {
   kPosition,
@@ -89,7 +89,7 @@ class RingPID : public PID {
   f32 cycle_;
 };  // class RingPID
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_PID_H
 

@@ -34,7 +34,7 @@
 // TODO
 #endif
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 #if defined(IROBOTEC_PLATFORM_STM32) && defined(HAL_GPIO_MODULE_ENABLED)
 using Pin = stm32::Pin;
 #elif defined(IROBOTEC_PLATFORM_LINUX)

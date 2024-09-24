@@ -30,7 +30,7 @@
 
 #include "irobotec/hal/can_interface.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief CAN设备的基类

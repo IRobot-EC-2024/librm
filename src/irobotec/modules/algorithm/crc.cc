@@ -29,7 +29,7 @@
 
 #include <string_view>
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 // crc8 generator polynomial:G(x)=x8+x5+x4+1
 constexpr u8 CRC8_TABLE[256] = {
@@ -171,4 +171,4 @@ void AppendCrc16(u8 *input, u32 len) {
   input[len - 1] = static_cast<u8>(w_crc >> 8 & 0x00ff);
 }
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm

@@ -39,7 +39,7 @@
 #include "irobotec/hal/can_interface.h"
 #include "irobotec/device/can_device.hpp"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 class FdCan : public CanInterface {
  public:
@@ -100,7 +100,7 @@ class FdCan : public CanInterface {
   static constexpr usize kQueueMaxSize = 100;
 };
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif
 

@@ -33,7 +33,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/hal/serial.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief 遥控器拨杆位置
@@ -97,6 +97,6 @@ class DR16 {
   u16 keyboard_key_;                                    // 每一位代表一个键，0为未按下，1为按下
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif

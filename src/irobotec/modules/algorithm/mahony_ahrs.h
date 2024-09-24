@@ -32,7 +32,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 class MahonyAhrs {
  public:
@@ -65,6 +65,6 @@ class MahonyAhrs {
                integral_fb_z_ = 0.0f;  // integral error terms scaled by Ki
 };
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H

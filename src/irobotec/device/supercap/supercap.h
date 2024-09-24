@@ -31,7 +31,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/device/can_device.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief 超级电容的错误flags各位的定义
@@ -71,6 +71,6 @@ class SuperCap final : public CanDevice {
   u16 error_flags_{};
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif  // IROBOTEC_DEVICE_SUPERCAP_SUPERCAP_H

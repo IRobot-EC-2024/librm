@@ -57,7 +57,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/modules/algorithm/utils.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 constexpr i16 kDjiMotorMaxEncoder = 8191;
 
@@ -218,6 +218,6 @@ void DjiMotor<motor_type>::RxCallback(const hal::CanMsg *msg) {
   this->temperature_ = msg->data[6];
 }
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif  // IROBOTEC_DEVICE_ACTUATOR_DJI_MOTOR_HPP

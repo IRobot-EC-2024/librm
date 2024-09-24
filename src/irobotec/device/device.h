@@ -33,7 +33,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief 设备状态

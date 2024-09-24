@@ -34,7 +34,7 @@
 
 #include "irobotec/core/time.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 #include "ist8310_const.hpp"
 
 // 初始化序列
@@ -49,7 +49,7 @@ const static std::vector<std::vector<u8>> ist8310_init_sequence = {{0x0B, 0x08},
  * @param hi2c I2C外设句柄
  */
 IST8310::IST8310(I2C_HandleTypeDef &hi2c, GPIO_TypeDef *rst_port, u16 rst_pin)
-    : irobot_ec::hal::stm32::I2cDevice(hi2c, IST8310_I2C_ADDRESS), rst_port_(rst_port), rst_pin_(rst_pin) {
+    : irobotec::hal::stm32::I2cDevice(hi2c, IST8310_I2C_ADDRESS), rst_port_(rst_port), rst_pin_(rst_pin) {
   // 开机复位
   this->Reset();
 
@@ -115,6 +115,6 @@ f32 IST8310::mag_y() const { return this->mag_[1]; }
  */
 f32 IST8310::mag_z() const { return this->mag_[2]; }
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif

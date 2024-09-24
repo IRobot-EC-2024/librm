@@ -41,7 +41,7 @@
 #include <functional>
 #include <stdexcept>
 
-namespace irobot_ec::core {
+namespace irobotec::core {
 
 class ThreadPool {
  public:
@@ -113,7 +113,7 @@ inline ThreadPool::~ThreadPool() {
   for (std::thread& worker : workers) worker.join();
 }
 
-}  // namespace irobot_ec::core
+}  // namespace irobotec::core
 
 #endif
 #endif  // IROBOTEC_CORE_THREAD_POOL_HPP

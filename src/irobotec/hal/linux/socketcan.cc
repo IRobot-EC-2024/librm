@@ -32,7 +32,7 @@
 
 #include <iostream>
 
-namespace irobot_ec::hal::linux_ {
+namespace irobotec::hal::linux_ {
 
 /**
  * @param dev CAN设备名，使用ifconfig -a查看

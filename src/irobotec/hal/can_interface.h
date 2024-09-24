@@ -32,11 +32,11 @@
 
 #include <array>
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 class CanDevice;
 }
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 
 struct CanMsg {
   std::array<u8, 8> data;
@@ -107,6 +107,6 @@ class CanInterface {
   virtual void RegisterDevice(device::CanDevice &device, u32 rx_stdid) = 0;
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_CAN_INTERFACE_H

@@ -31,7 +31,7 @@
 
 #include "irobotec/modules/algorithm/utils.hpp"
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 using utils::absConstrain;
 
@@ -222,4 +222,4 @@ void RingPID::HandleZeroCrossing() {
   }
 }
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm

@@ -32,7 +32,7 @@
 #include "irobotec/hal/serial.h"
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 enum class UnitreeMotorMode {
   kLock = 0x00,
@@ -62,6 +62,6 @@ class UnitreeMotorBase {
   /*************************/
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif

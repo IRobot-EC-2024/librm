@@ -36,7 +36,7 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/modules/algorithm/utils.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 
 /**
  * @brief 达妙电机状态
@@ -260,6 +260,6 @@ class DmMotor final : public CanDevice {
   /***********************/
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif  // IROBOTEC_DEVICE_ACTUATOR_DM_MOTOR_HPP

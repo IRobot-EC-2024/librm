@@ -34,7 +34,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 /**
  * @brief I2C设备
@@ -56,7 +56,7 @@ class [[deprecated]] I2cDevice {
   u8 buffer_[8]{0};
 };
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif
 

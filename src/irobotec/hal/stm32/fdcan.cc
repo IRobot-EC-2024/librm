@@ -51,7 +51,7 @@ static pFDCAN_RxFifo0CallbackTypeDef StdFunctionToCallbackFunctionPtr(std::funct
   return [](FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs) { fn_v(); };
 }
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 using core::exception::Exception;
 using core::exception::ThrowException;
@@ -208,6 +208,6 @@ void FdCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
   this->device_list_[rx_stdid] = &device;
 }
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif

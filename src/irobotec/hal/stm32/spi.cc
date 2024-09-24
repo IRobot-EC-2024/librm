@@ -30,7 +30,7 @@
 
 #include "spi.h"
 
-namespace irobot_ec::hal::stm32 {
+namespace irobotec::hal::stm32 {
 
 Spi::Spi(SPI_HandleTypeDef &hspi, usize timeout_ms) : hspi_(&hspi), transmission_timeout_(timeout_ms) {}
 
@@ -66,6 +66,6 @@ void Spi::ReadWrite(const u8 *tx_data, u8 *rx_buffer, usize size) {
   HAL_SPI_TransmitReceive(this->hspi_, (uint8_t *)tx_data, rx_buffer, size, this->transmission_timeout_);
 }
 
-}  // namespace irobot_ec::hal::stm32
+}  // namespace irobotec::hal::stm32
 
 #endif

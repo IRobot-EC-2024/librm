@@ -29,7 +29,7 @@
 
 #include <functional>
 
-namespace irobot_ec::hal::linux_ {
+namespace irobotec::hal::linux_ {
 
 Serial::Serial(const char *dev, usize baud, usize rx_buffer_size, std::chrono::milliseconds timeout)
     : dev_(dev),

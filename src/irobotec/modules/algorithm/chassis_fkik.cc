@@ -47,7 +47,7 @@ static constexpr Tp max_(std::initializer_list<Tp> il) {
   return max;
 }
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 /**
  * @param wheel_base    轮子间距
  * @param wheel_track   轮子轴距
@@ -143,4 +143,4 @@ void QuadOmniChassis::Inverse(float front_wheel_speed, float back_wheel_speed, f
   }
 }
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm

@@ -35,7 +35,7 @@
 
 #include "irobotec/core/time.hpp"
 
-namespace irobot_ec::device {
+namespace irobotec::device {
 #include "bmi088_const.hpp"
 
 /**
@@ -225,6 +225,6 @@ f32 BMI088::accel_y() const { return this->accel_[1]; }
  */
 f32 BMI088::accel_z() const { return this->accel_[2]; }
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif

@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_HAL_GPIO_INTERFACE_H
 #define IROBOTEC_HAL_GPIO_INTERFACE_H
 
-namespace irobot_ec::hal {
+namespace irobotec::hal {
 
 /**
  * @brief GPIO引脚接口类

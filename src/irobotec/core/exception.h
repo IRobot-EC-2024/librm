@@ -28,7 +28,7 @@
 #ifndef IROBOTEC_CORE_EXCEPTIONS_H
 #define IROBOTEC_CORE_EXCEPTIONS_H
 
-namespace irobot_ec::core::exception {
+namespace irobotec::core::exception {
 
 /**
  * @brief 异常类型
@@ -50,6 +50,6 @@ __attribute__((weak)) void ThrowException(Exception e) {
   // 在这里处理异常
 }
 
-}  // namespace irobot_ec::core::exception
+}  // namespace irobotec::core::exception
 
 #endif

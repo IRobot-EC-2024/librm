@@ -30,7 +30,7 @@
 
 #include "irobotec/core/typedefs.h"
 
-namespace irobot_ec::modules::algorithm {
+namespace irobotec::modules::algorithm {
 
 class ChassisInterface {
  public:
@@ -92,6 +92,6 @@ class QuadOmniChassis : public ChassisInterface {
   float front_wheel_speed_{}, back_wheel_speed_{}, left_wheel_speed_{}, right_wheel_speed_{};
 };
 
-}  // namespace irobot_ec::modules::algorithm
+}  // namespace irobotec::modules::algorithm
 
 #endif  // IROBOTEC_MODULES_ALGORITHM_CHASSIS_FKIK_H
