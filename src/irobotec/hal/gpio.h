@@ -44,6 +44,6 @@ using Pin = stm32::Pin;
 // TODO: JetsonGPIO GPIO wrapper
 #endif
 #endif
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_GPIO_H

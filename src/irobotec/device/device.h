@@ -87,6 +87,6 @@ class DeviceManager final {
   static constexpr u64 kOfflineTimeout{1000};  // 离线超时时间(ms)
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif  // IROBOTEC_DEVICE_DEVICE_H

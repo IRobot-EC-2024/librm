@@ -170,4 +170,4 @@ void SocketCan::RegisterDevice(device::CanDevice &device, u32 rx_stdid) {
   this->device_list_[rx_stdid] = new AsyncCanDevice(device);
 }
 
-}  // namespace irobot_ec::hal::linux_
+}  // namespace irobotec::hal::linux_

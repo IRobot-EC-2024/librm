@@ -72,6 +72,6 @@ class SerialInterface {
   [[nodiscard]] virtual const std::vector<u8> &rx_buffer() const = 0;
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_UART_INTERFACE_H

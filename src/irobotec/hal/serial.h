@@ -40,6 +40,6 @@ using Serial = stm32::Uart;
 #elif defined(IROBOTEC_PLATFORM_LINUX)
 using Serial = linux_::Serial;
 #endif
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_UART_H

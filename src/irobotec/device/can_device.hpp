@@ -66,6 +66,6 @@ class CanDevice {
   hal::CanInterface *can_;
 };
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device
 
 #endif  // IROBOTEC_CAN_DEVICE_HPP

@@ -111,6 +111,6 @@ class SocketCan : public hal::CanInterface {
   static constexpr usize kMaxThreads = 20;
 };
 
-}  // namespace irobot_ec::hal::linux_
+}  // namespace irobotec::hal::linux_
 
 #endif

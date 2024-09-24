@@ -35,4 +35,4 @@ namespace irobotec::device {
  */
 DeviceStatus Device::GetDeviceStatus() const { return this->status_; }
 
-}  // namespace irobot_ec::device
+}  // namespace irobotec::device

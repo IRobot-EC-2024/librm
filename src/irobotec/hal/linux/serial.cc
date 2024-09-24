@@ -73,4 +73,4 @@ void Serial::RecvThread() {
   }
 }
 
-}  // namespace irobot_ec::hal::linux_
+}  // namespace irobotec::hal::linux_

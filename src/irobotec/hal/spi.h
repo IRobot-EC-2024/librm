@@ -44,6 +44,6 @@ using Spi = stm32::Spi;
 // TODO: JetsonGPIO GPIO wrapper
 #endif
 #endif
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_SPI_H

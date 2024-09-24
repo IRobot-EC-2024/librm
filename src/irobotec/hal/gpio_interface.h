@@ -42,6 +42,6 @@ class PinInterface {
   [[nodiscard]] virtual bool Read() const = 0;
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_GPIO_INTERFACE_H

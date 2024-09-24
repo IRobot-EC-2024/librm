@@ -67,6 +67,6 @@ class SpiInterface {
   virtual void ReadWrite(const u8 *tx_data, u8 *rx_buffer, usize size) = 0;
 };
 
-}  // namespace irobot_ec::hal
+}  // namespace irobotec::hal
 
 #endif  // IROBOTEC_HAL_STM32_SPI_INTERFACE_H
