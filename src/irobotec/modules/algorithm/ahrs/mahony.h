@@ -21,33 +21,29 @@
 */
 
 /**
- * @file  modules/algorithm/mahony_ahrs.h
+ * @file  modules/algorithm/mahony.h
  * @brief Mahony姿态解算算法
  */
 
-#ifndef IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H
-#define IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H
+#ifndef IROBOTEC_MODULES_ALGORITHM_MAHONY_H
+#define IROBOTEC_MODULES_ALGORITHM_MAHONY_H
 
 #include <array>
 
 #include "irobotec/core/typedefs.h"
+#include "irobotec/modules/algorithm/ahrs/ahrs_interface.h"
 
 namespace irobotec::modules::algorithm {
 
-class MahonyAhrs {
+class MahonyAhrs : public AhrsInterface {
  public:
-  MahonyAhrs(f32 sample_freq = 1000.0f, f32 kp = 1.0f, f32 ki = 0.0f);
-  ~MahonyAhrs() = default;
+  explicit MahonyAhrs(f32 sample_freq = 1000.0f, f32 kp = 1.0f, f32 ki = 0.0f);
+  ~MahonyAhrs() override = default;
 
-  void Update(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az, f32 mx, f32 my, f32 mz);
-  void UpdateImu(f32 gx, f32 gy, f32 gz, f32 ax, f32 ay, f32 az);
-  [[nodiscard]] f32 quat_w() const;
-  [[nodiscard]] f32 quat_x() const;
-  [[nodiscard]] f32 quat_y() const;
-  [[nodiscard]] f32 quat_z() const;
-  [[nodiscard]] f32 euler_yaw() const;
-  [[nodiscard]] f32 euler_pitch() const;
-  [[nodiscard]] f32 euler_roll() const;
+  void Update(const ImuData9Dof &data) override;
+  void Update(const ImuData6Dof &data) override;
+  [[nodiscard]] const EulerAngle &euler_angle() const override;
+  [[nodiscard]] const Quaternion &quaternion() const override;
 
  private:
   f32 two_kp_, two_ki_;
@@ -58,8 +54,8 @@ class MahonyAhrs {
   f32 halfvx_, halfvy_, halfvz_, halfwx_, halfwy_, halfwz_;
   f32 halfex_, halfey_, halfez_;
   f32 qa_, qb_, qc_;
-  f32 quaternion_[4];
-  f32 euler_ypr_[3];
+  Quaternion quaternion_;
+  EulerAngle euler_ypr_;
   f32 sample_freq_;
   volatile f32 integral_fb_x_ = 0.0f, integral_fb_y_ = 0.0f,
                integral_fb_z_ = 0.0f;  // integral error terms scaled by Ki
@@ -67,4 +63,4 @@ class MahonyAhrs {
 
 }  // namespace irobotec::modules::algorithm
 
-#endif  // IROBOTEC_MODULES_ALGORITHM_MAHONY_AHRS_H
+#endif  // IROBOTEC_MODULES_ALGORITHM_MAHONY_H

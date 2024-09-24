@@ -55,9 +55,9 @@
 /****************/
 
 /******** MISC MODULES ********/
+#include "irobotec/modules/algorithm/ahrs/mahony.h"
 #include "irobotec/modules/algorithm/chassis_fkik.h"
 #include "irobotec/modules/algorithm/crc.h"
-#include "irobotec/modules/algorithm/mahony_ahrs.h"
 #include "irobotec/modules/algorithm/pid.h"
 #include "irobotec/modules/algorithm/utils.hpp"
 #include "irobotec/modules/vofa_plotter.hpp"
