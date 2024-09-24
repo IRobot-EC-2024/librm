@@ -90,7 +90,8 @@ inline void SleepUs(u32 us) {
 /**
  * @param  duration 延时时间
  */
-inline void Sleep(std::chrono::duration<int> duration) {
+template <typename Rep, typename Period>
+void Sleep(const std::chrono::duration<Rep, Period> &duration) {
 #if defined(IROBOTEC_PLATFORM_STM32)
   if (duration < std::chrono::milliseconds(1)) {
     SleepUs(std::chrono::duration_cast<std::chrono::microseconds>(duration).count());
