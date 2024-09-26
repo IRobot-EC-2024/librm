@@ -5,8 +5,13 @@ if (NOT IROBOTEC_PLATFORM STREQUAL "STM32")
     add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/serial)
 endif ()
 
+# kalman - https://github.com/mherb/kalman -  https://github.com/SF4cl/kalman.git
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/kalman)
+
 # pack up all third party libraries to a single target
 add_library(third_party INTERFACE)
 if (IROBOTEC_PLATFORM STREQUAL "LINUX")
     target_link_libraries(third_party INTERFACE serial)
 endif ()
+
+target_link_libraries(third_party INTERFACE Kalman)
