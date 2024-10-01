@@ -28,18 +28,16 @@ find_package(JetsonGPIO QUIET)    # jetson
 
 get_directory_property(DEFS COMPILE_DEFINITIONS)
 
-if (DEFINED LIBRM_PLATFORM)                                      # 如果用户定义了LIBRM_PLATFORM变量
-    if (NOT "${LIBRM_PLATFORM}" IN_LIST LIBRM_AVAIABLE_PLATFORMS)  # 但是用户定义的平台不在可用平台列表里
+if (DEFINED LIBRM_PLATFORM)                                         # 如果用户定义了LIBRM_PLATFORM变量
+    if (NOT "${LIBRM_PLATFORM}" IN_LIST LIBRM_AVAIABLE_PLATFORMS)   # 但是用户定义的平台不在可用平台列表里
         message(WARNING "[librm]: Invalid platform: ${LIBRM_PLATFORM}\n"
                 "[librm]: Available platforms: ${LIBRM_AVAIABLE_PLATFORMS}")
     endif ()
 else ()                                                             # 就尝试自动检测平台
-    if (${CMAKE_CROSSCOMPILING} AND                                 # 启用了交叉编译
-            ${CMAKE_C_COMPILER} MATCHES "arm-none-eabi-gcc" AND     # 使用了arm-none-eabi-gcc编译器
-            "${DEFS}" MATCHES "STM32")                              # 宏定义中包含STM32字样
-        set(LIBRM_PLATFORM "STM32")                              # 那么就认为是STM32平台
+    if (${CMAKE_CROSSCOMPILING} AND TARGET stm32cubemx)             # 启用了交叉编译，且存在stm32cubemx target
+        set(LIBRM_PLATFORM "STM32")                                 # 那么就认为是STM32平台
     elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")                   # 如果是在Linux上编译
-        set(LIBRM_PLATFORM "LINUX")                              # 那就认为是Linux平台
+        set(LIBRM_PLATFORM "LINUX")                                 # 那就认为是Linux平台
     endif ()
 endif ()
 

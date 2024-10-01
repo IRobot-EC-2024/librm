@@ -32,7 +32,7 @@ add_subdirectory(src)
 # link third party libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC third_party)
 
-if (EXISTS ${CMAKE_HOME_DIRECTORY}/cmake/stm32cubemx/CMakeLists.txt)
+if (${LIBRM_PLATFORM} STREQUAL "STM32")
     target_link_libraries(${PROJECT_NAME} PRIVATE stm32cubemx)
 endif ()
 
