@@ -84,8 +84,6 @@ class RingPID : public PID {
   void Update(f32 set, f32 ref, f32 external_diff) override;
 
  protected:
-  void HandleZeroCrossing();
-
   f32 cycle_;
 };  // class RingPID
 

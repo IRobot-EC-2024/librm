@@ -34,6 +34,7 @@
 namespace irobotec::modules::algorithm {
 
 using utils::absConstrain;
+using utils::LoopConstrain;
 
 PID::PID(PIDType type, f32 kp, f32 ki, f32 kd, f32 max_out, f32 max_iout)
     : kp_(kp), ki_(ki), kd_(kd), type_(type), max_out_(max_out), max_iout_(max_iout) {}
@@ -140,7 +141,7 @@ void RingPID::Update(f32 set, f32 ref) {
   this->fdb_ = ref;
   this->error_[0] = set - ref;
 
-  this->HandleZeroCrossing();
+  LoopConstrain(this->error_[0], -this->cycle_ / 2, this->cycle_ / 2);
 
   switch (this->type_) {
     case PIDType::kPosition:
@@ -181,7 +182,7 @@ void RingPID::Update(f32 set, f32 ref, f32 external_diff) {
   this->fdb_ = ref;
   this->error_[0] = set - ref;
 
-  this->HandleZeroCrossing();
+  LoopConstrain(this->error_[0], -this->cycle_ / 2, this->cycle_ / 2);
 
   switch (this->type_) {
     case PIDType::kPosition:
@@ -211,14 +212,6 @@ void RingPID::Update(f32 set, f32 ref, f32 external_diff) {
       this->out_ += this->p_out_ + this->i_out_ + this->d_out_;
       this->out_ = absConstrain(this->out_, this->max_out_);
       break;
-  }
-}
-
-void RingPID::HandleZeroCrossing() {
-  if (this->error_[0] > (this->cycle_ / 2)) {
-    this->error_[0] -= this->cycle_;
-  } else if (this->error_[0] < (-this->cycle_ / 2)) {
-    this->error_[0] += this->cycle_;
   }
 }
 
