@@ -20,7 +20,7 @@
 # SOFTWARE.
 
 cmake_minimum_required(VERSION 3.13)
-project(irobotEC C CXX)
+project(rm C CXX)
 
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/check_cpp_std.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
@@ -36,7 +36,7 @@ if (EXISTS ${CMAKE_HOME_DIRECTORY}/cmake/stm32cubemx/CMakeLists.txt)
     target_link_libraries(${PROJECT_NAME} PRIVATE stm32cubemx)
 endif ()
 
-target_compile_definitions(${PROJECT_NAME} PUBLIC -DIROBOTEC_PLATFORM_${IROBOTEC_PLATFORM})
-if (DEFINED IROBOTEC_PLATFORM_LINUX_TYPE)
-    target_compile_definitions(${PROJECT_NAME} PUBLIC -DIROBOTEC_PLATFORM_LINUX_${IROBOTEC_PLATFORM_LINUX_TYPE})
+target_compile_definitions(${PROJECT_NAME} PUBLIC -DLIBRM_PLATFORM_${LIBRM_PLATFORM})
+if (DEFINED LIBRM_PLATFORM_LINUX_TYPE)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC -DLIBRM_PLATFORM_LINUX_${LIBRM_PLATFORM_LINUX_TYPE})
 endif ()
