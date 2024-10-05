@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['serial_5f_1048',['serial_',['../classirobot__ec_1_1device_1_1UnitreeMotorBase.html#a7772f4dd0e86c3a33502391ae6b8c564',1,'irobot_ec::device::UnitreeMotorBase']]],
-  ['set_5f_1049',['set_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a0152f832e03809dcf6fcee1cf0ae566c',1,'irobot_ec::modules::algorithm::PID']]],
-  ['single_5fbyte_5fbuffer_5f_1050',['single_byte_buffer_',['../classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a0f81a051c2b01d24697cb0e211ba6698',1,'irobot_ec::hal::stm32::SpiDevice']]],
-  ['slave_5fid_1051',['slave_id',['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeed_01_4.html#a3009ac83b26f296eec6e3f80e4889391',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kSpeed &gt;::slave_id()'],['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html#a5c6f97f98626ceae9ea309c829034487',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kSpeedPosition &gt;::slave_id()'],['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html#a552bc0119aa9aa3e79a6718f3f18fc21',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kMit &gt;::slave_id()']]],
-  ['status_5f_1052',['status_',['../classirobot__ec_1_1device_1_1Device.html#a9df8da6a8b26bbb9e0b2cb515a36dbde',1,'irobot_ec::device::Device']]]
+  ['right_5fsteer_5fangle_5f_1097',['right_steer_angle_',['../classrm_1_1modules_1_1algorithm_1_1SteeringChassis.html#a5b1afd8d1e5c4f2eefc2ef8f9e681bde',1,'rm::modules::algorithm::SteeringChassis']]],
+  ['right_5fwheel_5fspeed_5f_1098',['right_wheel_speed_',['../classrm_1_1modules_1_1algorithm_1_1SteeringChassis.html#ab95e67e290e6dd1e81df8dcc6fdacb92',1,'rm::modules::algorithm::SteeringChassis::right_wheel_speed_()'],['../classrm_1_1modules_1_1algorithm_1_1QuadOmniChassis.html#aed2251d7e3537258c6d4cde20b9f0b0a',1,'rm::modules::algorithm::QuadOmniChassis::right_wheel_speed_()']]],
+  ['roll_1099',['roll',['../structrm_1_1modules_1_1algorithm_1_1EulerAngle.html#ad3f9a42321004ef2358f8c0b1e5cb1a1',1,'rm::modules::algorithm::EulerAngle']]],
+  ['rx_5fstd_5fid_1100',['rx_std_id',['../structrm_1_1hal_1_1CanMsg.html#a2750b01d97888631ab9fd114fb564736',1,'rm::hal::CanMsg']]]
 ];

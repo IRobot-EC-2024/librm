@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['mag_5fx_740',['mag_x',['../classirobot__ec_1_1device_1_1IST8310.html#af429cc7ae1041bf6c97ec3afa33e76c9',1,'irobot_ec::device::IST8310']]],
-  ['mag_5fy_741',['mag_y',['../classirobot__ec_1_1device_1_1IST8310.html#a6abd0b8035449b4d5be98dd3773ee287',1,'irobot_ec::device::IST8310']]],
-  ['mag_5fz_742',['mag_z',['../classirobot__ec_1_1device_1_1IST8310.html#a75d46e944fc0c40a864c67dcdb174481',1,'irobot_ec::device::IST8310']]],
-  ['mahonyahrs_743',['MahonyAhrs',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#af5a5b8cce4044b35e418c9c657b01404',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
-  ['map_744',['Map',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#a9118783e9e742ef5aeafe6ada286def2',1,'irobot_ec::modules::algorithm::utils']]],
-  ['mecanum_745',['Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#ab4856c331a943b3eeba70b0927961899',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum()=delete'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a6f088c894addf10d2006f3746b1e2128',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum(f32 wheel_base, f32 wheel_track)'],['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#aa717e6a68399c93231762548dbcef5b9',1,'irobot_ec::modules::algorithm::Mecanum::Mecanum(const Mecanum &amp;)=delete']]],
-  ['mos_5ftemperature_746',['mos_temperature',['../classirobot__ec_1_1device_1_1DmMotor.html#a994064b1130285eecb9672a02ee077fa',1,'irobot_ec::device::DmMotor']]]
+  ['operator_3d_784',['operator=',['../classrm_1_1device_1_1DjiMotor.html#abf3c716e90299bf156026dbf4eccfbc2',1,'rm::device::DjiMotor::operator=()'],['../classrm_1_1device_1_1DmMotor.html#a62df6cbd347853244ea0973b230456df',1,'rm::device::DmMotor::operator=()'],['../classrm_1_1device_1_1CanDevice.html#a4eb11819ce205260ff5c54ab7859f6b5',1,'rm::device::CanDevice::operator=()'],['../classrm_1_1device_1_1BMI088.html#a935f605f41bb01741233f0abedc815cf',1,'rm::device::BMI088::operator=()'],['../classrm_1_1hal_1_1linux___1_1SocketCan.html#aff7c8fea663f5d17953ab970f62e2e37',1,'rm::hal::linux_::SocketCan::operator=()'],['../classrm_1_1hal_1_1stm32_1_1BxCan.html#a95151f6165e074123d106ea907179fe0',1,'rm::hal::stm32::BxCan::operator=()']]]
 ];

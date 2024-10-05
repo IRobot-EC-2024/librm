@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/irobotec/core/thread_pool.hpp 源文件</title>
+<title>librm: src/librm/core/thread_pool.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">irobotEC
+   <div id="projectname">librm
    </div>
   </td>
  </tr>
@@ -107,10 +107,10 @@ $(document).ready(function(){initNavTree('thread__pool_8hpp_source.html',''); in
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  SOFTWARE.</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef IROBOTEC_CORE_THREAD_POOL_HPP</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define IROBOTEC_CORE_THREAD_POOL_HPP</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef LIBRM_CORE_THREAD_POOL_HPP</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define LIBRM_CORE_THREAD_POOL_HPP</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#if !defined(IROBOTEC_PLATFORM_STM32)</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#if !defined(LIBRM_PLATFORM_STM32)</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
@@ -122,14 +122,14 @@ $(document).ready(function(){initNavTree('thread__pool_8hpp_source.html',''); in
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1core.html">irobot_ec::core</a> {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacerm_1_1core.html">rm::core</a> {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>ThreadPool {</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classrm_1_1core_1_1ThreadPool.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classrm_1_1core_1_1ThreadPool.html">ThreadPool</a> {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  ThreadPool(<span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="classrm_1_1core_1_1ThreadPool.html#a3cf5035bea2017113ad505a84289edac">ThreadPool</a>(<span class="keywordtype">size_t</span>);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">auto</span> enqueue(F&amp;&amp; f, Args&amp;&amp;... args) -&gt; std::future&lt;<span class="keyword">typename</span> std::result_of&lt;F(Args...)&gt;::type&gt;;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  ~ThreadPool();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">auto</span> <a class="code" href="classrm_1_1core_1_1ThreadPool.html#adbd9acb623399dfc48fdf7a5cb641191">enqueue</a>(F&amp;&amp; f, Args&amp;&amp;... args) -&gt; std::future&lt;<span class="keyword">typename</span> std::result_of&lt;F(Args...)&gt;::type&gt;;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="classrm_1_1core_1_1ThreadPool.html#adc79c3daa8dd6c96efa6bab551d7b24d">~ThreadPool</a>();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">// need to keep track of threads so we can join them</span></div>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('thread__pool_8hpp_source.html',''); in
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// the constructor just launches some amount of workers</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">inline</span> ThreadPool::ThreadPool(<span class="keywordtype">size_t</span> threads) : stop(false) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classrm_1_1core_1_1ThreadPool.html#a3cf5035bea2017113ad505a84289edac">   66</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classrm_1_1core_1_1ThreadPool.html#a3cf5035bea2017113ad505a84289edac">ThreadPool::ThreadPool</a>(<span class="keywordtype">size_t</span> threads) : stop(false) {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; threads; ++i)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    workers.emplace_back([<span class="keyword">this</span>] {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      for (;;) {</div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('thread__pool_8hpp_source.html',''); in
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">// add new work item to the pool</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>F, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">auto</span> ThreadPool::enqueue(F&amp;&amp; f, Args&amp;&amp;... args) -&gt; std::future&lt;<span class="keyword">typename</span> std::result_of&lt;F(Args...)&gt;::type&gt; {</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classrm_1_1core_1_1ThreadPool.html#adbd9acb623399dfc48fdf7a5cb641191">   87</a></span>&#160;<span class="keyword">auto</span> ThreadPool::enqueue(F&amp;&amp; f, Args&amp;&amp;... args) -&gt; std::future&lt;<span class="keyword">typename</span> std::result_of&lt;F(Args...)&gt;::type&gt; {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">using</span> return_type = <span class="keyword">typename</span> std::result_of&lt;F(Args...)&gt;::type;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">auto</span> task =</div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('thread__pool_8hpp_source.html',''); in
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">// the destructor joins all threads</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">inline</span> ThreadPool::~ThreadPool() {</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classrm_1_1core_1_1ThreadPool.html#adc79c3daa8dd6c96efa6bab551d7b24d">  107</a></span>&#160;<span class="keyword">inline</span> ThreadPool::~ThreadPool() {</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  {</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(queue_mutex);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    stop = <span class="keyword">true</span>;</div>
@@ -194,17 +194,21 @@ $(document).ready(function(){initNavTree('thread__pool_8hpp_source.html',''); in
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordflow">for</span> (std::thread&amp; worker : workers) worker.join();</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}  <span class="comment">// namespace irobot_ec::core</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}  <span class="comment">// namespace rm::core</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// IROBOTEC_CORE_THREAD_POOL_HPP</span></div>
-<div class="ttc" id="anamespaceirobot__ec_1_1core_html"><div class="ttname"><a href="namespaceirobot__ec_1_1core.html">irobot_ec::core</a></div><div class="ttdef"><b>Definition:</b> exception.h:31</div></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// LIBRM_CORE_THREAD_POOL_HPP</span></div>
+<div class="ttc" id="aclassrm_1_1core_1_1ThreadPool_html"><div class="ttname"><a href="classrm_1_1core_1_1ThreadPool.html">rm::core::ThreadPool</a></div><div class="ttdef"><b>Definition:</b> thread_pool.hpp:46</div></div>
+<div class="ttc" id="aclassrm_1_1core_1_1ThreadPool_html_a3cf5035bea2017113ad505a84289edac"><div class="ttname"><a href="classrm_1_1core_1_1ThreadPool.html#a3cf5035bea2017113ad505a84289edac">rm::core::ThreadPool::ThreadPool</a></div><div class="ttdeci">ThreadPool(size_t)</div><div class="ttdef"><b>Definition:</b> thread_pool.hpp:66</div></div>
+<div class="ttc" id="aclassrm_1_1core_1_1ThreadPool_html_adbd9acb623399dfc48fdf7a5cb641191"><div class="ttname"><a href="classrm_1_1core_1_1ThreadPool.html#adbd9acb623399dfc48fdf7a5cb641191">rm::core::ThreadPool::enqueue</a></div><div class="ttdeci">auto enqueue(F &amp;&amp;f, Args &amp;&amp;... args) -&gt; std::future&lt; typename std::result_of&lt; F(Args...)&gt;::type &gt;</div><div class="ttdef"><b>Definition:</b> thread_pool.hpp:87</div></div>
+<div class="ttc" id="aclassrm_1_1core_1_1ThreadPool_html_adc79c3daa8dd6c96efa6bab551d7b24d"><div class="ttname"><a href="classrm_1_1core_1_1ThreadPool.html#adc79c3daa8dd6c96efa6bab551d7b24d">rm::core::ThreadPool::~ThreadPool</a></div><div class="ttdeci">~ThreadPool()</div><div class="ttdef"><b>Definition:</b> thread_pool.hpp:107</div></div>
+<div class="ttc" id="anamespacerm_1_1core_html"><div class="ttname"><a href="namespacerm_1_1core.html">rm::core</a></div><div class="ttdef"><b>Definition:</b> exception.h:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_6262e150231276a5aa0bca0388b8b7f2.html">core</a></li><li class="navelem"><a class="el" href="thread__pool_8hpp.html">thread_pool.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_88bd29c3a8086e73f60b54e5300eb9e2.html">librm</a></li><li class="navelem"><a class="el" href="dir_fdc7a3afe1ef2b13aa78b4b14f7935a0.html">core</a></li><li class="navelem"><a class="el" href="thread__pool_8hpp.html">thread_pool.hpp</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

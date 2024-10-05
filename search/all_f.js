@@ -1,16 +1,17 @@
 var searchData=
 [
-  ['p_5fmax_436',['p_max',['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html#aff56ebdfe7ad43f62f7566a68658ccd3',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kSpeedPosition &gt;::p_max()'],['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html#a369934701ffeee908ddd27ce485b917e',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kMit &gt;::p_max()']]],
-  ['p_5fout_5f_437',['p_out_',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a0346392fe7fcbf94919b4529f52adfa6',1,'irobot_ec::modules::algorithm::PID']]],
-  ['pid_438',['PID',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html',1,'irobot_ec::modules::algorithm::PID'],['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a0c984089680a65fe876cf3126fa52c48',1,'irobot_ec::modules::algorithm::PID::PID()']]],
-  ['pid_2ecc_439',['pid.cc',['../pid_8cc.html',1,'']]],
-  ['pid_2eh_440',['pid.h',['../pid_8h.html',1,'']]],
-  ['pidtype_441',['PIDType',['../namespaceirobot__ec_1_1modules_1_1algorithm.html#a8af05c833433a65cc4c1ccf2c5e077ee',1,'irobot_ec::modules::algorithm']]],
-  ['pin_442',['Pin',['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html',1,'irobot_ec::hal::stm32::Pin'],['../namespaceirobot__ec_1_1hal.html#ac5bf18c96272107b28f9385399858bb1',1,'irobot_ec::hal::Pin()'],['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#a222990a0d95e4df1d44bce552a50612d',1,'irobot_ec::hal::stm32::Pin::Pin()=delete'],['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#ac64baa67fd04c53db994793328a40cab',1,'irobot_ec::hal::stm32::Pin::Pin(GPIO_TypeDef &amp;port, u16 pin)']]],
-  ['pin_5f_443',['pin_',['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#a3a754d0bac4148375b3942861e8d7002',1,'irobot_ec::hal::stm32::Pin']]],
-  ['pininterface_444',['PinInterface',['../classirobot__ec_1_1hal_1_1PinInterface.html',1,'irobot_ec::hal']]],
-  ['port_5f_445',['port_',['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#a22d1b8ad87fcbf06a733a626d8c0e061',1,'irobot_ec::hal::stm32::Pin']]],
-  ['pos_446',['pos',['../classirobot__ec_1_1device_1_1DmMotor.html#a5c2dedc76d81f529ac69673b4a009184',1,'irobot_ec::device::DmMotor']]],
-  ['pos_5fdegree_447',['pos_degree',['../classirobot__ec_1_1device_1_1DjiMotor.html#a20ec9af724b54032c1e53aa4c24bb534',1,'irobot_ec::device::DjiMotor']]],
-  ['pos_5frad_448',['pos_rad',['../classirobot__ec_1_1device_1_1DjiMotor.html#a165d29e098501a43e20f2e777ea50771',1,'irobot_ec::device::DjiMotor']]]
+  ['p_5fmax_442',['p_max',['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html#a13236faa602883b0b769b648d734410e',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kSpeedPosition &gt;::p_max()'],['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html#a0e31ed92c1bd54f714c8c38c1d522e5b',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kMit &gt;::p_max()']]],
+  ['p_5fout_5f_443',['p_out_',['../classrm_1_1modules_1_1algorithm_1_1PID.html#a13a38ad4c02788fbf0aa59ef4cc24154',1,'rm::modules::algorithm::PID']]],
+  ['pid_444',['PID',['../classrm_1_1modules_1_1algorithm_1_1PID.html#a01b6c25c736fe6e24d517aa8b328ba77',1,'rm::modules::algorithm::PID::PID()'],['../classrm_1_1modules_1_1algorithm_1_1PID.html',1,'rm::modules::algorithm::PID']]],
+  ['pid_2ecc_445',['pid.cc',['../pid_8cc.html',1,'']]],
+  ['pid_2eh_446',['pid.h',['../pid_8h.html',1,'']]],
+  ['pidtype_447',['PIDType',['../namespacerm_1_1modules_1_1algorithm.html#a6bcd5a3d2daed8d3f96172b9bcc1f662',1,'rm::modules::algorithm']]],
+  ['pin_448',['Pin',['../classrm_1_1hal_1_1stm32_1_1Pin.html#a17d07b13a5fec2894181c23e774740f4',1,'rm::hal::stm32::Pin::Pin(GPIO_TypeDef &amp;port, u16 pin)'],['../classrm_1_1hal_1_1stm32_1_1Pin.html#a363f8c0bc476e1632eaed4e984d960cd',1,'rm::hal::stm32::Pin::Pin()=delete'],['../classrm_1_1hal_1_1stm32_1_1Pin.html',1,'rm::hal::stm32::Pin']]],
+  ['pin_5f_449',['pin_',['../classrm_1_1hal_1_1stm32_1_1Pin.html#acf53565b24440fbb14356ea773ff6db4',1,'rm::hal::stm32::Pin']]],
+  ['pininterface_450',['PinInterface',['../classrm_1_1hal_1_1PinInterface.html',1,'rm::hal']]],
+  ['pitch_451',['pitch',['../structrm_1_1modules_1_1algorithm_1_1EulerAngle.html#a780414bb33182a34907a7f29b368b9c6',1,'rm::modules::algorithm::EulerAngle']]],
+  ['port_5f_452',['port_',['../classrm_1_1hal_1_1stm32_1_1Pin.html#a0aa4b84ff3e3a0547e6dec9e7f1c94b3',1,'rm::hal::stm32::Pin']]],
+  ['pos_453',['pos',['../classrm_1_1device_1_1DmMotor.html#a50570b2c73d1f780cc4ba4d341d5387d',1,'rm::device::DmMotor']]],
+  ['pos_5fdegree_454',['pos_degree',['../classrm_1_1device_1_1DjiMotor.html#a0924aa76edcfc6f31e8bd901aba8eb78',1,'rm::device::DjiMotor']]],
+  ['pos_5frad_455',['pos_rad',['../classrm_1_1device_1_1DjiMotor.html#ac07e5cd49cee29928699e495d7ac22c8',1,'rm::device::DjiMotor']]]
 ];

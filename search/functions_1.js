@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['absconstrain_691',['absConstrain',['../namespaceirobot__ec_1_1modules_1_1algorithm_1_1utils.html#aa3e965f4a08792352c1482cba6667c5b',1,'irobot_ec::modules::algorithm::utils']]],
-  ['accel_5fx_692',['accel_x',['../classirobot__ec_1_1device_1_1BMI088.html#aef1b425b101c63020f537b3000293e9c',1,'irobot_ec::device::BMI088']]],
-  ['accel_5fy_693',['accel_y',['../classirobot__ec_1_1device_1_1BMI088.html#a764f28bd7258e48060317661dfe373b5',1,'irobot_ec::device::BMI088']]],
-  ['accel_5fz_694',['accel_z',['../classirobot__ec_1_1device_1_1BMI088.html#aacb79a53fddea68b1cec9f980b63bb67',1,'irobot_ec::device::BMI088']]],
-  ['addvariable_695',['AddVariable',['../classirobot__ec_1_1modules_1_1VofaPlotter.html#a9fb165a23c8d6384fd117275f229cf6c',1,'irobot_ec::modules::VofaPlotter']]],
-  ['appendcrc16_696',['AppendCrc16',['../namespaceirobot__ec_1_1modules_1_1algorithm.html#a1becd9f60cf60dcbcd89a159bb44371e',1,'irobot_ec::modules::algorithm']]],
-  ['appendcrc8_697',['AppendCrc8',['../namespaceirobot__ec_1_1modules_1_1algorithm.html#a8c0f16a2c7ed2fc2c725fc31cdc48122',1,'irobot_ec::modules::algorithm']]],
-  ['asynccandevice_698',['AsyncCanDevice',['../structirobot__ec_1_1hal_1_1linux___1_1AsyncCanDevice.html#a3a7952397f494ae56e81542949fdbbcf',1,'irobot_ec::hal::linux_::AsyncCanDevice']]],
-  ['attachrxcallback_699',['AttachRxCallback',['../classirobot__ec_1_1hal_1_1linux___1_1Serial.html#a712350c6dd433b2bed239fbb900612e6',1,'irobot_ec::hal::linux_::Serial::AttachRxCallback()'],['../classirobot__ec_1_1hal_1_1SerialInterface.html#a7565de4deaa3158dd2370df58b33a15d',1,'irobot_ec::hal::SerialInterface::AttachRxCallback()'],['../classirobot__ec_1_1hal_1_1stm32_1_1Uart.html#acb0b2586a39a10b112997dfd900e3ebe',1,'irobot_ec::hal::stm32::Uart::AttachRxCallback()']]]
+  ['absconstrain_729',['absConstrain',['../namespacerm_1_1modules_1_1algorithm_1_1utils.html#aa2d8c27dc25bf21ee38e4adb8ac312f6',1,'rm::modules::algorithm::utils']]],
+  ['accel_5fx_730',['accel_x',['../classrm_1_1device_1_1BMI088.html#a608b9b327ad36603fe0386ac5f769838',1,'rm::device::BMI088']]],
+  ['accel_5fy_731',['accel_y',['../classrm_1_1device_1_1BMI088.html#a8863e25596c1a4f43cc025faf070753e',1,'rm::device::BMI088']]],
+  ['accel_5fz_732',['accel_z',['../classrm_1_1device_1_1BMI088.html#a910aa34b73466b1784896c6266192e69',1,'rm::device::BMI088']]],
+  ['addvariable_733',['AddVariable',['../classrm_1_1modules_1_1VofaPlotter.html#afc8e606e1462cd7f96eb6f67a9d3a3e3',1,'rm::modules::VofaPlotter']]],
+  ['appendcrc16_734',['AppendCrc16',['../namespacerm_1_1modules_1_1algorithm.html#a886be24deaf63c8028afcfe6291cfabb',1,'rm::modules::algorithm']]],
+  ['appendcrc8_735',['AppendCrc8',['../namespacerm_1_1modules_1_1algorithm.html#a1756511c89f05df71c9970073a4ced06',1,'rm::modules::algorithm']]],
+  ['asynccandevice_736',['AsyncCanDevice',['../structrm_1_1hal_1_1linux___1_1AsyncCanDevice.html#a195e520b7b1dd798902089432db0db33',1,'rm::hal::linux_::AsyncCanDevice']]],
+  ['attachrxcallback_737',['AttachRxCallback',['../classrm_1_1hal_1_1linux___1_1Serial.html#aecfec7377bb345f1db6e084d66aff3a9',1,'rm::hal::linux_::Serial::AttachRxCallback()'],['../classrm_1_1hal_1_1SerialInterface.html#ab0effd395a7e48799afa117e15c774b0',1,'rm::hal::SerialInterface::AttachRxCallback()'],['../classrm_1_1hal_1_1stm32_1_1Uart.html#a7742c67f1918c7ba007ab7e83986c953',1,'rm::hal::stm32::Uart::AttachRxCallback()']]]
 ];

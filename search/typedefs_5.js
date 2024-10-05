@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['pin_1070',['Pin',['../namespaceirobot__ec_1_1hal.html#ac5bf18c96272107b28f9385399858bb1',1,'irobot_ec::hal']]]
+  ['u16_1132',['u16',['../typedefs_8h.html#ace9d960e74685e2cd84b36132dbbf8aa',1,'typedefs.h']]],
+  ['u32_1133',['u32',['../typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba',1,'typedefs.h']]],
+  ['u64_1134',['u64',['../typedefs_8h.html#a3f7e2bcbb0b4c338f3c4f6c937cd4234',1,'typedefs.h']]],
+  ['u8_1135',['u8',['../typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca',1,'typedefs.h']]],
+  ['usize_1136',['usize',['../typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3',1,'typedefs.h']]]
 ];

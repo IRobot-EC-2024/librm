@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['getdevicestatus_726',['GetDeviceStatus',['../classirobot__ec_1_1device_1_1Device.html#a704035405a1c3637954aec1c980904a1',1,'irobot_ec::device::Device']]],
-  ['getinstance_727',['GetInstance',['../classirobot__ec_1_1device_1_1DeviceManager.html#af75c217ec812107c1aee1d1bcf85abbc',1,'irobot_ec::device::DeviceManager']]],
-  ['gyro_5fx_728',['gyro_x',['../classirobot__ec_1_1device_1_1BMI088.html#a30c7982e2908087552b44d65bb4daea2',1,'irobot_ec::device::BMI088']]],
-  ['gyro_5fy_729',['gyro_y',['../classirobot__ec_1_1device_1_1BMI088.html#af107c2e95ab02cd1665d95556eda4e44',1,'irobot_ec::device::BMI088']]],
-  ['gyro_5fz_730',['gyro_z',['../classirobot__ec_1_1device_1_1BMI088.html#a73487476f0dc8a15e924e4c3182b1e03',1,'irobot_ec::device::BMI088']]]
+  ['getdevicestatus_763',['GetDeviceStatus',['../classrm_1_1device_1_1Device.html#ade97c1e2dbe8ad959fc20346ed841399',1,'rm::device::Device']]],
+  ['getinstance_764',['GetInstance',['../classrm_1_1device_1_1DeviceManager.html#a6a3b5cb6f6a95720e2ae9bae9beaaf65',1,'rm::device::DeviceManager']]],
+  ['gyro_5fx_765',['gyro_x',['../classrm_1_1device_1_1BMI088.html#a8faa7bd243b85f0fc23e74aab3d30007',1,'rm::device::BMI088']]],
+  ['gyro_5fy_766',['gyro_y',['../classrm_1_1device_1_1BMI088.html#a55f23ccea571fd08d3aad172dad6107b',1,'rm::device::BMI088']]],
+  ['gyro_5fz_767',['gyro_z',['../classrm_1_1device_1_1BMI088.html#aefcbef23954396adc47d42f50d754d94',1,'rm::device::BMI088']]]
 ];

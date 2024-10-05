@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['m2006_1068',['M2006',['../namespaceirobot__ec_1_1device.html#a4350f94f2a9458b6f7439d9ba6ed0025',1,'irobot_ec::device']]],
-  ['m3508_1069',['M3508',['../namespaceirobot__ec_1_1device.html#a52a9b84b2f31d8fcd03af9caa1292346',1,'irobot_ec::device']]]
+  ['serialrxcallbackfunction_1131',['SerialRxCallbackFunction',['../namespacerm_1_1hal.html#ab6c25fb295d0b957ffb1181fa48b787c',1,'rm::hal']]]
 ];

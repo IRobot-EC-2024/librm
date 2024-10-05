@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['candevice_1187',['CanDevice',['../classirobot__ec_1_1hal_1_1CanInterface.html#a745146b251a28f11ca56c23b8ecdf76b',1,'irobot_ec::hal::CanInterface']]],
-  ['devicemanager_1188',['DeviceManager',['../classirobot__ec_1_1device_1_1Device.html#aead9a9546ea765538d3f95894afea912',1,'irobot_ec::device::Device']]]
+  ['candevice_1245',['CanDevice',['../classrm_1_1hal_1_1CanInterface.html#a745146b251a28f11ca56c23b8ecdf76b',1,'rm::hal::CanInterface']]],
+  ['devicemanager_1246',['DeviceManager',['../classrm_1_1device_1_1Device.html#aead9a9546ea765538d3f95894afea912',1,'rm::device::Device']]]
 ];

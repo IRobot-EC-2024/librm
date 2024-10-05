@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['i16_1064',['i16',['../typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b',1,'typedefs.h']]],
-  ['i32_1065',['i32',['../typedefs_8h.html#a48d6cd8e4135fb2ff7e7f2dac84089ec',1,'typedefs.h']]],
-  ['i64_1066',['i64',['../typedefs_8h.html#a85cb35fbe5bf2961d7ad5f26814a91a2',1,'typedefs.h']]],
-  ['i8_1067',['i8',['../typedefs_8h.html#ae3702327b5f47e83b431e22b33da7b58',1,'typedefs.h']]]
+  ['m2006_1129',['M2006',['../namespacerm_1_1device.html#acf91c24f686ca4f58d88b4a2c8c81acd',1,'rm::device']]],
+  ['m3508_1130',['M3508',['../namespacerm_1_1device.html#a5b66ef73417ff0bd6e44f46e821c0942',1,'rm::device']]]
 ];

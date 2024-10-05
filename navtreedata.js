@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "irobotEC", "index.html", [
+  [ "librm", "index.html", [
     [ "待办事项列表", "todo.html", null ],
     [ "命名空间", "namespaces.html", [
       [ "命名空间列表", "namespaces.html", "namespaces_dup" ],
@@ -61,10 +61,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classirobot__ec_1_1device_1_1DR16.html#ab5168f88d34a91abcedace31eec9be9d",
-"crc_8h.html#a3cd99b6cae69a18996cd3576bf00d1f9",
-"namespaceirobot__ec_1_1device.html#a2e0f5e30695b072a4ffc1e836949a686aa754a0f863e3fadd8098162c48468399"
+"ahrs__interface_8h.html",
+"classrm_1_1device_1_1DR16.html#a1949a050a674fb187cf80109a21c50cd",
+"classrm_1_1modules_1_1algorithm_1_1RingPID.html#aa1fe7419429a54f6e16edda4e09e6a34",
+"namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7054d7e4b2dd68f34d7c57d8b8338809",
+"typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

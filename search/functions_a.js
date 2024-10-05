@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['key_736',['key',['../classirobot__ec_1_1device_1_1DR16.html#ae3821cc825db334cad3956b2d106cd7e',1,'irobot_ec::device::DR16']]]
+  ['left_5fx_774',['left_x',['../classrm_1_1device_1_1DR16.html#aad94708d49f54ad3517d64610c262043',1,'rm::device::DR16']]],
+  ['left_5fy_775',['left_y',['../classrm_1_1device_1_1DR16.html#a665c214c9334b95e342b1ea57c4f54ab',1,'rm::device::DR16']]],
+  ['loopconstrain_776',['LoopConstrain',['../namespacerm_1_1modules_1_1algorithm_1_1utils.html#ad0e47a1641a521f2a59f598449ec93c2',1,'rm::modules::algorithm::utils']]]
 ];

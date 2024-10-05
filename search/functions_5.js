@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['encoder_719',['encoder',['../classirobot__ec_1_1device_1_1DjiMotor.html#a6bf74bdcda91910a99c21c29830f4c1b',1,'irobot_ec::device::DjiMotor']]],
-  ['enqueue_720',['Enqueue',['../classirobot__ec_1_1hal_1_1CanInterface.html#a932c45a45bc9b25308f4dc254a7ac649',1,'irobot_ec::hal::CanInterface::Enqueue()'],['../classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#a4b282a2f1d8477962a5ccabaa8f11918',1,'irobot_ec::hal::linux_::SocketCan::Enqueue()'],['../classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#adbf011bb74744da2ade6728ba72f0a80',1,'irobot_ec::hal::stm32::BxCan::Enqueue()']]],
-  ['error_721',['error',['../classirobot__ec_1_1device_1_1SuperCap.html#aed6cb20d918c10405026c6a01befb7c0',1,'irobot_ec::device::SuperCap']]],
-  ['euler_5fpitch_722',['euler_pitch',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#ab8f494ff78b1711b46732115959a7bfe',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
-  ['euler_5froll_723',['euler_roll',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#af2081992a65e45e1646ee946d245c328',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
-  ['euler_5fyaw_724',['euler_yaw',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a32c9b0e06ec8e64f87636756aadacb40',1,'irobot_ec::modules::algorithm::MahonyAhrs']]]
+  ['encoder_756',['encoder',['../classrm_1_1device_1_1DjiMotor.html#a54683b4b02ff069ba24cdf092e5c7795',1,'rm::device::DjiMotor']]],
+  ['enqueue_757',['enqueue',['../classrm_1_1core_1_1ThreadPool.html#adbd9acb623399dfc48fdf7a5cb641191',1,'rm::core::ThreadPool']]],
+  ['enqueue_758',['Enqueue',['../classrm_1_1hal_1_1CanInterface.html#a63b696861b59fe68c26f65d5d6a9e3c4',1,'rm::hal::CanInterface::Enqueue()'],['../classrm_1_1hal_1_1linux___1_1SocketCan.html#ad845937d886bfde171d89d164dc33da6',1,'rm::hal::linux_::SocketCan::Enqueue()'],['../classrm_1_1hal_1_1stm32_1_1BxCan.html#ae3b63ac686030ea2bd3917b7ef7cad06',1,'rm::hal::stm32::BxCan::Enqueue()']]],
+  ['error_759',['error',['../classrm_1_1device_1_1SuperCap.html#ad1045518c98cd732608c18df9902922c',1,'rm::device::SuperCap']]],
+  ['euler_5fangle_760',['euler_angle',['../classrm_1_1modules_1_1algorithm_1_1AhrsInterface.html#a3b313a4dc596ec953380bbe9e45b5552',1,'rm::modules::algorithm::AhrsInterface::euler_angle()'],['../classrm_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a41e0d100ee6d64257111d5b60dd96e36',1,'rm::modules::algorithm::MahonyAhrs::euler_angle()']]]
 ];

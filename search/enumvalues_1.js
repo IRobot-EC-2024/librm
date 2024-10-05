@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['default_1106',['Default',['../namespaceirobot__ec_1_1device.html#ad89b3642dec8588b5285f5673108e1e8a7a1920d61156abc05a60135aefe8bc67',1,'irobot_ec::device']]]
+  ['default_1164',['Default',['../namespacerm_1_1device.html#a896e2ecf76700ddd37a344204982af57a7a1920d61156abc05a60135aefe8bc67',1,'rm::device']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>irobotEC: src/irobotec/hal/stm32/spi.h 源文件</title>
+<title>librm: src/librm/hal/stm32/spi.h 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">irobotEC
+   <div id="projectname">librm
    </div>
   </td>
  </tr>
@@ -107,48 +107,48 @@ $(document).ready(function(){initNavTree('stm32_2spi_8h_source.html',''); initRe
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  SOFTWARE.</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef IROBOTEC_HAL_STM32_SPI_H</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define IROBOTEC_HAL_STM32_SPI_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef LIBRM_HAL_STM32_SPI_H</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define LIBRM_HAL_STM32_SPI_H</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">irobotec/hal/stm32/hal.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">librm/hal/stm32/hal.h</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#if defined(HAL_SPI_MODULE_ENABLED)</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="spi__interface_8h.html">irobotec/hal/spi_interface.h</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">irobotec/core/typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="spi__interface_8h.html">librm/hal/spi_interface.h</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">librm/core/typedefs.h</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceirobot__ec_1_1hal_1_1stm32.html">irobot_ec::hal::stm32</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacerm_1_1hal_1_1stm32.html">rm::hal::stm32</a> {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html">Spi</a> final : <span class="keyword">public</span> <a class="code" href="classirobot__ec_1_1hal_1_1SpiInterface.html">hal::SpiInterface</a> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classrm_1_1hal_1_1stm32_1_1Spi.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html">Spi</a> final : <span class="keyword">public</span> <a class="code" href="classrm_1_1hal_1_1SpiInterface.html">hal::SpiInterface</a> {</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ad0dc5b4f87486b4c8876afdcd2dbecd1">Spi</a>(SPI_HandleTypeDef &amp;hspi, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> timeout_ms);</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ad0dc5b4f87486b4c8876afdcd2dbecd1">   42</a></span>&#160;  <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ad0dc5b4f87486b4c8876afdcd2dbecd1">Spi</a>() = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#aafc2051a93e056cd07b0cc053c8bdc42">   43</a></span>&#160;  <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#aafc2051a93e056cd07b0cc053c8bdc42">~Spi</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a6a6083d0d049652eaf9f688a2d7b4afb">Spi</a>(SPI_HandleTypeDef &amp;hspi, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> timeout_ms);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a6a6083d0d049652eaf9f688a2d7b4afb">   42</a></span>&#160;  <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a6a6083d0d049652eaf9f688a2d7b4afb">Spi</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a257c1ee064f095c41d460887aa90c48b">   43</a></span>&#160;  <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a257c1ee064f095c41d460887aa90c48b">~Spi</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#a42cd290b827c9b0d25ad0747830eff94">Begin</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ac4457eaaa13d65794906c42a2e304c58">Write</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#a3e42d38f4eff41ab0ae7035dc1e8b19b">Read</a>(<a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *dst, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ad89db34893566e364a745f8f17b75c89">ReadWrite</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *tx_data, <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *rx_buffer, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a80523e97eaa140b46f938e0886ee4f5c">Begin</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a300ffc7b9cc0533499f2b52010b7ead3">Write</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *data, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#a9ca4f6b6ca2a65f72aa90e55f7f8325a">Read</a>(<a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *dst, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classrm_1_1hal_1_1stm32_1_1Spi.html#ae0c67b1ddc871c99def101cbfdd19aaa">ReadWrite</a>(<span class="keyword">const</span> <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *tx_data, <a class="code" href="typedefs_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *rx_buffer, <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> size) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  SPI_HandleTypeDef *hspi_{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a> transmission_timeout_{};</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace irobot_ec::hal::stm32</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace rm::hal::stm32</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// IROBOTEC_HAL_STM32_SPI_H</span></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1SpiInterface_html"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1SpiInterface.html">irobot_ec::hal::SpiInterface</a></div><div class="ttdoc">SPI接口类</div><div class="ttdef"><b>Definition:</b> spi_interface.h:38</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html">irobot_ec::hal::stm32::Spi</a></div><div class="ttdef"><b>Definition:</b> spi.h:39</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html_a3e42d38f4eff41ab0ae7035dc1e8b19b"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#a3e42d38f4eff41ab0ae7035dc1e8b19b">irobot_ec::hal::stm32::Spi::Read</a></div><div class="ttdeci">void Read(u8 *dst, usize size) override</div><div class="ttdoc">读取数据</div><div class="ttdef"><b>Definition:</b> spi.cc:57</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html_a42cd290b827c9b0d25ad0747830eff94"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#a42cd290b827c9b0d25ad0747830eff94">irobot_ec::hal::stm32::Spi::Begin</a></div><div class="ttdeci">void Begin() override</div><div class="ttdoc">初始化SPI</div><div class="ttdef"><b>Definition:</b> spi.cc:41</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html_aafc2051a93e056cd07b0cc053c8bdc42"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#aafc2051a93e056cd07b0cc053c8bdc42">irobot_ec::hal::stm32::Spi::~Spi</a></div><div class="ttdeci">~Spi() override=default</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html_ac4457eaaa13d65794906c42a2e304c58"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ac4457eaaa13d65794906c42a2e304c58">irobot_ec::hal::stm32::Spi::Write</a></div><div class="ttdeci">void Write(const u8 *data, usize size) override</div><div class="ttdoc">发送数据</div><div class="ttdef"><b>Definition:</b> spi.cc:48</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html_ad0dc5b4f87486b4c8876afdcd2dbecd1"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ad0dc5b4f87486b4c8876afdcd2dbecd1">irobot_ec::hal::stm32::Spi::Spi</a></div><div class="ttdeci">Spi()=delete</div></div>
-<div class="ttc" id="aclassirobot__ec_1_1hal_1_1stm32_1_1Spi_html_ad89db34893566e364a745f8f17b75c89"><div class="ttname"><a href="classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#ad89db34893566e364a745f8f17b75c89">irobot_ec::hal::stm32::Spi::ReadWrite</a></div><div class="ttdeci">void ReadWrite(const u8 *tx_data, u8 *rx_buffer, usize size) override</div><div class="ttdoc">全双工发送和接收一定长度的数据</div><div class="ttdef"><b>Definition:</b> spi.cc:65</div></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// LIBRM_HAL_STM32_SPI_H</span></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1SpiInterface_html"><div class="ttname"><a href="classrm_1_1hal_1_1SpiInterface.html">rm::hal::SpiInterface</a></div><div class="ttdoc">SPI接口类</div><div class="ttdef"><b>Definition:</b> spi_interface.h:38</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html">rm::hal::stm32::Spi</a></div><div class="ttdef"><b>Definition:</b> spi.h:39</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html_a257c1ee064f095c41d460887aa90c48b"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html#a257c1ee064f095c41d460887aa90c48b">rm::hal::stm32::Spi::~Spi</a></div><div class="ttdeci">~Spi() override=default</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html_a300ffc7b9cc0533499f2b52010b7ead3"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html#a300ffc7b9cc0533499f2b52010b7ead3">rm::hal::stm32::Spi::Write</a></div><div class="ttdeci">void Write(const u8 *data, usize size) override</div><div class="ttdoc">发送数据</div><div class="ttdef"><b>Definition:</b> spi.cc:48</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html_a6a6083d0d049652eaf9f688a2d7b4afb"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html#a6a6083d0d049652eaf9f688a2d7b4afb">rm::hal::stm32::Spi::Spi</a></div><div class="ttdeci">Spi()=delete</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html_a80523e97eaa140b46f938e0886ee4f5c"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html#a80523e97eaa140b46f938e0886ee4f5c">rm::hal::stm32::Spi::Begin</a></div><div class="ttdeci">void Begin() override</div><div class="ttdoc">初始化SPI</div><div class="ttdef"><b>Definition:</b> spi.cc:41</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html_a9ca4f6b6ca2a65f72aa90e55f7f8325a"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html#a9ca4f6b6ca2a65f72aa90e55f7f8325a">rm::hal::stm32::Spi::Read</a></div><div class="ttdeci">void Read(u8 *dst, usize size) override</div><div class="ttdoc">读取数据</div><div class="ttdef"><b>Definition:</b> spi.cc:57</div></div>
+<div class="ttc" id="aclassrm_1_1hal_1_1stm32_1_1Spi_html_ae0c67b1ddc871c99def101cbfdd19aaa"><div class="ttname"><a href="classrm_1_1hal_1_1stm32_1_1Spi.html#ae0c67b1ddc871c99def101cbfdd19aaa">rm::hal::stm32::Spi::ReadWrite</a></div><div class="ttdeci">void ReadWrite(const u8 *tx_data, u8 *rx_buffer, usize size) override</div><div class="ttdoc">全双工发送和接收一定长度的数据</div><div class="ttdef"><b>Definition:</b> spi.cc:65</div></div>
 <div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据不同STM32型号选择不同的HAL库</div></div>
-<div class="ttc" id="anamespaceirobot__ec_1_1hal_1_1stm32_html"><div class="ttname"><a href="namespaceirobot__ec_1_1hal_1_1stm32.html">irobot_ec::hal::stm32</a></div><div class="ttdef"><b>Definition:</b> bxcan.cc:53</div></div>
+<div class="ttc" id="anamespacerm_1_1hal_1_1stm32_html"><div class="ttname"><a href="namespacerm_1_1hal_1_1stm32.html">rm::hal::stm32</a></div><div class="ttdef"><b>Definition:</b> bxcan.cc:53</div></div>
 <div class="ttc" id="aspi__interface_8h_html"><div class="ttname"><a href="spi__interface_8h.html">spi_interface.h</a></div><div class="ttdoc">SPI的接口类</div></div>
 <div class="ttc" id="atypedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">全局数据类型定义</div></div>
 <div class="ttc" id="atypedefs_8h_html_a5148c9c1252e19e12def2814f71690e3"><div class="ttname"><a href="typedefs_8h.html#a5148c9c1252e19e12def2814f71690e3">usize</a></div><div class="ttdeci">size_t usize</div><div class="ttdef"><b>Definition:</b> typedefs.h:49</div></div>
@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('stm32_2spi_8h_source.html',''); initRe
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_15dd97ae69c62cfbd28c940a9c7bc517.html">irobotec</a></li><li class="navelem"><a class="el" href="dir_f9fe69341e45802758b1ffb181c3249f.html">hal</a></li><li class="navelem"><a class="el" href="dir_17b90a8a6e262e47af89703743a41b2c.html">stm32</a></li><li class="navelem"><a class="el" href="stm32_2spi_8h.html">spi.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_88bd29c3a8086e73f60b54e5300eb9e2.html">librm</a></li><li class="navelem"><a class="el" href="dir_12d4920679a1960aa4499f9d88e747a8.html">hal</a></li><li class="navelem"><a class="el" href="dir_873c52db97cd763a6a91f2234950780f.html">stm32</a></li><li class="navelem"><a class="el" href="stm32_2spi_8h.html">spi.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

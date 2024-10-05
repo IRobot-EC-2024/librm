@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exception_1089',['Exception',['../namespaceirobot__ec_1_1core_1_1exception.html#a588cba370d7b00e2c87df232e56b39ce',1,'irobot_ec::core::exception']]]
+  ['exception_1147',['Exception',['../namespacerm_1_1core_1_1exception.html#a29263bbdb54eb4b9aefea0d40c2fc305',1,'rm::core::exception']]]
 ];

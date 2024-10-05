@@ -1,23 +1,4 @@
 var searchData=
 [
-  ['_7ebmi088_560',['~BMI088',['../classirobot__ec_1_1device_1_1BMI088.html#aad931a00ccb8ee7af0fe12718d144b31',1,'irobot_ec::device::BMI088']]],
-  ['_7ebxcan_561',['~BxCan',['../classirobot__ec_1_1hal_1_1stm32_1_1BxCan.html#a7244362189901b080709cf46b52d11c0',1,'irobot_ec::hal::stm32::BxCan']]],
-  ['_7ecandevice_562',['~CanDevice',['../classirobot__ec_1_1device_1_1CanDevice.html#a7ecd8d28eb568c0fa35fec3c59ae32b3',1,'irobot_ec::device::CanDevice']]],
-  ['_7ecaninterface_563',['~CanInterface',['../classirobot__ec_1_1hal_1_1CanInterface.html#a3eea8c155074b6d467220d5ced383d78',1,'irobot_ec::hal::CanInterface']]],
-  ['_7edevice_564',['~Device',['../classirobot__ec_1_1device_1_1Device.html#a019fe812dda1edd16b2afca5548249be',1,'irobot_ec::device::Device']]],
-  ['_7edjimotor_565',['~DjiMotor',['../classirobot__ec_1_1device_1_1DjiMotor.html#ae516ecddcde3141558681f6451db0293',1,'irobot_ec::device::DjiMotor']]],
-  ['_7edmmotor_566',['~DmMotor',['../classirobot__ec_1_1device_1_1DmMotor.html#af65f11056ee7ccc88bf81274b9608229',1,'irobot_ec::device::DmMotor']]],
-  ['_7ei2cdevice_567',['~I2cDevice',['../classirobot__ec_1_1hal_1_1stm32_1_1I2cDevice.html#a10e18e08fb3335ffe2de60e07308cae8',1,'irobot_ec::hal::stm32::I2cDevice']]],
-  ['_7emahonyahrs_568',['~MahonyAhrs',['../classirobot__ec_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a6c14d116a4f50f35cf8e5f5bdcce2346',1,'irobot_ec::modules::algorithm::MahonyAhrs']]],
-  ['_7emecanum_569',['~Mecanum',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a2c0fd312a0ced87df2236af386d8bd89',1,'irobot_ec::modules::algorithm::Mecanum']]],
-  ['_7epin_570',['~Pin',['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#ab88252a099860b121bd7dbfd2e2510a0',1,'irobot_ec::hal::stm32::Pin']]],
-  ['_7epininterface_571',['~PinInterface',['../classirobot__ec_1_1hal_1_1PinInterface.html#a9d577aaf22240f43b58ae40eede23f3e',1,'irobot_ec::hal::PinInterface']]],
-  ['_7eserial_572',['~Serial',['../classirobot__ec_1_1hal_1_1linux___1_1Serial.html#ad9a867b9ceb7b147090eaa4865873fe9',1,'irobot_ec::hal::linux_::Serial']]],
-  ['_7eserialinterface_573',['~SerialInterface',['../classirobot__ec_1_1hal_1_1SerialInterface.html#ae9eea6281f5d51227cf1812f994c8643',1,'irobot_ec::hal::SerialInterface']]],
-  ['_7esocketcan_574',['~SocketCan',['../classirobot__ec_1_1hal_1_1linux___1_1SocketCan.html#ad01f156fcccb81fef6f53219e43bae6f',1,'irobot_ec::hal::linux_::SocketCan']]],
-  ['_7espi_575',['~Spi',['../classirobot__ec_1_1hal_1_1stm32_1_1Spi.html#aafc2051a93e056cd07b0cc053c8bdc42',1,'irobot_ec::hal::stm32::Spi']]],
-  ['_7espidevice_576',['~SpiDevice',['../classirobot__ec_1_1hal_1_1stm32_1_1SpiDevice.html#a58d832d1dd7a10cbad0ffb9760302ee8',1,'irobot_ec::hal::stm32::SpiDevice']]],
-  ['_7espiinterface_577',['~SpiInterface',['../classirobot__ec_1_1hal_1_1SpiInterface.html#a6cf78145aebb46a0eb07ff0a1d22a437',1,'irobot_ec::hal::SpiInterface']]],
-  ['_7esupercap_578',['~SuperCap',['../classirobot__ec_1_1device_1_1SuperCap.html#a9e9985dd9d629a3c755d4b6629813b2e',1,'irobot_ec::device::SuperCap']]],
-  ['_7eunitreemotorbase_579',['~UnitreeMotorBase',['../classirobot__ec_1_1device_1_1UnitreeMotorBase.html#aad74b30538fcb0e10d76404c3c8ae4c2',1,'irobot_ec::device::UnitreeMotorBase']]]
+  ['x_580',['x',['../structrm_1_1modules_1_1algorithm_1_1Quaternion.html#a285072a9c572ccf82d231dbc197ed2f2',1,'rm::modules::algorithm::Quaternion']]]
 ];

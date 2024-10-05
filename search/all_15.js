@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['v_5flb_546',['v_lb',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a5483c76ff52d30f03c8e19a5ba20414e',1,'irobot_ec::modules::algorithm::Mecanum']]],
-  ['v_5flf_547',['v_lf',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a5e964af70745725c6c3aef9bedb527df',1,'irobot_ec::modules::algorithm::Mecanum']]],
-  ['v_5fmax_548',['v_max',['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeed_01_4.html#ab5c8224c117e43d56a45b9f7b834b33d',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kSpeed &gt;::v_max()'],['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html#a5986dddb5503975ec05ee8a1b68d5f94',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kSpeedPosition &gt;::v_max()'],['../structirobot__ec_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html#a2496360ecc7c7d6659ca10ef7eba888b',1,'irobot_ec::device::DmMotorSettings&lt; DmMotorControlMode::kMit &gt;::v_max()']]],
-  ['v_5frb_549',['v_rb',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a1a9986e3cd4255fe5c9d3b9b3f3384ef',1,'irobot_ec::modules::algorithm::Mecanum']]],
-  ['v_5frf_550',['v_rf',['../classirobot__ec_1_1modules_1_1algorithm_1_1Mecanum.html#a2f38e3ce1c9a3ecfa0fd9dcfb0199a74',1,'irobot_ec::modules::algorithm::Mecanum']]],
-  ['value_551',['value',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#ac1b83282b92d2ea9ccd5743d5be50915',1,'irobot_ec::modules::algorithm::PID']]],
-  ['variablevariant_552',['VariableVariant',['../namespaceirobot__ec_1_1modules.html#ad063769df9f55ba2136c6494f0827134',1,'irobot_ec::modules']]],
-  ['vel_553',['vel',['../classirobot__ec_1_1device_1_1DmMotor.html#a2d041667f4ccd18376dd9fbc3a2a58c5',1,'irobot_ec::device::DmMotor']]],
-  ['velocity_5f_554',['velocity_',['../classirobot__ec_1_1device_1_1UnitreeMotorBase.html#a28f8aafead2315d6dabc85842a5c9911',1,'irobot_ec::device::UnitreeMotorBase']]],
-  ['vofa_5fplotter_2ehpp_555',['vofa_plotter.hpp',['../vofa__plotter_8hpp.html',1,'']]],
-  ['vofaplotter_556',['VofaPlotter',['../classirobot__ec_1_1modules_1_1VofaPlotter.html',1,'irobot_ec::modules::VofaPlotter'],['../classirobot__ec_1_1modules_1_1VofaPlotter.html#a7b90b1c2aa748ae9ed0ebac4a0ceae44',1,'irobot_ec::modules::VofaPlotter::VofaPlotter()']]],
-  ['voltage_557',['voltage',['../classirobot__ec_1_1device_1_1SuperCap.html#acdfe7c89ce24419a0735cb2e835d9ee0',1,'irobot_ec::device::SuperCap']]]
+  ['v_5fmax_566',['v_max',['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeed_01_4.html#aefaa91518dea9572c2da61316682b4b7',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kSpeed &gt;::v_max()'],['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html#ab7178402e172380a9d6e0ceeae8f6e95',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kSpeedPosition &gt;::v_max()'],['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html#ac58beafdcd6f15ceeda9b783a759177d',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kMit &gt;::v_max()']]],
+  ['value_567',['value',['../classrm_1_1modules_1_1algorithm_1_1PID.html#a6f36c9b1a00331693b7f94103f2c5241',1,'rm::modules::algorithm::PID']]],
+  ['variablevariant_568',['VariableVariant',['../namespacerm_1_1modules.html#a505824a195cc668747a2d3da18476445',1,'rm::modules']]],
+  ['vel_569',['vel',['../classrm_1_1device_1_1DmMotor.html#a02c25aca0ea083647973931c6d6e5a57',1,'rm::device::DmMotor']]],
+  ['velocity_5f_570',['velocity_',['../classrm_1_1device_1_1UnitreeMotorBase.html#a562fa36b2a952ec4261df4fcf014fe12',1,'rm::device::UnitreeMotorBase']]],
+  ['vofa_5fplotter_2ehpp_571',['vofa_plotter.hpp',['../vofa__plotter_8hpp.html',1,'']]],
+  ['vofaplotter_572',['VofaPlotter',['../classrm_1_1modules_1_1VofaPlotter.html',1,'rm::modules::VofaPlotter'],['../classrm_1_1modules_1_1VofaPlotter.html#a57f583a2c6da8b6973b89e494053c2b8',1,'rm::modules::VofaPlotter::VofaPlotter()']]],
+  ['voltage_573',['voltage',['../classrm_1_1device_1_1SuperCap.html#a7e6a3ab10861e12f5bdf5ec1a7b4d09e',1,'rm::device::SuperCap']]],
+  ['vx_5f_574',['vx_',['../classrm_1_1modules_1_1algorithm_1_1SteeringChassis.html#a5e6b271835bf06987d453b6e2ca665c4',1,'rm::modules::algorithm::SteeringChassis::vx_()'],['../classrm_1_1modules_1_1algorithm_1_1QuadOmniChassis.html#a42e46768ed1ce8db99b726fb67ff681f',1,'rm::modules::algorithm::QuadOmniChassis::vx_()']]],
+  ['vy_5f_575',['vy_',['../classrm_1_1modules_1_1algorithm_1_1SteeringChassis.html#a588539808356ab3b04c6ee52540633e8',1,'rm::modules::algorithm::SteeringChassis::vy_()'],['../classrm_1_1modules_1_1algorithm_1_1QuadOmniChassis.html#a902ecece5f282af1160b1c9d7923a941',1,'rm::modules::algorithm::QuadOmniChassis::vy_()']]]
 ];

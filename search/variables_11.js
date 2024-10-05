@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['v_5fmax_1112',['v_max',['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeed_01_4.html#aefaa91518dea9572c2da61316682b4b7',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kSpeed &gt;::v_max()'],['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html#ab7178402e172380a9d6e0ceeae8f6e95',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kSpeedPosition &gt;::v_max()'],['../structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html#ac58beafdcd6f15ceeda9b783a759177d',1,'rm::device::DmMotorSettings&lt; DmMotorControlMode::kMit &gt;::v_max()']]],
+  ['velocity_5f_1113',['velocity_',['../classrm_1_1device_1_1UnitreeMotorBase.html#a562fa36b2a952ec4261df4fcf014fe12',1,'rm::device::UnitreeMotorBase']]],
+  ['vx_5f_1114',['vx_',['../classrm_1_1modules_1_1algorithm_1_1SteeringChassis.html#a5e6b271835bf06987d453b6e2ca665c4',1,'rm::modules::algorithm::SteeringChassis::vx_()'],['../classrm_1_1modules_1_1algorithm_1_1QuadOmniChassis.html#a42e46768ed1ce8db99b726fb67ff681f',1,'rm::modules::algorithm::QuadOmniChassis::vx_()']]],
+  ['vy_5f_1115',['vy_',['../classrm_1_1modules_1_1algorithm_1_1SteeringChassis.html#a588539808356ab3b04c6ee52540633e8',1,'rm::modules::algorithm::SteeringChassis::vy_()'],['../classrm_1_1modules_1_1algorithm_1_1QuadOmniChassis.html#a902ecece5f282af1160b1c9d7923a941',1,'rm::modules::algorithm::QuadOmniChassis::vy_()']]]
+];

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['pid_748',['PID',['../classirobot__ec_1_1modules_1_1algorithm_1_1PID.html#a0c984089680a65fe876cf3126fa52c48',1,'irobot_ec::modules::algorithm::PID']]],
-  ['pin_749',['Pin',['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#ac64baa67fd04c53db994793328a40cab',1,'irobot_ec::hal::stm32::Pin::Pin(GPIO_TypeDef &amp;port, u16 pin)'],['../classirobot__ec_1_1hal_1_1stm32_1_1Pin.html#a222990a0d95e4df1d44bce552a50612d',1,'irobot_ec::hal::stm32::Pin::Pin()=delete']]],
-  ['pos_750',['pos',['../classirobot__ec_1_1device_1_1DmMotor.html#a5c2dedc76d81f529ac69673b4a009184',1,'irobot_ec::device::DmMotor']]],
-  ['pos_5fdegree_751',['pos_degree',['../classirobot__ec_1_1device_1_1DjiMotor.html#a20ec9af724b54032c1e53aa4c24bb534',1,'irobot_ec::device::DjiMotor']]],
-  ['pos_5frad_752',['pos_rad',['../classirobot__ec_1_1device_1_1DjiMotor.html#a165d29e098501a43e20f2e777ea50771',1,'irobot_ec::device::DjiMotor']]]
+  ['quadomnichassis_790',['QuadOmniChassis',['../classrm_1_1modules_1_1algorithm_1_1QuadOmniChassis.html#adf51f2402645386270d95f3a8afa4593',1,'rm::modules::algorithm::QuadOmniChassis']]],
+  ['quaternion_791',['quaternion',['../classrm_1_1modules_1_1algorithm_1_1AhrsInterface.html#a6ff93b29da8565f017b3d9e4912a633b',1,'rm::modules::algorithm::AhrsInterface::quaternion()'],['../classrm_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a1c9d8ad9149caade5952ea3c8a05c805',1,'rm::modules::algorithm::MahonyAhrs::quaternion()']]],
+  ['quattoeuler_792',['QuatToEuler',['../namespacerm_1_1modules_1_1algorithm_1_1utils.html#a39dc299abde8cc3135bf5b74f4db4e28',1,'rm::modules::algorithm::utils']]]
 ];

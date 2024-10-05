@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['acc_5fconf_5ferror_1097',['ACC_CONF_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3a11b2b1c21fcc9ac3d0259a6583e8e1d0',1,'irobot_ec::device']]],
-  ['acc_5fpwr_5fconf_5ferror_1098',['ACC_PWR_CONF_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3a38d7efd6b0d2e15d94fe83bcfb307028',1,'irobot_ec::device']]],
-  ['acc_5fpwr_5fctrl_5ferror_1099',['ACC_PWR_CTRL_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3a77440f4fc5ed172e4de3a845ca5d6c81',1,'irobot_ec::device']]],
-  ['acc_5frange_5f12g_1100',['ACC_RANGE_12G',['../namespaceirobot__ec_1_1device.html#abf1c6a050d7b09b665c02d309e75c115a3db349985ff7dd6f759072e131afa838',1,'irobot_ec::device']]],
-  ['acc_5frange_5f24g_1101',['ACC_RANGE_24G',['../namespaceirobot__ec_1_1device.html#abf1c6a050d7b09b665c02d309e75c115affb963dec4b85197cfc60020ca1d84df',1,'irobot_ec::device']]],
-  ['acc_5frange_5f3g_1102',['ACC_RANGE_3G',['../namespaceirobot__ec_1_1device.html#abf1c6a050d7b09b665c02d309e75c115ad4c08800a9c5023eee15ea1299b199df',1,'irobot_ec::device']]],
-  ['acc_5frange_5f6g_1103',['ACC_RANGE_6G',['../namespaceirobot__ec_1_1device.html#abf1c6a050d7b09b665c02d309e75c115a10420b6db4793bac36bde62ecdeddba9',1,'irobot_ec::device']]],
-  ['acc_5frange_5ferror_1104',['ACC_RANGE_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3aca70c6508394b694402cccc30923858b',1,'irobot_ec::device']]],
-  ['acc_5fself_5ftest_5ferror_1105',['ACC_SELF_TEST_ERROR',['../namespaceirobot__ec_1_1device.html#a003fc1aad3d488d23c4d4ef72223caf3a70dae7e49fc7b064325e3ae1e4543737',1,'irobot_ec::device']]]
+  ['acc_5fconf_5ferror_1155',['ACC_CONF_ERROR',['../namespacerm_1_1device.html#a944433672605ce55b326757ce86f9cdfa11b2b1c21fcc9ac3d0259a6583e8e1d0',1,'rm::device']]],
+  ['acc_5fpwr_5fconf_5ferror_1156',['ACC_PWR_CONF_ERROR',['../namespacerm_1_1device.html#a944433672605ce55b326757ce86f9cdfa38d7efd6b0d2e15d94fe83bcfb307028',1,'rm::device']]],
+  ['acc_5fpwr_5fctrl_5ferror_1157',['ACC_PWR_CTRL_ERROR',['../namespacerm_1_1device.html#a944433672605ce55b326757ce86f9cdfa77440f4fc5ed172e4de3a845ca5d6c81',1,'rm::device']]],
+  ['acc_5frange_5f12g_1158',['ACC_RANGE_12G',['../namespacerm_1_1device.html#a801b856449ebaad3e80430e3f72d7039a3db349985ff7dd6f759072e131afa838',1,'rm::device']]],
+  ['acc_5frange_5f24g_1159',['ACC_RANGE_24G',['../namespacerm_1_1device.html#a801b856449ebaad3e80430e3f72d7039affb963dec4b85197cfc60020ca1d84df',1,'rm::device']]],
+  ['acc_5frange_5f3g_1160',['ACC_RANGE_3G',['../namespacerm_1_1device.html#a801b856449ebaad3e80430e3f72d7039ad4c08800a9c5023eee15ea1299b199df',1,'rm::device']]],
+  ['acc_5frange_5f6g_1161',['ACC_RANGE_6G',['../namespacerm_1_1device.html#a801b856449ebaad3e80430e3f72d7039a10420b6db4793bac36bde62ecdeddba9',1,'rm::device']]],
+  ['acc_5frange_5ferror_1162',['ACC_RANGE_ERROR',['../namespacerm_1_1device.html#a944433672605ce55b326757ce86f9cdfaca70c6508394b694402cccc30923858b',1,'rm::device']]],
+  ['acc_5fself_5ftest_5ferror_1163',['ACC_SELF_TEST_ERROR',['../namespacerm_1_1device.html#a944433672605ce55b326757ce86f9cdfa70dae7e49fc7b064325e3ae1e4543737',1,'rm::device']]]
 ];
