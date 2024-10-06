@@ -8,38 +8,19 @@
 
 #include <array>
 
+
 #include "irobotec/core/typedefs.h"
 #include "irobotec/modules/algorithm/ahrs/ahrs_interface.h"
 
 #include "kalman/LinearizedSystemModel.hpp"
+#include "kalman/LinearizedMeasurementModel.hpp"
+#include "kalman/ExtendedKalmanFilter.hpp"
 
 namespace irobotec::modules::algorithm {
 
-class EkfAhrs : public AhrsInterface {
+class State : public Kalman::Vector<f32, 6> {
  public:
-  explicit EkfAhrs(f32 sample_freq = 1000.0f);
-  ~EkfAhrs() override = default;
-
-  void Update(const ImuData9Dof &data) override;
-  void Update(const ImuData6Dof &data) override;
-  [[nodiscard]] const EulerAngle &euler_angle() const override;
-  [[nodiscard]] const Quaternion &quaternion() const override;
-
- private:
-  f32 q0_, q1_, q2_, q3_;
-  Quaternion quaternion_;
-  EulerAngle euler_ypr_;
-  f32 sample_freq_;
-};
-
-/**
- * @brief EKF状态向量
- * @tparam T 数据类型
- */
-template <typename T>
-class State : public Kalman::Vector<T, 6> {
- public:
-  KALMAN_VECTOR(State, T, 6)
+  KALMAN_VECTOR(State, f32, 6)
 
   //! Q0
   static constexpr size_t Q0 = 0;
@@ -54,53 +35,58 @@ class State : public Kalman::Vector<T, 6> {
   //! WY_BIAS
   static constexpr size_t WY_BIAS = 5;
 
-  T q0() const { return (*this)[Q0]; }
-  T q1() const { return (*this)[Q1]; }
-  T q2() const { return (*this)[Q2]; }
-  T q3() const { return (*this)[Q3]; }
-  T wx_bias() const { return (*this)[WX_BIAS]; }
-  T wy_bias() const { return (*this)[WY_BIAS]; }
+  f32 q0() const { return (*this)[Q0]; }
+  f32 q1() const { return (*this)[Q1]; }
+  f32 q2() const { return (*this)[Q2]; }
+  f32 q3() const { return (*this)[Q3]; }
+  f32 wx_bias() const { return (*this)[WX_BIAS]; }
+  f32 wy_bias() const { return (*this)[WY_BIAS]; }
 
-  T &q0() { return (*this)[Q0]; }
-  T &q1() { return (*this)[Q1]; }
-  T &q2() { return (*this)[Q2]; }
-  T &q3() { return (*this)[Q3]; }
-  T &wx_bias() { return (*this)[WX_BIAS]; }
-  T &wy_bias() { return (*this)[WY_BIAS]; }
+  f32 &q0() { return (*this)[Q0]; }
+  f32 &q1() { return (*this)[Q1]; }
+  f32 &q2() { return (*this)[Q2]; }
+  f32 &q3() { return (*this)[Q3]; }
+  f32 &wx_bias() { return (*this)[WX_BIAS]; }
+  f32 &wy_bias() { return (*this)[WY_BIAS]; }
 };
 
-/**
- * @brief EKF控制向量
- *
- * 该EKF无控制向量
- *
- * @tparam T 数据类型
- */
-template <typename T>
-class Control : public Kalman::Vector<T, 1> {
+class Control : public Kalman::Vector<f32, 1> {
  public:
-  KALMAN_VECTOR(Control, T, 1)
+  KALMAN_VECTOR(Control, f32, 1)
 };
 
-template <typename T, template <class> class CovarianceBase = Kalman::StandardBase>
-class SystemModel : public Kalman::LinearizedSystemModel<State<T>, Control<T>, CovarianceBase> {
+template <template <class> class CovarianceBase = Kalman::StandardBase>
+class SystemModel : public Kalman::LinearizedSystemModel<State, Control, CovarianceBase> {
  public:
   //! 状态向量简写
-  typedef irobotec::modules::algorithm::State<T> S;
+  typedef irobotec::modules::algorithm::State S;
   //! 控制向量简写
-  typedef irobotec::modules::algorithm::Control<T> C;
+  typedef irobotec::modules::algorithm::Control C;
 
   /**
    * @brief 构造函数
    *
-   * 将采样频率和陀螺仪数据传进来，供预测更新使用
+   * 将采样频率传进来，供预测更新使用
    *
    * @param sample_freq 采样频率
-   * @param gx 陀螺仪X轴数据
-   * @param gy 陀螺仪Y轴数据
-   * @param gz 陀螺仪Z轴数据
+   *
    */
-  SystemModel(const f32 sample_freq, T gx, T gy, T gz) : sample_freq_(sample_freq), gx_(gx), gy_(gy), gz_(gz) {}
+  explicit SystemModel(const f32 sample_freq = 1000.0f) : sample_freq_(sample_freq) {}
+
+  /**
+   * @brief 获取陀螺仪数据
+   *
+   * 该函数用于获取陀螺仪数据
+   *
+   * @param gx 陀螺仪x轴数据
+   * @param gy 陀螺仪y轴数据
+   * @param gz 陀螺仪z轴数据
+   */
+  void GetGyro(f32 gx, f32 gy, f32 gz) {
+    gx_ = gx;
+    gy_ = gy;
+    gz_ = gz;
+  }
 
   /**
    * @brief 预测更新
@@ -111,25 +97,30 @@ class SystemModel : public Kalman::LinearizedSystemModel<State<T>, Control<T>, C
    * @param u 控制向量
    * @returns 预测更新后的状态向量
    */
-  S f(const S &x, const C &u) const override {
+  S f(const S &x, const C &u) const {
     //! 预测更新状态向量
     S x_;
 
     // 中间量
     f32 dt = 1.0f / sample_freq_;
-    T gx_real = gx_ - x.wx_bias();
-    T gy_real = gy_ - x.wy_bias();
-    T gz_real = gz_;  // 大部分时间机体z轴通天，无法用加速度计校准
+    f32 gx_real = gx_ - x.wx_bias();
+    f32 gy_real = gy_ - x.wy_bias();
+    f32 gz_real = gz_;  // 大部分时间机体z轴通天，无法用加速度计校准
 
+    f32 q0_last = x.q0();
+    f32 q1_last = x.q1();
+    f32 q2_last = x.q2();
+    f32 q3_last = x.q3();
+ 
     // 四元数预测更新
     // -  0 -gx -gy -gz  -     -  q0  -
     // |  gx  0  gz -gy  |  *  |  q1  |  *  0.5 * dt
     // |  gy -gz  0  gx  |     |  q2  |
     // -  gz  gy -gx  0  -     -  q3  -
-    x_.q0() += (-x.q1() * gx_real - x.q2() * gy_real - x.q3() * gz_real) * dt * 0.5f;
-    x_.q1() += (x.q0() * gx_real + x.q2() * gz_real - x.q3() * gy_real) * dt * 0.5f;
-    x_.q2() += (x.q0() * gy_real - x.q1() * gz_real + x.q3() * gx_real) * dt * 0.5f;
-    x_.q3() += (x.q0() * gz_real + x.q1() * gy_real - x.q2() * gx_real) * dt * 0.5f;
+    x_.q0() = q0_last + (-q1_last * gx_real - q2_last * gy_real - q3_last * gz_real) * dt * 0.5f;
+    x_.q1() = q1_last + (q0_last * gx_real + q2_last * gz_real - q3_last * gy_real) * dt * 0.5f;
+    x_.q2() = q2_last + (q0_last * gy_real - q1_last * gz_real + q3_last * gx_real) * dt * 0.5f;
+    x_.q3() = q3_last + (q0_last * gz_real + q1_last * gy_real - q2_last * gx_real) * dt * 0.5f;
 
     // 陀螺仪x，y轴误差预测更新
     x_.wx_bias() = x.wx_bias();
@@ -147,38 +138,124 @@ class SystemModel : public Kalman::LinearizedSystemModel<State<T>, Control<T>, C
    * @param x 状态向量
    * @param u 控制向量
    */
-  void updateJacobians(const S &x, const C &u) override {
+  void updateJacobians(const S &x, const C &u) {
     // 中间量
     f32 dt = 1.0f / sample_freq_;
-    T gx_real = gx_ - x.wx_bias();
-    T gy_real = gy_ - x.wy_bias();
-    T gz_real = gz_;  // 大部分时间机体z轴通天，无法用加速度计校准
+    f32 gx_real = gx_ - x.wx_bias();
+    f32 gy_real = gy_ - x.wy_bias();
+    f32 gz_real = gz_;  // 大部分时间机体z轴通天，无法用加速度计校准
+
+    f32 q0_last = x.q0();
+    f32 q1_last = x.q1();
+    f32 q2_last = x.q2();
+    f32 q3_last = x.q3();
 
     // F = df/dx
     this->F.setIdentity();  // 现在 F = I
 
-    Kalman::Matrix<T, 4, 4> Fq;
+    Kalman::Matrix<f32, 4, 4> Fq;
     Fq << 0, -gx_real, -gy_real, -gz_real,  //
         gx_real, 0, gz_real, -gy_real,      //
         gy_real, -gz_real, 0, gx_real,      //
         gz_real, gy_real, -gx_real, 0;      //
     this->F.template block<4, 4>(S::Q0, S::Q0) += Fq * dt * 0.5f;
 
-    Kalman::Matrix<T, 4, 2> Fw;
-    Fw << x.q1, x.q2,  //
-        -x.q0, x.q3,   //
-        -x.q3, -x.q0,  //
-        x.q2, -x.q1;   //
+    Kalman::Matrix<f32, 4, 2> Fw;
+    Fw << q1_last, q2_last,  //
+        -q0_last, q3_last,   //
+        -q3_last, -q0_last,  //
+        q2_last, -q1_last;   //
     this->F.template block<4, 2>(S::Q0, S::WX_BIAS) += Fw * dt * 0.5f;
 
     // W = df/dw
-    this->W.setIdentity();
-  }
+    this->W.setIdentity();  // TODO: 过程模型噪声协方差矩阵
 
+
+  }
 
  private:
   f32 sample_freq_;
-  T gx_, gy_, gz_;
+  f32 gx_, gy_, gz_;
+};
+
+class accelMeasurement : public Kalman::Vector<f32, 3> {
+ public:
+  KALMAN_VECTOR(accelMeasurement, f32, 3)
+
+  //! 加速度计x轴数据
+  static constexpr size_t AX = 0;
+  //! 加速度计y轴数据
+  static constexpr size_t AY = 1;
+  //! 加速度计z轴数据
+  static constexpr size_t AZ = 2;
+
+  f32 ax() const { return (*this)[AX]; }
+  f32 ay() const { return (*this)[AY]; }
+  f32 az() const { return (*this)[AZ]; }
+
+  f32 &ax() { return (*this)[AX]; }
+  f32 &ay() { return (*this)[AY]; }
+  f32 &az() { return (*this)[AZ]; }
+};
+
+template <template <class> class CovarianceBase = Kalman::StandardBase>
+class accelMeasurementModel : public Kalman::LinearizedMeasurementModel<State, accelMeasurement, CovarianceBase> {
+ public:
+  //! 状态向量简写
+  typedef irobotec::modules::algorithm::State S;
+  //! 测量向量简写
+  typedef irobotec::modules::algorithm::accelMeasurement M;
+
+  // 构造函数
+  accelMeasurementModel() {
+    this->H.setIdentity();
+    this->V.setIdentity();
+  }
+
+  M h(const S &x) const  {
+    M measurement;
+
+    measurement << 2 * (x.q1() * x.q3() - x.q0() * x.q2()),  //
+        2 * (x.q2() * x.q3() + x.q0() * x.q1()),             //
+        1 - 2 * (x.q1() * x.q1() + x.q2() * x.q2());         //
+
+    return measurement;
+  }
+
+ protected:
+  void updateJacobians(const S &x) {
+    this->H.setZero();
+
+    this->H.template block<3, 4>(M::AX, S::Q0) << -2 * x.q2(), 2 * x.q3(), -2 * x.q0(), 2 * x.q1(),  //
+        2 * x.q1(), 2 * x.q0(), 2 * x.q3(), 2 * x.q2(),                                              //
+        2 * x.q0(), -2 * x.q1(), -2 * x.q2(), 2 * x.q3();                                            //
+
+    this->V.setIdentity();
+  }
+};
+
+class EkfAhrs : public AhrsInterface {
+ public:
+  explicit EkfAhrs(f32 sample_freq);
+  ~EkfAhrs() override = default;
+
+  void Update(const ImuData9Dof &data) override;
+  void Update(const ImuData6Dof &data) override;
+  [[nodiscard]] const EulerAngle &euler_angle() const override;
+  [[nodiscard]] const Quaternion &quaternion() const override;
+
+ private:
+  f32 sample_freq_;
+  f32 q0_, q1_, q2_, q3_;
+  Quaternion quaternion_;
+  EulerAngle euler_ypr_;
+
+  State x_;
+  Control u_;
+  SystemModel<> sys_;
+  accelMeasurement am_;
+  accelMeasurementModel<> amm_;
+  Kalman::ExtendedKalmanFilter<State> ekf_;
 };
 
 }  // namespace irobotec::modules::algorithm

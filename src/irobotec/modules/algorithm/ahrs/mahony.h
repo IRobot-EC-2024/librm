@@ -33,6 +33,8 @@
 #include "irobotec/core/typedefs.h"
 #include "irobotec/modules/algorithm/ahrs/ahrs_interface.h"
 
+#include <Eigen/Dense>
+
 namespace irobotec::modules::algorithm {
 
 class MahonyAhrs : public AhrsInterface {
