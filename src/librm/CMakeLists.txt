@@ -20,23 +20,23 @@
 # SOFTWARE.
 
 cmake_minimum_required(VERSION 3.13)
-project(rm C CXX)
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/check_cpp_std.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_LIST_DIR}/core/*.cc"
+        "${CMAKE_CURRENT_LIST_DIR}/device/*.cc"
+        "${CMAKE_CURRENT_LIST_DIR}/modules/*.cc")
 
-# add third party libraries
-add_subdirectory(libs)
-# main target
-add_subdirectory(src)
-# link third party libraries
-target_link_libraries(${PROJECT_NAME} PUBLIC third_party)
-
-if (${LIBRM_PLATFORM} STREQUAL "STM32")
-    target_link_libraries(${PROJECT_NAME} PRIVATE stm32cubemx)
+if ("${LIBRM_PLATFORM}" STREQUAL "STM32")
+    file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/stm32/*.cc")
+elseif (${LIBRM_PLATFORM} STREQUAL "LINUX")
+    if (${LIBRM_PLATFORM_LINUX_TYPE} STREQUAL "JETSON")
+        file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/linux/*.cc"
+                "${CMAKE_CURRENT_LIST_DIR}/hal/jetson/*.cc")
+    elseif (${LIBRM_PLATFORM_LINUX_TYPE} STREQUAL "RASPI")
+        file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/linux/*.cc"
+                "${CMAKE_CURRENT_LIST_DIR}/hal/raspi/*.cc")
+    else ()
+        file(GLOB_RECURSE PLATFORM_SOURCES "${CMAKE_CURRENT_LIST_DIR}/hal/linux/*.cc")
+    endif ()
 endif ()
 
-target_compile_definitions(${PROJECT_NAME} PUBLIC -DLIBRM_PLATFORM_${LIBRM_PLATFORM})
-if (DEFINED LIBRM_PLATFORM_LINUX_TYPE)
-    target_compile_definitions(${PROJECT_NAME} PUBLIC -DLIBRM_PLATFORM_LINUX_${LIBRM_PLATFORM_LINUX_TYPE})
-endif ()
+add_library(${PROJECT_NAME} STATIC ${SOURCES} ${PLATFORM_SOURCES})

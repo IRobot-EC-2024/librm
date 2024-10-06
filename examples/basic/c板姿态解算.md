@@ -6,10 +6,7 @@
 
 ## 步骤
 
-1. 引入相关头文件
-    - `device/sensor/bmi088/bmi088.h`：BMI088传感器封装
-    - `device/sensor/ist8310/ist8310.h`：IST8310传感器封装
-    - `modules/algorithm/mahony_ahrs.h`：Mahony姿态解算算法
+1. 引入框架头文件
 2. 调用传感器的`Update`函数更新传感器数据
 3. 调用Mahony姿态解算器的`Update`函数更新姿态数据
 4. 获取姿态数据
@@ -22,13 +19,11 @@
 #include "i2c.h"
 #include "spi.h"
 
-#include "device/sensor/bmi088/bmi088.h"
-#include "device/sensor/ist8310/ist8310.h"
-#include "modules/algorithm/mahony_ahrs.h"
+#include "librm.hpp"
 
-using irobot_ec::device::sensor::BMI088;
-using irobot_ec::device::sensor::IST8310;
-using irobot_ec::modules::algorithm::MahonyAhrs;
+using rm::device::sensor::BMI088;
+using rm::device::sensor::IST8310;
+using rm::modules::algorithm::MahonyAhrs;
 
 // 注意！！：不要在全局作用域中创建传感器对象，因为这样会导致对象的构造函数在main函数之前调用，而HAL库此时还未初始化
 // 如果需要全局访问，可以将对象指针声明为全局变量，然后在任务函数中new一个对象绑定到指针上
