@@ -76,9 +76,9 @@ constexpr u16 CRC16_TABLE[256] = {
  * @param[in]      uc_crc8  init value
  * @returns        crc8
  */
-u8 Crc8(const unsigned char *input, unsigned int len, unsigned char uc_crc8) {
+u8 Crc8(const u8 *input, unsigned int len, u8 uc_crc8) {
   while (len--) {
-    const unsigned char uc_index = uc_crc8 ^ *input++;
+    const u8 uc_index = uc_crc8 ^ *input++;
     uc_crc8 = CRC8_TABLE[uc_index];
   }
   return uc_crc8;
@@ -90,8 +90,8 @@ u8 Crc8(const unsigned char *input, unsigned int len, unsigned char uc_crc8) {
  * @param[in]      uc_crc8  init value
  * @returns        crc8
  */
-u8 Crc8(const std::string_view input, unsigned char uc_crc8) {
-  return Crc8(reinterpret_cast<const unsigned char *>(input.data()), input.size(), uc_crc8);
+u8 Crc8(const std::string_view input, u8 uc_crc8) {
+  return Crc8(reinterpret_cast<const u8 *>(input.data()), input.size(), uc_crc8);
 }
 
 /**
@@ -100,8 +100,8 @@ u8 Crc8(const std::string_view input, unsigned char uc_crc8) {
  * @param[in]      uc_crc8  init value
  * @returns        crc8
  */
-u8 Crc8(const std::string &input, unsigned char uc_crc8) {
-  return Crc8(reinterpret_cast<const unsigned char *>(input.data()), input.size(), uc_crc8);
+u8 Crc8(const std::string &input, u8 uc_crc8) {
+  return Crc8(reinterpret_cast<const u8 *>(input.data()), input.size(), uc_crc8);
 }
 
 /**
@@ -109,8 +109,8 @@ u8 Crc8(const std::string &input, unsigned char uc_crc8) {
  * @param[in]      input  data
  * @param[in]      len    stream length = data + checksum
  */
-void AppendCrc8(unsigned char *input, unsigned int len) {
-  unsigned char uc_crc = 0;
+void AppendCrc8(u8 *input, unsigned int len) {
+  u8 uc_crc = 0;
   if (input == nullptr || len <= 2) {
     return;
   }

@@ -32,9 +32,8 @@
 
 namespace rm::modules::algorithm {
 
-template <typename T>  // T是f32，这里用SFINAE避免构造函数和下面的ImuData9Dof冲突
 struct ImuData6Dof {
-  ImuData6Dof(std::initializer_list<T> il) {
+  ImuData6Dof(std::initializer_list<f32> il) {
     auto it = il.begin();
     gx = *it++;
     gy = *it++;
@@ -51,9 +50,8 @@ struct ImuData6Dof {
   f32 az;
 };
 
-template <typename T>
 struct ImuData9Dof {
-  ImuData9Dof(std::initializer_list<T> il) {
+  ImuData9Dof(std::initializer_list<f32> il) {
     auto it = il.begin();
     gx = *it++;
     gy = *it++;
@@ -97,13 +95,13 @@ class AhrsInterface {
    * @brief 更新AHRS数据
    * @param data 6轴IMU数据
    */
-  virtual void Update(const ImuData6Dof<f32> &data) = 0;
+  virtual void Update(const ImuData6Dof &data) = 0;
 
   /**
    * @brief 更新AHRS数据
    * @param data 9轴IMU+磁力计数据
    */
-  virtual void Update(const ImuData9Dof<f32> &data) = 0;
+  virtual void Update(const ImuData9Dof &data) = 0;
 
   /**
    * @return 姿态欧拉角
