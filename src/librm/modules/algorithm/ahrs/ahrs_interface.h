@@ -32,7 +32,17 @@
 
 namespace rm::modules::algorithm {
 
+template <typename T>
 struct ImuData6Dof {
+  ImuData6Dof(std::initializer_list<T> il) {
+    auto it = il.begin();
+    gx = *it++;
+    gy = *it++;
+    gz = *it++;
+    ax = *it++;
+    ay = *it++;
+    az = *it;
+  }
   f32 gx;
   f32 gy;
   f32 gz;
@@ -41,7 +51,20 @@ struct ImuData6Dof {
   f32 az;
 };
 
+template <typename T>
 struct ImuData9Dof {
+  ImuData9Dof(std::initializer_list<T> il) {
+    auto it = il.begin();
+    gx = *it++;
+    gy = *it++;
+    gz = *it++;
+    ax = *it++;
+    ay = *it++;
+    az = *it++;
+    mx = *it++;
+    my = *it++;
+    mz = *it;
+  }
   f32 gx;
   f32 gy;
   f32 gz;
