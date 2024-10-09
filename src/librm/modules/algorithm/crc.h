@@ -37,15 +37,15 @@ namespace rm::modules::algorithm {
 constexpr u8 CRC8_INIT = 0xff;
 constexpr u16 CRC16_INIT = 0xffff;
 
-u8 Crc8(unsigned char *input, unsigned int len, unsigned char uc_crc8);
+u8 Crc8(const u8 *input, unsigned int len, u8 uc_crc8);
 
-u8 Crc8(std::string_view input, unsigned char uc_crc8);
+u8 Crc8(std::string_view input, u8 uc_crc8);
 
-u8 Crc8(const std::string &input, unsigned char uc_crc8);
+u8 Crc8(const std::string &input, u8 uc_crc8);
 
-void AppendCrc8(unsigned char *input, unsigned int len);
+void AppendCrc8(u8 *input, unsigned int len);
 
-u16 Crc16(u8 *input, uint32_t len, u16 w_crc);
+u16 Crc16(const u8 *input, uint32_t len, u16 w_crc);
 
 u16 Crc16(std::string_view input, u16 w_crc);
 
