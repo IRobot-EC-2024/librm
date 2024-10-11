@@ -35,8 +35,8 @@ jobs:
 
       - name: Build
         run: |
-          cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -Bstm32cube_template/stm32f407ighx/build -G "Unix Makefiles" stm32cube_template/stm32f407ighx/build
-          cmake --build stm32cube_template/stm32f407ighx/build --target all
+          cmake stm32cube_template/stm32f407ighx -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Bstm32cube_template/stm32f407ighx/build -G "Unix Makefiles"
+          cmake --build stm32cube_template/stm32f407ighx/build
 
   build_STM32H723VGTx:
     runs-on: ubuntu-latest
@@ -67,8 +67,8 @@ jobs:
 
       - name: Build
         run: |
-          cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -Bstm32cube_template/stm32h723vgtx/build -G "Unix Makefiles" stm32cube_template/stm32h723vgtx/build
-          cmake --build stm32cube_template/stm32h723vgtx/build --target all
+          cmake stm32cube_template/stm32h723vgtx -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Bstm32cube_template/stm32h723vgtx/build -G "Unix Makefiles"
+          cmake --build stm32cube_template/stm32h723vgtx/build
 
   build_general_linux:
     runs-on: ubuntu-latest
