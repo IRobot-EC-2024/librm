@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
-        uses: carlosperate/arm-none-eabi-gcc-action@v1.8.1
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,25 +25,24 @@ jobs:
           submodules: 'recursive'
           repository: IRobot-EC-2024/stm32cube_template
 
-      - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/librm ${{github.workspace}}/stm32cube_template/stm32f407ighx
+      - name: Move source to template project
+        run: mv librm stm32cube_template/stm32f407ighx
 
       - name: Add library target/link library
         run: |
-          sed -i '42 a add_subdirectory(librm)' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
-          sed -i '66 a rm' ${{github.workspace}}/stm32cube_template/stm32f407ighx/CMakeLists.txt
-
-      - name: Configure CMake
-        run: cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=arm-none-eabi-g++ -S${{github.workspace}}/stm32cube_template/stm32f407ighx -B${{github.workspace}}/stm32cube_template/stm32f407ighx/build -G "Unix Makefiles"
+          sed -i '42 a add_subdirectory(librm)' stm32cube_template/stm32f407ighx/CMakeLists.txt
+          sed -i '66 a rm' stm32cube_template/stm32f407ighx/CMakeLists.txt
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/stm32cube_template/stm32f407ighx/build --target all
+        run: |
+          cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -Bstm32cube_template/stm32f407ighx/build -G "Unix Makefiles" stm32cube_template/stm32f407ighx/build
+          cmake --build stm32cube_template/stm32f407ighx/build --target all
 
   build_STM32H723VGTx:
     runs-on: ubuntu-latest
     steps:
       - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
-        uses: carlosperate/arm-none-eabi-gcc-action@v1.8.1
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -58,19 +57,18 @@ jobs:
           submodules: 'recursive'
           repository: IRobot-EC-2024/stm32cube_template
 
-      - name: Copy source files to template project
-        run: cp -r ${{github.workspace}}/librm ${{github.workspace}}/stm32cube_template/stm32h723vgtx
+      - name: Move source to template project
+        run: mv librm stm32cube_template/stm32h723vgtx
 
       - name: Add library target/link library
         run: |
-          sed -i '42 a add_subdirectory(librm)' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
-          sed -i '66 a rm' ${{github.workspace}}/stm32cube_template/stm32h723vgtx/CMakeLists.txt
-
-      - name: Configure CMake
-        run: cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=arm-none-eabi-g++ -S${{github.workspace}}/stm32cube_template/stm32h723vgtx -B${{github.workspace}}/stm32cube_template/stm32h723vgtx/build -G "Unix Makefiles"
+          sed -i '42 a add_subdirectory(librm)' stm32cube_template/stm32h723vgtx/CMakeLists.txt
+          sed -i '66 a rm' stm32cube_template/stm32h723vgtx/CMakeLists.txt
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/stm32cube_template/stm32h723vgtx/build --target all
+        run: |
+          cmake -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE -Bstm32cube_template/stm32h723vgtx/build -G "Unix Makefiles" stm32cube_template/stm32h723vgtx/build
+          cmake --build stm32cube_template/stm32h723vgtx/build --target all
 
   build_general_linux:
     runs-on: ubuntu-latest
