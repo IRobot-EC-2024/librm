@@ -25,10 +25,10 @@ project(rm C CXX)
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/check_cpp_std.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/detect_platform.cmake)
 
-# add third party libraries
-add_subdirectory(libs)
 # main target
 add_subdirectory(src)
+# add third party libraries
+add_subdirectory(libs)
 # link third party libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC third_party)
 
