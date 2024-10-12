@@ -61,7 +61,7 @@ void EkfAhrs::Update(const rm::modules::algorithm::ImuData6Dof &data) {
 
   am_ = amm_.h(x_);
 
-  am_.ax() = data.ax; 
+  am_.ax() = data.ax;
   am_.ay() = data.ay;
   am_.az() = data.az;
 

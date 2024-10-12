@@ -8,7 +8,6 @@
 
 #include <array>
 
-
 #include "librm/core/typedefs.h"
 #include "librm/modules/algorithm/ahrs/ahrs_interface.h"
 
@@ -111,7 +110,7 @@ class SystemModel : public Kalman::LinearizedSystemModel<State, Control, Covaria
     f32 q1_last = x.q1();
     f32 q2_last = x.q2();
     f32 q3_last = x.q3();
- 
+
     // 四元数预测更新
     // -  0 -gx -gy -gz  -     -  q0  -
     // |  gx  0  gz -gy  |  *  |  q1  |  *  0.5 * dt
@@ -169,8 +168,6 @@ class SystemModel : public Kalman::LinearizedSystemModel<State, Control, Covaria
 
     // W = df/dw
     this->W.setIdentity();  // TODO: 过程模型噪声协方差矩阵
-
-
   }
 
  private:
@@ -212,7 +209,7 @@ class accelMeasurementModel : public Kalman::LinearizedMeasurementModel<State, a
     this->V.setIdentity();
   }
 
-  M h(const S &x) const  {
+  M h(const S &x) const {
     M measurement;
 
     measurement << 2 * (x.q1() * x.q3() - x.q0() * x.q2()),  //
