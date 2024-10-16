@@ -35,7 +35,7 @@
 #include "librm/core/time.hpp"
 /****************/
 
-/******** HAL WRAPPER ********/
+/******** HAL ********/
 #include "librm/hal/can.h"
 #include "librm/hal/gpio.h"
 #include "librm/hal/serial.h"
@@ -47,7 +47,6 @@
 #include "librm/device/can_device.hpp"
 #include "librm/device/actuator/dji_motor.hpp"
 #include "librm/device/actuator/dm_motor.hpp"
-#include "librm/device/actuator/unitree_motor.h"
 #include "librm/device/remote/dr16.h"
 #include "librm/device/sensor/bmi088.h"
 #include "librm/device/sensor/ist8310.h"
@@ -56,6 +55,7 @@
 
 /******** MISC MODULES ********/
 #include "librm/modules/algorithm/ahrs/mahony.h"
+#include "librm/modules/algorithm/ahrs/ekf.h"
 #include "librm/modules/algorithm/chassis_fkik.h"
 #include "librm/modules/algorithm/crc.h"
 #include "librm/modules/algorithm/pid.h"

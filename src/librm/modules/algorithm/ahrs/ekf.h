@@ -1,12 +1,32 @@
+/*
+  Copyright (c) 2024 XDU-IRobot
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+*/
+
 /**
- * @file  modules/algorithm/ekf.h
+ * @file  librm/modules/algorithm/ahrs/ekf.h
  * @brief EKF姿态解算算法
  */
 
 #ifndef LIBRM_MODULES_ALGORITHM_EKF_H
 #define LIBRM_MODULES_ALGORITHM_EKF_H
-
-#include <array>
 
 #include "librm/core/typedefs.h"
 #include "librm/modules/algorithm/ahrs/ahrs_interface.h"
@@ -58,9 +78,9 @@ template <template <class> class CovarianceBase = Kalman::StandardBase>
 class SystemModel : public Kalman::LinearizedSystemModel<State, Control, CovarianceBase> {
  public:
   //! 状态向量简写
-  typedef rm::modules::algorithm::State S;
+  using S = rm::modules::algorithm::State;
   //! 控制向量简写
-  typedef rm::modules::algorithm::Control C;
+  using C = rm::modules::algorithm::Control;
 
   /**
    * @brief 构造函数
@@ -199,9 +219,9 @@ template <template <class> class CovarianceBase = Kalman::StandardBase>
 class accelMeasurementModel : public Kalman::LinearizedMeasurementModel<State, accelMeasurement, CovarianceBase> {
  public:
   //! 状态向量简写
-  typedef rm::modules::algorithm::State S;
+  using S = rm::modules::algorithm::State;
   //! 测量向量简写
-  typedef rm::modules::algorithm::accelMeasurement M;
+  using M = rm::modules::algorithm::accelMeasurement;
 
   // 构造函数
   accelMeasurementModel() {
