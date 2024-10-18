@@ -35,6 +35,7 @@ jobs:
 
       - run: sudo apt install -y tree
       - run: tree ${{ github.workspace }}
+      - run: cat ${{ github.workspace }}/stm32cube_template/stm32f407ighx/STM32F407IGHx_FLASH.ld
 
       - name: Build
         run: |
