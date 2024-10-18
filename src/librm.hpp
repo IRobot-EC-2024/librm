@@ -29,6 +29,7 @@
 #define LIBRM_HPP
 
 /******** CORE ********/
+#include "librm/core/cmsis_rtos.h"
 #include "librm/core/thread_pool.hpp"
 #include "librm/core/typedefs.h"
 #include "librm/core/exception.h"

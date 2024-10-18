@@ -21,17 +21,20 @@
 */
 
 /**
- * @file  librm/core/freertos.h
- * @brief 检测FreeRTOS是否可用
+ * @file  librm/core/cmsis_rtos.h
+ * @brief 检测环境里有没有 CMSIS-RTOS
  */
 
-#ifndef LIBRM_CORE_FREERTOS_H
-#define LIBRM_CORE_FREERTOS_H
+#ifndef LIBRM_CORE_CMSIS_RTOS_H
+#define LIBRM_CORE_CMSIS_RTOS_H
 
 #if defined(__GNUC__) || defined(__clang__)
 #if __has_include("cmsis_os.h")
-#define LIBRM_USE_FREERTOS
+#define LIBRM_USE_CMSIS_RTOS
 #include "cmsis_os.h"
+#elif __has_include("cmsis_os2.h")
+#define LIBRM_USE_CMSIS_RTOS
+#include "cmsis_os2.h"
 #endif
 #else
 #error "Unsupported compiler, please use GCC or Clang."
