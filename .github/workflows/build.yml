@@ -33,6 +33,9 @@ jobs:
           sed -i '42 a add_subdirectory(librm)' stm32cube_template/stm32f407ighx/CMakeLists.txt
           sed -i '66 a rm' stm32cube_template/stm32f407ighx/CMakeLists.txt
 
+      - run: apt install -y tree
+      - run: tree ${{ github.workspace }}
+
       - name: Build
         run: |
           cmake stm32cube_template/stm32f407ighx -DCMAKE_BUILD_TYPE=$BUILD_TYPE -Bstm32cube_template/stm32f407ighx/build -G "Unix Makefiles"
