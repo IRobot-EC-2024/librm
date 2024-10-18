@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>librm: src/librm/device/actuator/unitree_motor.h 文件参考</title>
+<title>librm: src/librm/modules/algorithm/ahrs/ekf.cc 文件参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('unitree__motor_8h.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('ekf_8cc.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -82,58 +82,35 @@ $(document).ready(function(){initNavTree('unitree__motor_8h.html',''); initResiz
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a> &#124;
-<a href="#namespaces">命名空间</a> &#124;
-<a href="#enum-members">枚举</a>  </div>
+<a href="#namespaces">命名空间</a>  </div>
   <div class="headertitle">
-<div class="title">unitree_motor.h 文件参考</div>  </div>
+<div class="title">ekf.cc 文件参考</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>宇树电机类库  
+<p>EKF姿态解算算法  
 <a href="#details">更多...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="serial_8h_source.html">librm/hal/serial.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="typedefs_8h_source.html">librm/core/typedefs.h</a>&quot;</code><br />
-</div>
-<p><a href="unitree__motor_8h_source.html">浏览源代码.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrm_1_1device_1_1UnitreeMotorBase.html">rm::device::UnitreeMotorBase</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
+<div class="textblock"><code>#include &quot;<a class="el" href="ekf_8h_source.html">ekf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ahrs__interface_8h_source.html">librm/modules/algorithm/ahrs/ahrs_interface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8hpp_source.html">librm/modules/algorithm/utils.hpp</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:namespacerm"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm.html">rm</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacerm_1_1device"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm_1_1device.html">rm::device</a></td></tr>
+<tr class="memitem:namespacerm_1_1modules"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm_1_1modules.html">rm::modules</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-枚举</h2></td></tr>
-<tr class="memitem:a39f62c38b1a52e3786e92f7d1dbee7b0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0">rm::device::UnitreeMotorMode</a> { <br />
-&#160;&#160;<a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a9c253536865dcc46ddfd45e0e5198b34">rm::device::kLock</a> = 0x00
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7ba01a0350112e55c8b49fa969c1522c">rm::device::kFOC</a> = 0x01
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a356b1c6cfbb35fd447187343d626c2b8">rm::device::kCalibration</a> = 0x02
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7df7b177c448e0198264dc64974bea94">rm::device::kReserved1</a> = 0x03
-, <br />
-&#160;&#160;<a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ae63c0c4600bc07f48d795951385bb785">rm::device::kReserved2</a> = 0x04
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ad01df7ee71fb30753be759dbfb8786fc">rm::device::kReserved3</a> = 0x05
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7054d7e4b2dd68f34d7c57d8b8338809">rm::device::kReserved4</a> = 0x06
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ad40ba9d6b49481a011bd099baf4a4ac0">rm::device::kReserved5</a> = 0x07
-<br />
- }</td></tr>
-<tr class="separator:a39f62c38b1a52e3786e92f7d1dbee7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacerm_1_1modules_1_1algorithm"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm_1_1modules_1_1algorithm.html">rm::modules::algorithm</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>宇树电机类库 </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">待办事项:</a></b></dt><dd>未完成 </dd></dl>
+<div class="textblock"><p>EKF姿态解算算法 </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_88bd29c3a8086e73f60b54e5300eb9e2.html">librm</a></li><li class="navelem"><a class="el" href="dir_e8cded2b3f09657169024877e246b3be.html">device</a></li><li class="navelem"><a class="el" href="dir_a5828826e2414dc98d48f4718a622200.html">actuator</a></li><li class="navelem"><a class="el" href="unitree__motor_8h.html">unitree_motor.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_88bd29c3a8086e73f60b54e5300eb9e2.html">librm</a></li><li class="navelem"><a class="el" href="dir_9bd6aa59caad6cbef13c0eefdd946af0.html">modules</a></li><li class="navelem"><a class="el" href="dir_eabaf14e3296d098547794244d58ab73.html">algorithm</a></li><li class="navelem"><a class="el" href="dir_fe5e5c54235b65110e7fc9f948f4aea1.html">ahrs</a></li><li class="navelem"><a class="el" href="ekf_8cc.html">ekf.cc</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

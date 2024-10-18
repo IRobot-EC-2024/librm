@@ -44,6 +44,7 @@ var NAVTREE =
         [ "全部", "functions.html", "functions_dup" ],
         [ "函数", "functions_func.html", "functions_func" ],
         [ "变量", "functions_vars.html", null ],
+        [ "类型定义", "functions_type.html", null ],
         [ "相关函数", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -63,9 +64,9 @@ var NAVTREEINDEX =
 [
 "ahrs__interface_8h.html",
 "classrm_1_1device_1_1DR16.html#a1949a050a674fb187cf80109a21c50cd",
-"classrm_1_1modules_1_1algorithm_1_1RingPID.html#aa1fe7419429a54f6e16edda4e09e6a34",
-"namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7054d7e4b2dd68f34d7c57d8b8338809",
-"typedefs_8h.html#ad309dbcaeea13aa602d686964156ea0b"
+"classrm_1_1modules_1_1algorithm_1_1RingPID.html#ab1cdc9bc523ec3a61ae627111aa41c0f",
+"ist8310__const_8hpp.html#a9c12a82d393665eb2927e3674e442da4",
+"structrm_1_1modules_1_1algorithm_1_1Quaternion.html#aed57680c63e1bf81722d1a76bce9644f"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['operator_3d_784',['operator=',['../classrm_1_1device_1_1DjiMotor.html#abf3c716e90299bf156026dbf4eccfbc2',1,'rm::device::DjiMotor::operator=()'],['../classrm_1_1device_1_1DmMotor.html#a62df6cbd347853244ea0973b230456df',1,'rm::device::DmMotor::operator=()'],['../classrm_1_1device_1_1CanDevice.html#a4eb11819ce205260ff5c54ab7859f6b5',1,'rm::device::CanDevice::operator=()'],['../classrm_1_1device_1_1BMI088.html#a935f605f41bb01741233f0abedc815cf',1,'rm::device::BMI088::operator=()'],['../classrm_1_1hal_1_1linux___1_1SocketCan.html#aff7c8fea663f5d17953ab970f62e2e37',1,'rm::hal::linux_::SocketCan::operator=()'],['../classrm_1_1hal_1_1stm32_1_1BxCan.html#a95151f6165e074123d106ea907179fe0',1,'rm::hal::stm32::BxCan::operator=()']]]
+  ['mag_5fx_803',['mag_x',['../classrm_1_1device_1_1IST8310.html#af92bab1ccfebd2f13e2085dd82c762f6',1,'rm::device::IST8310']]],
+  ['mag_5fy_804',['mag_y',['../classrm_1_1device_1_1IST8310.html#a0709a04bb93a3cbeb3c9bf92774de9f2',1,'rm::device::IST8310']]],
+  ['mag_5fz_805',['mag_z',['../classrm_1_1device_1_1IST8310.html#ae2d520eaf423ed4fd956d6c91f2b02c4',1,'rm::device::IST8310']]],
+  ['mahonyahrs_806',['MahonyAhrs',['../classrm_1_1modules_1_1algorithm_1_1MahonyAhrs.html#a968b68b5ec7bdd9819ce5c58f84cb58a',1,'rm::modules::algorithm::MahonyAhrs']]],
+  ['map_807',['Map',['../namespacerm_1_1modules_1_1algorithm_1_1utils.html#a62a7733db36efdb48c9b6bbdfc956c47',1,'rm::modules::algorithm::utils']]],
+  ['mecanumchassis_808',['MecanumChassis',['../classrm_1_1modules_1_1algorithm_1_1MecanumChassis.html#ad305919564bf72ef891e66d4b8429492',1,'rm::modules::algorithm::MecanumChassis::MecanumChassis()=delete'],['../classrm_1_1modules_1_1algorithm_1_1MecanumChassis.html#a2a2c7369995199a43bbe709c59d82455',1,'rm::modules::algorithm::MecanumChassis::MecanumChassis(f32 wheel_base, f32 wheel_track)']]],
+  ['mos_5ftemperature_809',['mos_temperature',['../classrm_1_1device_1_1DmMotor.html#a0749dcfef7ef261879221af2cc74e039',1,'rm::device::DmMotor']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gm6020_1124',['GM6020',['../namespacerm_1_1device.html#a7596f33b44756a54da20dd7205da8832',1,'rm::device']]]
+  ['f32_1159',['f32',['../typedefs_8h.html#a5f6906312a689f27d70e9d086649d3fd',1,'typedefs.h']]],
+  ['f64_1160',['f64',['../typedefs_8h.html#a94dab5770726ccbef8c7d026cfbdf8e5',1,'typedefs.h']]]
 ];

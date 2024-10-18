@@ -119,8 +119,6 @@ $(document).ready(function(){initNavTree('namespacerm_1_1device.html',''); initR
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrm_1_1device_1_1DmMotor.html">DmMotor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">达妙电机类库  <a href="classrm_1_1device_1_1DmMotor.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrm_1_1device_1_1UnitreeMotorBase.html">UnitreeMotorBase</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrm_1_1device_1_1CanDevice.html">CanDevice</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN设备的基类  <a href="classrm_1_1device_1_1CanDevice.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,19 +187,6 @@ $(document).ready(function(){initNavTree('namespacerm_1_1device.html',''); initR
  }</td></tr>
 <tr class="memdesc:ac288c43db8b896c0643f9a4d299d0d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">达妙电机的功能指令和其对应的最后一个字节的值  <a href="namespacerm_1_1device.html#ac288c43db8b896c0643f9a4d299d0d65">更多...</a><br /></td></tr>
 <tr class="separator:ac288c43db8b896c0643f9a4d299d0d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39f62c38b1a52e3786e92f7d1dbee7b0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0">UnitreeMotorMode</a> { <br />
-&#160;&#160;<a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a9c253536865dcc46ddfd45e0e5198b34">kLock</a> = 0x00
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7ba01a0350112e55c8b49fa969c1522c">kFOC</a> = 0x01
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a356b1c6cfbb35fd447187343d626c2b8">kCalibration</a> = 0x02
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7df7b177c448e0198264dc64974bea94">kReserved1</a> = 0x03
-, <br />
-&#160;&#160;<a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ae63c0c4600bc07f48d795951385bb785">kReserved2</a> = 0x04
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ad01df7ee71fb30753be759dbfb8786fc">kReserved3</a> = 0x05
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7054d7e4b2dd68f34d7c57d8b8338809">kReserved4</a> = 0x06
-, <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ad40ba9d6b49481a011bd099baf4a4ac0">kReserved5</a> = 0x07
-<br />
- }</td></tr>
-<tr class="separator:a39f62c38b1a52e3786e92f7d1dbee7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabf51ce4f3e3ad477db1e7f4af4ff9d7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerm_1_1device.html#aabf51ce4f3e3ad477db1e7f4af4ff9d7">DeviceStatus</a> { <a class="el" href="namespacerm_1_1device.html#aabf51ce4f3e3ad477db1e7f4af4ff9d7a7073176c153e8e9ade4393e6083758f1">kOnline</a>
 , <a class="el" href="namespacerm_1_1device.html#aabf51ce4f3e3ad477db1e7f4af4ff9d7a9cc9bee8afaf8fdeab8b11fc94b78e38">kOffline</a>
 , <a class="el" href="namespacerm_1_1device.html#aabf51ce4f3e3ad477db1e7f4af4ff9d7a25c2dc47991b3df171ed5192bcf70390">kUnknown</a>
@@ -730,38 +715,6 @@ $(document).ready(function(){initNavTree('namespacerm_1_1device.html',''); initR
 <tr><td class="fieldname"><a id="a520cae32c0d3c11485bf66d736ae2b23a56696b8f72116b20b66cb8f3e312b139"></a>kUnderVoltage&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a520cae32c0d3c11485bf66d736ae2b23a943a6e7d0cf0f3d16469604e31da61a7"></a>kInputUnderVoltage&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a520cae32c0d3c11485bf66d736ae2b23a50ec98d6918446dccb689557dd045b51"></a>kNoData&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="a39f62c38b1a52e3786e92f7d1dbee7b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39f62c38b1a52e3786e92f7d1dbee7b0">&#9670;&nbsp;</a></span>UnitreeMotorMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0">rm::device::UnitreeMotorMode</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0a9c253536865dcc46ddfd45e0e5198b34"></a>kLock&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0a7ba01a0350112e55c8b49fa969c1522c"></a>kFOC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0a356b1c6cfbb35fd447187343d626c2b8"></a>kCalibration&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0a7df7b177c448e0198264dc64974bea94"></a>kReserved1&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0ae63c0c4600bc07f48d795951385bb785"></a>kReserved2&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0ad01df7ee71fb30753be759dbfb8786fc"></a>kReserved3&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0a7054d7e4b2dd68f34d7c57d8b8338809"></a>kReserved4&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a39f62c38b1a52e3786e92f7d1dbee7b0ad40ba9d6b49481a011bd099baf4a4ac0"></a>kReserved5&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>

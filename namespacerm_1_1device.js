@@ -10,7 +10,6 @@ var namespacerm_1_1device =
     [ "DmMotorSettings< DmMotorControlMode::kSpeedPosition >", "structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4.html", "structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kSpeedPosition_01_4" ],
     [ "DmMotorSettings< DmMotorControlMode::kMit >", "structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4.html", "structrm_1_1device_1_1DmMotorSettings_3_01DmMotorControlMode_1_1kMit_01_4" ],
     [ "DmMotor", "classrm_1_1device_1_1DmMotor.html", "classrm_1_1device_1_1DmMotor" ],
-    [ "UnitreeMotorBase", "classrm_1_1device_1_1UnitreeMotorBase.html", "classrm_1_1device_1_1UnitreeMotorBase" ],
     [ "CanDevice", "classrm_1_1device_1_1CanDevice.html", "classrm_1_1device_1_1CanDevice" ],
     [ "Device", "classrm_1_1device_1_1Device.html", "classrm_1_1device_1_1Device" ],
     [ "DeviceManager", "classrm_1_1device_1_1DeviceManager.html", "classrm_1_1device_1_1DeviceManager" ],
@@ -121,16 +120,6 @@ var namespacerm_1_1device =
       [ "kUnderVoltage", "namespacerm_1_1device.html#a520cae32c0d3c11485bf66d736ae2b23a56696b8f72116b20b66cb8f3e312b139", null ],
       [ "kInputUnderVoltage", "namespacerm_1_1device.html#a520cae32c0d3c11485bf66d736ae2b23a943a6e7d0cf0f3d16469604e31da61a7", null ],
       [ "kNoData", "namespacerm_1_1device.html#a520cae32c0d3c11485bf66d736ae2b23a50ec98d6918446dccb689557dd045b51", null ]
-    ] ],
-    [ "UnitreeMotorMode", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0", [
-      [ "kLock", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a9c253536865dcc46ddfd45e0e5198b34", null ],
-      [ "kFOC", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7ba01a0350112e55c8b49fa969c1522c", null ],
-      [ "kCalibration", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a356b1c6cfbb35fd447187343d626c2b8", null ],
-      [ "kReserved1", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7df7b177c448e0198264dc64974bea94", null ],
-      [ "kReserved2", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ae63c0c4600bc07f48d795951385bb785", null ],
-      [ "kReserved3", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ad01df7ee71fb30753be759dbfb8786fc", null ],
-      [ "kReserved4", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0a7054d7e4b2dd68f34d7c57d8b8338809", null ],
-      [ "kReserved5", "namespacerm_1_1device.html#a39f62c38b1a52e3786e92f7d1dbee7b0ad40ba9d6b49481a011bd099baf4a4ac0", null ]
     ] ],
     [ "kDjiMotorMaxEncoder", "namespacerm_1_1device.html#afbf7966ba623ba1c9e33e0cbb96c63e8", null ]
 ];

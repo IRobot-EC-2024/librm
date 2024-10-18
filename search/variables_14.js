@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['y_1119',['y',['../structrm_1_1modules_1_1algorithm_1_1Quaternion.html#af1224eb7e30d111ccd94c653e383292e',1,'rm::modules::algorithm::Quaternion']]],
-  ['yaw_1120',['yaw',['../structrm_1_1modules_1_1algorithm_1_1EulerAngle.html#a060c1af640f70516d94c510df72fa441',1,'rm::modules::algorithm::EulerAngle']]]
+  ['x_1154',['x',['../structrm_1_1modules_1_1algorithm_1_1Quaternion.html#a285072a9c572ccf82d231dbc197ed2f2',1,'rm::modules::algorithm::Quaternion']]]
 ];

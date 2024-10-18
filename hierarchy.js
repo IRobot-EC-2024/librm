@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "rm::modules::algorithm::AhrsInterface", "classrm_1_1modules_1_1algorithm_1_1AhrsInterface.html", [
+      [ "rm::modules::algorithm::EkfAhrs", "classrm_1_1modules_1_1algorithm_1_1EkfAhrs.html", null ],
       [ "rm::modules::algorithm::MahonyAhrs", "classrm_1_1modules_1_1algorithm_1_1MahonyAhrs.html", null ]
     ] ],
     [ "rm::hal::linux_::AsyncCanDevice", "structrm_1_1hal_1_1linux___1_1AsyncCanDevice.html", null ],
@@ -37,6 +38,12 @@ var hierarchy =
     ] ],
     [ "rm::modules::algorithm::ImuData6Dof", "structrm_1_1modules_1_1algorithm_1_1ImuData6Dof.html", null ],
     [ "rm::modules::algorithm::ImuData9Dof", "structrm_1_1modules_1_1algorithm_1_1ImuData9Dof.html", null ],
+    [ "Kalman::LinearizedMeasurementModel", null, [
+      [ "rm::modules::algorithm::accelMeasurementModel< CovarianceBase >", "classrm_1_1modules_1_1algorithm_1_1accelMeasurementModel.html", null ]
+    ] ],
+    [ "Kalman::LinearizedSystemModel", null, [
+      [ "rm::modules::algorithm::SystemModel< CovarianceBase >", "classrm_1_1modules_1_1algorithm_1_1SystemModel.html", null ]
+    ] ],
     [ "rm::modules::algorithm::PID", "classrm_1_1modules_1_1algorithm_1_1PID.html", [
       [ "rm::modules::algorithm::RingPID", "classrm_1_1modules_1_1algorithm_1_1RingPID.html", null ]
     ] ],
@@ -53,6 +60,10 @@ var hierarchy =
       [ "rm::hal::stm32::Spi", "classrm_1_1hal_1_1stm32_1_1Spi.html", null ]
     ] ],
     [ "rm::core::ThreadPool", "classrm_1_1core_1_1ThreadPool.html", null ],
-    [ "rm::device::UnitreeMotorBase", "classrm_1_1device_1_1UnitreeMotorBase.html", null ],
+    [ "Kalman::Vector", null, [
+      [ "rm::modules::algorithm::Control", "classrm_1_1modules_1_1algorithm_1_1Control.html", null ],
+      [ "rm::modules::algorithm::State", "classrm_1_1modules_1_1algorithm_1_1State.html", null ],
+      [ "rm::modules::algorithm::accelMeasurement", "classrm_1_1modules_1_1algorithm_1_1accelMeasurement.html", null ]
+    ] ],
     [ "rm::modules::VofaPlotter", "classrm_1_1modules_1_1VofaPlotter.html", null ]
 ];
