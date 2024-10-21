@@ -36,6 +36,16 @@
 namespace rm::hal {
 
 /**
+ * @brief 串口配置结构体
+ */
+struct SerialConfig {
+  usize baud_rate;
+  enum class Parity { None, Odd, Even } parity{Parity::None};
+  enum class DataBits { Five = 5, Six, Seven, Eight } data_bits{DataBits::Eight};
+  enum class StopBits { One = 1, Two } stop_bits{StopBits::One};
+};
+
+/**
  * @brief 串口接收完成回调函数类型，传入的参数分别为接收到的数据和数据长度
  */
 using SerialRxCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
