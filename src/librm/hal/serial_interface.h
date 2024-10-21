@@ -28,8 +28,10 @@
 #ifndef LIBRM_HAL_UART_INTERFACE_H
 #define LIBRM_HAL_UART_INTERFACE_H
 
+#include <chrono>
 #include <functional>
 #include <vector>
+#include <string>
 
 #include "librm/core/typedefs.h"
 
@@ -37,18 +39,20 @@ namespace rm::hal {
 
 /**
  * @brief 串口配置结构体
+ * @note  默认配置：波特率 115200，无校验位，数据位 8 位，停止位 1 位，超时时间无限
  */
 struct SerialConfig {
-  usize baud_rate;
+  usize baud_rate{115200};
   enum class Parity { None, Odd, Even } parity{Parity::None};
   enum class DataBits { Five = 5, Six, Seven, Eight } data_bits{DataBits::Eight};
   enum class StopBits { One = 1, Two } stop_bits{StopBits::One};
+  std::chrono::milliseconds timeout{std::chrono::milliseconds::max()};
 };
 
 /**
- * @brief 串口接收完成回调函数类型，传入的参数分别为接收到的数据和数据长度
+ * @brief 串口接收完成回调函数
  */
-using SerialRxCallbackFunction = std::function<void(const std::vector<u8> &, u16)>;
+using SerialRxCallbackFunction = std::function<void(const std::vector<u8> &)>;
 
 /**
  * @brief 串口接口类
@@ -58,7 +62,7 @@ class SerialInterface {
   virtual ~SerialInterface() = default;
 
   /**
-   * @brief 初始化串口
+   * @brief 初始化串口，开始接收
    */
   virtual void Begin() = 0;
 
@@ -70,16 +74,24 @@ class SerialInterface {
   virtual void Write(const u8 *data, usize size) = 0;
 
   /**
+   * @brief 发送数据
+   * @note  这个方法可以不用实现，因为默认实现会调用Write(const u8 *, usize)
+   * @param data 数据
+   */
+  virtual void Write(std::string_view data) { Write(reinterpret_cast<const u8 *>(data.data()), data.size()); }
+
+  /**
+   * @brief 发送数据
+   * @note  这个方法可以不用实现，因为默认实现会调用Write(const u8 *, usize)
+   * @param data 数据
+   */
+  virtual void Write(const std::vector<u8> &data) { Write(data.data(), data.size()); }
+
+  /**
    * @brief 绑定接收完成回调函数
    * @param callback 回调函数
    */
   virtual void AttachRxCallback(SerialRxCallbackFunction &callback) = 0;
-
-  /**
-   * @brief 获取接收缓冲区
-   * @return 接收缓冲区
-   */
-  [[nodiscard]] virtual const std::vector<u8> &rx_buffer() const = 0;
 };
 
 }  // namespace rm::hal
