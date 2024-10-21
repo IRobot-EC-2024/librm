@@ -40,7 +40,7 @@ All-in-one、跨平台Robomaster嵌入式软件开发框架，为多种硬件平
 - librm的STM32部分基于HAL库开发，且依赖STM32CubeMX生成的CMake工程。请确保工程中存在CubeMX自动生成的`stm32cubemx` CMake
 target。
 
-- librm的STM32外设封装依赖HAL库提供的Register Callback功能，请自己手动修改HAL库配置，或者在CubeMX里设置，启用`I2C`、`SPI`、`UART`、`USART`、`CAN`几个外设的Register Callback：
+- librm的STM32外设封装依赖HAL库提供的Register Callback功能，请自己手动修改HAL库配置，或者在CubeMX里设置，启用要使用的外设的Register Callback：
 
     ![](https://github.com/user-attachments/assets/9f8c54ea-b56e-4ca6-bb5e-35744b5b5f54)
 
