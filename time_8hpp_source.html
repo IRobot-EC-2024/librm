@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('time_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#if defined(LIBRM_PLATFORM_STM32)</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="freertos_8h.html">librm/core/freertos.h</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cmsis__rtos_8h.html">librm/core/cmsis_rtos.h</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hal_8h.html">librm/hal/stm32/hal.h</a>&quot;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">librm/core/typedefs.h</a>&quot;</span></div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('time_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// STM32平台的延时比较复杂，所以专门实现两个函数</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#if defined(LIBRM_PLATFORM_STM32)</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> SleepMs(<a class="code" href="typedefs_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> ms) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef LIBRM_USE_FREERTOS</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef LIBRM_USE_CMSIS_RTOS</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">if</span> (__get_IPSR()) {  <span class="comment">// 检测当前是否在中断里，如果在中断里则调用HAL_Delay，否则调用osDelay</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    HAL_Delay(ms);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  } <span class="keywordflow">else</span> {</div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('time_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}  <span class="comment">// namespace rm::core::time</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// LIBRM_CORE_TIME_HPP</span></div>
-<div class="ttc" id="afreertos_8h_html"><div class="ttname"><a href="freertos_8h.html">freertos.h</a></div><div class="ttdoc">检测FreeRTOS是否可用</div></div>
+<div class="ttc" id="acmsis__rtos_8h_html"><div class="ttname"><a href="cmsis__rtos_8h.html">cmsis_rtos.h</a></div><div class="ttdoc">检测环境里有没有 CMSIS-RTOS</div></div>
 <div class="ttc" id="ahal_8h_html"><div class="ttname"><a href="hal_8h.html">hal.h</a></div><div class="ttdoc">根据不同STM32型号选择不同的HAL库</div></div>
 <div class="ttc" id="anamespacerm_1_1core_1_1time_html"><div class="ttname"><a href="namespacerm_1_1core_1_1time.html">rm::core::time</a></div><div class="ttdef"><b>Definition:</b> time.hpp:40</div></div>
 <div class="ttc" id="anamespacerm_1_1core_1_1time_html_a8a1075a598c146c485b38d2739025d7e"><div class="ttname"><a href="namespacerm_1_1core_1_1time.html#a8a1075a598c146c485b38d2739025d7e">rm::core::time::Sleep</a></div><div class="ttdeci">void Sleep(const std::chrono::duration&lt; Rep, Period &gt; &amp;duration)</div><div class="ttdef"><b>Definition:</b> time.hpp:94</div></div>
