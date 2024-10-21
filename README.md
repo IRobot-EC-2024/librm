@@ -15,7 +15,7 @@
 
 ## 使用方法
 
-编译所需最低C++标准为C++17。
+编译所需最低C++标准为C++17。（GCC7、clang16）
 
 ### Linux
 
@@ -40,11 +40,13 @@
 - librm的STM32部分基于HAL库开发，且依赖STM32CubeMX生成的CMake工程。请确保工程中存在CubeMX自动生成的`stm32cubemx` CMake
 target。
 
-- librm的STM32外设封装依赖HAL库提供的Register Callback功能，请在CubeMX里启用它，或自己手动修改HAL库配置里的宏定义。
+- librm的STM32外设封装依赖HAL库提供的Register Callback功能，请自己手动修改HAL库配置，或者在CubeMX里设置，启用`I2C`、`SPI`、`UART`、`USART`、`CAN`几个外设的Register Callback：
+
+    ![](https://github.com/user-attachments/assets/9f8c54ea-b56e-4ca6-bb5e-35744b5b5f54)
 
 ## API文档
 
-API文档可以使用Doxygen构建，也可以在[这里](https://irobot-ec-2024.github.io/irobotEC/)查阅。
+API文档可以使用Doxygen构建，也可以在[这里](https://librm.xduirobot.cc/)查阅。
 
 ```shell
 doxygen ./Doxyfile
