@@ -78,7 +78,7 @@ class SerialInterface {
    * @note  这个方法可以不用实现，因为默认实现会调用Write(const u8 *, usize)
    * @param data 数据
    */
-  virtual void Write(std::string_view data) { Write(reinterpret_cast<const u8 *>(data.data()), data.size()); }
+  virtual void Write(const std::string_view data) { Write(reinterpret_cast<const u8 *>(data.data()), data.size()); }
 
   /**
    * @brief 发送数据
