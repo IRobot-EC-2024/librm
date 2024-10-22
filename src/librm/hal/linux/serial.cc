@@ -27,49 +27,126 @@
 
 #include "serial.h"
 
-#include <functional>
+#include <fcntl.h>
+#include <unistd.h>
+#include <mutex>
+
+#define termios asmtermios
+#include <asm/termios.h>
+#undef termios
+
+#include <termios.h>
+
+#include "librm/hal/serial_interface.h"
+#include "librm/core/exception.h"
+
+extern "C" {
+extern int ioctl(int __fd, unsigned long int __request, ...) throw();
+}
 
 namespace rm::hal::linux_ {
 
-Serial::Serial(const char *dev, usize baud, usize rx_buffer_size, std::chrono::milliseconds timeout)
-    : dev_(dev),
-      serial_(dev, baud, serial::Timeout::simpleTimeout(timeout.count())),
-      rx_buf_{std::vector<u8>(rx_buffer_size), std::vector<u8>(rx_buffer_size)},
-      thread_pool_(std::make_unique<core::ThreadPool>(Serial::kMaxThreads)) {
-  if (!this->serial_.isOpen()) {
-    throw std::runtime_error("Failed to open serial port");
+Serial::~Serial() { ::close(serial_fd_); }
+
+Serial::Serial(std::string_view dev, SerialConfig config) {
+  this->serial_fd_ = ::open(dev.data(), O_RDWR | O_NOCTTY);
+  if (this->serial_fd_ == -1) {
+    core::exception::ThrowException(core::exception::Exception::kException);
   }
+
+  struct termios2 options {};
+
+  if (::ioctl(this->serial_fd_, TCGETS2, &options) == -1) {
+    core::exception::ThrowException(core::exception::Exception::kException);
+  }
+
+  options.c_cflag &= ~CBAUD;
+  options.c_cflag |= BOTHER;
+  options.c_ispeed = config.baud_rate;
+  options.c_ospeed = config.baud_rate;
+
+  options.c_cflag &= ~CSIZE;
+  switch (config.data_bits) {
+    case SerialConfig::DataBits::Five:
+      options.c_cflag |= CS5;
+      break;
+    case SerialConfig::DataBits::Six:
+      options.c_cflag |= CS6;
+      break;
+    case SerialConfig::DataBits::Seven:
+      options.c_cflag |= CS7;
+      break;
+    case SerialConfig::DataBits::Eight:
+      options.c_cflag |= CS8;
+      break;
+  }
+
+  switch (config.parity) {
+    case SerialConfig::Parity::None:
+      options.c_cflag &= ~PARENB;
+      break;
+    case SerialConfig::Parity::Odd:
+      options.c_cflag |= PARENB;
+      options.c_cflag |= PARODD;
+      break;
+    case SerialConfig::Parity::Even:
+      options.c_cflag |= PARENB;
+      options.c_cflag &= ~PARODD;
+      break;
+  }
+
+  switch (config.stop_bits) {
+    case SerialConfig::StopBits::One:
+      options.c_cflag &= ~CSTOPB;
+      break;
+    case SerialConfig::StopBits::Two:
+      options.c_cflag |= CSTOPB;
+      break;
+  }
+
+  if (config.flow_control == SerialConfig::FlowControl::Software) {
+    options.c_iflag |= IXON | IXOFF | IXANY;
+  } else if (config.flow_control == SerialConfig::FlowControl::Hardware) {
+    options.c_cflag |= CRTSCTS;
+  }
+
+  options.c_cc[VMIN] = 0;
+  options.c_cc[VTIME] = 0;
+
+  if (::ioctl(this->serial_fd_, TCSETS2, &options) == -1) {
+    core::exception::ThrowException(core::exception::Exception::kException);
+  }
+
+  ::ioctl(this->serial_fd_, TCSETS2, &options);
+
+  ::tcflush(this->serial_fd_, TCIOFLUSH);  // flush the buffer
 }
 
-Serial::~Serial() { this->serial_.close(); }
-
-void Serial::Begin() { this->thread_pool_->enqueue(std::bind(&Serial::RecvThread, this)); }
+void Serial::Begin() { recv_thread_ = std::thread(&Serial::RecvThread, this); }
 
 void Serial::Write(const u8 *data, usize size) {
-  this->serial_.write(data, size);
-  this->serial_.flush();
+  std::lock_guard<std::mutex> lock(write_mutex_);
+  ::write(serial_fd_, data, size);
 }
 
 void Serial::AttachRxCallback(SerialRxCallbackFunction &callback) { this->rx_callback_ = &callback; }
 
-[[nodiscard]] const std::vector<u8> &Serial::rx_buffer() const { return this->rx_buf_[this->buffer_selector_]; }
-
 void Serial::RecvThread() {
   for (;;) {
-    auto bytes_read =
-        this->serial_.read(this->rx_buf_[this->buffer_selector_], this->rx_buf_[this->buffer_selector_].size());
-    if (bytes_read == 0) {
+    // 如果没有绑定回调函数，就什么也不做
+    if (this->rx_callback_ == nullptr) {
       continue;
     }
+
+    rx_buf_[buffer_selector_].clear();
+    ::read(serial_fd_, rx_buf_[buffer_selector_].data(), rx_buf_[buffer_selector_].size());
     this->buffer_selector_ = !this->buffer_selector_;  // 切换缓冲区
 
-    // 异步调用接收完成回调函数
-    if (this->rx_callback_ != nullptr) {
-      this->thread_pool_->enqueue([this, bytes_read]() {
-        std::lock_guard<std::mutex> lock(this->callback_mutex_);
-        (*this->rx_callback_)(this->rx_buf_[this->buffer_selector_], bytes_read);
-      });
-    }
+    // 异步调用回调函数，通知数据接收完成
+    this->thread_pool_.enqueue([this]() {
+      std::lock_guard<std::mutex> lock(this->callback_mutex_);
+      (*this->rx_callback_)(this->rx_buf_[this->buffer_selector_]);
+    });
   }
 }
 

@@ -28,11 +28,7 @@
 #ifndef LIBRM_HAL_LINUX_SERIAL_H
 #define LIBRM_HAL_LINUX_SERIAL_H
 
-#include <string>
-#include <chrono>
 #include <mutex>
-
-#include "serial/serial.h"
 
 #include "librm/hal/serial_interface.h"
 #include "librm/core/thread_pool.hpp"
@@ -42,23 +38,24 @@ namespace rm::hal::linux_ {
 class Serial : public hal::SerialInterface {
  public:
   Serial() = delete;
-  Serial(const char *dev, usize baud, usize rx_buffer_size, std::chrono::milliseconds timeout);
   ~Serial() override;
+  Serial(const std::string_view dev, SerialConfig config = SerialConfig{});
 
   void Begin() override;
   void Write(const u8 *data, usize size) override;
   void AttachRxCallback(SerialRxCallbackFunction &callback) override;
-  [[nodiscard]] const std::vector<u8> &rx_buffer() const override;
 
  private:
   void RecvThread();
 
+  int serial_fd_{};
   SerialRxCallbackFunction *rx_callback_{nullptr};
-  serial::Serial serial_{};
+  SerialConfig config_{};
   std::string dev_{};
-
-  std::unique_ptr<core::ThreadPool> thread_pool_{};  // 线程池，用于异步调用回调函数和创建轮询线程
+  std::thread recv_thread_{};
+  core::ThreadPool thread_pool_{kMaxThreads};  // 线程池，用于异步调用回调函数和创建轮询线程
   std::mutex callback_mutex_{};  // 回调函数由用户编写，并不能保证线程安全，因此调用时需要加锁
+  std::mutex write_mutex_{};     // 写入数据时需要加锁
 
   // 双缓冲，防止在回调函数中读取数据时被覆盖
   std::vector<u8> rx_buf_[2];
