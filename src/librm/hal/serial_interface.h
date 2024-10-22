@@ -46,6 +46,7 @@ struct SerialConfig {
   enum class Parity { None, Odd, Even } parity{Parity::None};
   enum class DataBits { Five = 5, Six, Seven, Eight } data_bits{DataBits::Eight};
   enum class StopBits { One = 1, Two } stop_bits{StopBits::One};
+  enum class FlowControl { None, Software, Hardware } flow_control{FlowControl::None};
   std::chrono::milliseconds timeout{std::chrono::milliseconds::max()};
 };
 
@@ -78,14 +79,14 @@ class SerialInterface {
    * @note  这个方法可以不用实现，因为默认实现会调用Write(const u8 *, usize)
    * @param data 数据
    */
-  virtual void Write(const std::string_view data) { Write(reinterpret_cast<const u8 *>(data.data()), data.size()); }
+  inline void Write(const std::string_view data) { Write(reinterpret_cast<const u8 *>(data.data()), data.size()); }
 
   /**
    * @brief 发送数据
    * @note  这个方法可以不用实现，因为默认实现会调用Write(const u8 *, usize)
    * @param data 数据
    */
-  virtual void Write(const std::vector<u8> &data) { Write(data.data(), data.size()); }
+  inline void Write(const std::vector<u8> &data) { Write(data.data(), data.size()); }
 
   /**
    * @brief 绑定接收完成回调函数
